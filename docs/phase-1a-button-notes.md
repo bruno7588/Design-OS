@@ -21,10 +21,11 @@ Rule: the prototype is the reference; where it disagrees with Figma, Figma wins 
 | Primary Text colours | Filled ladder, same as Link | `Text-button-outlined` / `Text-button-hover` | Figma (light hover is now Primary-800, was 700) |
 | Danger / Warning / Success text hover | `Text-error` / `Text-warning` / `Text-success` | No hover rule | Figma |
 
-## Open: needs a decision
-- **Loading.** Figma keeps the label and puts the spinner in the icon slot when the button has an icon, and shrinks to the spinner when it has none (for example Warning Large goes from 104px to 72px wide). The prototype and this reference always hide the label and keep the width. Which is right?
+## Decided
+- **Loading** (Bruno, 2026-09-28): always hide the label and keep the width, as the prototype and this reference do. Figma's Loading frames differ: with an icon they keep the label and put the spinner in the icon slot, and without one they shrink to the spinner (Warning Large goes from 104px to 72px wide). Figma to update.
 
 ## Out of date, to update
+- Figma Loading frames on both boards (see Decided).
 - Figma light board `12141:7567` still has the old Link (Bold, `skip-ink: none`). It looks like a separate copy of the set rather than the dark board in light mode.
 - `playground/docs/design-system/buttons.md` and `tokens.css`: dark pressed, Link, Text ladders (table above).
 - `playground/docs/design-system/design-system-guidelines.md` quick reference says buttons use `--radius-s` (8px). Figma and `buttons.md` say 12px.
