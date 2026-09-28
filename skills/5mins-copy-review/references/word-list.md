@@ -51,7 +51,7 @@ Note "enrolment" takes a single L in British English. Keep this consistent with 
 
 **Sentence case everywhere in-product.** Headings, subheadings, body text, form labels, helper text, button labels, menu and tab names, table column headers, empty states, toasts, tooltips, and error messages. Capitalise the first word and genuine proper nouns only.
 
-- Buttons: "Add learner", "Save changes", "Create automation", "Mark as complete". Not "Add Learner" or "Save Changes". (Note: the existing `buttons` skill shows Title Case examples; those should be aligned to sentence case - flag this if it comes up.)
+- Buttons: "Add learner", "Save changes", "Create automation", "Mark as complete". Not "Add Learner" or "Save Changes". (Note: the prototype's `docs/design-system/buttons.md` shows Title Case examples; those should be aligned to sentence case - flag this if it comes up.)
 - Tabs and nav: "Learning records", "My team", "Reports", "Automations".
 - Proper nouns keep their capitals mid-sentence: "Open AI Studio", "Ask Hugo", "the Roles & Mapping page".
 - Job-role names are lowercase unless part of a proper noun: "admin", "compliance lead", "learner".

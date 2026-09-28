@@ -9,15 +9,13 @@ This skill produces single-file interactive HTML prototypes that match the 5Mins
 
 ## Companion skills
 
-This skill is the structural layer. Pull visual tokens from the dedicated skills, do not duplicate their values here:
+This skill is the structural layer. Pull visual tokens and component specs from the prototype repo (`playground/` in Design OS), cross-checked with the Figma Library (file `EC26cSVe9KNTCWXvYovakw`). Do not duplicate their values here:
 
-- `5mins-brand-colors` for the raw palette
-- `5mins-surface-colors` for backgrounds, borders, button surfaces
-- `5mins-typography` for type scale, weights, line heights
-- `5mins-iconography` for icon sizing and variants
-- `buttons` for button variants, sizes, states
+- `playground/src/styles/tokens.css` for the palette, semantic surface and text colours (light and dark), spacing, radius and shadows
+- `playground/docs/design-system/design-system-guidelines.md` for foundations, then `colors.md`, `typography.md`, `iconography.md` and `layout.md`
+- `playground/docs/design-system/buttons.md` and the other component docs for component variants, sizes and states
 
-If those skills are not loaded, ask the user before falling back to ad hoc values.
+If those files are not available, ask the user before falling back to ad hoc values.
 
 ## Workflow
 

@@ -29,7 +29,7 @@ Rule: the prototype is the reference; where it disagrees with Figma, Figma wins 
 - Figma light board `12141:7567` still has the old Link (Bold, `skip-ink: none`). It looks like a separate copy of the set rather than the dark board in light mode.
 - `playground/docs/design-system/buttons.md` and `tokens.css`: dark pressed, Link, Text ladders (table above).
 - `playground/docs/design-system/design-system-guidelines.md` quick reference says buttons use `--radius-s` (8px). Figma and `buttons.md` say 12px.
-- `skills/buttons`, `skills/5mins-brand-colors`, `skills/5mins-typography`, `skills/5mins-surface-colors`, `skills/5mins-iconography` in Design OS are older copies. The prototype's `5mins-design-system` skill and `docs/design-system/` are current.
+- Done: the old `skills/buttons`, `skills/5mins-brand-colors`, `skills/5mins-typography`, `skills/5mins-surface-colors` and `skills/5mins-iconography` copies were removed from Design OS. `5mins-prototype-builder` now points to the prototype docs.
 - `buttons.md` shows Title Case labels. The copy-review skill says sentence case; the Guidelines tab uses sentence case.
 
 ## Shell notes
