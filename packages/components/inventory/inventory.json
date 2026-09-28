@@ -1,0 +1,2594 @@
+{
+  "fileKey": "EC26cSVe9KNTCWXvYovakw",
+  "figmaFetchedAt": "2026-09-28",
+  "summary": {
+    "inFigma": 77,
+    "inCode": 1,
+    "both": 1,
+    "figmaOnly": 76,
+    "codeOnly": 0
+  },
+  "rows": [
+    {
+      "name": "Alert",
+      "page": "Alert",
+      "pageId": "5453:37623",
+      "type": "set",
+      "nodes": [
+        "3658:32304",
+        "12060:2785"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Callout",
+          "Alert"
+        ],
+        "Illustration": [
+          "true",
+          "false"
+        ],
+        "Icon": [
+          "false",
+          "true"
+        ],
+        "Button": [
+          "false",
+          "true"
+        ],
+        "Supporting text": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Alert",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Avatar",
+      "page": "Avatar",
+      "pageId": "5453:37804",
+      "type": "set",
+      "nodes": [
+        "5097:5884",
+        "11914:2605"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Size": [
+          "24px",
+          "32px",
+          "40px",
+          "72px",
+          "64px",
+          "56px",
+          "48px"
+        ],
+        "Picture": [
+          "true",
+          "false"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Avatar group",
+      "page": "Avatar",
+      "pageId": "5453:37804",
+      "type": "set",
+      "nodes": [
+        "5097:5584",
+        "11915:3296"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Size": [
+          "24px",
+          "32px",
+          "40px"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Emojies",
+      "page": "Avatar",
+      "pageId": "5453:37804",
+      "type": "set",
+      "nodes": [
+        "10587:2256"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Angel",
+          "Gossip",
+          "Got_an_idea",
+          "Hand_waving",
+          "Laugh_with_tear",
+          "Love",
+          "Pleased",
+          "Sad_smile",
+          "Shy",
+          "Silly",
+          "Smile",
+          "Straving",
+          "Tenant"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Badge",
+      "page": "Badges / Tags",
+      "pageId": "5798:453",
+      "type": "set",
+      "nodes": [
+        "5799:479",
+        "12186:1609"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Success",
+          "Warning",
+          "Error",
+          "New",
+          "Informative",
+          "In progress"
+        ],
+        "Icon left": [
+          "true",
+          "false"
+        ],
+        "Icon right": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Badge",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Tags",
+      "page": "Badges / Tags",
+      "pageId": "5798:453",
+      "type": "set",
+      "nodes": [
+        "4603:27712",
+        "11337:14129"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Media Type": [
+          "Video",
+          "PDF",
+          "Link",
+          "SCORM",
+          "Flashcard",
+          "Audio"
+        ],
+        "Size": [
+          "L",
+          "M",
+          "S"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Buttons",
+      "page": "Buttons",
+      "pageId": "5453:37882",
+      "type": "set",
+      "nodes": [
+        "10825:3269",
+        "12141:7567"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Icon": [
+          "true",
+          "false"
+        ],
+        "Configuration": [
+          "Filled",
+          "Outlined",
+          "Text",
+          "Link",
+          "Outlined-2",
+          "Danger",
+          "Danger-outlined",
+          "Danger-text",
+          "Warning",
+          "Warning-outlined",
+          "Warning-text",
+          "Success",
+          "Success-outlined",
+          "Success-text",
+          "AI",
+          "AI-Outlined"
+        ],
+        "State": [
+          "Hover",
+          "Pressed",
+          "Enabled",
+          "Loading",
+          "n/a"
+        ],
+        "Size": [
+          "Large",
+          "Medium",
+          "Small"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": true,
+      "code": {
+        "component": "Button",
+        "mui": "Button",
+        "path": "packages/components/src/Button"
+      },
+      "prototype": "Button",
+      "missingInCode": {},
+      "missingInFigma": {}
+    },
+    {
+      "name": "Calendar",
+      "page": "Calendar",
+      "pageId": "7505:436",
+      "type": "set",
+      "nodes": [
+        "11529:406",
+        "12204:5743"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Calendar": [
+          "Active",
+          "Enabled",
+          "Hover",
+          "Error"
+        ],
+        "Label": [
+          "true",
+          "false"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Day item",
+      "page": "Calendar",
+      "pageId": "7505:436",
+      "type": "set",
+      "nodes": [
+        "5279:26511",
+        "11916:6094"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "n/a",
+          "Enabled",
+          "Hover",
+          "Focus",
+          "Illustration",
+          "Current day"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/Lessons",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "5144:14181",
+        "11916:9353"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "View": [
+          "grid",
+          "list"
+        ],
+        "Device": [
+          "Mobile",
+          "Web app",
+          "n/a",
+          "Admin"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Completed": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover"
+        ],
+        "Quiz": [
+          "Completed",
+          "Pending",
+          "n/a"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/Assessments",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "10242:2782",
+        "12104:3647"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Device": [
+          "Web App",
+          "Mobile app",
+          "Admin"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover"
+        ],
+        "Completed": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/Resources",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "12213:3040",
+        "12228:2749"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Device": [
+          "Mobile app",
+          "Web/Admin"
+        ],
+        "State": [
+          "Enabled",
+          "Hover"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Type thumbnail",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "12213:2984",
+        "12228:2778"
+      ],
+      "copiesDiffer": true,
+      "variants": {
+        "Type": [
+          "PDF",
+          "Excel",
+          "Word",
+          "PowerPoint",
+          "Image",
+          "External link",
+          "External Link"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/Courses",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "5132:5756",
+        "11916:10292"
+      ],
+      "copiesDiffer": true,
+      "variants": {
+        "Device": [
+          "Mobile",
+          "Desktop"
+        ],
+        "New": [
+          "false",
+          "true"
+        ],
+        "Due date": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Default"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/External training",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "5908:21523",
+        "9577:3582"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Device": [
+          "Mobile",
+          "Desktop"
+        ],
+        "State": [
+          "Default",
+          "Hover"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/Instructor",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "5149:27386",
+        "9926:2477"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Device": [
+          "Mobile",
+          "Desktop"
+        ],
+        "State": [
+          "Default",
+          "Hover"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/Marketplace",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "5213:4524",
+        "9577:3648"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Subscription",
+          "Coaching",
+          "Reward"
+        ],
+        "Device": [
+          "Mobile",
+          "Desktop"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/skill",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "11802:3704",
+        "11828:5184"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "n/a"
+        ],
+        "Remove": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/ Category",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "10176:1806",
+        "10574:3913"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Device": [
+          "Desktop",
+          "Mobile"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Default",
+          "Hover"
+        ],
+        "New": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Card/Folder",
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "type": "set",
+      "nodes": [
+        "10175:3106",
+        "10175:3183"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "New folder": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Default",
+          "Hover"
+        ],
+        "Number of courses": [
+          "0",
+          "3+",
+          "n/a",
+          "2",
+          "1"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "radio-button instances",
+      "page": "Checkbox / Radio / Toggle",
+      "pageId": "6322:1579",
+      "type": "set",
+      "nodes": [
+        "5001:18926",
+        "11917:3950"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Selected": [
+          "true",
+          "false"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "n/a"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Radio",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Checkbox instances",
+      "page": "Checkbox / Radio / Toggle",
+      "pageId": "6322:1579",
+      "type": "set",
+      "nodes": [
+        "6339:10484",
+        "11917:3924"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "n/a"
+        ],
+        "Checked": [
+          "Checked",
+          "Not checked",
+          "Indeterminate"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Checkbox",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Toggle",
+      "page": "Checkbox / Radio / Toggle",
+      "pageId": "6322:1579",
+      "type": "set",
+      "nodes": [
+        "8160:364",
+        "11917:3970"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Toggle": [
+          "true",
+          "false"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Toggle",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Chips",
+      "page": "Chips / Content Switcher / Tabs",
+      "pageId": "5455:39030",
+      "type": "set",
+      "nodes": [
+        "5162:28510",
+        "12160:12109"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Hover",
+          "Enabled",
+          "n/a"
+        ],
+        "Icon right": [
+          "True",
+          "False"
+        ],
+        "Icon left": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Chip",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Content switcher",
+      "page": "Chips / Content Switcher / Tabs",
+      "pageId": "5455:39030",
+      "type": "component",
+      "nodes": [
+        "7128:23859"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "ContentSwitcher",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Content switcher item",
+      "page": "Chips / Content Switcher / Tabs",
+      "pageId": "5455:39030",
+      "type": "set",
+      "nodes": [
+        "8497:24186",
+        "11908:5278"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Selected": [
+          "True",
+          "False"
+        ],
+        "State": [
+          "Enabled",
+          "Hover"
+        ],
+        "icon right": [
+          "false",
+          "true"
+        ],
+        "icon left": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Tabs",
+      "page": "Chips / Content Switcher / Tabs",
+      "pageId": "5455:39030",
+      "type": "component",
+      "nodes": [
+        "8497:24855"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Tab items",
+      "page": "Chips / Content Switcher / Tabs",
+      "pageId": "5455:39030",
+      "type": "set",
+      "nodes": [
+        "1939:18281",
+        "12134:6969"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Selected": [
+          "true",
+          "false"
+        ],
+        "State": [
+          "Enabled",
+          "Hover"
+        ],
+        "counter": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Dialog",
+      "page": "Dialog / Modal / Sheet",
+      "pageId": "5746:2312",
+      "type": "set",
+      "nodes": [
+        "7789:24651",
+        "12242:5728"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Error",
+          "Warning",
+          "Info",
+          "Success"
+        ],
+        "Icon": [
+          "True",
+          "False"
+        ],
+        "Secondary text": [
+          "True",
+          "False"
+        ]
+      },
+      "slots": [
+        "Info:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Modal",
+      "page": "Dialog / Modal / Sheet",
+      "pageId": "5746:2312",
+      "type": "component",
+      "nodes": [
+        "7479:4350"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [
+        "Placeholder:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Side Drawer",
+      "page": "Dialog / Modal / Sheet",
+      "pageId": "5746:2312",
+      "type": "component",
+      "nodes": [
+        "10871:12768"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [
+        "Form:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Modal/Full screen",
+      "page": "Dialog / Modal / Sheet",
+      "pageId": "5746:2312",
+      "type": "set",
+      "nodes": [
+        "3223:31934",
+        "11498:1694"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "State": [
+          "Default"
+        ],
+        "Device": [
+          "Desktop",
+          "Mobile"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Modal/Send",
+      "page": "Dialog / Modal / Sheet",
+      "pageId": "5746:2312",
+      "type": "set",
+      "nodes": [
+        "5399:12437"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Team",
+          "Company"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Bottom sheet",
+      "page": "Dialog / Modal / Sheet",
+      "pageId": "5746:2312",
+      "type": "component",
+      "nodes": [
+        "7479:106"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [
+        "Sheet content:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Dropdown",
+      "page": "Dropdown",
+      "pageId": "6076:2643",
+      "type": "set",
+      "nodes": [
+        "8925:1408",
+        "12113:14844"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Active",
+          "Read-only"
+        ],
+        "Icon left": [
+          "true",
+          "false"
+        ],
+        "Label top": [
+          "false",
+          "true"
+        ],
+        "Label start": [
+          "false",
+          "true"
+        ],
+        "Helper text": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Dropdown",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Empty state",
+      "page": "Empty state",
+      "pageId": "5450:27141",
+      "type": "set",
+      "nodes": [
+        "5452:37234",
+        "11921:5779"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Device": [
+          "Desktop",
+          "Mobile"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "EmptyState",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Illustrations Empty state",
+      "page": "Empty state",
+      "pageId": "5450:27141",
+      "type": "set",
+      "nodes": [
+        "9120:8372"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Illustration": [
+          "Calendar",
+          "Certificates",
+          "Computer screen",
+          "Connect brain",
+          "Empty box",
+          "Flashcards",
+          "Message",
+          "No internet",
+          "No likes",
+          "No bookmarks",
+          "Not following",
+          "Party",
+          "Pie chart",
+          "Rocket",
+          "Search",
+          "Share",
+          "UFO",
+          "null",
+          "No results",
+          "Buble",
+          "Cloud",
+          "Skill level",
+          "Add users",
+          "No playlists",
+          "Add",
+          "Category",
+          "Quiz",
+          "Resources",
+          "Deactivated",
+          "Custom Fields",
+          "No automations",
+          "No activity",
+          "HRIS mapping",
+          "Programs"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "File uploader",
+      "page": "File uploader",
+      "pageId": "8964:20454",
+      "type": "set",
+      "nodes": [
+        "11546:1560",
+        "12113:20254"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "State": [
+          "Enabled",
+          "Hover",
+          "Error",
+          "Uploading",
+          "Filled"
+        ],
+        "Size": [
+          "L",
+          "S"
+        ]
+      },
+      "slots": [
+        "Info:SLOT",
+        "Info2:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "FileUploader",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Learning path",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "5514:8463",
+        "11984:7015"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "State": [
+          "In progress",
+          "Completed",
+          "Disabled",
+          "Pending"
+        ],
+        "Expanded": [
+          "false",
+          "true"
+        ],
+        "Size": [
+          "s",
+          "l",
+          "md"
+        ],
+        "Type": [
+          "Level",
+          "Certificate"
+        ],
+        "Modules": [
+          "true",
+          "false"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Certificate instances",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "5514:2390",
+        "8442:6119"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Master",
+          "Expert",
+          "Advanced",
+          "Mastery"
+        ],
+        "Size": [
+          "small",
+          "large",
+          "md"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Ranking, leaderboard",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "2613:26421",
+        "8442:6198"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Property 1": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Quiz/Options",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "5504:24966",
+        "12112:10047"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Device": [
+          "Mobile",
+          "Desktop"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Read only"
+        ],
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "Validation": [
+          "n/a",
+          "Success",
+          "Error"
+        ],
+        "Explanation": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Progress bar",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "7046:25097",
+        "12000:10067"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Progress": [
+          "25%",
+          "0%",
+          "50%",
+          "75%",
+          "100%",
+          "12%",
+          "37%",
+          "62%",
+          "87%"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Illustrations/Certificate",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "9120:9301",
+        "11196:7670"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Size": [
+          "L",
+          "M",
+          "S",
+          "XL"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Illustrations/Gamification",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "11196:7607",
+        "11196:7707"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Progress",
+          "Certificate",
+          "Quiz",
+          "Learning Path"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Illustrations/ Progress",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "10157:9081",
+        "11196:7723"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Streak",
+          "Points",
+          "Jewels",
+          "Certificates",
+          "Passed",
+          "Nearly there",
+          "Not passed"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Illustrations/ Assessments",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "9120:8850",
+        "12154:10371"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Short text",
+          "Situational test",
+          "Multiple choice",
+          "Fast Track",
+          "Poll",
+          "Exercise",
+          "Fill in the blank",
+          "Sequence",
+          "Categorize",
+          "Match the pairs",
+          "Lesson quiz"
+        ],
+        "Device": [
+          "Mobile",
+          "Desktop"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Illustrations/ Learning path",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "9120:9437",
+        "11196:8794"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Level": [
+          "1",
+          "2",
+          "3",
+          "Advanced",
+          "Master",
+          "5",
+          "4",
+          "Expert"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Size": [
+          "small",
+          "large"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Illustrations/ Functions",
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "type": "set",
+      "nodes": [
+        "9120:9874"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Function": [
+          "Creative",
+          "Customer Experience",
+          "Customer Happiness",
+          "Customer Success",
+          "Engineering",
+          "Finances",
+          "General Admin",
+          "IT Network & Security",
+          "Logistics",
+          "Leadership",
+          "Legal",
+          "Marketing",
+          "Operations",
+          "Partnerships",
+          "People",
+          "Product",
+          "Rev Ops",
+          "Sales",
+          "Contact Centre",
+          "Custom"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Header",
+      "page": "Header",
+      "pageId": "7278:8242",
+      "type": "set",
+      "nodes": [
+        "7902:1019",
+        "11921:13215"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Page",
+          "Section"
+        ]
+      },
+      "slots": [
+        "Navigation:SLOT",
+        "Label:SLOT",
+        "Header:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Input field",
+      "page": "Input",
+      "pageId": "6227:17850",
+      "type": "set",
+      "nodes": [
+        "11180:1982",
+        "12114:20552"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Outlined",
+          "Radio",
+          "Integer",
+          "Inline"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "InputField",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Input field/Outlined",
+      "page": "Input",
+      "pageId": "6227:17850",
+      "type": "set",
+      "nodes": [
+        "8974:24610",
+        "12114:20561"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Active",
+          "Filled",
+          "n/a"
+        ],
+        "Hovering": [
+          "false",
+          "true"
+        ],
+        "Validation": [
+          "none",
+          "error",
+          "success"
+        ],
+        "Icon right": [
+          "false",
+          "true"
+        ],
+        "Label": [
+          "true",
+          "false"
+        ],
+        "Helper text": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "InputField",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Input field/Inline",
+      "page": "Input",
+      "pageId": "6227:17850",
+      "type": "set",
+      "nodes": [
+        "10330:4736",
+        "12114:20828"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false"
+        ],
+        "Validation": [
+          "none",
+          "error"
+        ],
+        "State": [
+          "Enabled",
+          "Active",
+          "Filled"
+        ],
+        "Description": [
+          "true",
+          "false"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Input field/Radio button",
+      "page": "Input",
+      "pageId": "6227:17850",
+      "type": "set",
+      "nodes": [
+        "8974:30479",
+        "12114:20857"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Validation": [
+          "none",
+          "success"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Label": [
+          "true",
+          "false"
+        ],
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Active",
+          "Filled",
+          "n/a"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Input field/Integer",
+      "page": "Input",
+      "pageId": "6227:17850",
+      "type": "set",
+      "nodes": [
+        "10145:10895",
+        "12114:20914"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Validation": [
+          "none",
+          "success",
+          "error"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Label": [
+          "true",
+          "false"
+        ],
+        "Helper text": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Active",
+          "Filled",
+          "n/a"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "InputInteger",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Listbox",
+      "page": "Listbox / Multiselect",
+      "pageId": "9439:3407",
+      "type": "set",
+      "nodes": [
+        "9162:1042",
+        "11923:3466"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Caret": [
+          "true",
+          "false"
+        ],
+        "Position": [
+          "Bottom",
+          "Top",
+          "n/a"
+        ],
+        "Wrapping menu itens": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [
+        "List-1:SLOT",
+        "List-2:SLOT",
+        "List-3:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "List itens",
+      "page": "Listbox / Multiselect",
+      "pageId": "9439:3407",
+      "type": "set",
+      "nodes": [
+        "9162:941",
+        "12202:2766"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Read-only"
+        ],
+        "Helper text": [
+          "false",
+          "true"
+        ],
+        "Supporting text": [
+          "false",
+          "true"
+        ],
+        "Icon left": [
+          "true",
+          "false"
+        ],
+        "Icon right": [
+          "false",
+          "true"
+        ],
+        "Avatar": [
+          "false",
+          "true"
+        ],
+        "Skill icon": [
+          "false",
+          "true"
+        ],
+        "Checkbox": [
+          "false",
+          "true"
+        ],
+        "Radio": [
+          "false",
+          "true"
+        ],
+        "Search": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Tab nav",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "set",
+      "nodes": [
+        "1324:35285",
+        "9897:18192"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Page": [
+          "Enabled",
+          "Home",
+          "Search",
+          "Progress",
+          "Feed",
+          "Profile"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Top nav/ App",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "set",
+      "nodes": [
+        "1910:18375",
+        "11235:11758"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Page": [
+          "Home",
+          "Detail page",
+          "Search",
+          "Progress",
+          "Feed",
+          "Profile",
+          "Lesson feed",
+          "Skill",
+          "Mobile web"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Top Nav/Admin",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "set",
+      "nodes": [
+        "5385:20137",
+        "11982:3602"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "System": [
+          "Admin",
+          "Web app"
+        ],
+        "Breakpoint": [
+          "large",
+          "small"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "TopNav",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Side navigation",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "set",
+      "nodes": [
+        "4697:13314",
+        "12048:2302"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "System": [
+          "Web app",
+          "Admin"
+        ],
+        "State": [
+          "Collapsed",
+          "Expanded"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Menu/Itens/WebApp",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "set",
+      "nodes": [
+        "4674:25675",
+        "12048:2401"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Hover",
+          "Enabled"
+        ],
+        "Expanded": [
+          "true",
+          "false"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Menu/Itens/Admin",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "set",
+      "nodes": [
+        "10372:4045",
+        "12048:2440"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Menu",
+          "Sub-menu"
+        ],
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "chevron right": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Hover",
+          "Enabled"
+        ],
+        "Expanded": [
+          "true",
+          "false"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Breadcrumb",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "component",
+      "nodes": [
+        "8497:2231"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Breadcrumb",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Breadcrumb item",
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "type": "set",
+      "nodes": [
+        "8497:1494",
+        "11935:2383"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Link",
+          "Current page"
+        ],
+        "State": [
+          "Hover",
+          "Enabled",
+          "n/a"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Search",
+      "page": "Search",
+      "pageId": "6159:9140",
+      "type": "set",
+      "nodes": [
+        "697:33529",
+        "11927:6338"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "State": [
+          "Enabled",
+          "Active",
+          "Hover"
+        ],
+        "Filled": [
+          "false",
+          "true"
+        ],
+        "Size": [
+          "M",
+          "L"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Search",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "stepper",
+      "page": "Stepper",
+      "pageId": "8108:4254",
+      "type": "component",
+      "nodes": [
+        "8108:5464"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Step/Instances",
+      "page": "Stepper",
+      "pageId": "8108:4254",
+      "type": "set",
+      "nodes": [
+        "8108:5472",
+        "11249:219"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "State": [
+          "Disabled",
+          "In progress",
+          "Completed"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Step/line",
+      "page": "Stepper",
+      "pageId": "8108:4254",
+      "type": "set",
+      "nodes": [
+        "8108:5482",
+        "11248:125"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "State": [
+          "Complete",
+          "Incomplete"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "<Slider>",
+      "page": "Slider",
+      "pageId": "10662:11842",
+      "type": "set",
+      "nodes": [
+        "10662:14039",
+        "11045:9459"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "State": [
+          "Enabled",
+          "Hover",
+          "Disabled"
+        ],
+        "%": [
+          "50",
+          "80",
+          "0"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Table",
+      "page": "Table",
+      "pageId": "7880:8433",
+      "type": "component",
+      "nodes": [
+        "7896:2624"
+      ],
+      "copiesDiffer": false,
+      "variants": {},
+      "slots": [
+        "Table header:SLOT",
+        "Table row1:SLOT",
+        "Table row2:SLOT",
+        "Table row3:SLOT",
+        "Table row4:SLOT",
+        "Table row5:SLOT",
+        "Table row6:SLOT",
+        "Table row7:SLOT",
+        "Table row8:SLOT",
+        "Table row9:SLOT",
+        "Table row10:SLOT"
+      ],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Table",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Table row",
+      "page": "Table",
+      "pageId": "7880:8433",
+      "type": "set",
+      "nodes": [
+        "7896:2804",
+        "11927:7487"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "n/a"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Table header",
+      "page": "Table",
+      "pageId": "7880:8433",
+      "type": "set",
+      "nodes": [
+        "11872:3077",
+        "11927:7554"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Type": [
+          "Text"
+        ],
+        "Checkbox": [
+          "false",
+          "true"
+        ],
+        "Icon": [
+          "false",
+          "true"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Table data",
+      "page": "Table",
+      "pageId": "7880:8433",
+      "type": "set",
+      "nodes": [
+        "11766:619",
+        "11927:7602"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Text": [
+          "true",
+          "false"
+        ],
+        "Supporting text": [
+          "false",
+          "true"
+        ],
+        "date": [
+          "false",
+          "true"
+        ],
+        "Checkbox": [
+          "false",
+          "true"
+        ],
+        "Avatar": [
+          "false",
+          "true"
+        ],
+        "Thumbnail": [
+          "false",
+          "true"
+        ],
+        "Icon": [
+          "false",
+          "true"
+        ],
+        "Progress bar": [
+          "false",
+          "true"
+        ],
+        "Illustration": [
+          "false",
+          "true"
+        ],
+        "Button": [
+          "false",
+          "true"
+        ],
+        "Badge": [
+          "false",
+          "true"
+        ],
+        "Dropdown": [
+          "false",
+          "true"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Hover",
+          "Selected",
+          "Read-only",
+          "Enabled"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Thumbnail type",
+      "page": "Table",
+      "pageId": "7880:8433",
+      "type": "set",
+      "nodes": [
+        "9537:7400"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Thumbnail": [
+          "Course",
+          "Your content",
+          "Lesson"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Toast",
+      "page": "Toast",
+      "pageId": "5776:27599",
+      "type": "set",
+      "nodes": [
+        "5045:14119"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Icon": [
+          "True",
+          "False"
+        ],
+        "Type": [
+          "Success",
+          "Warning",
+          "Error",
+          "Info"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Toast",
+      "missingInCode": null,
+      "missingInFigma": null
+    },
+    {
+      "name": "Tooltip",
+      "page": "Tooltip",
+      "pageId": "5618:3049",
+      "type": "set",
+      "nodes": [
+        "2683:29027",
+        "11927:8087"
+      ],
+      "copiesDiffer": false,
+      "variants": {
+        "Position": [
+          "Top",
+          "Bottom",
+          "Left",
+          "Right"
+        ],
+        "Alignment": [
+          "Center",
+          "Start",
+          "End"
+        ],
+        "Icon": [
+          "True",
+          "False"
+        ]
+      },
+      "slots": [],
+      "inFigma": true,
+      "inCode": false,
+      "code": null,
+      "prototype": "Tooltip",
+      "missingInCode": null,
+      "missingInFigma": null
+    }
+  ]
+}

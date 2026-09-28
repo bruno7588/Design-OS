@@ -45,14 +45,7 @@ export function ComponentPage() {
       {tab === 'Preview' && <doc.Preview />}
       {tab === 'Code' && <doc.Code />}
       {tab === 'Guidelines' && <doc.Guidelines />}
-      {tab === 'Compare' && (
-        <Box sx={{ py: 10 }}>
-          <Typography variant="h4">Compare arrives in Phase 1b</Typography>
-          <Typography variant="body2" color="text.secondary">
-            The Figma frame next to the reference, a list of differences and the inventory status.
-          </Typography>
-        </Box>
-      )}
+      {tab === 'Compare' && <doc.Compare />}
     </Box>
   )
 }

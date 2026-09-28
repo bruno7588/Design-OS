@@ -3,3 +3,5 @@ export { palette, semantic, space, radius, iconSize, shadow, tokensFor } from '.
 export type { Mode, SemanticTokens, FiveMinsTokens } from './theme'
 export { Button, type ButtonProps } from './Button/Button'
 export { SparkleIcon, type SparkleIconProps } from './icons/SparkleIcon'
+export type { FigmaMapping } from './figma'
+export { buttonFigma, CONFIGURATIONS, SIZES } from './Button/button.figma'

@@ -25,6 +25,9 @@ Rule: the prototype is the reference; where it disagrees with Figma, Figma wins 
 - **Loading** (Bruno, 2026-09-28): always hide the label and keep the width, as the prototype and this reference do. Figma's Loading frames differ: with an icon they keep the label and put the spinner in the icon slot, and without one they shrink to the spinner (Warning Large goes from 104px to 72px wide). Figma to update.
 
 ## Out of date, to update
+The live list is Button's Compare tab (`apps/shell/src/modules/components/button/ButtonCompare.tsx`). Found in Phase 1b:
+- Both Buttons boards miss the same 13 Configuration × Size combinations (no Small Warning, Success, Danger-outlined and others; no Medium Warning-text or Success-text).
+- The set has no Focus frames.
 - Figma Loading frames on both boards (see Decided).
 - Figma light board `12141:7567` still has the old Link (Bold, `skip-ink: none`). It looks like a separate copy of the set rather than the dark board in light mode.
 - `playground/docs/design-system/buttons.md` and `tokens.css`: dark pressed, Link, Text ladders (table above).

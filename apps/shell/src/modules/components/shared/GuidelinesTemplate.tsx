@@ -107,7 +107,7 @@ export function GuidelinesTemplate({ g }: { g: Guidelines }) {
   )
 }
 
-function Section({ title, children, sx }: { title: string; children: ReactNode; sx?: object }) {
+export function Section({ title, children, sx }: { title: string; children: ReactNode; sx?: object }) {
   return (
     <Stack component="section" sx={{ gap: 4, ...sx }}>
       <Typography variant="h2">{title}</Typography>
@@ -116,7 +116,7 @@ function Section({ title, children, sx }: { title: string; children: ReactNode; 
   )
 }
 
-function Bullets({ items }: { items: string[] }) {
+export function Bullets({ items }: { items: string[] }) {
   return (
     <Box component="ul" sx={{ m: 0, pl: 5, display: 'grid', gap: 2 }}>
       {items.map((item) => (
@@ -137,8 +137,8 @@ function Table({ rows }: { rows: string[][] }) {
         border: `1px solid ${theme.tokens.semantic.border}`,
         borderRadius: `${theme.tokens.radius.sm}px`,
         overflow: 'hidden',
-        '& > *': { px: 4, py: 3, borderBottom: `1px solid ${theme.tokens.semantic.border}` },
-        '& > :nth-last-of-type(-n+2)': { borderBottom: 'none' },
+        '& > *': { px: 4, py: 3 },
+        '& > :nth-child(n+3)': { borderTop: `1px solid ${theme.tokens.semantic.border}` },
       })}
     >
       {rows.flatMap(([name, description]) => [

@@ -1,6 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Box, Card, CardActionArea, Stack, Typography } from '@mui/material'
 import { components } from './registry'
+import { InventoryTable } from './InventoryTable'
 
 export function ComponentsIndex() {
   return (
@@ -11,7 +12,10 @@ export function ComponentsIndex() {
           5Mins reference components on MUI 5, themed with the Figma Library tokens.
         </Typography>
       </Stack>
-      <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 4 }}>
+      <Typography variant="h2" sx={{ mb: 4 }}>
+        Built
+      </Typography>
+      <Box sx={{ mb: 12, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 4 }}>
         {components.map((c) => (
           <Card
             key={c.slug}
@@ -27,6 +31,10 @@ export function ComponentsIndex() {
           </Card>
         ))}
       </Box>
+      <Typography variant="h2" sx={{ mb: 4 }}>
+        Inventory
+      </Typography>
+      <InventoryTable />
     </Box>
   )
 }

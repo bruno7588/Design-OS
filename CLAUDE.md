@@ -5,13 +5,15 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 ## Status
 - Phase 0 (foundations): done. Empty shell and server.
 - Phase 1a (theme and Button): done. Light and dark MUI theme from the Figma tokens, Button on MUI Button, Components module with Preview, Code and Guidelines tabs (Compare is empty). Figma and prototype mismatches: `docs/phase-1a-button-notes.md`.
-- Next: Phase 1b, the component inventory and the Compare tab.
+- Phase 1b (inventory and Compare): done. `component-inventory` skill plus `pnpm inventory`; overview with filters on `/components`; Button's Compare tab (Figma frame at 1:1 next to the live reference, differences, inventory status, notes for engineering).
+- Next: Phase 1, next batch: Chip, Tabs, Dialog.
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
 - `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude)
-- `packages/components`: 5Mins reference components on MUI 5. Theme in `src/theme` (`tokens.ts` is the only place raw values live; `createFiveMinsTheme('light' | 'dark')`). Visual rules live in each component's `*.overrides.ts`, keyed on MUI props, so plain MUI renders the same. Exported as `@design-os/components`
-- `apps/shell/src/modules/components`: one registry entry and one folder per component (Preview, Code, Guidelines). `shared/GuidelinesTemplate` is the Guidelines template for every component
+- `packages/components`: 5Mins reference components on MUI 5. Theme in `src/theme` (`tokens.ts` is the only place raw values live; `createFiveMinsTheme('light' | 'dark')`). Visual rules live in each component's `*.overrides.ts`, keyed on MUI props, so plain MUI renders the same. Each component folder has a `<name>.figma.ts` mapping (`FigmaMapping`: Figma page, set, node IDs and the variant values it covers). Exported as `@design-os/components`
+- `packages/components/inventory`: `figma.json` (raw Library read, written by the component-inventory skill) and `inventory.json` (written by `pnpm inventory`, imported by the shell)
+- `apps/shell/src/modules/components`: one registry entry and one folder per component (Preview, Code, Guidelines, Compare). `shared/GuidelinesTemplate` and `shared/CompareTemplate` are the templates for every component. Figma frames for Compare live in `apps/shell/public/figma/<slug>-<mode>.png`, exported at 1:1
 - `playground/`: the 5mins-prototype repo (git subtree, own npm setup, not part of the pnpm workspace). Replicas and demos live here from Phase 4
 - `skills/`: Claude skills, one folder per skill. `.claude/skills` links to `skills/`, `.agents/skills` links to `.claude/skills`
 - `engines/`: background job definitions (Phase 6)
@@ -22,7 +24,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - `pnpm install`
 - `pnpm dev`: starts shell and server together
 - `pnpm build`: type-checks and builds every package
-- `cd apps/shell && pnpm exec playwright test`: component checks and matrix screenshots (`e2e/screenshots`)
+- `pnpm inventory`: rebuilds `inventory.json` from `figma.json` and the code (no Figma needed)
+- `cd apps/shell && pnpm exec playwright test`: component, inventory and Compare checks, plus screenshots (`e2e/screenshots`)
 - Playground: `cd playground && npm install && npm run dev`
 
 ## Stack (matches engineering, we have no access to production code)
@@ -31,7 +34,7 @@ React 19.2, TypeScript 6, Vite 7, React Router 6, MUI 5.18 with Emotion, Iconsax
 ## Sources
 - Figma Library: https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library (file key `EC26cSVe9KNTCWXvYovakw`)
 - The prototype is the reference for components: specs in `playground/docs/design-system/` (start with `design-system-guidelines.md`, then the component doc), tokens in `playground/src/styles/tokens.css`, code in `playground/src/components`. Cross-check each component with the Figma Library; where they disagree, follow Figma and record the mismatch.
-- The Figma MCP only lists the Library's Cover page. Ask Bruno for node links (Buttons: dark `10825:3269`, light `12141:7567`).
+- The Figma MCP's `get_metadata` only lists the Library's Cover page, but read-only `use_figma` scripts see every page (load the figma-use skill first; one call per page, in parallel). Most component sets exist twice, a light and a dark copy (Buttons: dark `10825:3269`, light `12141:7567`); node IDs are in `packages/components/inventory/figma.json`.
 - The components in the prototype and the Figma Library are the correct ones. Never use a skill as a component spec. The old `buttons`, brand colours, typography, surface colours and iconography skills were removed from `skills/`; ignore any global copies of them (such as `anthropic-skills:buttons`).
 - Code Connect isn't active. Don't use it.
 

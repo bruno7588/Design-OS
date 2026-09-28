@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 import { ButtonPreview } from './button/ButtonPreview'
 import { ButtonCode } from './button/ButtonCode'
 import { ButtonGuidelines } from './button/ButtonGuidelines'
+import { ButtonCompare } from './button/ButtonCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -15,6 +16,7 @@ export interface ComponentDoc {
   Preview: ComponentType
   Code: ComponentType
   Guidelines: ComponentType
+  Compare: ComponentType
 }
 
 const LIBRARY = 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id='
@@ -29,6 +31,7 @@ export const components: ComponentDoc[] = [
     Preview: ButtonPreview,
     Code: ButtonCode,
     Guidelines: ButtonGuidelines,
+    Compare: ButtonCompare,
   },
 ]
 
