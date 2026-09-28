@@ -32,7 +32,7 @@ React 19.2, TypeScript 6, Vite 7, React Router 6, MUI 5.18 with Emotion, Iconsax
 - Figma Library: https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library (file key `EC26cSVe9KNTCWXvYovakw`)
 - The prototype is the reference for components: specs in `playground/docs/design-system/` (start with `design-system-guidelines.md`, then the component doc), tokens in `playground/src/styles/tokens.css`, code in `playground/src/components`. Cross-check each component with the Figma Library; where they disagree, follow Figma and record the mismatch.
 - The Figma MCP only lists the Library's Cover page. Ask Bruno for node links (Buttons: dark `10825:3269`, light `12141:7567`).
-- The copies in `skills/` (buttons, brand colours, typography, surface colours, iconography) are older than the prototype docs. Don't use them as specs.
+- Ignore the `buttons` skill (and the other older copies in `skills/`: brand colours, typography, surface colours, iconography). The components in the prototype and the Figma Library are the correct ones. Never use a skill as a component spec.
 - Code Connect isn't active. Don't use it.
 
 ## Rules
