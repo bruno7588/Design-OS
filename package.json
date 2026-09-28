@@ -1,0 +1,16 @@
+{
+  "name": "design-os",
+  "private": true,
+  "packageManager": "pnpm@10.34.5",
+  "scripts": {
+    "dev": "concurrently -n shell,server -c cyan,magenta \"pnpm --filter @design-os/shell dev\" \"pnpm --filter @design-os/server dev\"",
+    "build": "pnpm -r build",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "concurrently": "^9.2.0",
+    "typescript": "^6.0.0",
+    "vitest": "^4.0.0"
+  }
+}

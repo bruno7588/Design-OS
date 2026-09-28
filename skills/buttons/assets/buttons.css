@@ -1,0 +1,612 @@
+/**
+ * 5Mins.ai Button Component System
+ * Complete CSS implementation for all button variants, sizes, and states
+ * 
+ * Dependencies:
+ * - 5Mins.ai brand colors (--primary-*, --danger-*, --warning-*, --success-*, --neutral-*)
+ * - 5Mins.ai spacing system (--space-*)
+ * - 5Mins.ai typography (Poppins font)
+ */
+
+/* ==========================================================================
+   Base Button Styles
+   ========================================================================== */
+
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Typography */
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  
+  /* Interaction */
+  cursor: pointer;
+  user-select: none;
+  
+  /* Transitions */
+  transition: 
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+  
+  /* Reset */
+  border: none;
+  outline: none;
+}
+
+/* Focus state - visible outline for keyboard navigation */
+.btn:focus-visible {
+  outline: 2px solid var(--primary-600, #00AFC4);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Button Sizes
+   ========================================================================== */
+
+/* Small - 33px height */
+.btn-sm {
+  height: 33px;
+  padding: var(--space-s, 8px) var(--space-m, 16px);
+  font-size: 12px;
+  line-height: 1.4;
+  gap: var(--space-xs, 4px);
+  border-radius: var(--radius-s, 8px);
+}
+
+/* Medium - 41px height (default) */
+.btn-md {
+  height: 41px;
+  padding: var(--space-sm, 12px) var(--space-ml, 20px);
+  font-size: 14px;
+  line-height: 1.5;
+  gap: var(--space-s, 8px);
+  border-radius: var(--radius-s, 8px);
+}
+
+/* Large - 48px height */
+.btn-lg {
+  height: 48px;
+  padding: var(--space-sm, 12px) var(--space-l, 24px);
+  font-size: 16px;
+  line-height: 1.5;
+  gap: var(--space-s, 8px);
+  border-radius: var(--radius-s, 8px);
+}
+
+/* ==========================================================================
+   Primary Variant - Filled (Default)
+   ========================================================================== */
+
+.btn-filled {
+  background-color: var(--primary-600, #00AFC4);
+  color: var(--neutral-0, #FFFFFF);
+  border: none;
+}
+
+.btn-filled:hover {
+  background-color: var(--primary-700, #008393);
+}
+
+.btn-filled:active {
+  background-color: var(--primary-800, #005862);
+}
+
+.btn-filled:disabled,
+.btn-filled.btn-disabled {
+  background-color: var(--neutral-100, #DFE1E6);
+  color: var(--neutral-300, #9EA4B3);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Primary Variant - Outlined
+   ========================================================================== */
+
+.btn-outlined {
+  background-color: transparent;
+  color: var(--primary-600, #00AFC4);
+  border: 1px solid var(--primary-600, #00AFC4);
+}
+
+.btn-outlined:hover {
+  background-color: var(--primary-100, #CCF8FD);
+  color: var(--primary-700, #008393);
+  border-color: var(--primary-700, #008393);
+}
+
+.btn-outlined:active {
+  background-color: var(--primary-200, #99F1FA);
+  color: var(--primary-800, #005862);
+  border-color: var(--primary-800, #005862);
+}
+
+.btn-outlined:disabled,
+.btn-outlined.btn-disabled {
+  background-color: transparent;
+  color: var(--neutral-300, #9EA4B3);
+  border-color: var(--neutral-100, #DFE1E6);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Primary Variant - Outlined-2 (Neutral)
+   ========================================================================== */
+
+.btn-outlined-2 {
+  background-color: transparent;
+  color: var(--neutral-800, #20222A);
+  border: 1px solid var(--neutral-100, #DFE1E6);
+}
+
+.btn-outlined-2:hover {
+  background-color: var(--neutral-50, #EFF0F2);
+  border-color: var(--neutral-200, #C4C9D4);
+}
+
+.btn-outlined-2:active {
+  background-color: var(--neutral-100, #DFE1E6);
+  border-color: var(--neutral-300, #9EA4B3);
+}
+
+.btn-outlined-2:disabled,
+.btn-outlined-2.btn-disabled {
+  background-color: transparent;
+  color: var(--neutral-300, #9EA4B3);
+  border-color: var(--neutral-100, #DFE1E6);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Primary Variant - Text
+   ========================================================================== */
+
+.btn-text {
+  background-color: transparent;
+  color: var(--primary-600, #00AFC4);
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-text:hover {
+  color: var(--primary-700, #008393);
+}
+
+.btn-text:active {
+  color: var(--primary-800, #005862);
+}
+
+.btn-text:disabled,
+.btn-text.btn-disabled {
+  color: var(--neutral-300, #9EA4B3);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Primary Variant - Link
+   ========================================================================== */
+
+.btn-link {
+  background-color: transparent;
+  color: var(--primary-600, #00AFC4);
+  border: none;
+  text-decoration: underline;
+  padding: 0;
+  height: auto;
+}
+
+.btn-link:hover {
+  color: var(--primary-700, #008393);
+}
+
+.btn-link:active {
+  color: var(--primary-800, #005862);
+}
+
+.btn-link:disabled,
+.btn-link.btn-disabled {
+  color: var(--neutral-300, #9EA4B3);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Semantic Variant - Danger
+   ========================================================================== */
+
+/* Danger Filled */
+.btn-danger.btn-filled,
+.btn-danger {
+  background-color: var(--danger-500, #DF1642);
+  color: var(--neutral-0, #FFFFFF);
+  border: none;
+}
+
+.btn-danger.btn-filled:hover,
+.btn-danger:hover {
+  background-color: var(--danger-600, #9C0F2E);
+}
+
+.btn-danger.btn-filled:active,
+.btn-danger:active {
+  background-color: var(--danger-700, #59091A);
+}
+
+.btn-danger.btn-filled:disabled,
+.btn-danger:disabled {
+  background-color: var(--neutral-100, #DFE1E6);
+  color: var(--neutral-300, #9EA4B3);
+}
+
+/* Danger Outlined */
+.btn-danger.btn-outlined,
+.btn-danger-outlined {
+  background-color: transparent;
+  color: var(--danger-500, #DF1642);
+  border: 1px solid var(--danger-500, #DF1642);
+}
+
+.btn-danger.btn-outlined:hover,
+.btn-danger-outlined:hover {
+  background-color: var(--danger-100, #FCE8EC);
+  color: var(--danger-600, #9C0F2E);
+  border-color: var(--danger-600, #9C0F2E);
+}
+
+.btn-danger.btn-outlined:disabled,
+.btn-danger-outlined:disabled {
+  background-color: transparent;
+  color: var(--neutral-300, #9EA4B3);
+  border-color: var(--neutral-100, #DFE1E6);
+}
+
+/* Danger Text */
+.btn-danger.btn-text,
+.btn-danger-text {
+  background-color: transparent;
+  color: var(--danger-500, #DF1642);
+  border: none;
+}
+
+.btn-danger.btn-text:hover,
+.btn-danger-text:hover {
+  color: var(--danger-600, #9C0F2E);
+}
+
+.btn-danger.btn-text:disabled,
+.btn-danger-text:disabled {
+  color: var(--neutral-300, #9EA4B3);
+}
+
+/* ==========================================================================
+   Semantic Variant - Warning
+   ========================================================================== */
+
+/* Warning Filled */
+.btn-warning.btn-filled,
+.btn-warning {
+  background-color: var(--warning-500, #FFA538);
+  color: var(--neutral-0, #FFFFFF);
+  border: none;
+}
+
+.btn-warning.btn-filled:hover,
+.btn-warning:hover {
+  background-color: var(--warning-600, #E88206);
+}
+
+.btn-warning.btn-filled:active,
+.btn-warning:active {
+  background-color: var(--warning-700, #CC6B00);
+}
+
+.btn-warning.btn-filled:disabled,
+.btn-warning:disabled {
+  background-color: var(--neutral-100, #DFE1E6);
+  color: var(--neutral-300, #9EA4B3);
+}
+
+/* Warning Outlined */
+.btn-warning.btn-outlined,
+.btn-warning-outlined {
+  background-color: transparent;
+  color: var(--warning-500, #FFA538);
+  border: 1px solid var(--warning-500, #FFA538);
+}
+
+.btn-warning.btn-outlined:hover,
+.btn-warning-outlined:hover {
+  background-color: var(--warning-100, #FFEDD7);
+  color: var(--warning-600, #E88206);
+  border-color: var(--warning-600, #E88206);
+}
+
+.btn-warning.btn-outlined:disabled,
+.btn-warning-outlined:disabled {
+  background-color: transparent;
+  color: var(--neutral-300, #9EA4B3);
+  border-color: var(--neutral-100, #DFE1E6);
+}
+
+/* Warning Text */
+.btn-warning.btn-text,
+.btn-warning-text {
+  background-color: transparent;
+  color: var(--warning-500, #FFA538);
+  border: none;
+}
+
+.btn-warning.btn-text:hover,
+.btn-warning-text:hover {
+  color: var(--warning-600, #E88206);
+}
+
+.btn-warning.btn-text:disabled,
+.btn-warning-text:disabled {
+  color: var(--neutral-300, #9EA4B3);
+}
+
+/* ==========================================================================
+   Semantic Variant - Success
+   ========================================================================== */
+
+/* Success Filled */
+.btn-success.btn-filled,
+.btn-success {
+  background-color: var(--success-500, #18A957);
+  color: var(--neutral-0, #FFFFFF);
+  border: none;
+}
+
+.btn-success.btn-filled:hover,
+.btn-success:hover {
+  background-color: var(--success-600, #11763D);
+}
+
+.btn-success.btn-filled:active,
+.btn-success:active {
+  background-color: var(--success-700, #0A5428);
+}
+
+.btn-success.btn-filled:disabled,
+.btn-success:disabled {
+  background-color: var(--neutral-100, #DFE1E6);
+  color: var(--neutral-300, #9EA4B3);
+}
+
+/* Success Outlined */
+.btn-success.btn-outlined,
+.btn-success-outlined {
+  background-color: transparent;
+  color: var(--success-500, #18A957);
+  border: 1px solid var(--success-500, #18A957);
+}
+
+.btn-success.btn-outlined:hover,
+.btn-success-outlined:hover {
+  background-color: var(--success-100, #E8F6EE);
+  color: var(--success-600, #11763D);
+  border-color: var(--success-600, #11763D);
+}
+
+.btn-success.btn-outlined:disabled,
+.btn-success-outlined:disabled {
+  background-color: transparent;
+  color: var(--neutral-300, #9EA4B3);
+  border-color: var(--neutral-100, #DFE1E6);
+}
+
+/* Success Text */
+.btn-success.btn-text,
+.btn-success-text {
+  background-color: transparent;
+  color: var(--success-500, #18A957);
+  border: none;
+}
+
+.btn-success.btn-text:hover,
+.btn-success-text:hover {
+  color: var(--success-600, #11763D);
+}
+
+.btn-success.btn-text:disabled,
+.btn-success-text:disabled {
+  color: var(--neutral-300, #9EA4B3);
+}
+
+/* ==========================================================================
+   Semantic Variant - AI (Hugo AI / Blaze Quiz purple)
+   ========================================================================== */
+
+/* AI Filled */
+.btn-ai.btn-filled,
+.btn-ai {
+  background-color: var(--blaze-quiz, #8158EC);
+  color: var(--neutral-0, #FFFFFF);
+  border: none;
+}
+
+.btn-ai.btn-filled:hover,
+.btn-ai:hover {
+  background-color: #6B45D1;
+}
+
+.btn-ai.btn-filled:active,
+.btn-ai:active {
+  background-color: #5535B0;
+}
+
+.btn-ai.btn-filled:disabled,
+.btn-ai:disabled {
+  background-color: var(--neutral-100, #DFE1E6);
+  color: var(--neutral-300, #9EA4B3);
+}
+
+/* AI Outlined */
+.btn-ai.btn-outlined,
+.btn-ai-outlined {
+  background-color: transparent;
+  color: var(--blaze-quiz, #8158EC);
+  border: 1px solid var(--blaze-quiz, #8158EC);
+}
+
+.btn-ai.btn-outlined:hover,
+.btn-ai-outlined:hover {
+  background-color: rgba(129, 88, 236, 0.1);
+  color: #6B45D1;
+  border-color: #6B45D1;
+}
+
+.btn-ai.btn-outlined:disabled,
+.btn-ai-outlined:disabled {
+  background-color: transparent;
+  color: var(--neutral-300, #9EA4B3);
+  border-color: var(--neutral-100, #DFE1E6);
+}
+
+/* ==========================================================================
+   Loading State
+   ========================================================================== */
+
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading * {
+  visibility: hidden;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid var(--neutral-0, #FFFFFF);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 0.8s linear infinite;
+}
+
+/* Loading spinner color for outlined/text variants */
+.btn-outlined.btn-loading::after,
+.btn-outlined-2.btn-loading::after,
+.btn-text.btn-loading::after {
+  border-color: var(--primary-600, #00AFC4);
+  border-top-color: transparent;
+}
+
+.btn-danger.btn-outlined.btn-loading::after,
+.btn-danger.btn-text.btn-loading::after,
+.btn-danger-outlined.btn-loading::after,
+.btn-danger-text.btn-loading::after {
+  border-color: var(--danger-500, #DF1642);
+  border-top-color: transparent;
+}
+
+.btn-warning.btn-outlined.btn-loading::after,
+.btn-warning.btn-text.btn-loading::after,
+.btn-warning-outlined.btn-loading::after,
+.btn-warning-text.btn-loading::after {
+  border-color: var(--warning-500, #FFA538);
+  border-top-color: transparent;
+}
+
+.btn-success.btn-outlined.btn-loading::after,
+.btn-success.btn-text.btn-loading::after,
+.btn-success-outlined.btn-loading::after,
+.btn-success-text.btn-loading::after {
+  border-color: var(--success-500, #18A957);
+  border-top-color: transparent;
+}
+
+.btn-ai.btn-outlined.btn-loading::after,
+.btn-ai-outlined.btn-loading::after {
+  border-color: var(--blaze-quiz, #8158EC);
+  border-top-color: transparent;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Icon Support
+   ========================================================================== */
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Icon sizes based on button size */
+.btn-sm .btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-sm .btn-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-md .btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-md .btn-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-lg .btn-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-lg .btn-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==========================================================================
+   Button Groups
+   ========================================================================== */
+
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s, 8px);
+}
+
+.btn-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-s, 8px);
+}
+
+/* ==========================================================================
+   Full Width Button
+   ========================================================================== */
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}

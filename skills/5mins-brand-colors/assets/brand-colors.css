@@ -1,0 +1,84 @@
+/**
+ * 5Mins.ai Brand Colors
+ * Complete color system with usage guidelines
+ */
+
+:root {
+  /* PRIMARY COLORS - Main brand identity, actions, navigation */
+  --primary-100: #CCF8FD;  /* Hover states for secondary buttons */
+  --primary-200: #99F1FB;
+  --primary-300: #66E9F9;
+  --primary-400: #33E2F7;
+  --primary-500: #00CEE6;  /* Main brand color, primary buttons */
+  --primary-600: #00AFC4;  /* Default button state, links */
+  --primary-700: #008393;  /* Hover states */
+  --primary-800: #005862;  /* Pressed/active states */
+  --primary-900: #002C31;
+
+  /* GAMIFICATION COLORS - Interactive learning elements */
+  --blaze-quiz: #8158EC;      /* Purple for Blaze Quiz */
+  --flash-poll: #9B55C9;      /* Purple for Flash Poll */
+  --lesson-quiz: #FA715F;     /* Coral for Lesson Quiz */
+  --certificate-quiz: #6368DB; /* Blue-purple for Certificate Quiz */
+  --case-study-quiz: #2A90D8; /* Blue for Case Study Quiz */
+
+  /* SECONDARY COLORS - Highlights, selections, accents (use sparingly) */
+  --secondary-100: #FFF8EB;
+  --secondary-200: #FFF1D7;
+  --secondary-300: #FFE4AF;
+  --secondary-400: #FFCF74;
+  --secondary-500: #FFBB38;  /* Selection states, accents, highlights */
+  --secondary-600: #DF9E21;
+  --secondary-700: #664B16;
+  --secondary-800: #33250B;
+  --secondary-900: #191306;
+
+  /* SUCCESS (Green) - Completions, positive actions */
+  --success-100: #E8F6EE;  /* Badge background */
+  --success-200: #D1EEDD;
+  --success-300: #A3DDBC;
+  --success-400: #5DC389;
+  --success-500: #18A957;  /* Success buttons, toast, validation */
+  --success-600: #11763D;
+  --success-700: #0A4423;
+  --success-800: #052211;
+  --success-900: #021109;
+
+  /* WARNING (Orange) - Caution, in-progress states */
+  --warning-100: #FFEDD7;  /* Badge background */
+  --warning-200: #FFDBAF;
+  --warning-300: #FFC988;
+  --warning-400: #FFB760;
+  --warning-500: #FFA538;  /* Warning buttons, toast, icons */
+  --warning-600: #E88206;
+  --warning-700: #996322;
+  --warning-800: #664216;
+  --warning-900: #33210B;
+  --warning-bg: rgba(255, 187, 56, 0.12);  /* Alert background */
+  --text-warning: #E2A610;  /* Warning text color */
+
+  /* DANGER (Red) - Errors, destructive actions */
+  --danger-100: #FCE8EC;   /* Badge background */
+  --danger-200: #F9D0D9;
+  --danger-300: #F2A2B3;
+  --danger-400: #E95C7B;
+  --danger-500: #DF1642;   /* Error buttons, destructive actions */
+  --danger-600: #9C0F2E;
+  --danger-700: #59091A;
+  --danger-800: #2D040D;
+  --danger-900: #160207;
+
+  /* NEUTRAL COLORS - Text, backgrounds, borders, UI structure */
+  --neutral-0: #FFFFFF;     /* Pure white, card backgrounds */
+  --neutral-25: #F9F9FA;    /* Page backgrounds */
+  --neutral-50: #EFF0F2;    /* Card hover state */
+  --neutral-100: #DFE1E6;   /* Input borders, dividers */
+  --neutral-200: #BFC2CC;
+  --neutral-300: #9EA4B3;   /* Disabled text */
+  --neutral-400: #656B7C;   /* Tertiary text, placeholders */
+  --neutral-500: #454C5E;   /* Secondary text, body text */
+  --neutral-600: #383D4C;
+  --neutral-700: #2D313D;
+  --neutral-800: #20222A;   /* Main text, headings */
+  --neutral-900: #0F1014;
+}
