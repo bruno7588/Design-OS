@@ -1,0 +1,32 @@
+import { Link as RouterLink } from 'react-router-dom'
+import { Box, Card, CardActionArea, Stack, Typography } from '@mui/material'
+import { components } from './registry'
+
+export function ComponentsIndex() {
+  return (
+    <Box sx={{ p: 10 }}>
+      <Stack sx={{ gap: 2, mb: 8 }}>
+        <Typography variant="h1">Components</Typography>
+        <Typography color="text.secondary">
+          5Mins reference components on MUI 5, themed with the Figma Library tokens.
+        </Typography>
+      </Stack>
+      <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 4 }}>
+        {components.map((c) => (
+          <Card
+            key={c.slug}
+            elevation={0}
+            sx={(theme) => ({ border: `1px solid ${theme.tokens.semantic.border}`, boxShadow: theme.tokens.shadow.s })}
+          >
+            <CardActionArea component={RouterLink} to={`/components/${c.slug}`} sx={{ p: 6 }}>
+              <Typography variant="h4">{c.name}</Typography>
+              <Typography variant="body2" color="text.secondary">
+                {c.summary}
+              </Typography>
+            </CardActionArea>
+          </Card>
+        ))}
+      </Box>
+    </Box>
+  )
+}

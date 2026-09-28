@@ -1,4 +1,46 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme, type Theme } from '@mui/material/styles'
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
+import '@fontsource/poppins/700.css'
+import './augment'
+import { tokensFor, type Mode } from './tokens'
+import { typography } from './typography'
+import { MuiButton } from '../Button/button.overrides'
 
-// Placeholder. Phase 1a replaces this with the 5Mins tokens pulled from Figma.
-export const theme = createTheme()
+export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
+  const t = tokensFor(mode)
+  const s = t.semantic
+  const p = t.palette
+
+  return createTheme({
+    tokens: t,
+    palette: {
+      mode,
+      primary: { main: s.primaryButtonBackground, contrastText: s.textButtonForeground },
+      secondary: { main: p.secondary[500], contrastText: p.neutral[800] },
+      error: { main: p.danger[500], contrastText: p.neutral[25] },
+      warning: { main: s.buttonWarningBackground, contrastText: p.neutral[25] },
+      success: { main: s.buttonSuccessBackground, contrastText: p.neutral[25] },
+      ai: { main: p.gamification.blazeQuiz, contrastText: p.neutral[25] },
+      grey: { 50: p.neutral[50], 100: p.neutral[100], 200: p.neutral[200], 300: p.neutral[300], 400: p.neutral[400], 500: p.neutral[500], 600: p.neutral[600], 700: p.neutral[700], 800: p.neutral[800], 900: p.neutral[900] },
+      text: { primary: s.textPrimary, secondary: s.textSecondary, disabled: s.textDisabled },
+      background: { default: s.pageBackground, paper: s.cardsBackground },
+      divider: s.border,
+    },
+    typography,
+    spacing: 4,
+    shape: { borderRadius: t.radius.sm },
+    components: {
+      MuiButton,
+      MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
+    },
+  })
+}
+
+export const lightTheme = createFiveMinsTheme('light')
+export const darkTheme = createFiveMinsTheme('dark')
+/** Default theme (light). */
+export const theme = lightTheme
+
+export * from './tokens'
