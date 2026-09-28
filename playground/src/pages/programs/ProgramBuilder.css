@@ -1,0 +1,281 @@
+/* ---- Tab panel (sits inside .main-content, reused from Create Course) ---- */
+.pb-panel {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--space-l) 0 80px;
+}
+
+/* Courses tab mirrors the Create Course layout: wide (1180px) content column,
+   and full main-content width while the empty state is showing. */
+.pb-panel--courses {
+  max-width: 1180px;
+}
+
+.pb-panel--full {
+  max-width: none;
+}
+
+/* ---- Details tab: banner + inline-editable headline ---- */
+.pb-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-l);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-l) 0 80px;
+}
+
+.pb-banner {
+  position: relative;
+  width: 100%;
+  height: 136px;
+  border-radius: var(--radius-sm);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Dark scrim over the thumbnail, faded in while the add-image icon is hovered. */
+.pb-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--neutral-900);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.pb-banner:has(.pb-banner__btn:hover) .pb-banner__overlay {
+  opacity: 0.32;
+}
+
+.pb-banner__btn {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xss);
+  padding: var(--space-s) var(--space-sm) var(--space-s) var(--space-s);
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(15, 16, 20, 0.5);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.pb-banner__btn:hover {
+  background: rgba(15, 16, 20, 0.7);
+}
+
+.pb-banner__btn-label {
+  font: 500 14px/1.4 'Poppins', sans-serif;
+  color: var(--neutral-0);
+}
+
+.pb-banner__file {
+  display: none;
+}
+
+.pb-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.pb-headline__title,
+.pb-headline__desc {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  padding: 0;
+}
+
+.pb-headline__title:focus-visible,
+.pb-headline__desc:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+.pb-headline__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pb-headline__desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  resize: none;
+  overflow: hidden;
+}
+
+.pb-headline__title::placeholder,
+.pb-headline__desc::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Forward nudge to the Courses tab */
+.pb-details__footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pb-next-btn {
+  white-space: nowrap;
+  padding: var(--space-s) var(--space-ml);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background);
+  color: var(--text-button-foreground);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.pb-next-btn:hover {
+  background: var(--primary-button-background-hover);
+}
+
+.pb-next-btn:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.pb-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ---- Courses empty state (Figma node 2362:33058) ---- */
+.pb-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-xxl) var(--space-l);
+  border: 1px dashed var(--border-elevated);
+  border-radius: 20px;
+  background: var(--input-background);
+}
+
+.pb-empty__art {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.pb-empty__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.pb-empty__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-ssm) var(--space-ml) var(--space-ssm) var(--space-m);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background);
+  color: var(--text-button-foreground);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.pb-empty__cta:hover {
+  background: var(--primary-button-background-hover);
+}
+
+.pb-empty__cta:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* ---- Settings: Course completion (Figma node 2369:63430) ---- */
+.pb-settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pb-settings__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pb-setting-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: var(--space-m);
+  border-radius: var(--radius-sm);
+  background: var(--cards-background);
+  box-shadow: var(--shadow-s);
+}
+
+/* The shared Checkbox is a 32px hit-area (16px box + 8px padding). Offset it so the
+   box sits at the card's left edge, keeps an 8px gap to the text, and centers on the
+   "Certificate" line. */
+.pb-setting-card .checkbox {
+  margin: -4px 0 0 -8px;
+}
+
+.pb-setting-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.pb-setting-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pb-setting-desc {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.pb-setting-link {
+  color: var(--text-button-outlined);
+  text-decoration: underline;
+}
+
+.pb-setting-link:hover {
+  text-decoration: none;
+}

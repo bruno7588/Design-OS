@@ -1,0 +1,110 @@
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m); /* 16px gap between top row, divider, tabs */
+  padding: var(--space-m) var(--space-xl) 0 var(--space-xl);
+  background: var(--page-background);
+}
+
+.page-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.page-header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+/* DS "Outlined-2" — neutral border/text at rest, primary-tinted on interaction.
+   See design-system/buttons.md → Outlined-2. */
+
+/* Disabled state for all button variants */
+.page-header-btn-disabled.page-header-btn-outline,
+
+.page-header-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  transition: background 150ms ease;
+}
+
+.page-header-close:hover {
+  background: var(--input-background-hover);
+}
+
+/* Divider between a page title and its tabs. Standalone pages hand-write this
+   class inside a 32px-gutter main column, and there it stops 24px short of the
+   panel edge — hence the -8px, which trims the gutter to 24 rather than
+   cancelling it. */
+.page-header-divider {
+  height: 1px;
+  margin: 0 calc(var(--space-l) - var(--space-xl)); /* 24px from the panel edge */
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* The Create Course builder is the exception (Figma 8644:16189): its header
+   divider is full-bleed, so the negative margin cancels the gutter outright. */
+.page-header > .page-header-divider {
+  margin: 0 calc(-1 * var(--space-xl));
+}
+
+/* Tabs — gap 20px; divider lives above (page-header-divider). */
+.page-header-tabrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.page-header-tabs {
+  display: flex;
+  gap: var(--space-ml);
+}
+
+.page-header-tab {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: var(--space-s) 0 var(--space-sm) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.page-header-tab:hover {
+  color: var(--text-primary);
+}
+
+.page-header-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.page-header-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--selected);
+  border-radius: 2px;
+}

@@ -1,0 +1,318 @@
+/* AI insights card (DES-331 Phase 4). Three states: not generated, generating,
+   generated-with-timestamp. Classes prefixed `asmi-`. */
+
+/* No gap: everything under the header is collapsible, and a gap sits outside its
+   wrapper — it survives the wrapper going to zero and leaves the idle card padded
+   for content that isn't there. The same 12px lives inside each region instead,
+   where the collapse clips it away with the content. */
+.asmi {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-m);
+  border-radius: var(--radius-sm);
+  /* A card, like the charts panel beside it. Surface and lift rather than an outline:
+     the shadow token already carries the light/dark split, so dark gets neither and the
+     fill separates it on its own. */
+  background: var(--cards-background);
+  box-shadow: var(--shadow-card);
+}
+
+/* Where the card's own fill is doing the separating, the stats inside it need an edge of
+   their own — a card on a card is two fills a step apart, which dark mode does not have
+   to spare. */
+[data-theme='dark'] .asmi-stats .asm-stat {
+  border-color: var(--border-elevated);
+}
+
+.asmi-region {
+  padding-top: var(--space-sm);
+}
+
+
+/* Provenance, not a headline. */
+.asmi-stamp {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.asmi-refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+.asmi-refresh:hover {
+  background: var(--input-background-hover);
+}
+
+/* Relative so the `.is-writing` sweep (AIWorkingCard.css) has a box to run
+   across while the column is still typing itself out.
+
+   Capped at a readable measure: the sections stack full-width now, which on a wide
+   monitor ran these to ~180 characters a line. Past about 90 the eye loses the return
+   sweep, and it lost it on the one thing the card exists to be — read. */
+.asmi-body {
+  position: relative;
+  max-width: 72ch;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.asmi-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* One column. Side by side, the two halves read as a comparison — struggled against
+   mastered — when they are three findings of the same summary, and the third had
+   nowhere to sit but underneath both. */
+.asmi-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.asmi-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+/* Sentence case — the design system has no all-caps text. */
+.asmi-label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* The panel is one block inside a border of its own, so the header does not need a
+   rule under it to separate itself from what follows. */
+.asmi .section-header__divider {
+  display: none;
+}
+
+/* H4 (16px/1.5) rather than the section header's default H3 — this sits inside a
+   card, not at the top of a page section. Scoped: other SectionHeader users keep 20px. */
+.asmi .section-header__title {
+  font-size: 16px;
+}
+
+/* The stamp is provenance on the title, not a line under it — closer than the 4px the
+   shared header gives a real supporting sentence. Scoped, like the size above it. */
+.asmi .section-header__title-group {
+  gap: var(--space-xxs);
+}
+
+/* The write-head, while the summary is typing itself out. Steady, not blinking:
+   it marks where the text is up to, and a blink would compete with the sparkle
+   on the working card above it for the eye. */
+.asmi-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: var(--space-xxs);
+  vertical-align: text-bottom;
+  background: var(--text-button-outlined);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* useTyped hands the text over whole under reduced motion, so there is no
+     write-head to mark. */
+  .asmi-caret {
+    display: none;
+  }
+}
+
+/* Clear reads as a neutral tertiary action, not a brand one, so it sits at
+   --text-primary and lets the cyan surface only on interaction — the same
+   rest/hover split buttons.md gives Outlined-2. A divergence from the DS Text
+   button, which is cyan at rest; scoped to this card so nothing else moves. */
+.asmi .ds-btn--text:not(:hover):not(:active) {
+  color: var(--text-primary);
+}
+
+/* ── Who needs attention ───────────────────────────────────────────────────
+   Names under the paragraph that introduced them. Rows, not cards: the block is
+   part of the summary, and giving each person their own container would make
+   them read as a list to work through rather than as three examples. */
+.asmi-people {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: var(--space-xs) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.asmi-person {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+/* Initials stand in for a missing photo; sized by the DS .avatar-32. */
+.asmi-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cards-background);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.asmi-person__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  min-width: 0;
+}
+
+/* The name is the door into that learner's answers, so it is underlined and it is a
+   button. Underlined at rest rather than on hover: a link the reader has to find by
+   sweeping the mouse is a link most readers never find. The brand colour surfaces on
+   interaction, the same rest/hover split the DS gives Outlined-2 and the table's link
+   cells. */
+.asmi-person__name {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.asmi-person__name:hover {
+  color: var(--text-button-hover);
+}
+
+.asmi-person__reason {
+  max-width: 72ch;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Expand/collapse. Same circular icon-button chrome as the refresh beside it, and the
+   same rotating chevron the learner rows use — one gesture, drawn one way. */
+.asmi-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.asmi-toggle:hover {
+  background: var(--input-background-hover);
+}
+
+/* Points down at rest — the summary is below, and that is where it goes. */
+.asmi-toggle svg {
+  transition: transform 200ms ease;
+}
+
+.asmi-toggle.is-open svg {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asmi-toggle svg {
+    transition: none;
+  }
+}
+
+/* Idle and generating: what the card does not have yet, and the one thing to press,
+   centred under the header. No illustration — at 360px in the side column the card is
+   a panel rather than a page, and the sentence is the thing to read. */
+.asmi-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  text-align: center;
+}
+
+.asmi-empty__body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Its own line, clear of the sentence above it. */
+.asmi-empty .ds-btn {
+  margin-top: var(--space-s);
+}
+
+/* Clear sits with the two icons beside it, so at rest it carries their weight rather
+   than the button family's link colour. */
+.asmi .asmi-clear {
+  color: var(--text-secondary);
+}
+
+/* On hover it says what it does: this one throws the summary away, and it is the only
+   control on the card that destroys anything. */
+.asmi .asmi-clear:hover:not(:disabled) {
+  color: var(--text-error);
+}
+
+/* Two by two: four figures across a 360px column, so each card takes half of it. */
+.asmi-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+/* The Enrolments stat card, stacked rather than icon-left: at ~155px a row of
+   icon plus text leaves the label nowhere to go. */
+.asmi-stats .asm-stat {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xxs);
+  min-width: 0;
+  padding: var(--space-s) var(--space-sm);
+}
+
+.asmi-stats .asm-stat__label {
+  gap: var(--space-xs);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.asmi-stats .asm-stat__figure {
+  font-size: 20px;
+}
+
+/* The one figure that is a flag rather than a count. */
+.asmi-stat__warn {
+  color: var(--text-warning);
+}

@@ -1,0 +1,882 @@
+.mt-app {
+  min-height: 100vh;
+  background: var(--page-background);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top nav */
+.mt-topnav {
+  height: 70px;
+  background: var(--page-background);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-s) var(--space-l);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.mt-topnav__logo {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mt-topnav__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+}
+
+.mt-topnav__textbtn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: transparent;
+  border: none;
+  padding: var(--space-s) var(--space-s) var(--space-s) var(--space-xs);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.mt-topnav__outlinebtn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: transparent;
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s) var(--space-m) var(--space-s) var(--space-sm);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.mt-topnav__outlinebtn:hover {
+  background: var(--button-outline-fill-hover);
+  color: var(--text-button-hover);
+  border-color: var(--text-button-hover);
+}
+
+.mt-topnav__icons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.mt-topnav__iconbtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: var(--space-xs);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+.mt-topnav__iconbtn:hover {
+  background: var(--input-background);
+}
+
+.mt-topnav__dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger-500, #DF1642);
+  border: 2px solid var(--page-background);
+}
+
+/* Main */
+.mt-main {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  max-width: 1536px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Side nav */
+.mt-side {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  background: var(--page-background);
+}
+
+.mt-side__menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-m);
+  gap: 0;
+}
+
+.mt-side__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-m);
+  border-radius: var(--radius-s);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: left;
+  width: 100%;
+  transition: background 150ms ease;
+}
+
+.mt-side__item:hover {
+  background: var(--input-background-hover);
+}
+
+.mt-side__item--active {
+  color: var(--text-selected);
+  font-weight: 700;
+}
+
+.mt-side__item--active:hover {
+  background: transparent;
+}
+
+.mt-side__profile {
+  margin: var(--space-sm);
+  padding: var(--space-s) var(--space-m);
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.mt-side__profile-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.mt-side__profile-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.mt-side__profile-email {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.mt-side__powered {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-l);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--text-tertiary, #9EA4B3);
+}
+
+/* Body */
+.mt-body {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-ml) var(--space-l);
+}
+
+.mt-pageheader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.mt-pageheader__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m);
+}
+
+.mt-pageheader__headline {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.mt-pageheader__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.mt-pageheader__subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.mt-pageheader__divider {
+  height: 1px;
+  width: 100%;
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.mt-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.mt-tab {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0 0 var(--space-s) 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.mt-tab--active {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.mt-tab__indicator {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--secondary-500);
+  border-radius: 2px;
+}
+
+/* Course Progress tab content */
+.mt-course-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  margin-top: var(--space-m);
+}
+
+/* Stat cards — mirrors .automations-stat-card pattern */
+.mt-cp__stats {
+  display: flex;
+  gap: var(--space-m);
+  width: 100%;
+}
+
+/* One line: icon · value · label + info anchor (Figma 10859:28432) — the same
+   card as the user profile's .up-stat. */
+.mt-stat-card {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+/* 12px to the value, not the 8px the rest of the row uses — the icon needs the
+   extra separation to read as a marker rather than part of the number. */
+.mt-stat-icon {
+  display: flex;
+  flex-shrink: 0;
+  margin-right: var(--space-xs);
+}
+
+.mt-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.mt-stat-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Toolbar: search + timeframe + Send Reminders */
+.mt-cp__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.mt-cp__toolbar-search {
+  width: 400px;
+  max-width: 100%;
+}
+
+.mt-cp__toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.mt-cp__timeframe {
+  width: auto;
+}
+
+.mt-cp__timeframe .dropdown-field {
+  width: auto;
+}
+
+.mt-cp__timeframe .dropdown-trigger {
+  width: auto;
+}
+
+.mt-cp__scope .dropdown-field {
+  width: auto;
+  min-width: 180px;
+}
+
+/* Figma 10664:11246 draws the panel at 279 with 8px padding, so rows land on 263 and
+   their text on 239 — which is exactly what "Team members who report to you" needs to
+   stay on one line. Our menu carries a 1px border the Figma frame does not, so 279 here
+   would leave 261/237 and wrap that row a couple of pixels early. 281 puts the boxes the
+   eye actually sees back on the drawn numbers.
+
+   Its own class rather than a descendant of .mt-cp__scope: the menu is portalled to
+   <body>, so nothing scoped to the field reaches it. */
+.mt-cp__scope-menu {
+  width: 281px;
+}
+
+/* Content switcher: All Courses / Compliance Only — DS ContentSwitcher
+   supplies the track and items; only the page placement is local. */
+.mt-cp__switcher {
+  align-self: flex-start;
+  margin-bottom: calc(var(--space-ml) - var(--space-l));
+}
+
+@media (max-width: 900px) {
+  .mt-cp__toolbar {
+    flex-wrap: wrap;
+  }
+  .mt-cp__toolbar-search {
+    width: 100%;
+  }
+}
+
+.mt-cp__table-cell--reports-to {
+  width: 180px;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  gap: var(--space-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.mt-cp__reports-to-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.mt-cp__reports-to-popover-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.mt-cp__reports-to-more {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xxs) var(--space-xss);
+  border-radius: var(--radius-s);
+  background: var(--input-background);
+  color: var(--text-secondary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: default;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.mt-cp__reports-to-popover-wrap:hover .mt-cp__reports-to-more,
+.mt-cp__reports-to-popover-wrap:focus-within .mt-cp__reports-to-more {
+  background: var(--page-background-hover, var(--neutral-50));
+  color: var(--text-primary);
+}
+
+.mt-cp__reports-to-listbox {
+  display: none;
+  top: calc(100% + 4px);
+  left: 0;
+  right: auto;
+  min-width: 180px;
+}
+
+.mt-cp__reports-to-popover-wrap:hover .mt-cp__reports-to-listbox,
+.mt-cp__reports-to-popover-wrap:focus-within .mt-cp__reports-to-listbox {
+  display: block;
+}
+
+/* Sort button headers */
+.mt-cp__th-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mt-cp__th-btn:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+.mt-cp__th-btn > .tooltip-wrapper {
+  display: inline-flex;
+  margin: 0;
+}
+.mt-cp__th-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+.mt-cp__th-btn:hover .mt-cp__th-label {
+  color: var(--text-primary);
+}
+
+/* Sort-direction hint: hidden until header is hovered/focused */
+.mt-cp__th-sort-hint {
+  display: inline-flex;
+  align-items: center;
+  visibility: hidden;
+}
+.mt-cp__th-btn:hover .mt-cp__th-sort-hint,
+.mt-cp__th-btn:focus-visible .mt-cp__th-sort-hint {
+  visibility: visible;
+}
+
+.mt-cp__row-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.mt-cp__row-action:hover {
+  background: var(--cards-background-hover);
+}
+
+/* Two-line "Send reminder / Last sent …" tooltip */
+.mt-reminder-tip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  text-align: left;
+}
+.mt-reminder-tip__title {
+  font-weight: 500;
+}
+.mt-reminder-tip__sub {
+  color: var(--neutral-300);
+  font-size: 14px;
+}
+
+.mt-cp__table-cell--muted {
+  color: var(--text-disabled);
+}
+
+/* Progress bar */
+.mt-cp__progress-cell {
+  display: flex;
+  align-items: center;
+}
+
+.mt-cp__progress {
+  display: flex;
+  height: 8px;
+  width: 96px;
+  border-radius: var(--radius-ml);
+  overflow: hidden;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.mt-cp__progress-seg {
+  flex: 1 0 0;
+  height: 100%;
+  background: var(--border);
+}
+.mt-cp__progress-seg--filled {
+  background: var(--primary-600);
+}
+/* 100% goes green — the completed signal the removed Status column carried. */
+.mt-cp__progress--complete .mt-cp__progress-seg--filled {
+  background: var(--success-500);
+}
+.mt-cp__progress--muted .mt-cp__progress-seg--filled {
+  background: var(--border);
+}
+.mt-cp__progress-pct {
+  font-size: 14px;
+  color: var(--text-secondary);
+  min-width: 36px;
+  text-align: left;
+  margin-left: var(--space-s);
+}
+.mt-cp__table-cell--muted .mt-cp__progress-pct {
+  color: var(--text-disabled);
+}
+
+/* Status '-' dash badge */
+.mt-cp__metric-btn {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+}
+
+.mt-cp__metric-btn:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.mt-cp__status-dash {
+  color: var(--text-disabled);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Empty state */
+.mt-cp__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-ml);
+  padding: var(--space-l);
+  border-radius: var(--radius-ml);
+  overflow: hidden;
+  box-shadow: 1px 1px 5px 0 rgba(56, 62, 77, 0.05);
+}
+
+.mt-cp__empty-illustration {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mt-cp__empty-zero {
+  font-family: 'Poppins', sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-disabled);
+}
+
+.mt-cp__empty-accents {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 61px;
+  height: 50px;
+}
+
+.mt-cp__empty-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  text-align: center;
+}
+
+.mt-cp__empty-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.mt-cp__empty-subtext {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+.mt-cp__table-cell--metric {
+  width: 120px;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+/* Something overdue: the DS error badge carrying the count. */
+.mt-cp__overdue-badge {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The badge's icon slot is a 16px box built for a 16px glyph, so it centres nothing —
+   a 6px dot dropped in lands top-left of it. Centred here rather than on .badge__icon
+   itself: the shared rule would also shift the 20px bell that CourseDetails puts in the
+   same slot, and that is not this row's business. */
+.mt-cp__overdue-badge .badge__icon {
+  align-items: center;
+  justify-content: center;
+}
+
+/* The same marker the Live program pill wears, in the badge.s own colour. Deliberately
+   restated here rather than reaching across to ProgramStatusBadge.css: the keyframe
+   name is global, but depending on another page.s stylesheet for this row to animate is
+   a dependency nothing declares. Keep the timing in step with psb-live-pulse. */
+.mt-cp__overdue-dot {
+  position: relative;
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.mt-cp__overdue-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: mt-overdue-pulse 1.6s ease-out infinite;
+}
+
+@keyframes mt-overdue-pulse {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  80%  { transform: scale(2.6); opacity: 0; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mt-cp__overdue-dot::after { animation: none; }
+}
+
+.mt-cp__metric-plain {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+/* Clickable metric number — underline + color shift on hover.
+   The Tooltip wrapper + button stretch to fill the cell so the full area
+   is the click/hover target, not just the small number. */
+.mt-cp__table-cell--metric:not(.mt-cp__th-btn) > .tooltip-wrapper,
+.mt-cp__table-cell--metric:not(.mt-cp__th-btn) > .tooltip-wrapper > .tooltip__trigger {
+  align-self: stretch;
+  width: 100%;
+  display: flex;
+}
+
+.mt-cp__table-cell--metric .tooltip__body--top-center,
+.mt-cp__table-cell--metric .tooltip__body--top-start,
+.mt-cp__table-cell--metric .tooltip__body--top-end {
+  bottom: calc(100% + 8px);
+}
+
+.mt-cp__metric-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin: calc(var(--space-sm) * -1) calc(var(--space-m) * -1);
+  padding: var(--space-sm) var(--space-m);
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.mt-cp__metric-link--neutral {
+  color: var(--text-primary);
+}
+.mt-cp__metric-link--neutral:hover,
+.mt-cp__metric-link--neutral:focus-visible {
+  color: var(--text-button-hover);
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Course status badge — the Course Tracker has no Status column; this is the
+   Courses drawer's per-course pill. Types per badges.md: Overdue and Failed are
+   both Error (told apart by their labels), Not Started is Informative — it is a
+   neutral "hasn't begun", not a failure, now that Overdue owns the red. */
+.mt-cp__status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.mt-cp__status-badge--overdue      { background: rgba(223, 22, 66, 0.16);    color: var(--text-error); }
+.mt-cp__status-badge--failed       { background: rgba(223, 22, 66, 0.16);    color: var(--text-error); }
+.mt-cp__status-badge--not-started  { background: var(--input-background);    color: var(--text-secondary); }
+.mt-cp__status-badge--low-progress { background: rgba(255, 165, 56, 0.16);   color: var(--text-warning, #FFA538); }
+.mt-cp__status-badge--on-track     { background: rgba(0, 206, 230, 0.16);    color: var(--primary-600); }
+.mt-cp__status-badge--completed    { background: rgba(24, 169, 87, 0.16);    color: var(--success-500); }
+
+.mt-cp__metric-plain--zero {
+  color: var(--text-disabled);
+}
+
+.mt-cp__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--input-background);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.mt-cp__avatar--img {
+  object-fit: cover;
+}
+
+/* Opens the learner's profile — same target and same hover tint as the People
+   table's name cell (.people-name-info). */
+.mt-cp__member-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.mt-cp__member-info:hover .mt-cp__member-name,
+.mt-cp__member-info:hover .mt-cp__member-role {
+  color: var(--text-button-hover);
+}
+
+.mt-cp__member-info:focus-visible {
+  outline: 2px solid var(--text-selected);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+.mt-cp__member-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mt-cp__member-role {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-secondary);
+}
+
+.mt-cp__zero {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 1024px) {
+  .mt-cp__stats {
+    flex-wrap: wrap;
+  }
+  .mt-stat-card {
+    flex: 1 0 calc(50% - var(--space-m));
+  }
+}
+
+@media (max-width: 640px) {
+  .mt-stat-card {
+    flex: 1 0 100%;
+  }
+}

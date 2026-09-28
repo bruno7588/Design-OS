@@ -1,0 +1,583 @@
+.lf-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  background: var(--page-background);
+}
+
+/* ---- Left: video stage + feed controls ---- */
+.lf-feed {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  gap: var(--space-l);
+  padding: var(--space-l);
+  /* Room for the close button, which hangs 48px to the left of the video. */
+  padding-left: calc(var(--space-l) + 48px);
+}
+
+.lf-stage {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  /* Video sits in the top-left of the stage, with the close button beside it. */
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* Sizes the video against the stage in both axes (see .lf-video-wrap). */
+  container-type: size;
+}
+
+/* Wrapper shrink-wraps the (overflow-clipped) video so the close button can
+   sit just outside its top-left corner with an 8px gap. */
+.lf-video-wrap {
+  position: relative;
+  /* 9:16 either way: full height until the stage is too narrow, then the height
+     follows the width instead of the video being squashed. */
+  aspect-ratio: 1080 / 1920;
+  height: min(100cqh, 100cqw * 1920 / 1080);
+  width: auto;
+}
+
+.lf-feed .lf-close {
+  position: absolute;
+  top: 0;
+  left: -48px; /* 40px button + 8px gap to the video */
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.lf-feed .lf-close:hover {
+  background: var(--input-background-hover);
+}
+
+.lf-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-m, 16px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.lf-video__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.lf-video__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 16, 20, 0) 86%, rgba(15, 16, 20, 0.5) 100%);
+  pointer-events: none;
+}
+
+.lf-video__progress {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-l);
+  width: 100%;
+}
+
+.lf-video__bars {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.lf-video__time {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--neutral-25);
+  white-space: nowrap;
+}
+
+/* Generic segmented fill bar */
+.lf-bar {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.lf-bar__fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+/* Feed action rail */
+.lf-actions {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 40px;
+}
+
+.lf-actions__arrows {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-m);
+}
+
+.lf-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.lf-icon-btn:hover:not(:disabled) {
+  background: var(--input-background-hover);
+}
+
+.lf-icon-btn:disabled {
+  background: var(--button-background-disabled);
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+.lf-icon-btn:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}
+
+/* ---- Right: lesson details panel ---- */
+.lf-panel {
+  flex-shrink: 0;
+  width: 544px;
+  min-width: 540px;
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  padding: var(--space-l);
+  /* The panel itself no longer scrolls: only the tab content does, so the quiz
+     banner below it stays in view however long the Learnings list gets. */
+  overflow: hidden;
+}
+
+.lf-instructor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lf-instructor__creator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.lf-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.lf-instructor__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.lf-instructor__name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.lf-instructor__role {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-secondary);
+}
+
+.lf-follow {
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--text-button-outlined);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-button-outlined);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.lf-follow--active {
+  background: var(--text-button-outlined);
+  color: var(--text-button-foreground);
+}
+
+.lf-follow:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}
+
+.lf-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* The scrolling region — the tab row above it and the quiz below stay fixed. */
+.lf-tabpanel {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* A horizontal row of episode cards shouldn't stretch to the panel's height. */
+.lf-tabpanel > .lf-episodes {
+  align-items: flex-start;
+}
+
+.lf-info__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.lf-info__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.lf-info__link {
+  align-self: flex-start;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-button-outlined);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.lf-episodes {
+  display: flex;
+  gap: var(--space-m);
+  width: 100%;
+  overflow: hidden;
+}
+
+.lf-ep {
+  box-sizing: border-box;
+  width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+}
+
+.lf-ep__label {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+.lf-ep__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: calc(1.5em * 3);
+}
+
+.lf-ep__title--upcoming {
+  color: var(--text-secondary);
+}
+
+.lf-ep__duration {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.lf-ep__time {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.lf-skill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.lf-skill__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.lf-skill__name {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+/* Bookmark / Share / Comments — lesson-scoped, so they sit with the lesson's
+   identity rather than on the tab row, which is navigation (Figma 6574:54271).
+   Icon-only 32px pills; each names itself in a Tooltip on hover. */
+.lf-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.lf-social__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: var(--space-xss);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--input-background-elevated);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+@media (hover: hover) {
+  .lf-social__item:not(:disabled):hover {
+    background: var(--input-background-hover);
+  }
+}
+
+.lf-social__item:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.lf-quiz {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border: 1px solid var(--lesson-quiz);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lf-quiz__mark {
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--lesson-quiz);
+}
+
+.lf-quiz__text {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Episodes / Resources / Learnings — tabs per chips-switcher-tabs.md. */
+.lf-tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m);
+  align-self: flex-start;
+}
+
+.lf-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.lf-tab__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.lf-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 2px indicator sized to the label row, shown only on the active tab. */
+.lf-tab__indicator {
+  width: 100%;
+  height: 2px;
+  border-radius: var(--radius-xs);
+  background: transparent;
+}
+
+.lf-tab--active .lf-tab__indicator {
+  background: var(--selected);
+}
+
+.lf-tab__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-tertiary);
+}
+
+.lf-tab--active .lf-tab__count {
+  color: var(--text-secondary);
+}
+
+@media (hover: hover) {
+  .lf-tab:hover {
+    color: var(--text-primary);
+  }
+}
+
+/* ── Learnings tab (Figma 6574:54634) ── */
+.lf-learnings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  width: 100%;
+}
+
+.lf-learn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.lf-learn__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* Outlined, not filled: the border groups each card's lines without laying a
+   slab of tone behind them, which the panel reads as quieter. */
+.lf-learn__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.lf-learn__concept {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.lf-learn__points {
+  margin: 0;
+  /* reset.css strips list markers globally; Figma draws these as discs. */
+  list-style: disc;
+  padding-left: 21px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.lf-resources {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}

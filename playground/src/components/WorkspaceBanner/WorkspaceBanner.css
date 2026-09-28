@@ -1,0 +1,217 @@
+/* Workspace hero banners — Figma "Banner course" 3733:58509. A 292px thumbnail
+   down the left with the content-type tag in its corner, then the body: metadata,
+   a two-line headline, the progress bar, and the CTA row with the chevrons at its
+   right end. Slides share one track — the course the learner is part-way through,
+   then the programs they can pick back up. */
+
+.wsb {
+  position: relative;
+  /* Clips the slide waiting off to the right. */
+  overflow: hidden;
+  border-radius: var(--radius-m);
+}
+
+.wsb__track {
+  /* Slides are stacked in one cell and slid in and out with GSAP (see
+     WorkspaceBanner.tsx) — off-screen ones are hidden, so a neighbour is never
+     partly in view. The grid row takes the height of the tallest slide, so
+     nothing jumps. */
+  display: grid;
+  /* No layout effect in a one-cell grid — the slide animation reads it as the
+     space between the outgoing and incoming banner. */
+  column-gap: var(--space-s); /* 8px */
+}
+
+.wsb__slide {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: stretch;
+  min-height: 235px;
+  border-radius: var(--radius-m);
+  /* The wash and the thumbnail hairline are read off the thumbnail image itself
+     (see thumbnailAccents.ts) and land as inline custom properties. Both are 24%
+     over the page, so the banner tints the background rather than covering it
+     and reads the same in either mode. Neutral until the image has decoded. */
+  --wsb-accent: var(--border);
+  --wsb-tint: linear-gradient(112.73deg, var(--input-background) 0%, var(--input-background) 100%);
+  background-image: var(--wsb-tint);
+}
+
+/* ── Thumbnail ── */
+.wsb__thumb {
+  position: relative;
+  /* Inset on the three outer sides so the banner's own 16px clip can't cut the
+     corners off and take the accent stroke with them. 292 + the 8px inset keeps
+     the body at Figma's 948. */
+  flex: 0 0 292px;
+  margin: var(--space-s) 0 var(--space-s) var(--space-s);
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+/* The accent hairline is an overlay rather than a border so it paints in front
+   of the corner tag: the stroke reads as one unbroken line, with the tag
+   tucked behind it. Last child, so it lands on top. */
+.wsb__thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--wsb-accent);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.wsb__image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Content-type tag, nested inside the top-left corner. It sits within the
+   hairline rather than over it, so the stroke runs unbroken all the way round
+   the thumbnail — and carries no top-left radius of its own: the thumbnail's
+   own clip rounds that corner, which keeps the tag flush against the stroke
+   instead of curving away from it. */
+.wsb__tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-s);
+  border-bottom-right-radius: var(--radius-s);
+  /* The same wash as the banner, over the page fill so the label stays legible
+     whatever the photo underneath is doing. */
+  background-image: var(--wsb-tint), linear-gradient(var(--page-background), var(--page-background));
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* ── Body ── */
+.wsb__body {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: var(--space-l);
+}
+
+.wsb__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.wsb__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.wsb__metaitem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  white-space: nowrap;
+}
+
+.wsb__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  height: 72px; /* two 24px lines at 1.5 */
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+
+/* ── Progress ── */
+.wsb__progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.wsb__bar {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  height: 6px;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  background: rgba(249, 249, 250, 0.5); /* --neutral-25 @ 50% */
+}
+
+.wsb__seg {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 100%;
+}
+
+.wsb__seg--filled {
+  background: var(--primary-600);
+}
+
+.wsb__pct {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ── Footer ── */
+.wsb__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.wsb__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  margin-left: auto;
+}
+
+.wsb__navbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.wsb__navbtn:hover {
+  background: var(--input-background-hover);
+}
+
+/* Deliberate divergence from the button ladder: outlined-2 draws its hairline in
+   --border-elevated, which is too faint for contrast against the banner's wash.
+   At rest both the border and the label take --text-primary here; hover and
+   press keep the DS treatment. */
+.wsb .ds-btn--outlined-2:not(:hover):not(:active) {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+

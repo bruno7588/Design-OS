@@ -1,0 +1,158 @@
+.ws-body {
+  padding-bottom: 64px;
+}
+
+/* Tab row — page tabs left, optional content switcher right (Calendar tab) */
+.ws-tabrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+}
+
+.ws-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  margin-top: var(--space-l);
+}
+
+.ws-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.ws-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.ws-section__headline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.ws-section__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.ws-section__subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Section CTA — H4 (16px), matching the section titles it sits beside. */
+.ws-section__cta {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--primary-button-background);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ws-section__cta:hover {
+  color: var(--text-button-hover);
+}
+
+/* Carousel track variants — composed onto .carousel__track */
+
+/* Courses + Explore: fixed-width cards, multi-card viewport, 24px gap.
+   Vertical padding reserves room for the "New" overhang badge on course cards. */
+.ws-cards-track {
+  gap: var(--space-l);
+  padding: var(--space-m) var(--space-xs) var(--space-s);
+  margin: -16px -4px -8px;
+  scroll-snap-type: x proximity;
+}
+
+.ws-cards-track > * {
+  scroll-snap-align: start;
+}
+
+/* Events: one full-width card per viewport, snap-mandatory */
+.ws-events-track {
+  gap: var(--space-m);
+  padding: var(--space-xs) 0;
+  scroll-snap-type: x mandatory;
+}
+
+.ws-events-track > .cal-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+/* Hide the type tag overlay on event thumbnails in this section only —
+   the section title already communicates "Events". */
+.ws-events-track .cal-card__typetag {
+  display: none;
+}
+
+/* Empty state — shown when there are no upcoming events.
+   Keeps the section visible so "View All" remains discoverable. */
+.ws-events-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+  padding: var(--space-xl) var(--space-m);
+  border: 1px dashed var(--border-elevated);
+  border-radius: 16px;
+  background: var(--cards-background);
+}
+
+.ws-events-empty__text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.ws-events-empty__link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--primary-button-background);
+  cursor: pointer;
+}
+
+.ws-events-empty__link:hover {
+  color: var(--text-button-hover);
+}
+
+/* Fade in when arriving from the onboarding loading screen. */
+.mt-app--fade-in {
+  animation: ws-fade-in 0.6s ease;
+}
+
+@keyframes ws-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mt-app--fade-in {
+    animation: none;
+  }
+}

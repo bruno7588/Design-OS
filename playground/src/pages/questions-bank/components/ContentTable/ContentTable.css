@@ -1,0 +1,302 @@
+.qb-content-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+/* Filter bar */
+.qb-content-table-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.qb-content-table-filter-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.qb-content-table-filter-dropdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: unset;
+  background-color: unset;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 150ms ease;
+}
+
+.qb-content-table-filter-dropdown:hover {
+  border-color: var(--border-hover);
+}
+
+.qb-content-table-search {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--input-background);
+  margin-left: auto;
+}
+
+.qb-content-table-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.qb-content-table-search input::placeholder {
+  color: var(--text-disabled);
+}
+
+.qb-content-table-add-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-ml) var(--space-s) var(--space-m);
+  background: var(--primary-button-background);
+  color: var(--text-button-foreground);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-s);
+  white-space: nowrap;
+  transition: background 150ms ease;
+}
+
+.qb-content-table-add-btn:hover {
+  background: var(--primary-button-background-hover);
+}
+
+/* Sort arrow in a header cell — the table chrome itself is the shared
+   Table component (docs/design-system/table.md). */
+.qb-content-table-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.qb-content-table-filename {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.qb-content-table-filename--clickable {
+  cursor: pointer;
+}
+
+.qb-content-table-filename--clickable:hover {
+  color: var(--text-button-hover);
+}
+
+/* Type cell */
+.qb-content-table-type {
+  color: var(--text-secondary);
+}
+
+/* Action icons */
+.qb-content-table-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.qb-content-table-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  transition: background 150ms ease;
+}
+
+.qb-content-table-action-btn:hover {
+  background: var(--page-background-hover);
+}
+
+/* AI quiz badge */
+.qb-content-table-ai-badge-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.qb-content-table-ai-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background: var(--input-background, rgba(191, 194, 204, 0.16));
+  transition: background 150ms ease;
+  cursor: pointer;
+}
+
+.qb-content-table-ai-badge:hover {
+  background: var(--input-background-hover);
+}
+
+/* Persistent tooltip */
+.qb-content-table-ai-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--space-m) var(--space-ml);
+  background: var(--tooltip-background);
+  color: var(--neutral-25);
+  border-radius: 12px;
+  white-space: nowrap;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.qb-content-table-ai-tooltip-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-25);
+  line-height: 1.4;
+}
+
+.qb-content-table-ai-tooltip-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.qb-content-table-ai-tooltip-dismiss {
+  font-size: 14px;
+  font-weight: 700;
+  /* Deliberate: this sits on --tooltip-background, dark in BOTH modes, so the
+     "no --primary-500 as text" rule (which is about light grounds) does not
+     apply. --text-button-outlined would drop this to ~3.7:1. */
+  color: var(--primary-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-s) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: color 150ms ease;
+}
+
+.qb-content-table-ai-tooltip-dismiss:hover {
+  color: var(--text-button-hover);
+}
+
+.qb-content-table-ai-tooltip-review {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-button-foreground);
+  background: var(--primary-button-background);
+  border: none;
+  cursor: pointer;
+  padding: var(--space-s) var(--space-ml);
+  border-radius: var(--radius-sm);
+  transition: background 150ms ease;
+}
+
+.qb-content-table-ai-tooltip-review:hover {
+  background: var(--primary-button-background-hover);
+}
+
+/* Arrow pointing right toward the badge */
+.qb-content-table-ai-tooltip-arrow {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-right: none;
+  border-left: 8px solid var(--tooltip-background);
+}
+
+/* Preview overlay */
+.qb-content-table-preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--page-background);
+  overflow-y: auto;
+}
+
+.qb-content-table-preview-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xss);
+  border-radius: var(--radius-full);
+  z-index: 101;
+}
+
+.qb-content-table-preview-close:hover {
+  background: var(--page-background-hover);
+}
+
+.qb-content-table-preview-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-ml) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  height: calc(100vh - 40px);
+}
+
+.qb-content-table-preview-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.qb-content-table-preview-divider {
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+.qb-content-table-preview-frame {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qb-content-table-preview-placeholder-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+

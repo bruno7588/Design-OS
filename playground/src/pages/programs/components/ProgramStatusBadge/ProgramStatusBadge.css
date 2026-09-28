@@ -1,0 +1,61 @@
+/* Program lifecycle pill — Draft / Scheduled / Live. */
+.psb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.psb__dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Live = animated pulsing dot, matching the HRIS sync pill. */
+.psb--live .psb__dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.6;
+  animation: psb-live-pulse 1.6s ease-out infinite;
+}
+
+@keyframes psb-live-pulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  80% { transform: scale(2.6); opacity: 0; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psb--live .psb__dot::after {
+    animation: none;
+  }
+}
+
+/* In Progress badge family (badges.md): Primary-500 @16% + --text-progress. */
+.psb--ready {
+  background: rgba(0, 206, 230, 0.16);
+  color: var(--text-progress);
+}
+
+/* Scheduled = neutral, on-track planned state → Informative family (badges.md). */
+.psb--scheduled {
+  background: var(--input-background);
+  color: var(--text-secondary);
+}
+
+.psb--live {
+  background: rgba(24, 169, 87, 0.16);
+  color: var(--text-success);
+}

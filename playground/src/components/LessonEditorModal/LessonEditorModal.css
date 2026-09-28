@@ -1,0 +1,376 @@
+.lesson-editor-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--page-background);
+  overflow-y: auto;
+}
+
+.lesson-editor-close {
+  position: absolute;
+  top: var(--space-l);
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: var(--space-xs);
+  background: var(--input-background);
+  border-radius: var(--radius-full);
+  z-index: 101;
+}
+
+.lesson-editor-close:hover {
+  background: var(--input-background-hover);
+}
+
+/* Centered content area */
+.lesson-editor-content {
+  /* Always leaves room for the close button in the overlay's corner, so the
+     Publish/Update button can never slide under it on a narrow window. */
+  width: min(900px, 100% - 176px);
+  margin: 0 auto;
+  padding: var(--space-l) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+/* Header */
+.lesson-editor-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+}
+
+.lesson-editor-header-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.lesson-editor-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.lesson-editor-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.lesson-editor-publish-btn {
+  white-space: nowrap;
+  padding: var(--space-ssm) var(--space-ml);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-button-foreground);
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background, var(--primary-600));
+  cursor: pointer;
+  line-height: 1.5;
+  transition: background 150ms ease;
+}
+
+.lesson-editor-publish-btn:hover {
+  opacity: 0.9;
+}
+
+.lesson-editor-divider {
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* Guidelines — bordered field style */
+.lesson-editor-guidelines-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 150ms ease;
+}
+
+.lesson-editor-guidelines-field:hover {
+  border-color: var(--border-hover);
+}
+
+.lesson-editor-guidelines-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.lesson-editor-guidelines-field svg {
+  flex-shrink: 0;
+  transition: transform 150ms ease;
+}
+
+.lesson-editor-guidelines-field--open svg {
+  transform: rotate(180deg);
+}
+
+.lesson-editor-guidelines-body {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding: var(--space-sm) var(--space-m);
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+}
+
+/* File preview + fields layout */
+.lesson-editor-body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-ml);
+}
+
+.lesson-editor-preview {
+  width: 200px;
+  height: 292px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Figma scrims the poster at 50% so the white player controls read on any frame. */
+.lesson-editor-preview-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 16, 20, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-m);
+  border-radius: var(--radius-sm);
+}
+
+.lesson-editor-play-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-ml);
+}
+
+.lesson-editor-play-actions svg {
+  filter: drop-shadow(-0.755px -0.755px 1.509px rgba(32, 34, 42, 0.04))
+    drop-shadow(0.755px 0.755px 1.509px rgba(32, 34, 42, 0.04));
+}
+
+.lesson-editor-fields {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+/* Form fields */
+.lesson-editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.lesson-editor-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.lesson-editor-input {
+  padding: var(--space-s) var(--space-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: none;
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  outline: none;
+  line-height: 1.5;
+}
+
+.lesson-editor-input::placeholder {
+  color: var(--text-disabled);
+}
+
+.lesson-editor-input:hover {
+  border-color: var(--border-hover);
+}
+
+.lesson-editor-input:focus {
+  border-color: var(--selected);
+}
+
+/* File name field with Change File button */
+.lesson-editor-file-input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.lesson-editor-file-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lesson-editor-change-file {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-button-background);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+
+.lesson-editor-change-file:hover {
+  opacity: 0.8;
+}
+
+/* Lesson thumbnail picker — 90px tile + copy + Change Thumbnail (6547:34375) */
+.lesson-editor-thumb-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.lesson-editor-thumb {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  background-size: cover;
+  background-position: center;
+}
+
+.lesson-editor-thumb-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+  background: rgba(15, 16, 20, 0.5);
+  border-radius: var(--radius-full);
+}
+
+.lesson-editor-thumb-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.lesson-editor-thumb-copy {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Tab bar — gap 16 and a 2px indicator 4px under the label (chips-switcher-tabs.md) */
+.lesson-editor-tabs {
+  display: flex;
+  gap: var(--space-m);
+  align-items: flex-start;
+}
+
+.lesson-editor-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0 0 var(--space-xs);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Resource count beside the tab label, as on the learner course page. */
+.lesson-editor-tab__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xxs) var(--space-s);
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.lesson-editor-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  border-radius: var(--radius-xs);
+}
+
+.lesson-editor-tab:hover:not(:disabled) {
+  color: var(--text-primary);
+}
+
+.lesson-editor-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.lesson-editor-tab--active::after {
+  background: var(--selected);
+}
+
+.lesson-editor-tab--disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+/* Tab content */
+.lesson-editor-tab-content {
+  padding-top: 0;
+}

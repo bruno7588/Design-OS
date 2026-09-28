@@ -1,0 +1,541 @@
+/* Full-screen modal that covers everything below the top nav (70px).
+   Sits BELOW the topnav (z-index 100) so the topnav stays interactive and its
+   downward tooltips (theme / log out) aren't clipped by this panel. */
+.automation-details-modal {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  background: var(--page-background);
+  overflow-y: auto;
+}
+
+/* Close button — top-right relative to the modal. Same filled 40px circle the
+   course and program builders use (PageHeader's .page-header-close).
+   `right` tracks the content column's own right edge (its gutter once the
+   column is capped at 1024px) so the close always lines up with the title
+   row's edit icon, whatever the viewport width. */
+.automation-details-close {
+  position: absolute;
+  top: 24px;
+  right: max(var(--space-m), calc(50% - 512px + var(--space-m)));
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  background: var(--input-background);
+}
+
+.automation-details-close:hover {
+  background: var(--input-background-hover);
+}
+
+/* Centered 1024px content column. The top padding clears the close button's
+   own row (24px offset + 40px button) and leaves a 16px gap below it, so the
+   title row's edit icon sits 16px under the close button. */
+.automation-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: calc(var(--space-l) + var(--space-xxl) + var(--space-m)) var(--space-m) var(--space-l);
+}
+
+/* ===== Header ===== */
+.automation-details-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+/* Inline input (input.md; Figma 9051:91247 annotates this title as the shared
+   Input-inline, the same one Course and Programs use). Borderless by design:
+   the type is the whole affordance, so there is no box, no hover and no focus
+   ring — Active is the caret and nothing else. H3 20 here rather than the
+   library's Bold 32, which is what this instance specifies. */
+.automation-details-title {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  caret-color: var(--text-primary);
+}
+
+.automation-details-title::placeholder {
+  color: var(--text-disabled);
+}
+
+.automation-details-divider {
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* ===== Footer (save / update action) ===== */
+.automation-details-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-s);
+}
+
+/* ===== Section ===== */
+.automation-details-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.automation-details-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.automation-details-section-title {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.automation-details-section-desc {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ===== Card ===== */
+.automation-details-card {
+  display: flex;
+  flex-direction: column;
+  /* 16px between what the card holds: its lead sentence, the criteria or the
+     course table under it, and anything that follows. */
+  gap: var(--space-m);
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-s);
+}
+
+.automation-details-card-lead {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Inline attribute-change trigger row: text + attribute dropdown + text + value dropdown */
+.automation-details-trigger-attribute {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+/* Compact inline dropdown — shrinks default 100% width to content */
+.dropdown-field.automation-details-condition-dropdown {
+  width: auto;
+  flex: 0 0 auto;
+}
+
+.dropdown-field.automation-details-condition-dropdown .dropdown-trigger {
+  width: auto;
+  height: auto;
+  padding: var(--space-s) var(--space-sm);
+  font-size: 14px;
+}
+
+/* Keep the role search inline next to "changes to". Page-scoped to beat the
+   colliding global `.role-search { width: 100% }` from onboarding/RoleSearch.css. */
+.automation-details-trigger-attribute .role-search {
+  width: 300px;
+  flex: 0 0 auto;
+}
+
+/* ===== Actions toolbar ===== */
+.automation-details-actions-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm); /* 12px between text and search */
+}
+
+
+/* ===== Table ===== */
+.automation-details-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.automation-details-table-header {
+  display: flex;
+  align-items: flex-start;
+  padding-left: var(--space-xl);  /* aligns with row body (drag handle width + gap) */
+  padding-right: var(--space-xxl); /* aligns with row body (remove btn width + gap) */
+  background: var(--input-background-elevated);
+  border-radius: var(--radius-sm);
+}
+
+.automation-details-th {
+  flex-shrink: 0;
+  width: 180px;
+  padding: var(--space-s) var(--space-sm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.automation-details-th--course {
+  flex: 1 0 0;
+  min-width: 0;
+  width: auto;
+}
+
+.automation-details-th--with-info {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.automation-details-th-info-icon {
+  display: block;
+  color: var(--text-secondary);
+}
+
+/* ===== Row ===== */
+.automation-details-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s);
+  background: var(--input-background-elevated);
+  border-radius: var(--radius-sm);
+  transition: opacity 120ms ease, box-shadow 120ms ease;
+}
+
+.automation-details-row--dragging {
+  opacity: 0.5;
+}
+
+.automation-details-row-drag,
+.automation-details-row-remove {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: color 150ms ease;
+}
+
+.automation-details-row-drag {
+  cursor: grab;
+}
+
+.automation-details-row-remove {
+  margin-left: var(--space-xs);
+  width: 32px;
+  height: 32px;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.automation-details-row-drag:hover {
+  color: var(--text-secondary);
+}
+
+.automation-details-row-remove:hover {
+  color: var(--text-error);
+  background: var(--input-background);
+}
+
+.automation-details-row-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: background-color 150ms ease;
+}
+
+.automation-details-row:hover .automation-details-row-card {
+  background: var(--cards-background-hover);
+}
+
+.automation-details-td {
+  flex-shrink: 0;
+  width: 180px;
+  padding: var(--space-s) var(--space-sm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.automation-details-td--course {
+  flex: 1 0 0;
+  min-width: 0;
+  width: auto;
+  display: flex;
+  align-items: center;
+  /* table.md: 12px when the cell holds a thumbnail beside text. */
+  gap: var(--space-sm);
+}
+
+.automation-details-td--editable {
+  position: relative;
+  padding: var(--space-xs) var(--space-xs);
+}
+
+.automation-details-cell-trigger {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: var(--space-s) var(--space-sm);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.automation-details-cell-trigger__body {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.automation-details-cell-trigger__title {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.automation-details-cell-trigger__desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.automation-details-cell-trigger__chevron {
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  transition: transform 150ms ease;
+}
+
+.automation-details-cell-trigger--open .automation-details-cell-trigger__chevron {
+  transform: rotate(180deg);
+}
+
+.automation-details-row-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 20px;
+  padding: 0 var(--space-xss);
+  background: var(--input-background-elevated);
+  border-radius: var(--radius-full);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* 72x44 per table.md's thumbnail cell. The Automations frame draws 64x40; the
+   doc wins, and the gap is flagged for the Library. */
+.automation-details-row-thumb {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 44px;
+  border-radius: var(--radius-s);
+  background: linear-gradient(135deg, var(--neutral-100), var(--neutral-50));
+  object-fit: cover;
+  display: block;
+}
+
+.automation-details-row-name {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+
+.automation-details-row-name:hover {
+  color: var(--primary-700);
+}
+
+/* Live count under the criteria on existing-employee automations. */
+.automation-details-eligible {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ── Review summary dialog (DEV-4768) ──────────────────────────────────────
+   Wider than the default confirm dialog and left-aligned, because it is read
+   rather than answered: the admin checks a list before committing. */
+.automation-review {
+  position: relative;
+  width: 600px;
+}
+
+/* Top right of the panel, per overlays.md's modal close. */
+.automation-review-close {
+  position: absolute;
+  top: var(--space-ssm);
+  right: var(--space-ssm);
+}
+
+.automation-review-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.automation-review-divider {
+  height: 1px;
+  width: 100%;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+.automation-review-lead {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.automation-review-heading {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.automation-review-list {
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.automation-review-row {
+  display: flex;
+  gap: var(--space-ml);
+  padding: var(--space-sm) var(--space-m);
+  border-top: 1px solid var(--border);
+}
+
+.automation-review-row:first-child {
+  border-top: none;
+}
+
+.automation-review-key {
+  flex: 0 0 120px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.automation-review-value {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.automation-review-value p {
+  margin: 0;
+}
+
+/* The per-course terms sit under the course they belong to, so the list does not
+   claim one enrolment or due date for the whole automation. */
+.automation-review-terms {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.automation-review-empty {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.automation-review-audience {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  margin: 0;
+  padding: var(--space-sm) var(--space-m);
+  border-radius: var(--radius-sm);
+  background: var(--input-background);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.automation-review-audience svg {
+  flex-shrink: 0;
+}

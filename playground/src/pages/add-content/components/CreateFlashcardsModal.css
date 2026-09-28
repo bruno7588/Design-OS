@@ -1,0 +1,193 @@
+.cfm-modal {
+  width: 600px;
+  background: var(--page-background);
+}
+
+.cfm-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+.cfm-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cfm-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.cfm-close:hover {
+  background: var(--cards-background-hover);
+}
+
+.cfm-options {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-ml);
+  width: 100%;
+}
+
+.cfm-option {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--cards-background);
+  box-shadow:
+    -1px -1px 4px 0 rgba(32, 34, 42, 0.06),
+    1px 1px 4px 0 rgba(32, 34, 42, 0.06);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Gradient fill (fades in on hover) */
+.cfm-option::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--cfm-grad-fill);
+  opacity: 0;
+  transition: opacity 240ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gradient stroke (fades in on hover) */
+.cfm-option::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--cfm-grad-stroke);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 240ms ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cfm-option:hover::before,
+.cfm-option:hover::after {
+  opacity: 1;
+}
+
+.cfm-option--empty {
+  --cfm-grad-fill: linear-gradient(135deg, rgba(255, 187, 56, 0.08), rgba(233, 92, 123, 0.08));
+  --cfm-grad-stroke: linear-gradient(135deg, var(--secondary-600), var(--danger-400));
+}
+
+.cfm-option--ai {
+  --cfm-grad-fill: linear-gradient(135deg, rgba(0, 206, 230, 0.08), rgba(129, 88, 236, 0.08));
+  /* Canonical AI gradient chrome (Button.css) — mode-aware start, Blaze end */
+  --cfm-grad-stroke: radial-gradient(circle at top left, var(--text-button-outlined), var(--blaze-quiz));
+}
+
+.cfm-option:focus-visible {
+  outline: 2px solid var(--secondary-500);
+  outline-offset: 2px;
+}
+
+.cfm-option-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  width: 100%;
+  flex: 1 1 auto;
+  z-index: 1;
+}
+
+.cfm-option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  transform-origin: left center;
+  transition: transform 200ms ease-in-out;
+}
+
+.cfm-option:hover .cfm-option-icon {
+  transform: scale(1.24);
+}
+
+.cfm-ai-sparkle-big,
+.cfm-ai-sparkle-small {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 200ms ease-in-out;
+}
+
+.cfm-option--ai:hover .cfm-ai-sparkle-big {
+  transform: scale(0.85);
+}
+
+.cfm-option--ai:hover .cfm-ai-sparkle-small {
+  transform: scale(1.6);
+}
+
+.cfm-option-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  min-width: 0;
+}
+
+.cfm-option-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-top: auto;
+  padding: var(--space-s);
+  border-radius: 100px;
+  background: var(--input-background-elevated);
+  z-index: 1;
+}
+
+.cfm-option-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cfm-option-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+

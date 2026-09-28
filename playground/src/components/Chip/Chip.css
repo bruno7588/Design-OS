@@ -1,0 +1,123 @@
+/* Chip — per docs/design-system/chips.md
+   Light-theme adaptation for the admin app.
+   Tokens mapped:
+     --selected             → --secondary-600 (amber #EDA30D)
+     --page-background-hover → --neutral-50
+     --border-elevated      → chip chrome (enabled + hover base)
+     --border-hover         → --border-hover (already exists)
+     --text-secondary       → --text-secondary
+     --text-disabled        → --text-disabled
+     --neutral-800 selected label → --neutral-800 */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-elevated);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+/* An icon sits 10px from the edge where the text sits 12px: a glyph has its own optical
+   margin built in, so the same 12px reads as a wider gap on the icon side than on the
+   word side. Figma 5162:28510 draws all three variants this way. */
+.chip--icon-left {
+  gap: var(--space-xs);
+  padding-left: var(--space-ssm);
+}
+
+.chip--icon-right {
+  gap: var(--space-xs);
+  padding-right: var(--space-ssm);
+}
+
+/* Both icons — an extension beyond the component set, which has no two-icon variant.
+   Used for selectable user chips that carry a leading avatar AND a trailing dismiss;
+   the icon inset applies at both ends for the same reason it applies at one. */
+.chip--icon-both {
+  gap: var(--space-xs);
+  padding-left: var(--space-ssm);
+  padding-right: var(--space-ssm);
+}
+
+.chip--no-icons {
+  gap: 0;
+}
+
+/* Hover. Excluded from the selected chip on purpose: the spec writes this as a bare
+   `.chip:hover`, which outranks `.chip--selected` and would turn a selected chip grey
+   on the way to clicking it. */
+.chip:not(.chip--disabled):not(.chip--selected):hover {
+  background: var(--page-background-hover);
+  border-color: var(--border-hover);
+}
+
+/* Every interactive element carries a visible focus ring (CLAUDE.md), and the chip is
+   reachable by keyboard. Same ring the buttons and the switcher use. */
+.chip:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* Selected */
+.chip--selected {
+  /* Transparent rather than `border: none`, which the spec's CSS gives: dropping the
+     border makes a selected chip 2px smaller than its neighbours and shunts the row
+     sideways on every click. Same result to look at, stable to sit next to. */
+  border-color: transparent;
+  background: var(--secondary-500);
+  color: var(--text-on-selected);
+  font-weight: 700;
+}
+
+.chip--selected:hover {
+  background: var(--secondary-600);
+}
+
+/* Disabled */
+.chip--disabled {
+  border-color: var(--border);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Label */
+.chip__label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+}
+
+/* Dismiss button (iconRight) */
+.chip__dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.chip__dismiss:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Warning variant */
+.chip--warning {
+  border-color: var(--button-warning-background);
+}

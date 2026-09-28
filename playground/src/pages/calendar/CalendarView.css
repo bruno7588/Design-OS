@@ -1,0 +1,483 @@
+.cal-view {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-l);
+}
+
+.cal-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: var(--space-xl);
+}
+
+.cal-center {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Date row ─────────────────────────────────── */
+.cal-row {
+  position: relative;
+  padding-left: var(--space-l);
+  padding-bottom: var(--space-l);
+  border-left: 1px dashed var(--border);
+}
+
+.cal-row:last-child {
+  border-left-color: transparent;
+}
+
+.cal-row__header {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+  margin-bottom: var(--space-sm);
+}
+
+.cal-row__dot {
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  box-shadow: 0 0 0 3px var(--page-background);
+}
+
+.cal-row__date {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.cal-row__weekday {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.cal-row__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ── Card (Figma node 10113:207824 — Events file) ──────────── */
+.cal-card {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) auto;
+  gap: var(--space-m);                                  /* Figma: gap-[16px] */
+  align-items: center;
+  padding: var(--space-m);                              /* Figma: p-[--m,16px] */
+  background: var(--cards-background);
+  border-radius: 16px;                        /* Figma: rounded-[--m,16px] */
+  box-shadow: -1px -1px 4px rgba(32, 34, 42, 0.06),
+              1px 1px 4px rgba(32, 34, 42, 0.06);
+}
+
+.cal-card--course {
+  grid-template-columns: 200px minmax(0, 1fr);
+}
+
+.cal-card--interactive {
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.cal-card--interactive:hover {
+  background: var(--cards-background-hover);
+}
+
+.cal-card--interactive:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}
+
+.cal-card__media {
+  position: relative;
+  width: 100%;                                /* fills its grid column (200px, or 120px ≤1024) */
+  height: 120px;                              /* Figma: h-[120px] */
+  border-radius: 12px;                        /* Figma: rounded-[--sm,12px] */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* ── Type tag (DS lesson-cards § Tag icon) ─────────────────── */
+.cal-card__typetag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--space-xs);
+  border-bottom-right-radius: 9.143px;
+  background: var(--border);
+  color: var(--text-tertiary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-card__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);                                   /* Figma info-col gap-[8px] */
+}
+
+.cal-card__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cal-card__metablock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);                                   /* Figma metadata block gap-[--s,8px] */
+}
+
+.cal-card__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);                                   /* Figma per-pair gap-[8px] */
+  margin: 0;
+  font-size: 14px;                            /* Figma: text-[14px] */
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.cal-card__metarow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);                                   /* Figma date row gap-[--s,8px] */
+  flex-wrap: wrap;
+}
+
+/* ── Overdue badge (inline, doesn't stretch the flex parent) ─ */
+.cal-card__overdue {
+  align-self: flex-start;
+}
+
+/* ── Bottom row: countdown badge + attendee stack on event cards ─ */
+.cal-card__bottomrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+
+.cal-card__countdown {
+  padding: var(--space-xss) var(--space-sm);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+/* ── Attendee stack (Figma node 10113:207839) ──────────────── */
+.cal-card__avatars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cal-card__avatar {
+  width: 24px;                                /* Figma: size-[24px] */
+  height: 24px;
+  border-radius: 100px;                       /* Figma: rounded-[--100,100px] */
+  background: var(--neutral-300);
+  color: var(--neutral-0);
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cards-background);   /* Figma uses 0.5px; CSS rounds to 1px */
+  margin-left: -8px;                          /* Figma: mr-[-8px] overlap */
+  letter-spacing: 0.02em;
+}
+
+.cal-card__avatar:first-child {
+  margin-left: 0;
+}
+
+.cal-card__avatar--overflow {
+  background: var(--cards-background-hover);
+  color: var(--text-tertiary);
+  font-size: 8px;                             /* Figma overflow pill: text-[8px] */
+  font-weight: 400;
+}
+
+/* ── Action button (Figma node 10113:207840) ─────────────────── */
+.cal-card__actionwrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cal-card__action--split {
+  padding: var(--space-s) var(--space-m);                          /* Figma: px-[16px] py-[8px] — overrides .btn-primary's 10px 20px */
+  gap: var(--space-xs);                                   /* Figma: gap-[4px] between label and chevron */
+}
+
+/* ── Right rail ───────────────────────────────── */
+.cal-rightrail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.cal-mini {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  background: var(--cards-background);
+  border-radius: 12px;
+  box-shadow: var(--shadow-s);
+}
+
+.cal-mini__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-m) var(--space-m) var(--space-s);
+}
+
+.cal-mini__month {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.cal-mini__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.cal-mini__navbtn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.cal-mini__weekrow {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-m) var(--space-xs);
+}
+
+.cal-mini__weekday {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.cal-mini__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  gap: var(--space-s);
+  padding: var(--space-xs) var(--space-m) var(--space-m);
+}
+
+.cal-mini__day {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.cal-mini__day--hasitems {
+  cursor: pointer;
+}
+
+.cal-mini__day--hasitems:hover {
+  z-index: 10;
+}
+
+.cal-mini__day-num {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.cal-mini__day-fill {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.cal-mini__day--hasitems {
+  border-radius: 8px;
+}
+
+.cal-mini__tooltip {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xss);
+  min-width: 140px;
+  max-width: 220px;
+  padding: var(--space-s) var(--space-sm);
+  background: var(--cards-background);
+  border-radius: 8px;
+  box-shadow: var(--shadow-s);
+  pointer-events: none;
+  white-space: normal;
+}
+
+.cal-mini__tooltip-eyebrow {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+.cal-mini__tooltip-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  text-align: left;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cal-mini__tooltip-count {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.cal-mini__day:hover {
+  background: var(--cards-background-hover);
+  border-radius: 8px;
+}
+
+.cal-mini__day:focus-visible {
+  outline: none;
+  border-color: var(--selected);
+  border-radius: 8px;
+}
+
+.cal-mini__day--outside {
+  opacity: 0.5;
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+.cal-mini__day--outside:hover {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.cal-mini__day--today {
+  background: var(--selected);
+  border-color: var(--selected);
+  border-radius: 8px;
+  color: var(--text-on-selected);
+  font-weight: 500;
+}
+
+.cal-mini__day--today:hover {
+  background: var(--selected);
+}
+
+/* ── Right-rail tabs ──────────────────────────── */
+.cal-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+  padding: var(--space-xs);
+  background: var(--input-background);
+  border-radius: 10px;
+}
+
+.cal-tab {
+  background: transparent;
+  border: none;
+  padding: var(--space-s) var(--space-sm);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.cal-tab--active {
+  background: var(--cards-background);
+  color: var(--text-primary);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+/* ── Empty state placeholder ─────────────────── */
+.cal-empty {
+  padding: 64px var(--space-l);
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 1024px) {
+  .cal-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cal-rightrail {
+    position: static;
+  }
+  .cal-card {
+    /* Keep the button in its own right-hand column (just a smaller thumbnail) rather
+       than dropping it to a full-width row — the body already stacks the title above
+       its metadata, so the metadata sits on the second line. */
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+  }
+  .cal-card--course {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+}

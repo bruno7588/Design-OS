@@ -1,0 +1,897 @@
+.people-layout {
+  display: flex;
+  flex: 1;
+}
+
+.people-main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.people-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  padding: var(--space-l);
+}
+
+/* ===== Quicklinks ===== */
+.people-quicklinks {
+  display: flex;
+  gap: var(--space-m);
+}
+
+.people-quicklink {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  background: rgba(var(--ql-color), 0.16);
+  transition: background 150ms ease;
+}
+
+.people-quicklink:hover {
+  background: rgba(var(--ql-color), 0.32);
+}
+
+.people-quicklink-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.people-quicklink-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.people-quicklink-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.people-quicklink-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== Tabs ===== */
+.people-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.people-tab {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0;
+  padding-bottom: var(--space-xs);
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.people-tab:hover {
+  color: var(--text-primary);
+}
+
+.people-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.people-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--secondary-500);
+  border-radius: 2px;
+}
+
+/* ===== Info banner (Deactivated tab) ===== */
+.people-info-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm);
+  background: rgba(255, 187, 56, 0.12);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-warning);
+  line-height: 1.5;
+}
+
+.people-info-banner span {
+  font-weight: 500;
+}
+
+.people-info-banner svg {
+  flex-shrink: 0;
+}
+
+/* ===== Actions bar ===== */
+.people-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Minimum 16px between the search and the buttons — space-between distributes any
+     extra beyond this, but the gap keeps them from ever touching. */
+  gap: var(--space-m);
+}
+
+.people-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  background: var(--input-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 400px;
+}
+
+.people-search:hover {
+  border-color: var(--border-hover);
+}
+
+.people-search:focus-within {
+  border-color: var(--selected);
+}
+
+.people-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.people-search-input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Actions right group */
+.people-actions-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.people-edit-cols-wrapper {
+  position: relative;
+}
+
+.people-edit-cols-btn {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-m);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.people-edit-cols-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+/* ===== Actions left group ===== */
+.people-actions-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+/* ===== Status filter dropdown ===== */
+.people-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.people-filter-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.people-filter-dropdown {
+  position: relative;
+}
+
+.people-filter-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  background: transparent;
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s) var(--space-m);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.people-filter-trigger:hover {
+  background: var(--input-background);
+  border-color: var(--border-hover);
+}
+
+.people-filter-trigger--open {
+  border-color: var(--selected);
+}
+
+.people-filter-trigger--open:hover {
+  border-color: var(--selected);
+}
+
+.people-filter-chevron {
+  flex-shrink: 0;
+  transition: transform 150ms ease;
+}
+
+.people-filter-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Listbox panel */
+.people-filter-listbox {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s);
+  box-shadow: -4px 0px 24px 0px rgba(32, 34, 42, 0.12);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  animation: menu-fade-in 150ms ease;
+}
+
+.people-filter-option {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-m);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: left;
+  transition: background 150ms ease;
+}
+
+.people-filter-option:hover {
+  background: var(--cards-background-hover);
+}
+
+.people-filter-option--selected {
+  background: var(--secondary-500);
+  color: var(--text-on-selected);
+  font-weight: 500;
+}
+
+.people-filter-option--selected:hover {
+  background: var(--secondary-600);
+}
+
+/* ===== Table cells ===== */
+.people-role-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  min-width: 0;
+}
+
+/* Its own ellipsis: the lock sits beside the text, so the cell's clip would cut the icon off first. */
+.people-role-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sortable header label — the sorted column steps up so the order it follows is readable at a glance. */
+.people-th-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.people-th-sort--sorted {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* The scope on the remove confirmation: the table's badges, every field of
+   them. Wrapping, because a confirmation has no row height to protect. */
+.people-remove-scope {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+/* The tooltip wrapper is inline-flex, which sizes to its text and pushes the
+   rest of the row out; both it and its trigger have to give way to the cell so
+   a long scope truncates instead. */
+.people-scope-tip,
+.people-scope-tip .tooltip__trigger {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Figma People 9487:469186 — one badge per field, "Hotel name: 3 of 5", on the
+   cell's own 12px gap. One line only: a wrapped badge takes the whole row's
+   height with it, so anything past the second field becomes a "+N" chip. */
+.people-scope {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+  cursor: pointer;
+}
+
+.people-scope .badge {
+  flex-shrink: 0;
+}
+
+.people-scope:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Colour alone would not carry it, so the icon comes with the wording. */
+.people-scope__warn {
+  flex-shrink: 0;
+}
+
+/* One line per field, each saying how much of that field the scope takes: a
+   count is the one thing a field name on its own cannot tell you. */
+.people-scope__line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.people-scope__line--warning {
+  gap: var(--space-xs);
+  color: var(--text-warning);
+}
+
+/* The quieter half of the badge: Regular, one step back from the field name it
+   qualifies (Figma binds it to Text-tertiary). */
+.people-scope__count {
+  margin-left: var(--space-xs);
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+/* Stacked date (two-line: "Jan 13," / "2025") */
+.people-date-stack {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Year drops back so the day line carries the scan — table.md's date cell,
+   dimmed one further step to --text-tertiary. */
+.people-date-stack__year {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+/* Avatar */
+.people-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-0);
+  flex-shrink: 0;
+}
+
+.people-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.people-name-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  min-width: 0;
+  cursor: pointer;
+}
+
+.people-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 150ms ease;
+}
+
+.people-email {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 150ms ease;
+}
+
+.people-name-info:hover .people-name,
+.people-name-info:hover .people-email {
+  color: var(--text-button-hover);
+}
+
+/* Status badges */
+.people-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.people-badge--registered {
+  background: rgba(24, 169, 87, 0.16);
+  color: var(--text-success);
+}
+
+.people-badge--invited {
+  background: rgba(255, 165, 56, 0.16);
+  color: var(--text-warning);
+}
+
+/* ===== More button ===== */
+.people-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+  border-radius: var(--radius-full);
+  transition: background 150ms ease;
+}
+
+.people-more-btn:hover {
+  background: var(--cards-background-hover);
+}
+
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Empty state ===== */
+.people-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-height: 300px;
+  text-align: center;
+}
+
+.people-empty-state-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.people-empty-state-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+/* Bulk action bar moved to the shared BulkActionBar component
+   (src/components/BulkActionBar). */
+
+/* ===== Confirm modal content styles ===== */
+
+/* Text block (centered) */
+.confirm-modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-s);
+  text-align: left;
+  width: 100%;
+}
+
+.confirm-modal-header--center {
+  align-items: center;
+  text-align: center;
+  gap: var(--space-m);
+}
+
+.confirm-modal-icon {
+  margin-bottom: var(--space-xs);
+  color: var(--danger-500);
+}
+
+.confirm-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.confirm-modal-body {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Info box (deactivate dialog) */
+.confirm-modal-info {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  padding: var(--space-sm) var(--space-m);
+  background: rgba(255, 187, 56, 0.12);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-warning);
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.confirm-modal-info svg {
+  flex-shrink: 0;
+  margin-top: var(--space-xxs);
+}
+
+/* Warning block (delete dialogs) — not used in new design, kept for custom content */
+.confirm-modal-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-m);
+  background: rgba(223, 22, 66, 0.08);
+  border-left: 3px solid var(--danger-500);
+  border-radius: var(--radius-s);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.confirm-modal-warning svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* User list (bulk dialogs) */
+.confirm-modal-user-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.confirm-modal-user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-m);
+  border-bottom: 1px solid var(--border);
+}
+
+.confirm-modal-user-row:last-child {
+  border-bottom: none;
+}
+
+.confirm-modal-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.confirm-modal-user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.confirm-modal-user-email {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.confirm-modal-user-team {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+/* Confirm input (delete dialogs) */
+.confirm-modal-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.confirm-modal-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.confirm-modal-label-danger {
+  color: var(--text-error);
+}
+
+.confirm-modal-input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-m);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--cards-background);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 150ms ease;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.confirm-modal-input:hover {
+  border-color: var(--border-hover);
+}
+
+.confirm-modal-input:focus {
+  border-color: var(--selected);
+}
+
+.confirm-modal-input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Button row (centered) */
+.confirm-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-m);
+  width: 100%;
+}
+
+/* Radio cards (deactivate-bulk modal) */
+.confirm-modal-radio-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.confirm-modal-radio-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.confirm-modal-radio-card:hover {
+  border-color: var(--border-hover);
+}
+
+/* Semantic @ 12%: a mode-invariant tint, lighter than the 16% the DS uses for
+   alerts and badges so the selected card reads as a surface, not a status.
+   The -100 palette steps are light-mode fills and leave white text unreadable
+   on them in dark mode. */
+.confirm-modal-radio-card--danger {
+  border-color: var(--danger-500);
+  background: rgba(223, 22, 66, 0.12);
+}
+
+.confirm-modal-radio-card--danger:hover {
+  border-color: var(--danger-500);
+}
+
+.confirm-modal-radio-card--warning {
+  border-color: var(--warning-500);
+  background: rgba(255, 165, 56, 0.12);
+}
+
+.confirm-modal-radio-card--warning:hover {
+  border-color: var(--warning-500);
+}
+
+.confirm-modal-radio-card input[type="radio"] {
+  display: none;
+}
+
+.confirm-modal-radio-card .confirm-modal-radio-custom {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--text-primary);
+  position: relative;
+  flex-shrink: 0;
+  margin-top: var(--space-xxs);
+  transition: border-color 150ms ease;
+}
+
+.confirm-modal-radio-card--danger .confirm-modal-radio-custom {
+  border-color: var(--danger-500);
+}
+
+.confirm-modal-radio-card--danger .confirm-modal-radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--danger-500);
+}
+
+.confirm-modal-radio-card--warning .confirm-modal-radio-custom {
+  border-color: var(--warning-500);
+}
+
+.confirm-modal-radio-card--warning .confirm-modal-radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--warning-500);
+}
+
+.confirm-modal-radio-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.confirm-modal-radio-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.confirm-modal-radio-card-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+/* ═══ Reactivate breakdown ═══ */
+.confirm-modal-reactivate-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.confirm-modal-reactivate-label--danger {
+  font-weight: 500;
+  color: var(--text-error);
+}
+
+.confirm-modal-reactivate-label--warning {
+  font-weight: 500;
+  color: var(--text-warning);
+}
+
+/* The avatar carries the role mark, pinned to its corner. The wrapper is only as
+   big as the avatar so the mark has something to hang off. */
+.people-avatar-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.people-avatar-mark {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  /* Its own ground, so the icon reads over a photo rather than sitting in it. */
+  background: var(--page-background);
+}
+
+.people-avatar-mark .tooltip__trigger {
+  display: flex;
+}

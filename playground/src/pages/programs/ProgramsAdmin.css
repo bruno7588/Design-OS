@@ -1,0 +1,212 @@
+.programs-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.programs-main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Header ---- */
+.programs-header {
+  padding: var(--space-ml) var(--space-l) 0;
+}
+
+.programs-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  min-height: 41px;
+}
+
+.programs-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* Right-aligned CTA cluster: search + Create Program (headers.md, 12px gap). */
+.programs-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.programs-create-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex: 0 0 auto;
+  padding: var(--space-ssm) var(--space-ml) var(--space-ssm) var(--space-m);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-button-foreground);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease;
+}
+
+.programs-create-btn:hover {
+  background: var(--primary-button-background-hover);
+}
+
+.programs-divider {
+  height: 1px;
+  margin-top: var(--space-ml);
+  background: var(--border);
+}
+
+/* ---- Body ---- */
+.programs-body {
+  flex: 1;
+  padding: var(--space-l);
+}
+
+.programs-search {
+  width: 320px;
+  max-width: 100%;
+}
+
+/* Program name cell — Regular weight, 2-line clamp per Figma. */
+.programs-row-title {
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--text-primary);
+  cursor: pointer;
+  /* Truncates rather than wraps: the cell inherits `white-space: nowrap`, so the
+     old 2-line clamp never wrapped — it just cut the title off mid-word once the
+     pinned column reached its 240px floor. */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 150ms ease;
+}
+
+.programs-row-title:hover {
+  color: var(--text-button-hover);
+}
+
+.programs-row-title:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Kebab menu (row action dropdown) ---- */
+.programs-kebab {
+  position: relative;
+}
+
+.programs-kebab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.programs-kebab-btn:hover {
+  background: var(--input-background);
+}
+
+.programs-kebab-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 20;
+  min-width: 160px;
+  padding: var(--space-xss);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(32, 34, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.programs-kebab-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-ssm);
+  border: none;
+  border-radius: var(--radius-s);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.programs-kebab-item:hover {
+  background: var(--cards-background-hover);
+}
+
+.programs-kebab-item--danger {
+  color: var(--text-error);
+}
+
+/* ---- Empty state ---- */
+.programs-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-s);
+  padding: 80px var(--space-l);
+  text-align: center;
+}
+
+.programs-empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  margin-bottom: var(--space-s);
+}
+
+.programs-empty-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.programs-empty-desc {
+  margin: 0 0 var(--space-s);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 360px;
+}

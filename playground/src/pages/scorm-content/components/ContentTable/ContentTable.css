@@ -1,0 +1,223 @@
+.sc-content-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+/* Filter bar */
+.sc-content-table-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.sc-content-table-filter-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.sc-content-table-filter-dropdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: unset;
+  background-color: unset;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 150ms ease;
+}
+
+.sc-content-table-filter-dropdown:hover {
+  border-color: var(--border-hover);
+}
+
+.sc-content-table-search {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--input-background);
+  margin-left: auto;
+}
+
+.sc-content-table-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.sc-content-table-search input::placeholder {
+  color: var(--text-disabled);
+}
+
+.sc-content-table-add-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-ml) var(--space-s) var(--space-m);
+  background: var(--primary-button-background);
+  color: var(--text-button-foreground);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-s);
+  white-space: nowrap;
+  transition: background 150ms ease;
+}
+
+.sc-content-table-add-btn:hover {
+  background: var(--primary-button-background-hover);
+}
+
+/* Sort arrow in a header cell — the table chrome itself is the shared
+   Table component (docs/design-system/table.md). */
+.sc-content-table-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.sc-content-table-filename {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sc-content-table-filename--editable {
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: border-color 150ms ease;
+}
+
+.sc-content-table-filename--editable:hover {
+  border-bottom-color: var(--border-hover);
+}
+
+.sc-content-table-filename--clickable {
+  cursor: pointer;
+}
+
+.sc-content-table-filename--clickable:hover {
+  color: var(--text-button-hover);
+}
+
+.sc-content-table-filename-input {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--selected);
+  outline: none;
+  padding: 0 0 var(--space-xxs) 0;
+  width: 100%;
+  line-height: 1.5;
+}
+
+/* Type cell */
+.sc-content-table-type {
+  color: var(--text-secondary);
+}
+
+/* Action icons */
+.sc-content-table-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.sc-content-table-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  transition: background 150ms ease;
+}
+
+.sc-content-table-action-btn:hover {
+  background: var(--page-background-hover);
+}
+
+/* Preview overlay */
+.sc-content-table-preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--page-background);
+  overflow-y: auto;
+}
+
+.sc-content-table-preview-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xss);
+  border-radius: var(--radius-full);
+  z-index: 101;
+}
+
+.sc-content-table-preview-close:hover {
+  background: var(--page-background-hover);
+}
+
+.sc-content-table-preview-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-ml) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  height: calc(100vh - 40px);
+}
+
+.sc-content-table-preview-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.sc-content-table-preview-divider {
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+.sc-content-table-preview-frame {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-content-table-preview-placeholder-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+

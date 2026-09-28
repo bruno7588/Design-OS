@@ -1,0 +1,357 @@
+/* AI assessment generation (DES-279). Hosted in the shared ContentDrawer shell,
+   which owns the panel, its padding and the slide — this file styles the form
+   only. Chrome deliberately matches InteractiveDrawer.css so the drawers read as
+   one family; classes are prefixed .gen-drawer__ because CSS is bundled globally. */
+
+/* No padding under the rule: the 20px to the body is the drawer shell's own
+   flex gap, same as every other assessment drawer. */
+.generate-drawer-shell .section-header {
+  padding-bottom: 0;
+}
+
+.gen-drawer__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  overflow-y: auto;
+}
+
+/* Two rhythms, so neither has to be expressed as the difference of the other:
+   4px binds the H4 sub-header to its description, 16px separates that heading group
+   from the chips it introduces (Figma 9155:41921). */
+.gen-drawer__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+
+/* Type comes from the DS scale via .h4 / .text-md on the elements themselves —
+   the sub-header is H4 and its description is Text M regular (Figma 9155:41921). */
+.gen-drawer__helper {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+
+
+
+
+
+
+
+
+
+.gen-drawer__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* ===== Zero-transcript state (FR-05) =====
+   empty-state.md: illustration, title, ≤600px description, CTA — no border and no
+   fill, so it sits in the drawer rather than becoming a card inside it. */
+
+.gen-drawer__body--empty {
+  justify-content: center;
+}
+
+.gen-drawer__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-m);
+  padding: var(--space-xl) 0;
+}
+
+.gen-drawer__empty-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  max-width: 600px;
+}
+
+.gen-drawer__empty-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.gen-drawer__empty-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* Inline under the source chips rather than filling the drawer — the other two
+   sources are still usable, so this is one source reporting itself empty, not the
+   whole screen giving up. */
+.gen-drawer__empty--inline {
+  padding: var(--space-m) 0 var(--space-s);
+  gap: var(--space-s);
+}
+
+.gen-drawer__empty--inline .gen-drawer__empty-title {
+  font-size: 16px;
+}
+
+/* The callout carries the format's own artwork rather than an info glyph, so it needs
+   the illustration's box rather than the 20px icon slot Alert sizes by default. */
+.gen-drawer__callout img.alert__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+/* Branded rather than the neutral DS callout: this banner is about what the AI reads,
+   so it wears the brand (Figma 9156:42714 / 9156:42774). Colour comes from the tokens
+   so the text can flip in dark mode while the 16% cyan ground stays put. */
+.gen-drawer__callout.alert--callout {
+  background: var(--ai-callout-background);
+  color: var(--ai-callout-text);
+}
+
+/* Medium, not regular: the branded ground sits light behind it, and 500 is what holds
+   the line at that contrast (typography.md — Medium for subtle emphasis). */
+.gen-drawer__callout.alert--callout .alert__message,
+.gen-drawer__callout.alert--callout p {
+  color: inherit;
+  font-weight: 500;
+}
+
+/* ===== The draft arriving =====
+
+   Not a placeholder for the result — the result, written into the fields the review is
+   about to hand over. Whatever is still being written wears the shimmer; it lifts as each
+   piece finishes, so the effect and the content say the same thing. */
+.gen-drawer__live {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.gen-drawer__live-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.gen-drawer__live-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* The review's own field chrome (input.md § Outlined text field), so what is being
+   written looks like what will be handed over. */
+.gen-drawer__live-input {
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* Holds its finished height from the first character, or every few characters would
+   nudge everything under it. */
+.gen-drawer__live-input--brief {
+  min-height: calc(5 * 1.5em + 2 * var(--space-sm));
+}
+
+/* The shimmer that marks what is still being written lives in AIWorkingCard.css — the
+   insights card writes its summary the same way, so `.is-writing` belongs with the
+   pattern rather than with the first page that used it. */
+
+/* The write-head. Steady, not blinking: it marks where the text is up to, and a blink
+   would compete with the sparkle above for the eye. */
+.gen-drawer__caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: var(--space-xxs);
+  vertical-align: text-bottom;
+  background: var(--text-button-outlined);
+}
+
+.gen-drawer__live-question {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-m);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+}
+
+/* The question leads the card, so it takes the weight; the format is the line under it
+   that qualifies what was just read (Figma). */
+.gen-drawer__live-text {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.gen-drawer__live-format {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The fields and cards drop their movement in arrive.ts, the shimmer in
+     AIWorkingCard.css; what is left here is the write-head. */
+  .gen-drawer__caret {
+    display: none;
+  }
+}
+
+/* The passes stay put while what they produce scrolls under them: on a short drawer the
+   cards would otherwise push the steps off the top, and the one thing the wait has to
+   keep saying is what it is doing. The body is the scroll container, so the card sticks
+   to its top edge and carries the panel colour to hide what passes behind it. */
+.gen-drawer__steps {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  /* The 32px sparkle overhangs its one-line box by ~6px each way, and the body is a
+     scroll container — so without room above, the first row's sparkle is clipped at the
+     top edge. */
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-m);
+  background: var(--page-background);
+}
+
+/* Each phase of the drawer — the wait, the review — is one column so it can be moved as
+   a whole. The shell is a flex column and expects header/body/footer as its children, so
+   the wrapper has to stretch and pass that arrangement through unchanged. */
+.gen-drawer__phase {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: inherit;
+}
+
+/* ===== Situational prompt (Audience / Instructions) =====
+
+   Field chrome matches SituationalTestDrawer.css, per input.md's Outlined field, so
+   the two situational drawers read as one family. */
+
+.gen-drawer__field--prompt {
+  gap: var(--space-s);
+}
+
+.gen-drawer__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* The "(optional)" flag rides the label in tertiary at 12px, so it reads as an aside
+   rather than part of the label. Matches .st-drawer__label-optional. */
+.gen-drawer__label-optional {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+.gen-drawer__input,
+.gen-drawer__textarea {
+  width: 100%;
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+/* Fixed at three rows rather than auto-growing: instructions are a note, not the
+   brief, and a field that grows under the Generate button moves the target. */
+.gen-drawer__textarea {
+  resize: none;
+}
+
+.gen-drawer__input::placeholder,
+.gen-drawer__textarea::placeholder {
+  color: var(--text-disabled);
+}
+
+.gen-drawer__input:hover,
+.gen-drawer__textarea:hover {
+  border-color: var(--border-hover);
+  background: var(--input-background);
+}
+
+.gen-drawer__input:focus,
+.gen-drawer__textarea:focus {
+  border-color: var(--selected);
+  background: transparent;
+}
+
+/* ===== Assessments callout ===== */
+
+/* The quiz treatment from Figma 9105:3541 — the same banner the assessment authoring
+   drawers wear (.alert.iq-drawer__callout), so a format explained while writing one by
+   hand and the same format explained while AI writes it read as one note. Doubled class
+   so it beats .alert--callout whichever order the global bundle lands in. */
+.alert.gen-drawer__callout--quiz {
+  background: var(--quiz-background);
+  color: var(--text-quiz);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s) var(--space-sm);
+  gap: var(--space-s);
+  font-weight: 500;
+}
+
+/* The running CTA's spinner. It rides in the icon slot rather than replacing the label,
+   which is what the DS Loading state does — the label has to stay, so the disabled
+   button still says which run it belongs to. Keyframes come from Button.css. */
+.gen-drawer__cta-spinner {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: ds-btn-spin 0.8s linear infinite;
+}
+
+/* The review is a stack of authored-shape cards (QuestionCard), not a list of rows. */
+.gen-drawer__body > .st-drawer__question + .st-drawer__question {
+  margin-top: var(--space-m);
+}
+
+/* Generate, sitting at the end of the situational prompt rather than in the footer.
+   Left-aligned and unchanged otherwise — only its place in the column moved. */
+.gen-drawer__prompt-cta {
+  display: flex;
+}

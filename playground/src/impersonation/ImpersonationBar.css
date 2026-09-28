@@ -1,0 +1,219 @@
+/* Impersonation banner (DES-337) — spec: docs/design-system/impersonation-banner.md,
+   Figma People 9600:43180 (normal), 9601:44620 (warning), 9601:46094 (critical).
+   Full-width, fixed at the top, over the real app: a tinted bar whose text and dot
+   take one semantic colour per session state. The End button is a neutral DS Filled
+   button in every state. */
+
+/* Push the app down so the full-width fixed banner doesn't cover it. One height
+   for every offset below — the banner's rendered height. */
+body.imp-impersonating {
+  --imp-bar-h: 61px; /* 12px + 37px End button + 12px */
+  padding-top: var(--imp-bar-h);
+}
+
+/* The banner is fixed at top:0, so the app's own sticky/fixed navs must sit below it
+   rather than slide behind it on scroll (.mt-topnav = learner/workspace, .topnav = admin). */
+body.imp-impersonating .mt-topnav,
+body.imp-impersonating .topnav {
+  top: var(--imp-bar-h);
+}
+
+/* Full-height overlays reachable from the learner app start below the banner too.
+   Otherwise the banner (z-index 1090) sits over their top strip — a drawer's title
+   and close button, the lesson feed's close — or, for the quiz stage (1100), the
+   overlay covers the banner and the admin loses sight of the session. The Add
+   Content drawer is excluded: it anchors to its page header, not the viewport top. */
+body.imp-impersonating .side-drawer:not(.add-content-drawer),
+body.imp-impersonating .overlay-backdrop,
+body.imp-impersonating .lf-overlay,
+body.imp-impersonating .confirm-modal-overlay,
+body.imp-impersonating .pcd-quizstage {
+  top: var(--imp-bar-h);
+}
+body.imp-impersonating .side-drawer:not(.add-content-drawer) {
+  height: auto;
+}
+body.imp-impersonating .confirm-modal {
+  max-height: calc(100vh - var(--imp-bar-h) - 64px);
+}
+
+.imp-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1090;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding: var(--space-sm) var(--space-l); /* 12px top/bottom, 24px sides */
+  /* One colour per state drives the text and mask; the dot has its own. The tint is
+     layered over the page ground so the fixed bar stays opaque over scrolling content. */
+  --imp-fg: var(--text-progress);
+  --imp-dot: var(--text-progress);
+  --imp-tint: rgba(0, 206, 230, 0.16); /* Primary-500 @ 16% */
+  color: var(--imp-fg);
+  background: linear-gradient(var(--imp-tint), var(--imp-tint)), var(--page-background);
+}
+
+/* Under 5 minutes */
+.imp-bar--warning {
+  --imp-fg: var(--text-warning);
+  --imp-dot: var(--text-warning);
+  --imp-tint: rgba(255, 165, 56, 0.24); /* Warning-500 @ 24% */
+}
+
+/* Final minute */
+.imp-bar--critical {
+  --imp-fg: var(--text-error);
+  --imp-dot: var(--danger-300);
+  --imp-dot-core: var(--text-error); /* the centre dot takes the text colour; the ring stays Danger-300 */
+  --imp-tint: rgba(223, 22, 66, 0.24); /* Danger-500 @ 24% */
+}
+
+/* Identity — [mask + "Impersonating"] [avatar + "{name} · {role}"] */
+.imp-bar__identity,
+.imp-bar__prefix,
+.imp-bar__person,
+.imp-bar__session,
+.imp-bar__timer {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.imp-bar__identity { gap: var(--space-sm); } /* 12px */
+.imp-bar__prefix,
+.imp-bar__person { gap: var(--space-s); } /* 8px */
+.imp-bar__timer { gap: var(--space-xs); } /* 4px */
+.imp-bar__session { gap: var(--space-m); flex-shrink: 0; } /* 16px */
+
+.imp-bar__mask {
+  flex: 0 0 20px;
+}
+.imp-bar__prefix-text {
+  font-size: 14px; /* Paragraph M regular */
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.imp-bar__avatar {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  /* Initials fallback at the 24px avatar's text size (avatars.md: 8px / 1.5). */
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.5;
+  background: color-mix(in srgb, currentColor 16%, transparent);
+}
+.imp-bar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imp-bar__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs); /* 4px */
+  white-space: nowrap;
+}
+.imp-bar__name {
+  font-size: 14px; /* Paragraph M semibold */
+  font-weight: 600;
+  line-height: 1.5;
+}
+.imp-bar__role {
+  font-size: 12px; /* Paragraph S regular */
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* End Impersonation — DS Filled with a neutral fill that inverts the page: Neutral-800
+   fill + Neutral-25 label in light, Neutral-25 fill + Neutral-800 label in dark
+   (Figma 9616:47761 light, 9584:28195 dark). Hover and pressed are the DS primary
+   Filled ones: the fill override stays at two classes so the DS :hover/:active rules
+   (three) win. Tighter than the DS medium padding: 8px top/bottom, 12px left, 16px
+   right (Figma 9591:30161), so the button is 37px. */
+.ds-btn--filled.imp-bar__end {
+  background: var(--text-primary);
+  color: var(--page-background);
+}
+.ds-btn.ds-btn--filled.imp-bar__end {
+  padding: var(--space-s) var(--space-m) var(--space-s) var(--space-sm);
+}
+.ds-btn--filled.imp-bar__end:focus-visible { outline-color: var(--text-primary); }
+
+/* Countdown — pulsing dot + time. The timer is a button for the prototype's
+   click-to-skip review shortcut, so it drops the native button chrome. */
+.imp-bar__timer {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.imp-bar__timer:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+/* 16px slot: an 8px live dot with a ring that grows out of it and fades. */
+.imp-bar__dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+.imp-bar__dot::before,
+.imp-bar__dot::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: var(--radius-full);
+  background: var(--imp-dot);
+}
+.imp-bar__dot::before {
+  background: var(--imp-dot-core, var(--imp-dot));
+}
+.imp-bar__dot::after {
+  animation: imp-dot-pulse 1.6s ease-out infinite;
+}
+.imp-bar__time {
+  font-size: 14px; /* Paragraph M regular, tabular digits */
+  font-weight: 400;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  /* Fixed width for "MM:SS" so the dot + time never reflow as the digits change.
+     inline-block is required — width/min-width are ignored on an inline <span>. */
+  display: inline-block;
+  min-width: 5ch;
+  text-align: left;
+}
+
+/* The ring reaches the edge of the 16px slot (2x) at the 35% opacity of the Figma
+   ring, then fades out. */
+@keyframes imp-dot-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  80%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imp-bar__dot::after {
+    animation: none;
+    transform: scale(2);
+    opacity: 0.35;
+  }
+}

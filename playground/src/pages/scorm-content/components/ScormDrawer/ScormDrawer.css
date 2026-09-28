@@ -1,0 +1,134 @@
+/* Overlay */
+.sc-scorm-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--scrim);
+  animation: scorm-overlay-fade 250ms ease;
+}
+
+@keyframes scorm-overlay-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sc-scorm-drawer-overlay--closing {
+  animation: scorm-overlay-fade-out 300ms ease forwards;
+}
+
+@keyframes scorm-overlay-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Drawer panel */
+.sc-scorm-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 720px;
+  max-width: 100%;
+  background: var(--page-background);
+  border-left: 1px solid var(--border);
+  padding: var(--space-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  overflow-y: auto;
+  animation: sc-scorm-drawer-slide 300ms ease;
+}
+
+@keyframes sc-scorm-drawer-slide {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.sc-scorm-drawer--closing {
+  animation: sc-scorm-drawer-slide-out 300ms ease forwards;
+}
+
+@keyframes sc-scorm-drawer-slide-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+/* Close button */
+.sc-scorm-drawer-close {
+  position: absolute;
+  top: var(--space-m);
+  right: var(--space-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+  border-radius: var(--radius-full);
+}
+
+.sc-scorm-drawer-close:hover {
+  background: var(--page-background-hover);
+}
+
+/* Header */
+.sc-scorm-drawer-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding-right: var(--space-xxl);
+}
+
+.sc-scorm-drawer-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.sc-scorm-drawer-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.sc-scorm-drawer-upload-link {
+  color: var(--text-button-outlined);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.sc-scorm-drawer-upload-link:hover {
+  text-decoration: underline;
+}
+
+/* Search */
+.sc-scorm-drawer-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--input-background);
+}
+
+.sc-scorm-drawer-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.sc-scorm-drawer-search input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* File name cell — the row chrome comes from the shared Table (table.md). */
+.sc-scorm-drawer-filename {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

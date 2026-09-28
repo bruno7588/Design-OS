@@ -1,0 +1,171 @@
+/* Alert / Callout — per docs/design-system/alerts-toast.md */
+
+.alert {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-m);
+  gap: var(--space-s);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  font-family: inherit;
+}
+
+/* ── Callout ── */
+.alert--callout {
+  background: var(--input-background);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ── Alert (warning) ── */
+.alert--alert {
+  /* Warning-500 #FFA538 @ 16% (was Secondary-500 @ 12%) */
+  background: rgba(255, 165, 56, 0.16);
+  color: var(--text-warning);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  /* 12px icon → text; the inline button adds another 12px for the 24px
+     info↔button gap the spec calls for. */
+  gap: var(--space-sm);
+}
+
+/* ── With supporting text: align top, larger padding ── */
+.alert--with-body {
+  align-items: flex-start;
+  padding: var(--space-m);
+}
+
+/* ── Icon ── */
+.alert__icon {
+  flex-shrink: 0;
+}
+
+.alert__bell {
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Simple message ── */
+.alert__message {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+}
+
+/* ── Body (title + bullets / title + message) ── */
+.alert__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.alert__body:has(.alert__title + .alert__message) {
+  gap: var(--space-xxs);
+}
+
+.alert__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.alert--alert .alert__title {
+  font-weight: 700;
+  color: var(--text-warning);
+}
+
+.alert--alert .alert__body .alert__message {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-warning);
+}
+
+.alert__bullets {
+  margin: 0;
+  /* reset.css clears list-style on every ul, which left this list indented for
+     markers it never drew. Restore them — the indent above assumes they exist. */
+  list-style: disc;
+  padding-left: 21px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.alert__bullets li + li {
+  margin-top: var(--space-xs);
+}
+
+/* ── Buttons ── */
+.alert__btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+/* Outlined — Callout */
+.alert__btn--outlined {
+  font-size: 14px;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s) var(--space-m);
+  background: transparent;
+}
+
+.alert__btn--outlined:hover {
+  background: var(--page-background-hover);
+}
+
+/* Inline underline — Alert */
+.alert__btn--inline {
+  margin-left: var(--space-sm); /* + the row's 12px gap = 24px from the info area */
+  font-size: 16px;
+  color: var(--text-warning);
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* Close (X) — used when onClose is provided */
+.alert__close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  opacity: 0.7;
+  transition: opacity 150ms ease, background 150ms ease;
+}
+
+.alert__close:hover {
+  opacity: 1;
+  background: var(--page-background-hover);
+}

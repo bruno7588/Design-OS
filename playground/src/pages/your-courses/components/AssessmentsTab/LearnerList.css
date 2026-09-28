@@ -1,0 +1,375 @@
+/* Learners as expandable rows (DES-331 Phase 3), following the Audit Log pattern.
+   One shared column grid for the header and the rows so they stay aligned. */
+
+.lrn {
+  --lrn-cols: minmax(240px, 1fr) 170px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.lrn-head {
+  display: grid;
+  grid-template-columns: var(--lrn-cols);
+  column-gap: var(--space-sm);
+  align-items: center;
+  padding: var(--space-s) var(--space-sm);
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* The sortable header cell, per table.md: the label with a 4px gap and a trailing arrow.
+   It cannot borrow .lrn-c-score — that is the row's stack below, and its column direction
+   put the arrow underneath the word instead of after it. */
+.lrn-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.lrn-sort:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Always drawn, at two strengths. Dim, it is an invitation — the only thing that tells a
+   reader this column can be ordered at all, which a hover-only arrow says to nobody on a
+   touch screen and to nobody who never sweeps the header. Turned rather than swapped,
+   like .lrn-chevron below. */
+.lrn-sort__icon {
+  flex: 0 0 auto;
+  color: var(--text-tertiary);
+  transition: color 150ms ease, transform 200ms ease;
+}
+
+.lrn-sort:hover .lrn-sort__icon,
+.lrn-sort:focus-visible .lrn-sort__icon {
+  color: var(--text-secondary);
+}
+
+/* Solid, it is a claim: this column is ordered, and this is the way. Nothing shows it
+   until a sort is actually in force, so the arrow never asserts an order that is not. */
+.lrn-sort__icon.is-active {
+  color: var(--text-secondary);
+}
+
+.lrn-sort__icon.is-asc {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lrn-sort__icon {
+    transition: none;
+  }
+}
+
+.lrn-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.lrn-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  overflow: hidden;
+  transition: background-color 150ms ease;
+}
+
+/* Expanded: fill only — the border stays the same --border as collapsed. */
+.lrn-card.is-open {
+  background: var(--cards-background);
+}
+
+/* The whole row is the toggle. */
+.lrn-row {
+  display: grid;
+  grid-template-columns: var(--lrn-cols);
+  column-gap: var(--space-sm);
+  align-items: center;
+  width: 100%;
+  padding: var(--space-s) var(--space-sm);
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 150ms ease;
+}
+
+.lrn-row:hover {
+  background: var(--page-background-hover);
+}
+
+/* Expanded, the row and its answers sit on the open card. */
+.lrn-card.is-open .lrn-row:hover {
+  background: var(--cards-background-hover);
+}
+
+.lrn-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  min-width: 0;
+}
+
+/* ── Learner ─────────────────────────────────────────────────────────────── */
+.lrn-avatar {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.lrn-avatar--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--input-background);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.lrn-person {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.lrn-name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lrn-role {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Score ───────────────────────────────────────────────────────────────── */
+.lrn-c-score {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-s);
+}
+
+
+/* One colour, whatever the score. The bar length already says how much they got
+   right, and recolouring it at 60% asserted a pass line the course does not have —
+   its pass score is 80%. Right and wrong are named in the answers below. */
+/* The whole of the score cell now, so it carries the row's own size rather than the
+   caption size it had under a bar. */
+.lrn-pct {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.lrn-none {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+/* ── Chevron ─────────────────────────────────────────────────────────────── */
+.lrn-c-expand {
+  justify-content: center;
+}
+
+.lrn-chevron {
+  transition: transform 200ms ease;
+}
+
+.lrn-card.is-open .lrn-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lrn-chevron {
+    transition: none;
+  }
+}
+
+/* ── Expanded detail — Audit Log style: label-over-value pairs, no nested cards,
+   separated from the row by a hairline. ─────────────────────────────────────── */
+.lrn-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.lrn-answers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* One assessment per row, on the same grid as the learner row above it: the question
+   sits under the learner, and its score under the Score column, so the eye reads one
+   column of figures rather than two. Scoped, because MultiQuestionAnswers borrows
+   .lrn-answer for a list that has no columns to keep. */
+.lrn-answers--row .lrn-answer {
+  display: grid;
+  grid-template-columns: var(--lrn-cols);
+  column-gap: var(--space-sm);
+  align-items: center;
+}
+
+/* Question above answer, verdict to the right. The question is the quiet label;
+   the answer is the content, so it carries the primary colour. */
+.lrn-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  /* Side padding lives on the row, not the container, so the divider and the
+     row fill both run the full width of the card. */
+  padding: var(--space-sm);
+  border-top: 1px solid var(--border);
+  transition: background-color 150ms ease;
+}
+
+.lrn-answer:hover {
+  background: var(--cards-background-hover);
+}
+
+/* The list already sits under the row hairline — no double rule at the top. */
+.lrn-answer:first-child {
+  border-top: none;
+}
+
+.lrn-answer__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  min-width: 0;
+}
+
+/* Name and format on one line, over the answer they belong to. */
+.lrn-answer__title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xxs);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  min-width: 0;
+}
+
+/* The question, and under it the format — the same primary-over-supporting stack the
+   learner's name and role make in this column one row up. */
+.lrn-answer__name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lrn-answer__type {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lrn-answer__a {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+/* The score for this one assessment, in the Score column and so directly under the
+   learner's own score. */
+.lrn-answer__score {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Kept for MultiQuestionAnswers, which still marks each question right or wrong:
+   leads the row, and the gutter is held even on an answer with no verdict so every
+   question starts on the same line. */
+.lrn-answer__v {
+  flex: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 21px;
+}
+
+/* ── Pagination ──────────────────────────────────────────────────────────── */
+.lrn-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-m);
+  padding-top: var(--space-s);
+}
+
+.lrn-count {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* 16px icons, per table.md — these were a text glyph sized to whatever the font made
+   of it, which is why the footer never quite matched the spec. */
+.lrn-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+/* "disabled nav uses opacity: 0.4" — dimming a token is not the same thing on an icon. */
+.lrn-nav[aria-disabled='true'] {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Dark mode: --border all but disappears against the expanded card fill, so
+   dividers step up to the elevated weight. Light mode keeps --border. */
+[data-theme="dark"] .lrn-answer,
+[data-theme="dark"] .lrn-detail {
+  border-color: var(--border-elevated);
+}

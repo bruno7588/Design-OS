@@ -1,0 +1,641 @@
+/* Admin program detail page (Figma node 2377:34600) — sits beside the LeftSidebar. */
+.pad-main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+.pad {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  padding: var(--space-l);
+}
+
+/* ── Enrolment stat cards ───────────────────────────────────────────────── */
+.pad-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-m);
+}
+
+.pad-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.pad-stat__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  min-width: 0;
+}
+
+.pad-stat__label {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.pad-stat__valuerow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+}
+
+.pad-stat__value {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.pad-stat__delta {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--text-success);
+}
+
+/* ── Breadcrumb ─────────────────────────────────────────────────────────── */
+.pad-crumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.pad-crumb__link {
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+
+.pad-crumb__link:hover {
+  color: var(--text-secondary);
+}
+
+.pad-crumb__current {
+  color: var(--text-secondary);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.pad-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m);
+}
+
+.pad-headline {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pad-headline__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pad-headline__desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.pad-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.pad-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.pad-avatars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pad-avatars__img {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 1px solid var(--page-background);
+  margin-right: -8px;
+}
+
+.pad-avatars__more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 var(--space-xss);
+  border-radius: var(--radius-full);
+  background: var(--cards-background-hover);
+  border: 1px solid var(--page-background);
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+/* ── CTAs ───────────────────────────────────────────────────────────────── */
+.pad-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* 32px box (24px glyph + 4px slack) so cluster gaps read as the Figma 12px. */
+.pad-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.pad-icon-btn:hover {
+  background: var(--page-background-hover);
+}
+
+/* DS Outlined-2 (buttons.md): transparent + neutral hairline at rest;
+   brand cyan surfaces only on interaction — 24% (hover) → 8% (pressed) fill ladder. */
+
+/* ── Divider + tabs ─────────────────────────────────────────────────────── */
+.pad-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.pad-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.pad-tab {
+  padding: 0 0 var(--space-xs);
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.pad-tab:hover {
+  color: var(--text-primary);
+}
+
+.pad-tab--active {
+  color: var(--text-primary);
+  font-weight: 700;
+  border-bottom-color: var(--selected);
+}
+
+/* ── Course table (read-only) ───────────────────────────────────────────── */
+.pad-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pad-thead {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+}
+
+.pad-thead__course {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-thead__col {
+  flex: 0 0 auto;
+  width: 180px;
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.pad-row__course {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-counter {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.pad-thumb {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: var(--cards-background-hover);
+  background-size: cover;
+  background-position: center;
+}
+
+.pad-row__title {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pad-row__col {
+  flex: 0 0 auto;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-s) var(--space-sm);
+  min-width: 0;
+}
+
+.pad-cell__title {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pad-cell__sub {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pad-pagination {
+  align-self: flex-end;
+  margin-top: var(--space-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-m);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.pad-pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.pad-pagination__btn:hover:not(:disabled) {
+  background: var(--page-background-hover);
+}
+
+.pad-pagination__btn:disabled {
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+/* ── Enrolments toolbar ─────────────────────────────────────────────────── */
+.pad-enrol-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.pad-enrol-bar .pad-enrol-search {
+  width: 400px;
+  flex: 0 0 auto;
+}
+
+.pad-enrol-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* ── Enrolments table columns ───────────────────────────────────────────── */
+.pad-thead__name {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-thead__enrol,
+.pad-thead__progress,
+.pad-thead__completion {
+  flex: 0 0 auto;
+  width: 160px;
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-thead__score {
+  flex: 0 0 auto;
+  width: 88px;
+  padding: var(--space-s) var(--space-sm);
+}
+
+/* "Score ⓘ" header cell — info tooltip anchor per Figma (Score ⓘ). */
+.pad-thead__score {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.pad-thead__more {
+  flex: 0 0 auto;
+  width: 44px;
+  padding-block: var(--space-s);
+}
+
+/* Clickable enrolment rows — DS table hover; the learner name doubles as the
+   link affordance (Mobbin-verified pattern: clickable row + link-styled name). */
+.pad-row--click {
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.pad-row--click:hover {
+  background: var(--cards-background-hover);
+}
+
+.pad-row__title--link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 120ms ease;
+}
+
+.pad-row__title--link:hover {
+  color: var(--text-button-hover);
+}
+
+.pad-row__name {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-lavatar {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.pad-row__date {
+  flex: 0 0 auto;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-date__day {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pad-date__year {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+.pad-row__progress {
+  flex: 0 0 auto;
+  width: 160px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-s) var(--space-sm);
+}
+
+.pad-progress {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 8px;
+  border-radius: 8px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.pad-progress__fill {
+  display: block;
+  height: 100%;
+  border-radius: 8px;
+  background: var(--primary-600);
+}
+
+.pad-progress__pct {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.pad-row__score {
+  flex: 0 0 auto;
+  width: 88px;
+  padding: var(--space-s) var(--space-sm);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.pad-menu {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.pad-row__more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background 120ms ease;
+}
+
+.pad-row__more:hover {
+  background: var(--page-background-hover);
+}
+
+/* Row action menu (Figma node 2383:34493) */
+.pad-menu__list {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 20;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  padding: var(--space-s);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px rgba(32, 34, 42, 0.12);
+}
+
+.pad-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border: none;
+  border-radius: var(--radius-s);
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.pad-menu__item:hover {
+  background: var(--cards-background-hover);
+}
+
+.pad-menu__item--danger {
+  color: var(--text-error);
+}
+
+/* Download Report listbox — Figma 2422:11594: 280px surface, rich rows
+   (Bold-14 title + Regular-14 supporting, 4px gap; listbox.md container spec). */
+.pad-menu__list--reports {
+  width: 280px;
+}
+
+.pad-menu__item--rich {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  white-space: normal;
+  text-align: left;
+}
+
+.pad-menu__item-title {
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pad-menu__item-supporting {
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ── Empty / placeholder ────────────────────────────────────────────────── */
+.pad-empty {
+  padding: 48px var(--space-l);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Enrolments empty state — Figma 2383:30664. Flat on the page background
+   (no fill, no shadow). */
+.pad-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-l);
+  border-radius: var(--radius-ml);
+}
+
+.pad-empty-state__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  text-align: center;
+}
+
+.pad-empty-state__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.pad-empty-state__sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

@@ -1,0 +1,191 @@
+/* AI working card — ported from .roles-ai-working-card (Roles.css). The gradient lives
+   on the progress bar and the active sparkle; the card itself is unframed, so the wait
+   reads as the drawer working rather than as an object sitting inside it. */
+
+.ai-working-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.ai-working-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+/* The rows and the detail line arrive through Framer (see arrive.ts) — they have to carry
+   `layout` as well as an entrance, and a keyframe cannot. The tick is a plain swap inside
+   a row that is already in place, so it stays here. */
+/* The tick only fades. It isn't arriving from anywhere — it is the mark left on a pass
+   that is finished — and moving it would put a second thing travelling in a row that
+   already has one.
+
+   It waits only for the sparkle to clear the slot, not for it to land: the space is free
+   early in that travel. `backwards` holds it invisible through the delay, or it would sit
+   at full strength and then fade in from nothing. */
+/* Taken out of the slot's flow and centred on it: on a terminal step that was still
+   working, the tick arrives while the sparkle is still fading, and two icons sharing a
+   flex row would sit side by side and shove each other. Stacked, they cross. */
+.ai-working-step__tick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ai-working-tick-in 260ms cubic-bezier(0.22, 1, 0.36, 1) 120ms backwards;
+}
+
+/* The travelling sparkle. It carries the pulse on its own paths, so this only has to
+   hold the glyph and be the thing Framer moves. */
+.ai-working-step__sparkle {
+  display: inline-flex;
+}
+
+@keyframes ai-working-tick-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Top-aligned, not centred: the running step carries a second line under it, and an icon
+   floating between the two belongs to neither. It marks the step, so it sits on the
+   step's own line. */
+.ai-working-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  min-height: 28px;
+}
+
+/* Fixed box so the labels stay aligned as icons swap in and out, and so the sparkle and
+   the tick — both 20px — share one centre line rather than each finding its own.
+
+   The box is one text line tall: the row is top-aligned, so a taller box would drop the
+   glyph below the line it belongs to. */
+.ai-working-step__icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: calc(14px * 1.5);
+  flex-shrink: 0;
+}
+
+/* One size throughout the card; colour and weight are what separate the kinds of line.
+   The pass being said is primary — the running one and, at the end, the one the card has
+   arrived at. */
+.ai-working-step__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* The pass being worked on carries Medium — the one line on the card that is happening
+   now, beside the only glyph that is moving. */
+.ai-working-step__text--active {
+  font-weight: 500;
+}
+
+/* A pass the work has left steps back to tertiary. It stays on the card as the record of
+   what happened, but it is no longer the line to read, so it stops competing with the one
+   that is. The green tick, not the colour, is what says it succeeded.
+
+   Only passes behind the work — the terminal "all done" line is the card's conclusion and
+   keeps primary. */
+.ai-working-step__text--done {
+  color: var(--text-tertiary);
+}
+
+
+/* What the pass is on this second. Same size, tertiary: the pass is the promise, this is
+   only where it has got to. */
+.ai-working-step__detail {
+  display: block;
+  /* Bound to the pass above it: 4px is close enough to read as one block, far enough
+     that the two lines don't run together. */
+  margin-top: var(--space-xs);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+/* The running step pulses: the two sparkles trade size, the big one shrinking as the
+   small one swells and back again. One glyph breathing rather than the whole icon
+   throbbing — it reads as working without claiming a position on a scale nobody can
+   measure.
+
+   Each path scales about its own centre (fill-box), or they would both swing around the
+   icon's corner instead of staying where they are drawn. */
+.ai-working-step__icon--active .sparkle-icon__big,
+.ai-working-step__icon--active .sparkle-icon__small {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Slower than the arrivals around it — it runs the whole time, and at their pace the two
+   read as one busy surface — but not so slow it stops looking like something working. */
+.ai-working-step__icon--active .sparkle-icon__big {
+  animation: ai-sparkle-big 2.2s ease-in-out infinite;
+}
+
+.ai-working-step__icon--active .sparkle-icon__small {
+  animation: ai-sparkle-small 2.2s ease-in-out infinite;
+}
+
+@keyframes ai-sparkle-big {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(0.72); }
+}
+
+@keyframes ai-sparkle-small {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-working-step__tick {
+    animation: none;
+  }
+
+  /* Still marked as the running step by its icon and its weight — the motion is what
+     goes, not the meaning. */
+  .ai-working-step__icon--active .sparkle-icon__big,
+  .ai-working-step__icon--active .sparkle-icon__small {
+    animation: none;
+  }
+}
+
+/* ── The shimmer, on whatever the card is still writing ─────────────────────────────
+   Over the thing being written rather than over the surface around it, so the effect
+   and the content say the same thing: it lifts the moment that piece is finished.
+   Both stops are tokens, so the highlight stays lighter than its ground in either mode.
+   The element it is put on has to establish a containing block (`position: relative`). */
+.is-writing::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--cards-background-hover) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: ai-working-shimmer 1.4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ai-working-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The text is handed over whole under reduced motion, so there is nothing part-written
+     for the sweep to mark. */
+  .is-writing::after {
+    display: none;
+  }
+}

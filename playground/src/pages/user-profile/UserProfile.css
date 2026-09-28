@@ -1,0 +1,324 @@
+/* ===== User Profile page ===== */
+.up-layout {
+  display: flex;
+  flex: 1;
+}
+
+.up-main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.up-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  padding: var(--space-l);
+  min-width: 0;
+}
+
+.up-breadcrumb {
+  margin-bottom: calc(-1 * var(--space-s));
+}
+
+/* ── Header (label → headline → divider → tabs, per headers.md) ── */
+.up-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.up-headline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  min-width: 0;
+}
+
+.up-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--secondary-500);
+  color: var(--neutral-0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.up-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.up-title-group {
+  min-width: 0;
+}
+
+.up-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.up-meta {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: var(--space-xxs) 0 0;
+}
+
+/* Push the CTA to the far right of the headline row */
+.up-edit {
+  margin-left: auto;
+}
+
+/* The single header divider — between headline and tabs, never below the tabs */
+.up-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Tabs (no rule below the strip; only the active indicator) ── */
+.up-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.up-tab {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  padding: 0 0 var(--space-s);
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.up-tab:hover:not(:disabled) {
+  color: var(--text-primary);
+}
+
+.up-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.up-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--secondary-500);
+  border-radius: 2px;
+}
+
+/* ── Stats summary (Figma People 9192:42911) ── */
+.up-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+}
+
+/* One line: icon · share · label + info anchor (Figma 9193:44018). */
+.up-stat {
+  /* 4 up while each stat gets 200px (4 × 200 + 3 × 16 gaps = 848px), otherwise 2×2,
+     never 3 + 1: the middle term flips from negative to huge at 848px. */
+  flex: 1 0 clamp(calc(25% - 12px), calc((848px - 100%) * 999), calc(50% - 8px));
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+/* 12px to the share, not the 8px the rest of the row uses — the icon needs the
+   extra separation to read as a marker rather than part of the number. */
+.up-stat-icon {
+  display: flex;
+  flex-shrink: 0;
+  margin-right: var(--space-xs);
+}
+
+.up-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.up-stat-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* The stat tooltips centre their text. Applied to the text the call site passes rather
+   than to .tooltip__content, which is portalled to <body> and shared with 38 other
+   tooltips — several of them multi-line paragraphs that read worse centred. */
+.up-stat-tooltip-text {
+  display: block;
+  text-align: center;
+}
+
+/* ── Table cell helpers (DS classes live in Table.css; these are page-local) ── */
+.up-course {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+/* Course names wrap to a second line before truncating — once the pinned column
+   is at its 240px floor the 90px thumbnail leaves ~114px of text, and a single
+   line cuts most titles off before they're recognisable. Two lines (42px) still
+   sit inside the thumbnail's 44px, so row height is unchanged. */
+.up-course .primary {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.up-th-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Arrow: hidden by default (space reserved so hover doesn't shift the header),
+   revealed on hover of a sortable header, always shown on the active column. */
+.up-sort {
+  color: var(--text-tertiary);
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.tbl-head-cell.is-sortable:hover .up-sort {
+  opacity: 1;
+}
+
+.up-sort--active {
+  opacity: 1;
+}
+
+.up-sort--desc {
+  transform: rotate(180deg);
+}
+
+.up-muted {
+  color: var(--text-tertiary);
+}
+
+/* DS .tbl-progress expects to be the flex cell itself; here it's nested in the
+   cell, so restore the row layout (bar + % side by side). */
+.up-progress {
+  display: flex;
+  align-items: center;
+}
+
+/* ── No-results empty state (DS empty-state.md; mirrors .audit-empty) ──
+   Shown in place of the table when search/filters exclude every course.
+   No card chrome — centered illustration + title + copy + one outlined CTA. */
+.up-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-ml); /* 20px */
+  padding: var(--space-xxl) var(--space-l); /* extra vertical to centre in the empty list area */
+  text-align: center;
+}
+
+.up-empty-illustration {
+  width: 72px;
+  height: 72px;
+}
+
+.up-empty-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s); /* 8px */
+}
+
+.up-empty-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.up-empty-desc {
+  max-width: 600px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.up-empty-cta {
+  margin-top: var(--space-s); /* 8px above the description */
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-s) var(--space-m); /* 8px 16px */
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm); /* 12px */
+  background: transparent;
+  color: var(--text-primary);
+  font: 700 14px/1.5 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.up-empty-cta:hover {
+  background: var(--button-outline-fill-hover);
+  border-color: var(--primary-button-background-hover);
+  color: var(--text-button-hover);
+}
+
+.up-empty-cta:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* Inside the learner shell the page sits in .mt-body, which already pads. */
+.up-page--in-shell {
+  padding: 0;
+}
+
+/* Unenrol dialog (Figma People 9714:97247): 600 wide, 16px icon → text, 4px title → body, 12px between buttons. */
+.confirm-modal.up-unenrol-modal {
+  width: 600px;
+  align-items: center;
+}
+
+.up-unenrol-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.confirm-modal-actions.up-unenrol-actions {
+  gap: var(--space-sm);
+}

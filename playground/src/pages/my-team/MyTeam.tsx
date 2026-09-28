@@ -1,0 +1,824 @@
+import type { ReactNode } from 'react'
+import Button from '@/components/Button/Button'
+import { useEffect, useMemo, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import {
+  Home2,
+  Profile2User,
+  MonitorMobbile,
+  SearchNormal1,
+  Award,
+  Medal,
+  UserSquare,
+  FlashCircle,
+  Messages2,
+  Add,
+  Mobile,
+  SmsNotification,
+  ArrowDown,
+  ArrowUp,
+  ArrowRight2,
+} from 'iconsax-react'
+import BulkActionBar from '../../components/BulkActionBar/BulkActionBar'
+import ProfileMenu from '../../components/ProfileMenu/ProfileMenu'
+import Tooltip from '../../components/Tooltip/Tooltip'
+import Search from '../../components/Search/Search'
+import { Table, type Column } from '@/components/Table/Table'
+import Badge from '../../components/Badge/Badge'
+import ContentSwitcher from '../../components/ContentSwitcher/ContentSwitcher'
+import Dropdown, { type DropdownOption } from '../../components/Dropdown/Dropdown'
+import ToastContainer, { useToast } from '../../components/Toast/Toast'
+import CoursesDrawer, { type DrawerCourse } from './CoursesDrawer'
+import ReminderDrawer from './ReminderDrawer'
+import EngagementTab from './EngagementTab'
+import LearningRecordsTab from './LearningRecordsTab'
+import avatar1 from './assets/m1.jpg'
+import thumb1 from './assets/t1.png'
+import thumb2 from './assets/t2.png'
+import thumb3 from './assets/t3.jpg'
+import avatar2 from './assets/m2.jpg'
+import avatar3 from './assets/m3.jpg'
+import avatar4 from './assets/m4.jpg'
+import { formatRelative } from './relativeTime'
+import { coursesTotal, type CourseStatus } from './memberStatus'
+import { COURSE_STATUS_CARDS, type CourseStatusCard } from '@/data/courseStatusCards'
+import './MyTeam.css'
+import AdminMenuItem from '@/components/AdminMenuItem/AdminMenuItem'
+
+export function Logo({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={(size / 22) * 103} height={size} viewBox="0 0 103 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clipPath="url(#clip_myteam_logo)">
+        <path d="M0 15.5275H4.14665C4.18738 16.5133 4.51324 17.275 5.12424 17.8045C5.65378 18.2974 6.40327 18.5418 7.38087 18.5418C8.55806 18.5418 9.45419 18.2159 10.0652 17.5561C10.6762 16.8188 10.9817 15.8127 10.9817 14.5377C10.9817 13.2628 10.6558 12.3626 10.0082 11.7068C9.39716 11.0102 8.5214 10.6599 7.38494 10.6599C6.77394 10.6599 6.22404 10.7821 5.73932 11.0306C5.20978 11.3198 4.82282 11.6864 4.58249 12.1385L0.680245 11.9552L2.07332 0.439941H12.3177C12.888 0.480675 13.3849 0.708781 13.8126 1.11611C14.2403 1.52752 14.4522 2.04076 14.4522 2.65583V4.13445H5.12424L4.57434 8.26073C4.94094 7.93079 5.4664 7.66602 6.15887 7.45828C6.8106 7.25462 7.49899 7.14871 8.23219 7.14871C10.387 7.14871 12.1141 7.80451 13.4175 9.1202C14.7577 10.4766 15.4298 12.22 15.4298 14.3544C15.4298 16.6966 14.6966 18.5622 13.2342 19.9593C11.8126 21.3157 9.85745 21.9919 7.38087 21.9919C5.06314 21.9919 3.27495 21.4379 2.01222 20.33C0.749492 19.1813 0.0814665 17.5805 0 15.5275Z" fill="var(--primary-500)"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M16.7535 21.5561V2.70471C16.7535 2.09371 16.9694 1.57233 17.3971 1.14463C17.8248 0.716928 18.3462 0.480675 18.9572 0.439941H23.1772L27.336 16.5377L31.4949 0.439941H37.9185V21.5561H33.8819V4.54178L29.6008 21.5561H25.1364L20.7943 4.54178V21.5561H16.7576H16.7535Z" fill="var(--text-primary)"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M39.6782 7.47852H41.9471C42.5336 7.47852 43.0387 7.65367 43.4583 8.00805C43.8778 8.36243 44.0856 8.78605 44.0856 9.27893V21.5559H39.6782V7.47852Z" fill="var(--text-primary)"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M59.5195 21.556H57.3891C56.7822 21.556 56.2852 21.3605 55.8983 20.9736C55.5113 20.5866 55.3199 20.0815 55.3199 19.4664V11.108C55.3199 10.1263 55.0266 9.40938 54.436 8.95724C53.8494 8.5051 53.1895 8.28107 52.4604 8.28107C51.7313 8.28107 51.0795 8.5051 50.5133 8.95724C49.9472 9.40938 49.662 10.1263 49.662 11.108V21.556H45.4054V11.9674C45.4054 9.18128 46.1223 7.31977 47.5643 6.37475C49.0021 5.43382 50.5948 4.92058 52.3382 4.83911C54.1223 4.83911 55.7639 5.31162 57.2628 6.25256C58.7618 7.19757 59.5113 9.09981 59.5113 11.9674V21.556H59.5195Z" fill="var(--text-primary)"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M60.3993 16.2363H64.5907C64.6315 17.0632 64.937 17.6823 65.5154 18.0937C66.1305 18.5051 66.9533 18.7129 67.9798 18.7129C68.7211 18.7129 69.3565 18.5703 69.8901 18.2811C70.383 17.9919 70.6315 17.6008 70.6315 17.1039C70.6315 16.3625 69.7679 15.8045 68.0408 15.4298C67.2995 15.3076 66.7455 15.1813 66.3749 15.0591C64.1956 14.5214 62.7374 13.8819 61.996 13.1405C61.1732 12.3992 60.7618 11.4053 60.7618 10.167C60.7618 8.59879 61.3565 7.2994 62.55 6.26478C63.7842 5.31569 65.385 4.83911 67.3606 4.83911C69.495 4.83911 71.2017 5.31569 72.4767 6.26478C73.6702 7.2994 74.3056 8.63952 74.3871 10.2892H71.7354C70.9533 10.2892 70.3586 9.93892 69.9472 9.23423C69.7842 9.0713 69.6172 8.90429 69.4543 8.73728C68.9614 8.36661 68.2812 8.17924 67.4217 8.17924C66.5622 8.17924 65.9838 8.30144 65.5724 8.54991C65.2017 8.79838 65.0184 9.16906 65.0184 9.666C65.0184 10.3259 66.0857 10.8839 68.2242 11.3361C68.4726 11.4175 68.6885 11.4827 68.8718 11.5234C69.0551 11.5642 69.2303 11.5845 69.3973 11.5845C71.495 12.1222 72.9533 12.7414 73.7761 13.442C74.5541 14.1833 74.9492 15.1772 74.9492 16.4155C74.9492 18.2322 74.2893 19.6375 72.9777 20.6273C71.7435 21.5357 69.8942 21.9919 67.4299 21.9919C64.9655 21.9919 63.3402 21.5194 62.1916 20.5662C60.9981 19.6171 60.4034 18.2322 60.4034 16.4155V16.2281L60.3993 16.2363Z" fill="var(--text-primary)"/>
+        <path d="M44.6477 3.54777C45.0795 3.29115 45.0795 2.86752 44.6477 2.6109L40.4603 0.109881C40.0285 -0.146739 39.6782 0.0650743 39.6782 0.578313V5.58036C39.6782 6.0936 40.0285 6.30541 40.4603 6.04879L44.6477 3.54777Z" fill="var(--secondary-500)"/>
+        <path d="M80.3097 18.3667V21.6539H76.77V19.5887C76.77 18.774 77.2099 18.3667 78.1183 18.3667H80.3097Z" fill="var(--text-primary)"/>
+        <path d="M86.7903 9.40938H82.6274C83.1284 6.34217 85.2873 4.83911 89.1081 4.83911C93.6783 4.83911 95.9961 6.34217 96.0897 9.40938V15.0469C96.0897 19.6171 93.3362 21.6538 88.8555 21.9674C84.88 22.2811 82.1223 20.4318 82.1223 16.7699C82.216 12.7943 85.0958 11.7271 89.2914 11.3198C91.0755 11.0998 91.9838 10.5662 91.9838 9.66193C91.8902 8.72099 91.0144 8.25256 89.2914 8.25256C87.8209 8.25256 87.0062 8.6273 86.7863 9.40938H86.7903ZM92.049 14.8595V13.3238C91.0796 13.7312 89.9512 14.0733 88.7292 14.3259C87.0714 14.6395 86.2242 15.4216 86.2242 16.6436C86.3178 17.9593 87.0062 18.5866 88.3219 18.5866C90.6396 18.5866 92.049 17.2098 92.049 14.8595Z" fill="var(--text-primary)"/>
+        <path d="M93.2384 8.65178C94.5867 8.65178 96.0897 10.8432 96.0897 12.1874V21.6538H92.3341V18.1671L93.4706 12.5296L93.2425 8.64771L93.2384 8.65178Z" fill="var(--text-primary)"/>
+        <path d="M100.257 0.362549C101.634 0.362549 102.293 1.05094 102.261 2.39921V3.62121H98.0979V0.362549H100.257ZM100.257 5.09168C101.605 5.09168 102.261 5.74749 102.261 7.09576V21.6579H98.0979V5.09168H100.257Z" fill="var(--text-primary)"/>
+      </g>
+      <defs>
+        <clipPath id="clip_myteam_logo"><rect width="102.261" height="22" fill="white"/></clipPath>
+      </defs>
+    </svg>
+  )
+}
+
+function ProgressBar({ value, muted }: { value: number; muted?: boolean }) {
+  const segments = 8
+  const filled = Math.round((value / 100) * segments)
+  return (
+    <div
+      className={`mt-cp__progress${muted ? ' mt-cp__progress--muted' : ''}${value === 100 ? ' mt-cp__progress--complete' : ''}`}
+      role="progressbar"
+      aria-valuenow={value}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
+      {Array.from({ length: segments }).map((_, i) => (
+        <span key={i} className={`mt-cp__progress-seg${i < filled ? ' mt-cp__progress-seg--filled' : ''}`} />
+      ))}
+    </div>
+  )
+}
+
+/* Single-line stat (Figma 10859:28432) — icon, value, label + info anchor, the
+   same card the user profile uses. The DS Tooltip supplies the info icon at
+   16px, so the hand-rolled SVG this card carried is gone. */
+function StatCard({ icon, label, value, tooltip }: { icon: ReactNode; label: string; value: string; tooltip?: string }) {
+  return (
+    <div className="mt-stat-card">
+      <span className="mt-stat-icon">{icon}</span>
+      <span className="mt-stat-value">{value}</span>
+      <span className="mt-stat-label">
+        {label}
+        {tooltip && <Tooltip text={tooltip} position="Top" alignment="Center" iconSize={16} />}
+      </span>
+    </div>
+  )
+}
+
+type TeamMember = {
+  id: string
+  name: string
+  role: string
+  initials: string
+  avatarSrc?: string
+  managerIds: string[]         // one or more managers — 'me' for direct reports, sub-manager ids for indirects
+  teamName?: string            // set on sub-managers — displayed in scope dropdown
+  overdue: number              // past due
+  atRisk: number               // not started, or failed and needing another attempt
+  inProgress: number           // started, not yet complete
+  completed: number            // completed all-time
+  overallProgress: number      // 0–100 — completion across all assigned courses
+  lastReminderSentAt?: string  // ISO date of the most recent reminder sent to this member
+}
+
+
+const CURRENT_USER_ID = 'me'
+const CURRENT_USER_NAME = 'Alex Morgan'
+const PAGE_SIZE = 10
+
+const COURSE_POOL = [
+  'Compliance & Ethics 101',
+  'Food Safety Essentials',
+  'Customer Service Fundamentals',
+  'Data Protection (GDPR)',
+  'Harassment Prevention',
+  'Conflict Resolution',
+  'POS System Training',
+  'Fire Safety',
+  'Cash Handling',
+  'Allergen Awareness',
+  'Sustainable Service',
+  'Brand Standards',
+]
+
+function addDays(days: number): string {
+  const d = new Date()
+  d.setDate(d.getDate() + days)
+  return d.toISOString().slice(0, 10)
+}
+
+const THUMB_POOL = [thumb1, thumb2, thumb3]
+
+// Title-pool offset per status so a member's buckets don't repeat titles
+const STATUS_TITLE_OFFSET: Record<CourseStatus, number> = {
+  overdue: 0,
+  failed: 2,
+  'not-started': 4,
+  'low-progress': 6,
+  'on-track': 8,
+  completed: 10,
+}
+
+function coursesFor(memberId: string, status: CourseStatus, count: number): DrawerCourse[] {
+  if (count === 0) return []
+  const seed = [...memberId].reduce((a, c) => a + c.charCodeAt(0), 0)
+  return Array.from({ length: count }).map((_, i) => {
+    const titleIdx = (seed + i * 7 + STATUS_TITLE_OFFSET[status]) % COURSE_POOL.length
+    const title = COURSE_POOL[titleIdx]
+    const thumbnailSrc = THUMB_POOL[(seed + i) % THUMB_POOL.length]
+    // due date: only Overdue sits in the past — that date is what defines it
+    const dueOffset = status === 'overdue'
+      ? -(((seed + i) % 14) + 1)                  // 1–14 days ago
+      : status === 'failed'
+        ? ((seed + i * 3) % 28) + 2               // 2–29 days ahead — the retake window
+        : ((seed + i * 3) % 30) + 30              // everything else: 30–59 days ahead
+    const startOffset = dueOffset - (30 + ((seed + i * 5) % 30))
+    // Failed sits at 100% — the content was consumed, the assessment wasn't passed
+    const progress = status === 'completed' || status === 'failed'
+      ? 100
+      : status === 'on-track'
+        ? ((seed + i * 7) % 46) + 40              // 40–85%
+        : status === 'low-progress'
+          ? ((seed + i * 7) % 34) + 5             // 5–38%
+          : status === 'overdue'
+            ? (seed + i * 7) % 40                 // 0–39%
+            : 0                                    // not-started
+    return {
+      id: `${memberId}-${status}-${i}`,
+      title,
+      thumbnailSrc,
+      startDate: addDays(startOffset),
+      dueDate: addDays(dueOffset),
+      progress,
+      status,
+    }
+  })
+}
+
+/* Every course assigned to a member, worst status first — feeds the drawer.
+   The four stat-card buckets each map onto course statuses: At risk is Not
+   started plus Failed (the Figma definition), In progress splits on the 40%
+   threshold into Low progress and On track. Totals still equal coursesTotal(m),
+   which the row's count shows. */
+function allCoursesFor(m: TeamMember): DrawerCourse[] {
+  const failed = m.atRisk > 1 ? 1 : 0
+  const lowProgress = m.inProgress > 1 ? 1 : 0
+  return [
+    ...coursesFor(m.id, 'overdue', m.overdue),
+    ...coursesFor(m.id, 'failed', failed),
+    ...coursesFor(m.id, 'not-started', m.atRisk - failed),
+    ...coursesFor(m.id, 'low-progress', lowProgress),
+    ...coursesFor(m.id, 'on-track', m.inProgress - lowProgress),
+    ...coursesFor(m.id, 'completed', m.completed),
+  ]
+}
+
+
+const team: TeamMember[] = [
+  // Direct reports of the current user
+  { id: 'm1', name: 'Michael Thompson', role: 'Risk Management Specialist', initials: 'MT', avatarSrc: avatar1, managerIds: [CURRENT_USER_ID], overdue: 2, atRisk: 1, inProgress: 1, completed: 3,  overallProgress: 0,  lastReminderSentAt: addDays(-5)  },
+  { id: 'm2', name: 'Jessica Hart',     role: 'Compliance Officer',         initials: 'JH', avatarSrc: avatar2, managerIds: [CURRENT_USER_ID], teamName: 'Compliance Team',    overdue: 0, atRisk: 3, inProgress: 2, completed: 5,  overallProgress: 0,  lastReminderSentAt: addDays(-2)  },
+  { id: 'm3', name: 'David Johnson',    role: 'Investment Strategist',      initials: 'DJ', avatarSrc: avatar3, managerIds: [CURRENT_USER_ID], overdue: 1, atRisk: 0, inProgress: 0, completed: 4,  overallProgress: 12, lastReminderSentAt: addDays(-12) },
+  { id: 'm4', name: 'Noah Williams',    role: 'Concierge',                  initials: 'NW',                     managerIds: [CURRENT_USER_ID], overdue: 0, atRisk: 0, inProgress: 3, completed: 6,  overallProgress: 68 },
+  { id: 'm5', name: 'Mei Tanaka',       role: 'Housekeeping',               initials: 'MT',                     managerIds: [CURRENT_USER_ID], overdue: 3, atRisk: 2, inProgress: 0, completed: 2,  overallProgress: 22, lastReminderSentAt: addDays(-1) },
+  { id: 'm6', name: 'Ethan Brooks',     role: 'Barista',                    initials: 'EB',                     managerIds: [CURRENT_USER_ID], overdue: 0, atRisk: 1, inProgress: 1, completed: 4,  overallProgress: 45 },
+  { id: 'm7', name: 'Priya Shah',       role: 'Shift Lead',                 initials: 'PS',                     managerIds: [CURRENT_USER_ID], teamName: 'Shift Operations',   overdue: 0, atRisk: 0, inProgress: 0, completed: 9,  overallProgress: 100 },
+  { id: 'm8', name: 'Samantha Rivers',  role: 'Financial Analyst',          initials: 'SR', avatarSrc: avatar4, managerIds: [CURRENT_USER_ID], overdue: 1, atRisk: 0, inProgress: 1, completed: 3,  overallProgress: 0  },
+
+  // Indirect reports — Jessica Hart's (m2) compliance team
+  { id: 'm9',  name: 'Laura Chen',      role: 'Compliance Analyst',         initials: 'LC', managerIds: ['m2', 'm7'], overdue: 1, atRisk: 2, inProgress: 1, completed: 4, overallProgress: 55 },
+  { id: 'm10', name: 'Marcus Reid',     role: 'Internal Auditor',           initials: 'MR', managerIds: ['m2'], overdue: 0, atRisk: 1, inProgress: 2, completed: 3, overallProgress: 72 },
+  { id: 'm11', name: 'Sofia Alvarez',   role: 'Compliance Analyst',         initials: 'SA', managerIds: ['m2'], overdue: 2, atRisk: 0, inProgress: 1, completed: 2, overallProgress: 30 },
+  { id: 'm12', name: 'Oliver Tran',     role: 'Risk Analyst',               initials: 'OT', managerIds: ['m2'], overdue: 0, atRisk: 0, inProgress: 0, completed: 7, overallProgress: 100 },
+
+  // Indirect reports — Priya Shah's (m7) shift team
+  { id: 'm13', name: 'Jamal Carter',    role: 'Barista',                    initials: 'JC', managerIds: ['m7'], overdue: 0, atRisk: 1, inProgress: 2, completed: 3, overallProgress: 60 },
+  { id: 'm14', name: 'Hana Ito',        role: 'Server',                     initials: 'HI', managerIds: ['m7'], overdue: 1, atRisk: 1, inProgress: 0, completed: 4, overallProgress: 48 },
+  { id: 'm15', name: 'Diego Ramirez',   role: 'Server',                     initials: 'DR', managerIds: ['m7'], overdue: 0, atRisk: 0, inProgress: 3, completed: 2, overallProgress: 40 },
+  { id: 'm16', name: 'Aisha Bello',     role: 'Barista',                    initials: 'AB', managerIds: ['m7'], overdue: 2, atRisk: 0, inProgress: 1, completed: 1, overallProgress: 18 },
+  { id: 'm17', name: 'Luke Patterson',  role: 'Host',                       initials: 'LP', managerIds: ['m7'], overdue: 0, atRisk: 2, inProgress: 1, completed: 5, overallProgress: 76 },
+]
+
+/* Clicking a name opens the same profile page the admin People table opens
+   (/people/:id), but a manager's reports aren't in the People roster — so the
+   profile resolves them from here, derived off `team` so the two can't drift. */
+export const teamProfiles: Record<string, { name: string; role: string; email: string; avatar: string; avatarImg?: string }> =
+  Object.fromEntries(team.map((m) => [m.id, {
+    name: m.name,
+    role: m.role,
+    email: `${m.name.toLowerCase().replace(/\s+/g, '.')}@email.com`,
+    avatar: m.initials,
+    avatarImg: m.avatarSrc,
+  }]))
+
+export const learnerSideItems: { label: string; icon: typeof Home2; path?: string }[] = [
+  { label: 'For You', icon: Home2, path: '/for-you' },
+  { label: 'Your Workspace', icon: Profile2User, path: '/workspace' },
+  { label: 'Knowledge Hub', icon: MonitorMobbile },
+  { label: 'Search', icon: SearchNormal1 },
+  { label: 'My Team', icon: Award, path: '/my-team' },
+  { label: 'My Progress', icon: Medal },
+  { label: 'Feed', icon: Messages2 },
+  { label: 'Profile', icon: UserSquare },
+]
+
+function MyTeam() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
+  const [drawerMemberId, setDrawerMemberId] = useState<string | null>(null)
+  const [reminderOpen, setReminderOpen] = useState(false)
+  // Reminders sent during this session — overrides the seeded lastReminderSentAt
+  const [sentMap, setSentMap] = useState<Record<string, string>>({})
+  const toast = useToast()
+
+  const lastSentFor = (m: TeamMember) => sentMap[m.id] ?? m.lastReminderSentAt
+  /* Default: most overdue first. The tab exists to answer "who needs chasing", and
+     that is the column that answers it — so the table opens on it rather than making
+     the manager sort their way to the question they came with. */
+  const [sortKey, setSortKey] = useState<'overdue' | 'courses' | 'progress'>('overdue')
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
+  const [courseFilter, setCourseFilter] = useState<'all' | 'compliance'>('all')
+  const [scopeFilter, setScopeFilter] = useState<string>('direct')
+  const [page, setPage] = useState(1)
+  const [currentTab, setCurrentTab] = useState<'course-tracker' | 'engagement' | 'learning-records'>('course-tracker')
+
+  const managerNameById = (id: string) =>
+    id === CURRENT_USER_ID ? CURRENT_USER_NAME : team.find((m) => m.id === id)?.name ?? '—'
+
+  const sortedManagerIds = (ids: string[]) => {
+    const hasMe = ids.includes(CURRENT_USER_ID)
+    const rest = ids.filter((id) => id !== CURRENT_USER_ID)
+    return hasMe ? [CURRENT_USER_ID, ...rest] : ids
+  }
+  const showReportsTo = scopeFilter !== 'direct'
+  const scopeOptions: DropdownOption[] = [
+    { value: 'direct', label: 'Direct reports', description: 'Team members who report to you' },
+    { value: 'all', label: 'My organisation', description: 'Includes indirect reports from each manager under you' },
+  ]
+
+  const toggleSort = (key: 'overdue' | 'courses' | 'progress') => {
+    if (sortKey === key) setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))
+    else {
+      setSortKey(key)
+      setSortDir('desc')
+    }
+  }
+
+  const rows = useMemo(() => {
+    const scoped = scopeFilter === 'direct'
+      ? team.filter((r) => r.managerIds.includes(CURRENT_USER_ID))
+      : team
+    const q = searchQuery.trim().toLowerCase()
+    const base = q
+      ? scoped.filter((r) => r.name.toLowerCase().includes(q) || r.role.toLowerCase().includes(q))
+      : scoped
+    const scaled = courseFilter === 'compliance'
+      ? base.map((r) => ({
+          ...r,
+          overdue: Math.ceil(r.overdue / 2),
+          atRisk: Math.ceil(r.atRisk / 2),
+          inProgress: Math.floor(r.inProgress / 2),
+          completed: Math.floor(r.completed / 2),
+        }))
+      : base
+    const sorted = [...scaled].sort((a, b) => {
+      let diff = 0
+      if (sortKey === 'overdue') diff = a.overdue - b.overdue
+      else if (sortKey === 'courses') diff = coursesTotal(a) - coursesTotal(b)
+      else diff = a.overallProgress - b.overallProgress
+      /* Ties on overdue fall back to who is furthest behind overall, so the top of the
+         table is ordered by how much trouble someone is in rather than alphabetically. */
+      if (diff === 0 && sortKey === 'overdue') diff = b.overallProgress - a.overallProgress
+      return sortDir === 'asc' ? diff : -diff
+    })
+    return sorted
+  }, [searchQuery, sortKey, sortDir, courseFilter, scopeFilter])
+
+  const totals = useMemo(() => {
+    return rows.reduce(
+      (acc, r) => ({
+        overdue: acc.overdue + r.overdue,
+        atRisk: acc.atRisk + r.atRisk,
+        inProgress: acc.inProgress + r.inProgress,
+        completed: acc.completed + r.completed,
+      }),
+      { overdue: 0, atRisk: 0, inProgress: 0, completed: 0 },
+    )
+  }, [rows])
+
+  const totalCourses = totals.overdue + totals.atRisk + totals.inProgress + totals.completed
+  const pct = (n: number) => totalCourses === 0 ? '0%' : `${Math.round((n / totalCourses) * 100)}%`
+
+  const cardTotals: Record<CourseStatusCard['key'], number> = {
+    completed: totals.completed,
+    'in-progress': totals.inProgress,
+    'at-risk': totals.atRisk,
+    overdue: totals.overdue,
+  }
+
+  const totalRows = rows.length
+  const totalPages = Math.max(1, Math.ceil(totalRows / PAGE_SIZE))
+  const safePage = Math.min(page, totalPages)
+  const pageStart = (safePage - 1) * PAGE_SIZE
+  const pageEnd = Math.min(pageStart + PAGE_SIZE, totalRows)
+  const paginatedRows = rows.slice(pageStart, pageEnd)
+
+  useEffect(() => {
+    setPage(1)
+  }, [searchQuery, courseFilter, scopeFilter, sortKey, sortDir])
+
+  /* Selecting a row is how a reminder gets sent, so someone at 100% has nothing to be
+     selected for — their checkbox is disabled, and select-all skips them rather than
+     ticking boxes the row itself refuses. A page of finished learners leaves nothing to
+     select, so the header box is disabled too. */
+  const isSelectable = (r: { overallProgress: number }) => r.overallProgress < 100
+  const visibleIds = paginatedRows.filter(isSelectable).map((r) => r.id)
+  const allVisibleSelected = visibleIds.length > 0 && visibleIds.every((id) => selectedIds.has(id))
+
+  const toggleRow = (id: string) =>
+    setSelectedIds((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+
+  const toggleAll = () =>
+    setSelectedIds((prev) => {
+      if (allVisibleSelected) {
+        const next = new Set(prev)
+        visibleIds.forEach((id) => next.delete(id))
+        return next
+      }
+      const next = new Set(prev)
+      visibleIds.forEach((id) => next.add(id))
+      return next
+    })
+
+  const selectedCount = selectedIds.size
+
+  const sortHeader = (key: 'overdue' | 'courses' | 'progress', label: string, tooltip?: string) => (
+    <button
+      type="button"
+      className="mt-cp__th-btn"
+      onClick={() => toggleSort(key)}
+      aria-label={`Sort by ${label}, currently ${sortKey === key ? sortDir : 'unsorted'}`}
+    >
+      {tooltip ? (
+        <Tooltip text={tooltip} position="Top" alignment="Center" icon={false}>
+          <span className="mt-cp__th-label">{label}</span>
+        </Tooltip>
+      ) : (
+        <span className="mt-cp__th-label">{label}</span>
+      )}
+      {sortKey === key ? (
+        sortDir === 'asc' ? (
+          <ArrowUp size={16} color="var(--text-secondary)" variant="Linear" />
+        ) : (
+          <ArrowDown size={16} color="var(--text-secondary)" variant="Linear" />
+        )
+      ) : (
+        <span className="mt-cp__th-sort-hint"><ArrowDown size={16} color="var(--text-tertiary)" variant="Linear" /></span>
+      )}
+    </button>
+  )
+
+  const columns: Column<TeamMember>[] = [
+    {
+      key: 'name',
+      header: 'Name',
+      width: '1 0 260px',
+      render: (r) => (
+        <span className="tbl-media">
+          {r.avatarSrc ? (
+            <img className="mt-cp__avatar mt-cp__avatar--img" src={r.avatarSrc} alt="" />
+          ) : (
+            <div className="mt-cp__avatar" aria-hidden="true">{r.initials}</div>
+          )}
+          <div
+            className="mt-cp__member-info"
+            role="link"
+            tabIndex={0}
+            onClick={() => navigate(`/my-team/people/${r.id}`)}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/my-team/people/${r.id}`) }}
+          >
+            <span className="mt-cp__member-name">{r.name}</span>
+            <span className="mt-cp__member-role">{r.role}</span>
+          </div>
+        </span>
+      ),
+    },
+    ...(showReportsTo ? [{
+      key: 'reportsTo',
+      header: 'Reports to',
+      width: '0 0 180px',
+      // The "+N" listbox hangs below the cell, outside its clip; the name keeps its own ellipsis.
+      cellClassName: 'is-overflow mt-cp__table-cell--reports-to',
+      render: (r: TeamMember) => {
+        const sortedIds = sortedManagerIds(r.managerIds)
+        const primary = sortedIds[0]
+        const extras = sortedIds.slice(1)
+        return (
+          <>
+            <span className="mt-cp__reports-to-name">{managerNameById(primary)}</span>
+            {extras.length > 0 && (
+              <div className="mt-cp__reports-to-popover-wrap" tabIndex={0}>
+                <span
+                  className="mt-cp__reports-to-more"
+                  aria-haspopup="listbox"
+                >
+                  +{extras.length}
+                </span>
+                <ul className="dropdown-menu mt-cp__reports-to-listbox" role="listbox">
+                  {sortedIds.map((id) => (
+                    <li key={id}>
+                      <div className="dropdown-option" role="option" aria-selected={false}>
+                        <span>{managerNameById(id)}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
+        )
+      },
+    }] : []),
+    /* Overdue leads the metrics because it is what the tab is for: the number that
+       decides whether this row needs anything doing about it. */
+    {
+      key: 'overdue',
+      header: sortHeader('overdue', 'Overdue', 'Courses past their due date'),
+      width: '0 0 120px',
+      align: 'center',
+      cellClassName: 'mt-cp__table-cell--metric',
+      render: (r) => r.overdue > 0 ? (
+        <Tooltip
+          text={`${r.overdue} course${r.overdue === 1 ? '' : 's'} past its due date`}
+          position="Top"
+          alignment="Center"
+          icon={false}
+        >
+          <Badge
+            type="error"
+            className="mt-cp__overdue-badge"
+            customIcon={<span className="mt-cp__overdue-dot" aria-hidden="true" />}
+            label={String(r.overdue)}
+          />
+        </Tooltip>
+      ) : (
+        /* Nothing overdue is the good news, and a badge is for the row that needs
+           something doing. The dash is the same glyph the Courses column uses for
+           nothing-to-show, so the two empty states read alike instead of one being a
+           countable zero. */
+        <span className="mt-cp__status-dash">–</span>
+      ),
+    },
+    /* The count is a disclosure control, not a label — an outlined box + trailing
+       chevron so it reads as "opens something" without a hover (Figma 10837:17669).
+       The chevron points right because that is where the view goes: a down chevron
+       is the accordion convention and promises the row expands in place, but this
+       opens the drawer in from the right. */
+    {
+      key: 'courses',
+      header: sortHeader('courses', 'Courses', 'All courses assigned to this learner'),
+      width: '0 0 120px',
+      align: 'center',
+      cellClassName: 'mt-cp__table-cell--metric',
+      render: (r) => coursesTotal(r) > 0 ? (
+        <Button
+          variant="outlined-2"
+          size="sm"
+          trailingIcon={<ArrowRight2 size={12} color="var(--text-secondary)" variant="Linear" />}
+          onClick={() => setDrawerMemberId(r.id)}
+          aria-label={`View ${coursesTotal(r)} course${coursesTotal(r) === 1 ? '' : 's'} for ${r.name}`}
+        >
+          {coursesTotal(r)}
+        </Button>
+      ) : (
+        <span className="mt-cp__status-dash">–</span>
+      ),
+    },
+    {
+      key: 'progress',
+      header: sortHeader('progress', 'Overall progress'),
+      width: '0 0 180px',
+      align: 'center',
+      render: (r) => {
+        const progressMuted = r.overdue === 0 && r.atRisk === 0 && r.overallProgress === 0
+        return (
+          <span className={`mt-cp__progress-cell${progressMuted ? ' mt-cp__table-cell--muted' : ''}`}>
+            <ProgressBar value={r.overallProgress} muted={progressMuted} />
+            <span className="mt-cp__progress-pct">{r.overallProgress}%</span>
+          </span>
+        )
+      },
+    },
+    {
+      key: 'action',
+      header: '',
+      width: '0 0 56px',
+      align: 'center',
+      render: (r) => {
+        if (r.overdue === 0 && r.atRisk === 0) return null
+        const lastSent = lastSentFor(r)
+        return (
+          <Tooltip
+            position="Top"
+            alignment="End"
+            icon={false}
+            text={
+              <span className="mt-reminder-tip">
+                <span className="mt-reminder-tip__title">Send reminder</span>
+                {lastSent && (
+                  <span className="mt-reminder-tip__sub">Last sent {formatRelative(lastSent)}</span>
+                )}
+              </span>
+            }
+          >
+            <button
+              type="button"
+              className="mt-cp__row-action"
+              aria-label={
+                lastSent
+                  ? `Send reminder to ${r.name}, last sent ${formatRelative(lastSent)}`
+                  : `Send reminder to ${r.name}`
+              }
+              onClick={() => {
+                setSelectedIds(new Set([r.id]))
+                setReminderOpen(true)
+              }}
+            >
+              <SmsNotification size={20} color="var(--text-primary)" variant="Linear" />
+            </button>
+          </Tooltip>
+        )
+      },
+    },
+  ]
+
+  return (
+    <div className="mt-app">
+      <header className="mt-topnav">
+        <button type="button" className="mt-topnav__logo" aria-label="Home" onClick={() => navigate('/workspace')}>
+          <Logo size={22} />
+        </button>
+        <div className="mt-topnav__right">
+          <button type="button" className="mt-topnav__textbtn ui-disabled" disabled>
+            <Mobile size={20} color="var(--text-secondary)" variant="Linear" />
+            <span>Get App</span>
+          </button>
+          <button type="button" className="mt-topnav__outlinebtn ui-disabled" disabled>
+            <Add size={20} color="var(--text-primary)" variant="Linear" />
+            <span>Create</span>
+          </button>
+          <div className="mt-topnav__icons">
+            <button type="button" className="mt-topnav__iconbtn ui-disabled" aria-label="Notifications (coming soon)" disabled>
+              <FlashCircle size={24} color="var(--text-primary)" variant="Linear" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div className="mt-main">
+        <aside className="mt-side">
+          <nav className="mt-side__menu">
+            {learnerSideItems.map(({ label, icon: Icon, path }) => {
+              const isActive = !!path && location.pathname === path
+              return (
+                <button
+                  key={label}
+                  type="button"
+                  className={`mt-side__item${isActive ? ' mt-side__item--active' : ''}`}
+                  onClick={path ? () => navigate(path) : undefined}
+                >
+                  <Icon size={24} color={isActive ? 'var(--secondary-500)' : 'var(--text-secondary)'} variant="Bold" />
+                  <span>{label}</span>
+                </button>
+              )
+            })}
+            <AdminMenuItem />
+          </nav>
+
+          <ProfileMenu />
+
+          <div className="mt-side__powered">
+            <span>Powered by</span>
+            <Logo size={12} />
+          </div>
+        </aside>
+
+        <section className="mt-body">
+          <header className="mt-pageheader">
+            <div className="mt-pageheader__row">
+              <div className="mt-pageheader__headline">
+                <h1 className="mt-pageheader__title">My Team</h1>
+                <p className="mt-pageheader__subtitle">18 Active users · 3 Pending users</p>
+              </div>
+            </div>
+
+            <div className="mt-pageheader__divider" />
+
+            <nav className="mt-tabs">
+              <button type="button" className={`mt-tab${currentTab === 'course-tracker' ? ' mt-tab--active' : ''}`} onClick={() => setCurrentTab('course-tracker')}>
+                <span>Course Tracker</span>
+                {currentTab === 'course-tracker' && <span className="mt-tab__indicator" aria-hidden="true" />}
+              </button>
+              <button type="button" className={`mt-tab${currentTab === 'engagement' ? ' mt-tab--active' : ''}`} onClick={() => setCurrentTab('engagement')}>
+                <span>Engagement</span>
+                {currentTab === 'engagement' && <span className="mt-tab__indicator" aria-hidden="true" />}
+              </button>
+              <button type="button" className={`mt-tab${currentTab === 'learning-records' ? ' mt-tab--active' : ''}`} onClick={() => setCurrentTab('learning-records')}>
+                <span>Learning Records</span>
+                {currentTab === 'learning-records' && <span className="mt-tab__indicator" aria-hidden="true" />}
+              </button>
+            </nav>
+          </header>
+
+          {currentTab === 'engagement' && <EngagementTab />}
+          {currentTab === 'learning-records' && <LearningRecordsTab />}
+
+          {currentTab === 'course-tracker' && <section className="mt-course-progress" aria-label="Course Progress">
+            <ContentSwitcher
+              className="mt-cp__switcher"
+              ariaLabel="Course filter"
+              items={[
+                { key: 'all', label: 'All Courses' },
+                { key: 'compliance', label: 'Compliance Only (12)' },
+              ]}
+              activeKey={courseFilter}
+              onChange={(k) => setCourseFilter(k as 'all' | 'compliance')}
+            />
+
+            <div className="mt-cp__stats">
+              {COURSE_STATUS_CARDS.map((c) => (
+                <StatCard
+                  key={c.key}
+                  icon={c.icon}
+                  label={c.label}
+                  value={pct(cardTotals[c.key])}
+                  tooltip={c.tooltip}
+                />
+              ))}
+            </div>
+
+            <div className="mt-cp__toolbar">
+              <div className="mt-cp__toolbar-search">
+                <Search
+                  size="M"
+                  value={searchQuery}
+                  onChange={setSearchQuery}
+                  placeholder="Search for learners"
+                  ariaLabel="Search for learners"
+                />
+              </div>
+              <div className="mt-cp__toolbar-actions">
+                <div className="mt-cp__scope">
+                  <Dropdown
+                    size="md"
+                    options={scopeOptions}
+                    value={scopeFilter}
+                    onChange={setScopeFilter}
+                    /* The menu is wider than its trigger, so left-aligned it hangs off
+                       the right edge of the toolbar. Anchored to the trigger's right
+                       instead, which is the edge the toolbar itself ends on. */
+                    menuAlign="end"
+                    menuClassName="mt-cp__scope-menu"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <Table
+              columns={columns}
+              rows={paginatedRows}
+              getRowKey={(r) => r.id}
+              selectable
+              isSelected={(r) => selectedIds.has(r.id)}
+              isRowSelectable={isSelectable}
+              onToggleRow={(r) => toggleRow(r.id)}
+              onToggleAll={toggleAll}
+              allSelected={allVisibleSelected}
+              selectAllDisabled={visibleIds.length === 0}
+              pagination={{
+                from: pageStart + 1,
+                to: pageEnd,
+                total: totalRows,
+                onPrev: () => setPage((p) => Math.max(1, p - 1)),
+                onNext: () => setPage((p) => Math.min(totalPages, p + 1)),
+              }}
+            />
+
+            {rows.length === 0 && (
+              <div className="mt-cp__empty">
+                <div className="mt-cp__empty-illustration">
+                  <span className="mt-cp__empty-zero">0</span>
+                  <svg className="mt-cp__empty-accents" width="61" height="50" viewBox="0 0 61 50" fill="none">
+                    <path d="M5.5 30C3.5 32 1.5 35.5 1 38" stroke="var(--text-tertiary)" strokeWidth="3" strokeLinecap="round"/>
+                    <path d="M10 37C8.5 38.5 7 41 6.5 43" stroke="var(--text-tertiary)" strokeWidth="3" strokeLinecap="round"/>
+                    <path d="M51 8C53 5.5 55.5 2.5 56 1" stroke="var(--text-tertiary)" strokeWidth="3" strokeLinecap="round"/>
+                    <path d="M55.5 15C57 13 59 10.5 59.5 9" stroke="var(--text-tertiary)" strokeWidth="3" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <div className="mt-cp__empty-info">
+                  <p className="mt-cp__empty-text">No results found!</p>
+                  <p className="mt-cp__empty-subtext">Search for a different name or email</p>
+                </div>
+              </div>
+            )}
+          </section>}
+        </section>
+      </div>
+
+      {drawerMemberId && (() => {
+        const member = team.find((m) => m.id === drawerMemberId)
+        if (!member) return null
+        return (
+          <CoursesDrawer
+            open
+            memberName={member.name}
+            memberRole={member.role}
+            memberAvatarSrc={member.avatarSrc}
+            memberInitials={member.initials}
+            courses={allCoursesFor(member)}
+            onClose={() => setDrawerMemberId(null)}
+          />
+        )
+      })()}
+
+      <ReminderDrawer
+        open={reminderOpen}
+        members={team
+          .filter((m) => selectedIds.has(m.id))
+          .map((m) => ({ ...m, lastReminderSentAt: lastSentFor(m) }))}
+        onClose={() => setReminderOpen(false)}
+        onSend={(count) => {
+          const now = new Date().toISOString()
+          const sentIds = Array.from(selectedIds)
+          setSentMap((prev) => {
+            const next = { ...prev }
+            sentIds.forEach((id) => { next[id] = now })
+            return next
+          })
+          setReminderOpen(false)
+          setSelectedIds(new Set())
+          toast.show('success', `${count} reminder${count === 1 ? '' : 's'} sent successfully`)
+        }}
+      />
+
+      {/* Bulk actions live in the floating bar, same pattern as People —
+          mounted unconditionally so `count` drives its own enter/exit. */}
+      <BulkActionBar count={selectedCount} onClear={() => setSelectedIds(new Set())}>
+        <button
+          className="bulk-bar-btn bulk-bar-btn--primary"
+          onClick={() => setReminderOpen(true)}
+        >
+          <SmsNotification size={20} color="currentColor" variant="Linear" />
+          Send Reminders
+        </button>
+      </BulkActionBar>
+
+      <ToastContainer toasts={toast.toasts} />
+    </div>
+  )
+}
+
+export default MyTeam

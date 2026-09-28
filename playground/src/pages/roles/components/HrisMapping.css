@@ -1,0 +1,502 @@
+/* ===== HRIS Mapping Tab ===== */
+
+.hris-dry-run-alert.alert--alert {
+  padding: var(--space-s) var(--space-m);
+  gap: var(--space-sm);
+  font-size: 14px;
+  font-weight: 500;
+  align-items: center;
+}
+
+.hris-dry-run-alert.alert--alert .alert__body .alert__message {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hris-dry-run-alert .alert__btn--inline {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-warning);
+  background: rgba(255, 165, 56, 0.16);
+  border: 1px solid var(--text-warning);
+  border-radius: var(--radius-s);
+  padding: var(--space-s) var(--space-m);
+  text-decoration: none;
+}
+
+.hris-dry-run-alert .alert__btn--inline:hover {
+  background: rgba(255, 165, 56, 0.24);
+}
+
+.hris-search-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+  margin-top: calc(var(--space-ml) - var(--space-l));
+  margin-bottom: calc(var(--space-ml) - var(--space-l));
+}
+
+.hris-sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s) var(--space-sm);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-success);
+  background: rgba(24, 169, 87, 0.16);
+  border: 1px solid var(--success-500);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.hris-sync-pill--dry-run {
+  color: var(--text-warning);
+  background: rgba(255, 165, 56, 0.16);
+  border-color: var(--text-warning);
+}
+
+.hris-sync-pill__dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  margin: var(--space-xs);
+  border-radius: 50%;
+  background: var(--success-500);
+  flex-shrink: 0;
+}
+
+.hris-sync-pill--dry-run .hris-sync-pill__dot {
+  background: var(--text-warning);
+}
+
+.hris-sync-pill__name {
+  color: var(--text-success);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.hris-sync-pill__status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xxs) var(--space-xs);
+  background: rgba(24, 169, 87, 0.16);
+  border-radius: var(--radius-full);
+  color: var(--text-success);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.hris-sync-pill--dry-run .hris-sync-pill__name,
+.hris-sync-pill--dry-run .hris-sync-pill__status {
+  color: var(--text-warning);
+}
+
+.hris-sync-pill--dry-run .hris-sync-pill__status {
+  background: rgba(255, 165, 56, 0.16);
+}
+
+.hris-sync-pill__dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.6;
+  animation: hris-sync-pulse 1.6s ease-out infinite;
+}
+
+@keyframes hris-sync-pulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  80% { transform: scale(2.6); opacity: 0; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hris-sync-pill__dot::after {
+    animation: none;
+  }
+}
+
+/* ===== Table ===== */
+.hris-th {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.hris-th__sort {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.hris-actions-cell {
+  gap: var(--space-xs);
+}
+
+.hris-role-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.hris-role-cell__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hris-role-cell__source {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+.hris-role-cell__missing {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ===== Mapping Panel (drawer) ===== */
+
+.hris-panel-subtitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+
+.hris-panel-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.hris-panel-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: 0 0 var(--space-s);
+  background: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.hris-panel-tab:hover {
+  color: var(--text-primary);
+}
+
+.hris-panel-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hris-panel-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--secondary-500);
+  border-radius: 2px;
+}
+
+.hris-panel-tab:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.hris-panel-search-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  margin-top: calc(var(--space-ml) - var(--space-m));
+  margin-bottom: calc(var(--space-ml) - var(--space-m));
+}
+
+.hris-panel-search-wrapper .roles-panel-label {
+  margin: 0;
+}
+
+.hris-panel-options__label {
+  margin: 0;
+}
+
+.hris-panel-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.hris-panel-options__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.hris-panel-options__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  padding: 0 var(--space-s);
+  height: 20px;
+  background: var(--input-background);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hris-panel-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm) var(--space-m);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.hris-panel-option:hover {
+  background: var(--cards-background-hover);
+}
+
+.hris-panel-option--selected {
+  border-color: var(--selected);
+  background: var(--selected-tint);
+}
+
+.hris-panel-option--selected:hover {
+  background: rgba(237, 163, 13, 0.24);
+}
+
+.hris-panel-option__name {
+  flex: 1;
+  font-weight: 400;
+}
+
+.hris-panel-option__radio {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-primary);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.hris-panel-option__radio--selected {
+  border-color: var(--control-selected);
+}
+
+.hris-panel-option__radio--selected::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--control-selected);
+}
+
+.hris-panel-options__empty {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  font-style: italic;
+  padding: var(--space-s) 0;
+}
+
+.hris-panel-options__hint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  padding: var(--space-s) 0;
+  font-style: italic;
+}
+
+/* ===== Onboarding Preview Drawer ===== */
+
+.hris-preview-meta {
+  margin-bottom: var(--space-l);
+}
+
+.hris-preview-meta__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hris-preview-meta__pill--skipped {
+  background: rgba(24, 169, 87, 0.16);
+  color: var(--text-success);
+}
+
+.hris-preview-meta__pill--manual {
+  background: rgba(255, 165, 56, 0.16);
+  color: var(--text-warning);
+}
+
+.hris-preview-screen {
+  background: var(--page-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: var(--space-xl);
+}
+
+.hris-preview-screen__skipped,
+.hris-preview-screen__manual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-m);
+  text-align: center;
+}
+
+.hris-preview-screen__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--secondary-500);
+  color: var(--neutral-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.hris-preview-screen__heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.hris-preview-screen__subhead {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 320px;
+}
+
+.hris-preview-screen__role-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  width: 100%;
+  max-width: 360px;
+}
+
+.hris-preview-screen__role-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.hris-preview-screen__role-card-label {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hris-preview-screen__role-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hris-preview-screen__role-card-source {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+.hris-preview-screen__cta {
+  margin-top: var(--space-s);
+  align-self: stretch;
+  max-width: 360px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-s);
+}
+
+.hris-preview-screen__footnote {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  margin: 0;
+  font-style: italic;
+}
+
+.hris-preview-screen__role-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  width: 100%;
+  max-width: 360px;
+}
+
+.hris-preview-screen__role-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding: var(--space-sm) var(--space-m);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.hris-preview-screen__role-option:hover:not(.hris-preview-screen__role-option--selected) {
+  background: var(--cards-background-hover);
+}
+
+.hris-preview-screen__role-option--selected {
+  border-color: var(--selected);
+  background: var(--selected-tint);
+  font-weight: 500;
+}

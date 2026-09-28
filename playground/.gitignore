@@ -1,0 +1,16 @@
+node_modules
+dist
+.vercel
+.env
+.env.local
+.DS_Store
+*.log
+
+# Local Claude Code state (per-machine settings, allowed tools, etc.)
+.claude/settings.local.json
+
+# Local agent tooling / scratch output (not part of the app)
+agents/
+.claude/worktrees/
+.playwright-mcp/
+.design-inspect/

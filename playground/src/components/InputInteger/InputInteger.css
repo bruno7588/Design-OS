@@ -1,0 +1,137 @@
+.input-integer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+/* Inline variant — label sits before (left of) the control; helper wraps full-width below. */
+.input-integer--inline {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  align-items: center;
+  column-gap: var(--space-m);
+  row-gap: var(--space-xs);
+  width: 100%;
+}
+
+.input-integer--inline .input-integer__helper {
+  grid-column: 1 / -1;
+}
+
+.input-integer__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.input-integer__control {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: fit-content;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  transition: border-color 150ms ease;
+}
+
+.input-integer__control:hover {
+  border-color: var(--border-hover);
+}
+
+.input-integer__control:focus-within {
+  border-color: var(--selected);
+}
+
+.input-integer--error .input-integer__control {
+  border-color: var(--text-error);
+}
+
+.input-integer--error .input-integer__label {
+  color: var(--text-error);
+}
+
+/* Wraps the value + optional unit suffix so they read as one token ("80%"). */
+.input-integer__field {
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-integer__suffix {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.input-integer--disabled .input-integer__suffix {
+  color: var(--text-disabled);
+}
+
+.input-integer__value {
+  width: 26px;
+  min-width: 26px;
+  text-align: center;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  border: none;
+  background: transparent;
+  padding: 0;
+  -moz-appearance: textfield;
+}
+
+.input-integer__value:focus {
+  outline: none;
+}
+
+.input-integer__value::-webkit-outer-spin-button,
+.input-integer__value::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-integer__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.input-integer__step:hover:not(:disabled) {
+  background: var(--page-background-hover);
+}
+
+.input-integer__step:disabled {
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+.input-integer__helper {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.input-integer__helper--error {
+  color: var(--text-error);
+}
+
+/* Disabled */
+.input-integer--disabled .input-integer__control {
+  border-color: var(--border);
+}
+
+.input-integer--disabled .input-integer__label,
+.input-integer--disabled .input-integer__value,
+.input-integer--disabled .input-integer__helper {
+  color: var(--text-disabled);
+}

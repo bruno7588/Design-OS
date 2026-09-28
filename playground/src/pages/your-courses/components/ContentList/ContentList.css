@@ -1,0 +1,997 @@
+/* Top-level layout: 240px left outline (sticky) + centered 900px content column. */
+.content-list-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-l);
+  padding: var(--space-l) 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  /* Sync timing with the AddContentDrawer slide (300ms, CoursesDrawer.css). */
+  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1),
+    padding-right 300ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Empty-state mode: drop the 1180px / 900px constraints so the empty placeholder
+   spans the full main-content width. */
+.content-list-layout--empty {
+  max-width: none;
+}
+
+/* With a drawer open, the list anchors left at its full 900px rather than centring in
+   the strip. Centring hides its left edge under the drawer, and narrowing it to fit the
+   free space shrinks the rows — the rows keep their width and simply run under the
+   drawer on the right. */
+.content-list-layout--drawer-open,
+.content-list-layout--drawer-open .content-list {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.content-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml); /* 20px between sections / unsectioned / Add Section CTA */
+  flex: 1;
+  min-width: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* `.content-list` also exists in scorm-content with a different gap; CSS is bundled
+   globally (not scoped), so import order would otherwise decide the winner. The
+   layout wrapper is unique to this page, so this 2-class selector reliably wins
+   here without affecting scorm. Keep at 20px. */
+.content-list-layout .content-list {
+  gap: var(--space-ml);
+}
+
+/* Course metadata badges — top-of-page summary (sections / lessons / assessments / mins).
+   Uses the DS <Badge type="informative"> with customIcon. Hidden until the user adds
+   at least one item. Per Figma 8651:13033. */
+.course-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* The summary pills are a count, not a status: they read as body text alongside the
+   outline rather than as labels demanding attention, so they drop to Regular. The DS
+   Badge stays Medium 500 (badges.md) — this is scoped to the strip. */
+.course-meta .badge {
+  font-weight: 400;
+}
+
+/* When a drag rail is present (sections or an unsectioned area), indent the badge
+   strip past the 20px rail + gap so it lines up with the content container rather
+   than the rail. Flat/loose mode has no rail, so badges stay at the left edge. */
+.course-meta--indented {
+  margin-left: calc(var(--space-ml) + var(--space-s));
+}
+
+/* Fade for the meta strip; each badge additionally collapses its own width (and
+   trailing gap) on exit so neighbours glide left in one continuous motion rather
+   than the badge sliding right and the rest snapping back. Spacing lives on the
+   badge margin (not flex gap) so it can be animated away. */
+.presence {
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+.presence--enter,
+.presence--exit {
+  opacity: 0;
+}
+/* Exit is quicker than enter — removing the last item/section should fade the
+   badge(s) out crisply, not linger for the full enter duration. Must match
+   PRESENCE_EXIT_MS in ContentList.tsx. */
+.presence--exit {
+  transition-duration: 120ms;
+}
+.presence--in {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* The meta strip itself never fades — its badges own the enter/exit motion, so the
+   slide stays visible even when the whole strip appears/disappears (last item removed,
+   first item added). Without this the strip's own fade would mask the badge slide. */
+.presence--meta.presence--enter,
+.presence--meta.presence--exit {
+  opacity: 1;
+}
+.presence--badge {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  margin-right: var(--space-s);
+  transition: opacity 240ms ease, transform 240ms ease,
+    grid-template-columns 240ms ease, margin-right 240ms ease;
+}
+.presence--badge > * {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.presence--badge.presence--exit {
+  transition-duration: 120ms;
+}
+.presence--badge.presence--enter,
+.presence--badge.presence--exit {
+  grid-template-columns: 0fr;
+  margin-right: 0;
+}
+.presence--badge.presence--enter,
+.presence--badge.presence--exit {
+  transform: translateX(-8px);
+}
+/* Going back to empty state: the whole strip is leaving, so there are no neighbours
+   to glide left. Suppress the slide + width-collapse and let each badge just fade in
+   place — the leftward slide otherwise reads as a glitch. */
+.presence--meta.presence--exit .presence--badge.presence--exit {
+  grid-template-columns: 1fr;
+  margin-right: var(--space-s);
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presence,
+  .presence--badge {
+    transition: none;
+  }
+  .presence--badge.presence--enter,
+  .presence--badge.presence--exit {
+    transform: none;
+  }
+}
+
+.content-list-layout--empty .content-list {
+  max-width: none;
+}
+
+/* Two adjacent collapsed sections: tighter 16px gap (rather than 32px) since
+   collapsed cards are short and a big gap reads as wasted space. The dividers
+   are only rendered between two expanded sections, so adjacent collapsed
+   sections are always direct siblings in the DOM. */
+.curriculum-section--collapsed + .curriculum-section--collapsed {
+  margin-top: -16px;
+}
+
+.content-list__loose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-height: 56px;
+  border-radius: var(--radius-sm);
+  transition: background-color 150ms ease;
+}
+
+.content-list__loose--drop-active {
+  background-color: var(--selected-tint);
+}
+
+/* ── Curriculum section card ────────────────────────────────── */
+/* Outer section wrapper — 2-column grid: [drag column][content].
+   Grid puts the drag column in the SAME ROW as the header so its height
+   tracks the header card's height automatically (which varies when the
+   summary becomes visible on collapse). */
+.curriculum-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: var(--space-s);
+  row-gap: var(--space-m); /* 16px between header and body (per Figma 8622:17003) */
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Collapsed sections: header becomes the whole card; remove header/body gap. */
+.curriculum-section--collapsed {
+  height: fit-content;
+  row-gap: 0px;
+}
+
+/* Drag column spans BOTH grid rows (header + body) so its vertical divider
+   line auto-fits the section body's current height. Handle aligns vertically
+   with the header text via 12px padding-top (per Figma 8651:12373). */
+.curriculum-section__drag-column {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  padding-top: var(--space-sm);
+  width: 20px;
+  flex-shrink: 0;
+}
+
+/* Vertical divider line below the drag handle — fills the remaining drag-column
+   height so it stretches with the body (per Figma 8651:12375). */
+.curriculum-section__drag-line {
+  width: 1px;
+  flex: 1;
+  min-height: 0;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* When the section is collapsed (body height: 0), hide the line so the drag
+   column collapses to just the handle. */
+.curriculum-section--collapsed .curriculum-section__drag-line {
+  display: none;
+}
+
+/* Unsectioned/loose content: a left-aligned "Unsectioned" subheader label beside the
+   rail (no grip, no card header, no rename/chevron/collapse) — per Figma 8661:12642. */
+.curriculum-section__divider-header {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.curriculum-section__divider-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+/* Subheader sits closer to its cards than the section header→body gap (12px per Figma). */
+.curriculum-section--unsectioned {
+  row-gap: var(--space-sm);
+}
+
+/* No grip in the unsectioned column, so the rail starts flush with the subheader. */
+.curriculum-section--unsectioned .curriculum-section__drag-column {
+  padding-top: 0;
+}
+
+.curriculum-section__body {
+  grid-column: 2;
+  grid-row: 2;
+  /* Grid items default to min-width: auto, so a card whose title can't fit pushes
+     this track — and every row in it — past the 900px column. The title already
+     truncates; without this it never gets the chance to, because the row it sits in
+     keeps growing instead. Generated questions are long enough to hit this every
+     time, but a long hand-written one always could. */
+  min-width: 0;
+}
+
+/* Chromeless: the only-default-section state. No drag column, no header, no
+   tinted item rails — the section body becomes the page's flat list. */
+.curriculum-section--chromeless {
+  row-gap: 0;
+  column-gap: 0;
+}
+
+.curriculum-section__header {
+  grid-column: 2;
+  grid-row: 1;
+  /* Self-contained header card — independent of body (gap separates them). */
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm) var(--space-s) var(--space-sm) var(--space-m);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-s);
+  transition: background 150ms ease, box-shadow 150ms ease;
+  cursor: pointer;
+}
+
+.curriculum-section__header:hover {
+  background: var(--cards-background-hover);
+}
+
+/* While renaming, the header is an editing surface, not a collapse toggle. */
+.curriculum-section__header--editing,
+.curriculum-section__header--editing:hover {
+  cursor: default;
+  background: var(--cards-background);
+}
+
+/* Click-guard wrapper around the kebab — keeps menu clicks from toggling collapse.
+   display: contents so it adds no box and the kebab stays the header's flex item. */
+.curriculum-section__kebab-wrap {
+  display: contents;
+}
+
+/* Section drag-and-drop */
+.curriculum-section--dragging {
+  opacity: 0.4;
+}
+
+/* Item drop adjacent to section (above/below as a LooseBlock) — yellow insertion line */
+.curriculum-section--drop-above {
+  box-shadow: 0 -2px 0 0 var(--selected);
+}
+.curriculum-section--drop-below {
+  box-shadow: 0 2px 0 0 var(--selected);
+}
+
+/* Cross-container drop destination — section will receive an item from another container */
+.curriculum-section--drop-destination {
+  background-color: var(--selected-tint);
+  transition: background-color 150ms ease;
+}
+.curriculum-section--drop-destination .curriculum-section__header {
+  background-color: transparent;
+}
+
+.curriculum-section__drag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  cursor: grab;
+  flex-shrink: 0;
+  color: var(--text-disabled);
+  transition: color 150ms ease;
+}
+
+/* Darken the grip when hovering anywhere on the section. */
+.curriculum-section:hover .curriculum-section__drag {
+  color: var(--text-primary);
+}
+
+/* Single-section state: nothing to reorder, so the grip reads as disabled and
+   stays muted even on hover. */
+.curriculum-section__drag--disabled,
+.curriculum-section:hover .curriculum-section__drag--disabled {
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+.curriculum-section__chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  transform: rotate(180deg);
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.curriculum-section__chevron:hover {
+  background: var(--cards-background-hover);
+}
+
+.curriculum-section__chevron--collapsed {
+  transform: rotate(0);
+}
+
+.curriculum-section__chevron:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.curriculum-section__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.curriculum-section__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.curriculum-section__summary {
+  /* Hidden by default; GSAP shows it only when the section is collapsed. */
+  height: 0;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.curriculum-section__count {
+  flex-shrink: 0;
+}
+
+/* Inline rename — underlined input + Save / Close actions */
+.curriculum-section__rename-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 0 var(--space-xxs);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--selected);
+  border-radius: 0;
+  outline: none;
+}
+
+/* Body — vertical stack below the header card. No border or padding here;
+   each item carries its own tinted wrapper. Gap of 16px between the items wrapper
+   and the Add Content button (per Figma 8622:17003 internal gap). */
+.curriculum-section__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.curriculum-section__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm); /* 12px between item containers (per Figma 8622:17275) */
+}
+
+/* Per-section placeholder — full-width dashed, transparent bg, tertiary text,
+   regular weight, "Add Content to Section" copy (per Figma 8651:12404). */
+.curriculum-section__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: var(--space-s) var(--space-m);
+  background: transparent;
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.curriculum-section__placeholder:hover {
+  background: var(--input-background);
+  border-color: var(--border-hover);
+  color: var(--text-secondary);
+}
+
+.curriculum-section__placeholder:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* ── Kebab (3-dot) menu ─────────────────────────────────────── */
+.kebab {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.kebab__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.kebab__trigger:hover {
+  background: var(--cards-background-hover);
+}
+
+.kebab__trigger:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.kebab__menu {
+  position: absolute;
+  top: calc(100% + var(--space-xs));
+  right: 0;
+  z-index: 20;
+  min-width: 180px;
+  padding: var(--space-xs);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -1px -1px 4px rgba(32, 34, 42, 0.06), 1px 1px 4px rgba(32, 34, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.kebab__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-s);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms ease;
+}
+
+.kebab__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.kebab__item-label {
+  flex: 1;
+  min-width: 0;
+}
+
+.kebab__item:hover {
+  background: var(--cards-background-hover);
+}
+
+.kebab__item:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: -2px;
+}
+
+/* Only the label/icon go red — the hover fill stays the shared menu-item fill.
+   (--danger-100 is a raw light-mode pink that never flipped in dark mode.) */
+.kebab__item--danger {
+  color: var(--text-error);
+}
+
+/* ── Add Content / Add Section CTAs (bottom row) ────────────── */
+/* Side-by-side row when loose/unsectioned content exists; otherwise just
+   Add Section. Indented to align with the section header (past the drag column). */
+.curriculum-bottom-actions {
+  align-self: flex-start;
+  margin-left: calc(var(--space-ml) + var(--space-s));
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+/* Flat/loose mode has no drag column, so content sits at the list's left edge —
+   drop the indent so the actions line up with the cards above. */
+.curriculum-bottom-actions--flush {
+  margin-left: 0;
+}
+
+/* Compact pill — the more prominent of the two: dashed border, input bg fill, primary text. */
+/* Add Content is the DS Button (outlined-2); only Add Section keeps a local style. */
+
+/* Compact pill — the quieter, secondary action: dashed border, transparent bg, primary text. */
+.curriculum-add-section {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-s);
+  /* The DS md button's box, icon variant (buttons.md / .ds-btn--md.ds-btn--has-icon):
+     10px vertical, 20px on the label side, 16px on the icon side. This is a dashed
+     affordance rather than a DS Button, so the padding has to be matched by hand or it
+     sits shorter than the Add Content button beside it. Like the DS bordered buttons,
+     its 1px border comes out of the padding so it stays at the 41px DS height. */
+  padding: calc(var(--space-ssm) - 1px) calc(var(--space-ml) - 1px) calc(var(--space-ssm) - 1px) calc(var(--space-m) - 1px);
+  background: transparent;
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.curriculum-add-section:hover {
+  background: var(--input-background);
+  border-color: var(--border-hover);
+}
+
+.curriculum-add-section:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* ── Dialog (per design-system/overlays.md) ─────────────────── */
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--scrim);
+  z-index: 1000;
+  animation: overlay-fade-in 200ms ease-out;
+}
+
+@keyframes overlay-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  max-width: calc(100vw - 48px);
+  padding: var(--space-l);                  /* 24px uniform */
+  background: var(--cards-background);      /* light, project convention */
+  border-radius: var(--radius-sm);          /* 12px */
+  box-shadow: -4px 0px 24px 0px rgba(32, 34, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-ml);                     /* 20px between body and CTA */
+  text-align: center;
+  z-index: 1001;
+  animation: dialog-enter 200ms ease-out;
+}
+
+@keyframes dialog-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.dialog__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+}
+
+.dialog__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);                     /* 4px between title and description */
+}
+
+.dialog__title {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.dialog__description {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.dialog__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-m);                      /* 16px */
+  width: 100%;
+}
+
+/* Wrapper container: drag handle + card + trash */
+.content-item-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  background: var(--input-background);
+  padding: var(--space-s);
+  border-radius: var(--radius-sm);
+  transition: background-color 150ms ease-in-out;
+}
+
+.content-item-container:hover {
+  background: var(--input-background-hover);
+}
+
+/* Drag handle */
+.content-card-drag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  cursor: grab;
+}
+
+.content-card-drag:active {
+  cursor: grabbing;
+}
+
+.content-item-container--dragging .content-card-drag {
+  cursor: grabbing;
+}
+
+/* Card */
+.content-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--cards-background);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: background-color 150ms ease-in-out;
+}
+
+.content-card:hover {
+  background: var(--cards-background-hover);
+}
+
+/* Thumbnail */
+.content-card-thumb {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  position: relative;
+}
+
+.content-card-thumb-photo {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4a90d9, #7b68ee);
+  position: relative;
+}
+
+.content-card-thumb-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--border);
+  padding: var(--space-xs);
+  border-radius: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centres the glyph only — no tinted tile behind it, so it sits on the row the same way
+   the situational-test artwork does. */
+.content-card-thumb--assessment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-card-thumb-illustration {
+  display: block;
+}
+
+/* Info section */
+.content-card-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.content-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.content-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Edit, sitting between the title and the badge. Icon-only, so the hover fill is
+   circular; 24px box around the 16px glyph keeps it on the title's line rather than
+   stretching the row. */
+.content-card-title-edit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.content-card-title-edit:hover {
+  background: var(--input-background-hover);
+  color: var(--text-primary);
+}
+
+.content-card-title-edit:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.content-card-badge {
+  flex-shrink: 0;
+  background: var(--input-background-elevated);
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.content-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Trash button */
+.content-card-trash {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.content-card-trash:hover {
+  background: var(--input-background);
+  color: var(--text-error);
+}
+
+.content-card-trash:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+
+/* Drag and drop
+   - same-container: live reorder (no decorative indicator)
+   - cross-container: insertion line + destination tint (per DnD color rule: var(--selected)) */
+.content-item-container--dragging {
+  background: var(--cards-background-hover);
+}
+
+.content-item-container--drop-above::before,
+.content-item-container--drop-below::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--selected);
+  border-radius: 1px;
+  pointer-events: none;
+}
+.content-item-container--drop-above::before { top: -2px; }
+.content-item-container--drop-below::after { bottom: -2px; }
+
+/* Empty state (kept for reference) */
+.content-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xxl) var(--space-xl);
+  gap: var(--space-s);
+}
+
+.content-list-empty-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--input-background);
+  border-radius: var(--radius-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-s);
+}
+
+.content-list-empty-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.content-list-empty-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 320px;
+}
+
+/* ===== AI-generated assessments (DES-279) ===== */
+
+/* Confirming "Regenerate all" inverts the outline's focus: the rows that would be
+   replaced stay lit and everything else pulls back, so the blast radius is read
+   from the outline rather than counted in a sentence. */
+.content-item-container--receded {
+  opacity: 0.32;
+  transition: opacity 200ms ease;
+}
+
+.content-item-container--doomed {
+  background: var(--input-background-hover);
+  box-shadow: 0 0 0 1px var(--selected);
+  transition: box-shadow 200ms ease, background-color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content-item-container--receded,
+  .content-item-container--doomed {
+    transition: none;
+  }
+}
+

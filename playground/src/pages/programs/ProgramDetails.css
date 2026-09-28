@@ -1,0 +1,341 @@
+.pd-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  padding-bottom: 64px;
+}
+
+/* ---- Program header ---- */
+.pd-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.pd-banner__title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.pd-banner__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+.pd-banner__heading {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pd-banner__desc {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.pd-banner__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+}
+
+.pd-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.pd-meta__icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.pd-learners {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.pd-avatars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pd-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  border: 1.5px solid var(--page-background);
+  margin-right: -8px;
+  object-fit: cover;
+}
+
+.pd-avatar--count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--page-background-hover);
+  font-size: 8px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  margin-right: 0;
+}
+
+.pd-learners__label {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* Segmented progress bar (shared with course rows) */
+.pd-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.pd-progress__track {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  height: 8px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pd-progress__seg {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 100%;
+  background: var(--border);
+}
+
+.pd-progress__seg--primary {
+  background: var(--primary-600);
+}
+
+.pd-progress__pct {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ---- Sections ---- */
+.pd-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.pd-section__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* ---- Program outline ---- */
+.pd-outline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.pd-course {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border-radius: 12px;
+  box-shadow: var(--shadow-s);
+}
+
+.pd-course__thumb {
+  flex: 0 0 auto;
+  width: 192px;
+  height: 94px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Locked (scheduled) course — desaturated thumbnail, muted title, lock icon */
+.pd-course--locked .pd-course__thumb {
+  filter: grayscale(1);
+}
+
+.pd-course--locked .pd-course__title,
+.pd-course--locked .pd-meta__item {
+  color: var(--text-disabled);
+}
+
+.pd-course__lock {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-course__main {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.pd-course__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  width: 100%;
+}
+
+.pd-course__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* Clickable course title — inherits the heading's type, brightens on hover */
+.pd-course__titlelink {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+
+.pd-course__titlelink:hover {
+  color: var(--text-button-hover);
+}
+
+.pd-course__info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+
+/* Inline progress bar (in-progress courses only) */
+.pd-course__track {
+  display: flex;
+  width: 120px;
+  height: 4px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pd-course__cta {
+  flex: 0 0 auto;
+  padding: var(--space-s) var(--space-m);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-button-foreground);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.pd-course__cta:hover {
+  background: var(--primary-button-background-hover);
+}
+
+/* "Review" uses the DS Outlined-2 button: neutral outline at rest, cyan tint on
+   interaction (see design-system/buttons.md). */
+.pd-course__cta--review {
+  background: transparent;
+  border: 1px solid var(--border-elevated);
+  color: var(--text-primary);
+}
+
+.pd-course__cta--review:hover {
+  background: var(--button-outline-fill-hover);
+  border-color: var(--text-button-hover);
+  color: var(--text-button-hover);
+}
+
+.pd-course__cta--review:active {
+  background: var(--button-outline-fill-pressed);
+  border-color: var(--primary-button-background-pressed);
+  color: var(--primary-button-background-pressed);
+}
+
+/* Outline-primary CTA: used by in-progress "Continue" (not overdue) and the
+   next-up "Start" course. The overdue "Continue" stays filled-primary for urgency. */
+.pd-course__cta--outline {
+  background: transparent;
+  border: 1px solid var(--text-button-outlined);
+  color: var(--text-button-outlined);
+}
+
+/* DS Outlined hover: 16% cyan tint, mode-aware label + border (buttons.md).
+   Was --primary-100 (raw, non-flipping → near-white fill in dark mode). */
+.pd-course__cta--outline:hover {
+  background: var(--button-outline-fill-hover);
+  color: var(--text-button-hover);
+  border-color: var(--text-button-hover);
+}
+
+/* Retake — DS Danger-outlined (buttons.md): the corrective action on a failed
+   course. The red "Failed" badge carries the status; the button offers the fix. */
+.pd-course__cta--retake {
+  background: transparent;
+  border: 1px solid var(--danger-500);
+  color: var(--danger-500);
+}
+
+.pd-course__cta--retake:hover {
+  background: var(--danger-500);
+  color: var(--neutral-0);
+  border-color: var(--danger-500);
+}
+
+/* Certification section styles live in components/ProgramCertificate. */
+
+/* Course thumbnail collapses below the title on narrow viewports */
+@media (max-width: 720px) {
+  .pd-course {
+    flex-wrap: wrap;
+  }
+  .pd-course__thumb {
+    width: 100%;
+  }
+  .pd-course__cta {
+    width: 100%;
+  }
+}

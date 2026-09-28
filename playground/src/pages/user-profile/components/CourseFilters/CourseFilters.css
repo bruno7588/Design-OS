@@ -1,0 +1,317 @@
+/* ===== Course Progress smart filters ===== */
+.up-filters {
+  background: var(--cards-background);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+}
+
+/* Shadow only lifts the wrapper in light mode; dark mode needs no shadow. */
+[data-theme='dark'] .up-filters {
+  box-shadow: none;
+}
+
+.up-filters-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-s) var(--space-m);
+  min-height: 48px;
+}
+
+.up-filters-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.up-filters-icon {
+  display: inline-flex;
+}
+
+.up-filters-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.up-filters-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--space-xss);
+  border-radius: var(--radius-full);
+  background: var(--input-background-elevated);
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* Collapsed cluster (Add Filter when empty, pills when active) */
+.up-filters-collapsed {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1;
+}
+
+.up-filters-collapsed--hidden {
+  display: none;
+}
+
+/* Single row — the collapsed header is a summary, so pills past MAX_PILLS
+   roll into the "+N" chip rather than wrapping onto a second line. */
+.up-filters-pills {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.up-filters-pills > * {
+  flex-shrink: 0;
+}
+
+/* Filter pills use the DS Chip component; force the leading icon to primary. */
+.up-pill-chip-icon {
+  display: inline-flex;
+  color: var(--text-primary);
+}
+
+/* Collapsed filter pills: label + left icon are primary; the dismiss × keeps
+   the DS Chip's secondary colour. */
+.up-filters-pills .chip__label {
+  color: var(--text-primary);
+}
+
+/* Trailing chevron */
+.up-filters-trailing {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.up-filters-chevron-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+.up-filters-chevron-btn:hover { background: var(--cards-background-hover); }
+
+.up-filters-chevron {
+  display: inline-flex;
+  transition: transform 150ms ease;
+}
+.up-filters-chevron--open { transform: rotate(180deg); }
+
+/* Expanded body */
+.up-filters-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  border-top: 1px solid var(--border);
+}
+
+.up-filter-row {
+  display: flex;
+  /* Align icon/label/remove to the control's first line, not the tall block's
+     centre — so a multi-select's chips wrap below and stay aligned. */
+  align-items: flex-start;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+  min-height: 37px;
+}
+
+.up-filter-row-icon {
+  display: inline-flex;
+  align-items: center;
+  min-height: 37px;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.up-filter-row-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 37px;
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.up-filter-control-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+
+.up-filter-connector {
+  display: inline-flex;
+  align-items: center;
+  min-height: 37px;
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+/* The multi-select fills the row so its selected chips flow across the full
+   width and wrap, while the search FIELD itself stays the DS 400px reference
+   (search.md) and aligns with "{Label} is". */
+.up-filter-row .fms {
+  max-width: none;
+  flex: 1;
+}
+.up-filter-row .fms .fms-field-wrap {
+  flex: 0 0 400px;
+  max-width: 400px;
+}
+
+/* The field hugs its label rather than reserving the search field's 400px —
+   the chips below carry the selection, so the trigger only ever holds
+   "Select {filter}". */
+.up-filter-dropdown {
+  width: fit-content;
+}
+
+.up-filter-multi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  flex: 1;
+  min-width: 0;
+}
+
+/* Field and its × share a line; chips wrap onto the next. */
+.up-filter-multi-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.up-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+/* Figma 8725:104395 — the enabled chip: 12px side padding, 4px gap, and the
+   primary text colour rather than the base chip's secondary. */
+.up-filter-chip.chip {
+  padding: var(--space-s) var(--space-sm);
+  gap: var(--space-xs);
+  color: var(--text-primary);
+}
+
+.up-filter-row-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  align-self: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.up-filter-row-remove:hover {
+  background: var(--cards-background-hover);
+  color: var(--text-primary);
+}
+
+/* Bottom actions */
+.up-filters-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.up-filters-clear {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.up-filters-clear:hover:not(:disabled) { color: var(--text-error); }
+.up-filters-clear:disabled { color: var(--text-disabled); cursor: not-allowed; }
+
+/* Add Filter button + dropdown */
+.up-filter-add-wrap {
+  position: relative;
+  /* Flex (not block) so the inline-flex button doesn't ride the text baseline —
+     keeps "Add" vertically centered in line with the "Filters" toggle. */
+  display: inline-flex;
+  align-items: center;
+}
+
+.up-filter-add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-button-outlined);
+}
+
+.up-filter-add-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 20;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s);
+  box-shadow: -4px 0 24px rgba(32, 34, 42, 0.12);
+}
+
+.up-filter-add-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-primary);
+  text-align: left;
+}
+.up-filter-add-item:hover { background: var(--cards-background-hover); }
+
+.up-filter-add-icon {
+  display: inline-flex;
+  color: var(--text-primary);
+}
+
+.up-filter-add-empty {
+  padding: var(--space-s) var(--space-sm);
+  font-size: 14px;
+  color: var(--text-tertiary);
+}

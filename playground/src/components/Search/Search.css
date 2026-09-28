@@ -1,0 +1,91 @@
+/* Search component — per docs/design-system/search.md */
+
+.search {
+  display: flex;
+  align-items: center;
+  /* The quiet --border, not --border-elevated: Search is the one field with a
+     fill at rest, so it does not need the stronger edge (search.md). */
+  border: 1px solid var(--border);
+  background: var(--input-background);
+  cursor: text;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+/* ── Size M ── */
+.search--m {
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Size L ── */
+.search--l {
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-m);
+  border-radius: 16px;
+}
+
+/* ── Hover ── */
+.search:hover {
+  background: var(--input-background-hover);
+  border-color: var(--border-hover);
+}
+
+/* ── Active / Focused ── */
+.search:focus-within {
+  background: var(--input-background);
+  border-color: var(--selected);
+}
+
+/* ── Search icon ── */
+.search__icon {
+  flex-shrink: 0;
+}
+
+/* ── Input ── */
+.search__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.search--m .search__input {
+  font-size: 14px;
+}
+
+.search--l .search__input {
+  font-size: 16px;
+}
+
+.search__input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* ── Clear button ── */
+.search__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search__clear:hover {
+  opacity: 0.7;
+}
+
+.search__clear:focus-visible {
+  outline: 2px solid var(--selected);
+  border-radius: 4px;
+}

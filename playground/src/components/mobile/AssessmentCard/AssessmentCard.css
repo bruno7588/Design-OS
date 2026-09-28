@@ -1,0 +1,99 @@
+/* Mobile Assessment list card — cards.md "Assessment mobile list card", Figma 10242:2782 (Mobile app variants) */
+
+.m-assessment-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-s);
+  text-align: left;
+}
+
+.m-assessment-card--completed {
+  align-items: flex-start;
+}
+
+.m-assessment-card[role='button'] {
+  cursor: pointer;
+}
+
+.m-assessment-card[role='button']:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}
+
+.m-assessment-card__illustration {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+}
+
+.m-assessment-card--disabled .m-assessment-card__illustration {
+  mix-blend-mode: luminosity;
+  filter: grayscale(1);
+}
+
+.m-assessment-card__info {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.m-assessment-card--completed .m-assessment-card__info {
+  gap: var(--space-sm);
+}
+
+.m-assessment-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.m-assessment-card__title {
+  margin: 0;
+  font: 700 14px/1.5 Poppins, sans-serif;
+  color: var(--text-primary);
+}
+
+.m-assessment-card__meta {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  font: 400 12px/1.2 Poppins, sans-serif;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.m-assessment-card--disabled .m-assessment-card__title,
+.m-assessment-card--disabled .m-assessment-card__meta {
+  color: var(--text-disabled);
+}
+
+/* Outlined in the primary button colour, not --text-primary: the tick above it
+   already says "done", so the button is the one thing on the card still asking
+   to be pressed (Figma 10867:5489). */
+.m-assessment-card__review {
+  align-self: flex-start;
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--primary-button-background);
+  border-radius: var(--radius-s);
+  background: none;
+  font: 700 12px/1.4 Poppins, sans-serif;
+  color: var(--primary-button-background);
+  cursor: pointer;
+}
+
+.m-assessment-card__review:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}

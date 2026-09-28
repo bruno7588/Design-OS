@@ -1,0 +1,168 @@
+/* Row kebab trigger */
+.ram-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  color: var(--text-tertiary);
+  transition: background 150ms ease;
+}
+
+.ram-trigger:hover,
+.ram-trigger[aria-expanded='true'] {
+  background: var(--input-background);
+}
+
+/* Menu surface — DS listbox (listbox.md) */
+.ram-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs); /* 4px between items */
+  /* Hugs its items: each line stays on one row (Figma Library List items 9162:941). */
+  min-width: 240px;
+  background: var(--cards-background);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm); /* 12px */
+  padding: var(--space-s); /* 8px */
+  box-shadow: -4px 0 24px rgba(32, 34, 42, 0.12); /* Shadow L */
+  animation: ram-in 120ms ease;
+}
+
+@keyframes ram-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ram-menu { animation: none; }
+}
+
+/* Caret — a rotated square sitting over the border at the top-right (menu below
+   trigger) or bottom-right (menu above trigger). */
+.ram-caret {
+  position: absolute;
+  right: 16px;
+  width: 11px;
+  height: 11px;
+  background: var(--cards-background);
+}
+
+.ram-caret--top {
+  top: -6px;
+  border-left: 1px solid var(--border-elevated);
+  border-top: 1px solid var(--border-elevated);
+  transform: rotate(45deg);
+}
+
+.ram-caret--bottom {
+  bottom: -6px;
+  border-right: 1px solid var(--border-elevated);
+  border-bottom: 1px solid var(--border-elevated);
+  transform: rotate(45deg);
+}
+
+/* Items — icon left + label, per the DS listbox base item */
+.ram-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s); /* 8px */
+  width: 100%;
+  text-align: left;
+  padding: var(--space-s) var(--space-sm); /* 8px 12px */
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-s); /* 8px */
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.ram-item:hover {
+  background: var(--cards-background-hover);
+}
+
+/* Invalid for this row's status — kept visible so the action stays
+   discoverable. */
+.ram-item--disabled,
+.ram-item--disabled:hover {
+  background: transparent;
+  cursor: not-allowed;
+}
+
+.ram-item--disabled .ram-item-icon,
+.ram-item--disabled .ram-item-label,
+.ram-item--disabled .ram-item-description {
+  color: var(--text-disabled);
+}
+
+/* Looks enabled but does nothing: the arrow cursor is the only cue. */
+.ram-item--inert,
+.ram-item--inert:hover {
+  cursor: default;
+}
+
+.ram-item:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: -2px;
+}
+
+.ram-item-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--text-primary);
+}
+
+.ram-item-label {
+  min-width: 0;
+  font: 400 14px/1.5 'Poppins', sans-serif;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Danger (destructive) item — Unenrol */
+.ram-item--danger .ram-item-icon,
+.ram-item--danger .ram-item-label {
+  color: var(--text-error);
+}
+
+/* Section divider */
+/* The menu is an elevated surface, so its divider uses --border-elevated: the
+   same neutral as --border in light, one step up in dark where --border and
+   --cards-background are the same colour. */
+.ram-divider {
+  height: 1px;
+  margin: 0 var(--space-xs);
+  background: var(--border-elevated);
+}
+
+/* Two-line item: label + supporting text (listbox.md, Figma People 8572:654). */
+.ram-item--stacked {
+  align-items: flex-start;
+}
+
+.ram-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+/* Two-line item: the label is Medium so it leads, the supporting text stays
+   Regular (listbox.md label + supporting text). */
+.ram-item--stacked .ram-item-label {
+  font-weight: 500;
+}
+
+.ram-item-description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

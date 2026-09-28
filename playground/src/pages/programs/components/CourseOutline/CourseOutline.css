@@ -1,0 +1,295 @@
+/* Courses outline (Figma node 2377:33781) — numbered, draggable course rows with
+   inline Enrolment / Due date dropdowns, mirroring the Create Course content list. */
+.co-outline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-m);
+  width: 100%;
+}
+
+.co-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.co-head {
+  display: flex;
+  align-items: center;
+  padding: var(--space-s) var(--space-xxl) var(--space-s) var(--space-xl);
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+}
+
+.co-head__course {
+  flex: 1;
+  min-width: 0;
+  padding-right: var(--space-sm);
+}
+
+.co-head__col {
+  flex: 0 0 auto;
+  width: 160px;
+  padding: 0 var(--space-sm);
+}
+
+/* ── Row (grey wrapper: grip + card + trash) ────────────────────────────── */
+.co-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s);
+  border-radius: var(--radius-sm);
+  background: var(--input-background);
+  cursor: grab;
+}
+
+.co-row--dragging {
+  opacity: 0.5;
+}
+
+.co-row--drop {
+  box-shadow: 0 0 0 1px var(--selected);
+}
+
+.co-grip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Inner card (course | enrolment | due) ──────────────────────────────── */
+.co-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--cards-background);
+  box-shadow: var(--shadow-s);
+  transition: background 150ms ease;
+}
+
+.co-card:hover {
+  background: var(--cards-background-hover);
+}
+
+.co-card__course {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+}
+
+.co-counter {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--input-background-elevated);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.co-thumb {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: var(--cards-background-hover);
+  background-size: cover;
+  background-position: center;
+}
+
+.co-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.co-card__col {
+  flex: 0 0 auto;
+  width: 160px;
+  padding: var(--space-s) var(--space-sm);
+}
+
+/* ── Cell trigger (opens the shared Automations popover) ────────────────── */
+.co-cell {
+  position: relative;
+}
+
+.co-cell__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-tertiary);
+}
+
+.co-cell__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.co-cell__title {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* "On specific date" calendar field inside the enrolment popover. */
+.co-date-row {
+  position: relative;
+  padding: var(--space-xs) 0 0 var(--space-xl);
+}
+
+.co-date-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: none;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.co-date-trigger:hover {
+  border-color: var(--border-hover);
+  background: var(--input-background-elevated);
+}
+
+/* DS input "active/focused" border (input.md). */
+.co-date-trigger--active,
+.co-date-trigger--active:hover {
+  border-color: var(--selected);
+  background: none;
+}
+
+.co-calendar-pop {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: -8px;
+  z-index: 30;
+}
+
+/* Enrolment listbox: right-anchored so the caret sits under the chevron, with a
+   smooth ease-in-out open/close. */
+.co-cell .enrollment-popover {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+  animation: co-pop-in 180ms ease-in-out;
+}
+
+.co-cell .enrollment-popover--closing {
+  animation: co-pop-out 150ms ease-in-out forwards;
+}
+
+.co-cell .enrollment-popover__caret {
+  left: auto;
+  right: 2px;
+}
+
+@keyframes co-pop-in {
+  from { opacity: 0; transform: scale(0.96) translateY(-4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes co-pop-out {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.96) translateY(-4px); }
+}
+
+.co-cell__sub {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Remove ─────────────────────────────────────────────────────────────── */
+.co-remove {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.co-remove:hover {
+  background: var(--page-background-hover);
+  color: var(--text-error);
+}
+
+/* ── Add Courses — dashed button at the foot of the list ────────────────── */
+.co-actions {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+}
+
+.co-add {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s) var(--space-m) var(--space-s) var(--space-sm);
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: var(--input-background);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.co-add:hover {
+  background: var(--input-background-hover);
+}

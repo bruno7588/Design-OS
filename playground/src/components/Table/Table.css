@@ -1,0 +1,396 @@
+/* Table — 5Mins design system (docs/design-system/table.md).
+   Card-row structure: borderless header + stack of bordered rounded row-cards.
+   DS tokens mapped to this project's token names
+   (--sm→--space-sm, --border-default→--border, --surface-page-hover→--cards-background-hover,
+    --surface-selected→--selected, --surface-page→--page-background). */
+
+/* Horizontal scroll container — owned by the Table so the sticky first column
+   works everywhere (sticky pins to the nearest scrolling ancestor). */
+.tbl-scroll {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Sized to its content but never below the viewport, so once the pinned column
+   hits its floor the row keeps its border around every column — including the
+   trailing actions cell — and the excess scrolls instead of spilling out. */
+.tbl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: flex-end;
+  width: max-content;
+  min-width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Sticky first column (same frozen-panel treatment as Learning Records) ──
+   Transparent at rest so the row-card's rounded border shows through. */
+.tbl-cell.is-sticky,
+.tbl-head-cell.is-sticky {
+  position: sticky;
+  z-index: 3;
+}
+
+/* Once scrolled, pinned cells become opaque frozen panels that mask content
+   sliding under them. Top/bottom borders (aligned over the row's via -1px
+   margins) preserve the row separators; the left edge is square by design —
+   a rounded mask over a row whose corner has scrolled away leaves artifacts. */
+.tbl-scroll--scrolled .tbl-head-cell.is-sticky {
+  /* Opaque match of the header bar (--input-background over the page). */
+  background: linear-gradient(var(--input-background), var(--input-background)), var(--page-background);
+}
+
+.tbl-scroll--scrolled .tbl-row .tbl-cell.is-sticky {
+  align-self: stretch;
+  max-height: none;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  /* Rows are transparent (they show the page), so the frozen column masks with
+     the same --page-background — no colour change vs the other columns. */
+  background: var(--page-background);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Frozen panel follows the row-state backgrounds (layered over the opaque
+   page background so semi-transparent tints still mask scrolled content). */
+.tbl-scroll--scrolled .tbl-row:hover .tbl-cell.is-sticky,
+.tbl-scroll--scrolled .tbl-row.is-hover .tbl-cell.is-sticky {
+  background: linear-gradient(var(--input-background), var(--input-background)),
+    var(--page-background);
+}
+
+.tbl-scroll--scrolled .tbl-row.is-selected .tbl-cell.is-sticky {
+  background: linear-gradient(var(--selected-tint), var(--selected-tint)), var(--page-background);
+  border-color: var(--selected-tint);
+}
+
+.tbl-scroll--scrolled .tbl-row.is-selected:hover .tbl-cell.is-sticky,
+.tbl-scroll--scrolled .tbl-row.is-selected.is-hover .tbl-cell.is-sticky {
+  background: linear-gradient(var(--selected-tint-hover), var(--selected-tint-hover)),
+    var(--page-background);
+  border-color: var(--selected-tint-hover);
+}
+
+/* The pinned column shrinks with the viewport down to 240px, then holds — past
+   that the row overflows and the column freezes instead of getting narrower.
+   `contain: inline-size` is what makes the floor bite: without it the cell's
+   longest text sets its intrinsic width, so a table sized to its content
+   (`width: max-content`) hands the column far more than 240px and nothing ever
+   truncates. Contained, the column contributes only its flex basis, while
+   flex-grow still lets it take the slack on wide screens.
+   The right-edge shadow signalling the freeze is a box-shadow (not ::after)
+   because .tbl-cell clips its children with overflow: hidden. */
+.tbl-cell.is-sticky-last,
+.tbl-head-cell.is-sticky-last {
+  min-width: 240px;
+  contain: inline-size;
+  transition: box-shadow 150ms ease;
+}
+
+.tbl-scroll--scrolled .tbl-cell.is-sticky-last,
+.tbl-scroll--scrolled .tbl-head-cell.is-sticky-last {
+  /* Rightward variant of Shadow L (layout.md §6). The clip keeps it off the
+     checkbox and inside the row's height, so only the right edge casts. */
+  box-shadow: 4px 0 24px 0 rgba(32, 34, 42, 0.12);
+  clip-path: inset(0 -32px 0 0);
+}
+
+/* Header — filled bar with 12px radius */
+.tbl-head {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: var(--input-background);
+  border-radius: var(--radius-sm); /* 12px */
+}
+
+.tbl-head-cell {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: var(--space-s) var(--space-sm); /* 8px 12px */
+  color: var(--text-secondary);
+  font: 400 14px/1.5 'Poppins', sans-serif;
+  max-height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tbl-head-cell.is-sortable {
+  gap: var(--space-xs);
+  cursor: pointer;
+}
+
+.tbl-head-cell.is-checkbox {
+  gap: var(--space-sm);
+}
+
+.tbl-head-cell.is-disabled {
+  color: var(--text-disabled);
+}
+
+/* Row */
+.tbl-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--space-sm);
+  transition: background 150ms ease;
+}
+
+.tbl-row.is-clickable {
+  cursor: pointer;
+}
+
+.tbl-row.is-hover,
+.tbl-row:hover {
+  background: var(--input-background);
+}
+
+.tbl-row.is-selected {
+  background: var(--selected-tint);
+  border-color: var(--selected-tint);
+}
+
+.tbl-row.is-selected.is-hover,
+.tbl-row.is-selected:hover {
+  background: var(--selected-tint-hover);
+  border-color: var(--selected-tint-hover);
+}
+
+.tbl-row.is-disabled .tbl-cell {
+  color: var(--text-disabled);
+}
+
+.tbl-row.is-disabled .tbl-thumb,
+.tbl-row.is-disabled .avatar-32,
+.tbl-row.is-disabled .avatar-40 {
+  mix-blend-mode: luminosity;
+}
+
+/* Cell base */
+.tbl-cell {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: var(--space-s) var(--space-sm);
+  color: var(--text-primary);
+  font: 400 14px/1.5 'Poppins', sans-serif;
+  max-height: 58px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tbl-row:hover .tbl-cell.is-link,
+.tbl-cell.is-hover {
+  color: var(--text-button-hover);
+}
+
+/* Opt-out of the ellipsis clip, for a cell that anchors its own popover.
+   Only for cells with no text to truncate — an actions cluster, say. */
+.tbl-cell.is-overflow {
+  overflow: visible;
+}
+
+/* Media + text wrapper (12px gap between icon/thumb/avatar and text) */
+.tbl-media {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+/* Two-line stacks */
+.tbl-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* max-width is what makes the ellipsis appear: the stack is `align-items:
+   flex-start`, so without it these size to their text and spill out of a
+   narrowed cell, getting clipped mid-word instead of truncated. */
+.tbl-stack .primary {
+  max-width: 100%;
+  font-weight: 400;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Semibold is what separates a primary line from the supporting one under it,
+   so it only applies when there is something to separate from. A lone line in a
+   cell is body text and takes Regular — otherwise every one-line cell reads as
+   emphasised against nothing. */
+.tbl-stack:has(.supporting) .primary {
+  font-weight: 600;
+}
+
+.tbl-stack .supporting {
+  max-width: 100%;
+  font-weight: 400;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Date */
+.tbl-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.tbl-date--end {
+  align-items: flex-end;
+}
+
+.tbl-date .day {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.tbl-date .year {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+/* Avatars */
+.avatar-32 {
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+  object-fit: cover;
+  flex: 0 0 32px;
+}
+
+.avatar-40 {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  object-fit: cover;
+  flex: 0 0 40px;
+}
+
+/* Thumbnail (90x44 rounded). Use a <span> with background-image for gradients. */
+.tbl-thumb {
+  width: 90px;
+  height: 44px;
+  border-radius: var(--space-s);
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  flex: 0 0 90px;
+}
+
+/* Progress bar */
+.tbl-progress {
+  gap: var(--space-sm);
+  height: 56px;
+}
+
+.tbl-progress .bar {
+  display: flex;
+  width: 72px;
+  height: 8px;
+  border-radius: var(--space-s);
+  overflow: hidden;
+  flex: 0 0 72px;
+}
+
+.tbl-progress .seg {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  background: var(--border);
+}
+
+.tbl-progress .seg.fill {
+  background: var(--primary-600);
+}
+
+.tbl-progress .pct {
+  width: 33px;
+  flex: 0 0 33px;
+  color: var(--text-primary);
+  font: 400 14px/1.5 'Poppins', sans-serif;
+}
+
+/* Action icon */
+.tbl-action {
+  justify-content: center;
+}
+
+.tbl-action .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.tbl-action .icon-btn:hover {
+  background: var(--input-background);
+}
+
+.tbl-action.is-disabled .icon-btn {
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+/* Fixed-width helper: apply to both header cell and data cell */
+.tbl-col-action {
+  flex: 0 0 52px;
+}
+
+/* Pagination — sticky so it stays in view while the table scrolls horizontally */
+.tbl-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-m);
+  position: sticky;
+  right: 0;
+}
+
+.tbl-pagination .count {
+  color: var(--text-secondary);
+  font: 400 14px/1.5 'Poppins', sans-serif;
+}
+
+/* 16px icons, per table.md — these were a text glyph sized to whatever the font made
+   of it, which is why the footer never quite matched the spec. */
+.tbl-pagination .nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+/* "disabled nav uses opacity: 0.4" — dimming a token is not the same thing on an icon. */
+.tbl-pagination .nav[aria-disabled='true'] {
+  opacity: 0.4;
+  cursor: default;
+}

@@ -1,0 +1,159 @@
+/* Fixed layer that centres the pill (offset for the 240px side panel) */
+.bulk-bar-layer {
+  position: fixed;
+  bottom: var(--space-l);
+  left: 240px;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* The pill — same dark surface as the tooltip, so it flips per mode */
+.bulk-bar {
+  overflow: hidden; /* clips content while the width animates */
+  background: var(--tooltip-background);
+  border-radius: var(--radius-m); /* 16px */
+  box-shadow: 0 8px 32px rgba(15, 16, 20, 0.24), 0 2px 8px rgba(15, 16, 20, 0.12);
+  pointer-events: auto;
+  /* Enter/exit (opacity + 16px slide) is owned by Framer in BulkActionBar.tsx —
+     a CSS keyframe can only play on mount, so it can't animate the bar out. */
+}
+
+/* Measured by BulkActionBar.tsx; padding lives here so focus rings aren't clipped. */
+.bulk-bar-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: max-content;
+  padding: var(--space-sm);
+}
+
+.bulk-bar-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  color: var(--neutral-200);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+  flex-shrink: 0;
+}
+
+.bulk-bar-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--neutral-0);
+}
+
+.bulk-bar-count {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--neutral-200);
+  white-space: nowrap;
+}
+
+.bulk-bar-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.16);
+  flex-shrink: 0;
+}
+
+.bulk-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* ── Action buttons (children) ── */
+.bulk-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+/* Nothing in the current selection this action can touch. Stays in place rather
+   than disappearing, so the bar keeps a stable shape as the selection changes. */
+.bulk-bar-btn:disabled,
+.bulk-bar-btn:disabled:hover {
+  color: var(--text-disabled);
+  background: transparent;
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+.bulk-bar-btn--primary {
+  background: var(--primary-button-background);
+  color: var(--text-button-foreground);
+}
+.bulk-bar-btn--primary:hover { background: var(--primary-button-background-hover); }
+
+.bulk-bar-btn--danger {
+  background: var(--danger-500);
+  color: var(--neutral-0);
+}
+.bulk-bar-btn--danger:hover { background: var(--danger-600); }
+
+/* ── Actions dropdown trigger ──
+   The DS dropdown trigger (dropdown.md): transparent fill, hairline border,
+   12px radius, chevron on the right, `--selected` amber border while open.
+   The hairline and label come from .bulk-bar-btn--outlined below rather than
+   the mode-aware --border / --text-primary the doc names: this pill is dark in
+   both modes, so those tokens would flip light and wash out here. */
+.bulk-bar-trigger {
+  /* Reads as a field, not a button: Regular 14 with the chevron on the right,
+     sized to its content. */
+  justify-content: space-between;
+  font-weight: 400;
+}
+
+/* Active/open — amber chrome, label left white (Figma). */
+.bulk-bar-trigger[aria-expanded='true'],
+.bulk-bar-trigger[aria-expanded='true']:hover {
+  background: transparent;
+  border-color: var(--selected);
+}
+
+.bulk-bar-trigger:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}
+
+/* Chevron flips to point at the menu once it is above the bar. */
+.bulk-bar-trigger-chevron {
+  display: inline-flex;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bulk-bar-trigger[aria-expanded='true'] .bulk-bar-trigger-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulk-bar-trigger-chevron { transition: none; }
+}
+
+/* Outlined action — neutral hairline when Enabled, brighter on Hover. */
+.bulk-bar-btn--outlined {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.24);
+  color: var(--neutral-0);
+}
+.bulk-bar-btn--outlined:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+}

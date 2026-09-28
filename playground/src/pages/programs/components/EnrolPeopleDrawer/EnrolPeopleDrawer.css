@@ -1,0 +1,591 @@
+/* Enrol people drawer — Figma 2383:31093 / 2383:33377 / 2383:33621. 720px right modal. */
+
+.epd-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--scrim);
+  display: flex;
+  justify-content: flex-end;
+  animation: epd-fade-in 200ms ease;
+}
+
+.epd-overlay--closing {
+  animation: epd-fade-out 300ms ease forwards;
+}
+
+.epd-panel {
+  width: 720px;
+  max-width: 95vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  padding: var(--space-ml) var(--space-l);
+  background: var(--page-background);
+  box-shadow: -8px 0 24px rgba(32, 34, 42, 0.12);
+  animation: epd-slide-in 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.epd-panel--closing {
+  animation: epd-slide-out 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes epd-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes epd-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes epd-slide-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes epd-slide-out { from { transform: translateX(0); } to { transform: translateX(100%); } }
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.epd-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.epd-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.epd-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.epd-divider {
+  height: 1px;
+  width: 100%;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+.epd-tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-ml);
+}
+
+.epd-tab {
+  position: relative;
+  padding: 0 0 var(--space-xss);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  transition: color 150ms ease;
+}
+
+.epd-tab:hover { color: var(--text-primary); }
+
+.epd-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.epd-tab--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--selected);
+  border-radius: var(--radius-xs);
+}
+
+/* ── Form (scroll area) ─────────────────────────────────────────────────── */
+.epd-form {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+}
+
+.epd-chips {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.epd-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+/* ── All mode row ───────────────────────────────────────────────────────── */
+.epd-all-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.epd-all-row:hover { background: var(--cards-background-hover); }
+
+.epd-all-row--selected {
+  border-color: transparent;
+  background: var(--selected-tint);
+}
+
+/* Selected + hover deepens the amber (table.md); without this the generic
+   .epd-all-row:hover (higher specificity than the single --selected class)
+   would replace the selection tint with the neutral gray hover. */
+.epd-all-row--selected:hover {
+  border-color: transparent;
+  background: var(--selected-tint-hover);
+}
+
+.epd-all-row__label {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.epd-all-row__count {
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ── Filters bar (People) ───────────────────────────────────────────────── */
+.epd-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-s) var(--space-sm);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+  box-shadow: -1px -1px 2px rgba(32, 34, 42, 0.04), 1px 1px 2px rgba(32, 34, 42, 0.04);
+}
+
+.epd-filters__count {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.epd-filters__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.epd-filters__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--space-xss);
+  border-radius: var(--radius-full);
+  background: var(--cards-background-hover);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.epd-filters__add {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0 var(--space-s) 0 var(--space-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-button-background);
+}
+
+.epd-search { width: 100%; }
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+.epd-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.epd-thead {
+  display: flex;
+  align-items: center;
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+}
+
+.epd-th {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-s) var(--space-sm);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.epd-th--name { flex: 1; min-width: 0; }
+.epd-th--team { width: 200px; }
+.epd-th--status { width: 124px; }
+.epd-th--cohort { flex: 1; min-width: 0; }
+.epd-th--members { width: 120px; justify-content: center; }
+.epd-th--view { width: 88px; }
+
+.epd-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+/* Already-enrolled rows can't be re-selected. */
+.epd-row--enrolled {
+  cursor: default;
+}
+
+.epd-row:hover { background: var(--cards-background-hover); }
+
+.epd-row--selected {
+  border-color: var(--selected-tint);
+  background: var(--selected-tint);
+}
+
+/* Selected + hover deepens the amber (table.md) instead of the generic
+   .epd-row:hover replacing it with the neutral gray hover. */
+.epd-row--selected:hover {
+  border-color: var(--selected-tint-hover);
+  background: var(--selected-tint-hover);
+}
+
+.epd-cell {
+  display: flex;
+  align-items: center;
+  padding: var(--space-s) var(--space-sm);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.epd-cell--name { flex: 1; min-width: 0; gap: var(--space-sm); }
+.epd-cell--team { width: 200px; }
+.epd-cell--status { width: 124px; }
+.epd-cell--cohort { flex: 1; min-width: 0; gap: var(--space-sm); }
+.epd-cell--members { width: 120px; justify-content: center; }
+.epd-cell--view { width: 88px; }
+
+.epd-person {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  min-width: 0;
+}
+
+.epd-person__name {
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.epd-person__email {
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.epd-cohort__name { color: var(--text-primary); }
+
+.epd-view-btn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--text-button-outlined);
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--text-button-outlined);
+  transition: background 150ms ease;
+}
+
+.epd-view-btn:hover {
+  background: var(--button-outline-fill-hover);
+  color: var(--text-button-hover);
+  border-color: var(--text-button-hover);
+}
+
+.epd-empty {
+  padding: var(--space-l);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ── Cohort alert ───────────────────────────────────────────────────────── */
+.epd-cohort-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+}
+
+.epd-cohort-alert__bell {
+  flex-shrink: 0;
+}
+
+.epd-cohort-alert__text {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.epd-cohort-alert__link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+/* ── Pagination ─────────────────────────────────────────────────────────── */
+.epd-pagination {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-m);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.epd-pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.epd-pagination__btn:hover:not(:disabled) { background: var(--cards-background-hover); }
+.epd-pagination__btn:disabled { color: var(--text-disabled); cursor: default; }
+
+/* ── Program start date ─────────────────────────────────────────────────── */
+.epd-date {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.epd-date__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.epd-date__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.epd-date__sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Two start-mode options: immediately / on specific date (Figma 2423:12442). */
+.epd-date__options {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-m);
+}
+
+.epd-date__opt {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: none;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+/* Hover fills the whole option (input), per DS: --input-background + --border-hover. */
+.epd-date__opt:hover {
+  background: var(--input-background);
+  border-color: var(--border-hover);
+}
+
+/* Selected option — mode-aware amber border (--selected), per Figma 2423:12442. */
+.epd-date__opt--selected,
+.epd-date__opt--selected:hover {
+  border-color: var(--selected);
+}
+
+.epd-date__opt-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.epd-date__cal {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.epd-date__cal-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: none;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.epd-date__cal-trigger:not(.epd-date__cal-trigger--disabled):hover {
+  border-color: var(--border-hover);
+  background: var(--input-background);
+}
+
+/* DS input "active/focused" border (input.md). */
+.epd-date__cal-trigger--active,
+.epd-date__cal-trigger--active:hover {
+  border-color: var(--selected);
+  background: none;
+}
+
+.epd-date__cal-trigger--disabled {
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+/* Portaled to <body>; right/bottom are set inline from the trigger's rect so
+   the drawer's scroll container can't clip it. Above the overlay (z 1000). */
+.epd-date__cal-pop {
+  position: fixed;
+  z-index: 1001;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.epd-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+/* CTA + its live summary share a row: button left, count beside it. */
+.epd-footer__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+/* Live "who + when" summary for the pending enrolment (sits beside the CTA). */
+.epd-summary {
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.epd-summary--empty {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.epd-launch {
+  white-space: nowrap;
+  flex: 0 0 auto;
+  padding: var(--space-ssm) var(--space-ml);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background);
+  color: var(--text-button-foreground);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.epd-launch:hover:not(:disabled) { background: var(--primary-button-background-hover); }
+
+.epd-launch:disabled {
+  background: var(--button-background-disabled);
+  color: var(--text-button-disabled);
+  cursor: default;
+}
+
+/* Not-enrolled status placeholder. */
+.epd-status-empty {
+  color: var(--text-tertiary);
+}
+
+/* "Enrolled" badge — neutral chip with user-tick icon (Figma 2383:33403). */
+.epd-enrolled-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}

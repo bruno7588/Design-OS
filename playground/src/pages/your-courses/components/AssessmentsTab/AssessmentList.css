@@ -1,0 +1,162 @@
+/* Assessments as expandable rows (DES-331). Same Audit Log pattern as the learner
+   list, so the tab has one interaction model rather than two. Prefix `asl-`. */
+
+.asl {
+  /* Every track has give in it: with insights beside the table the row has about
+     900px to work in, and fixed tracks summing past that clipped the action off the
+     end. They take their old widths whenever there is room. */
+  --asl-cols: minmax(200px, 2fr) minmax(120px, 170px) minmax(90px, 130px) minmax(150px, 220px) minmax(112px, 150px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.asl-head {
+  display: grid;
+  grid-template-columns: var(--asl-cols);
+  column-gap: var(--space-sm);
+  align-items: center;
+  padding: var(--space-s) var(--space-sm);
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.asl-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.asl-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  overflow: hidden;
+  transition: background-color 150ms ease;
+}
+
+/* The same fill the By Learner rows take, so a row reads as one thing under the pointer.
+   No cursor with it: the row is not a control — only the View Answers button inside it
+   is — and a pointer over the whole row would promise a click that does nothing. */
+.asl-card:hover {
+  background: var(--input-background);
+}
+
+.asl-row {
+  display: grid;
+  grid-template-columns: var(--asl-cols);
+  column-gap: var(--space-sm);
+  align-items: center;
+  width: 100%;
+  /* A floor rather than a height: a two-line title grows the row instead of being cut
+     to fit it. */
+  min-height: 56px;
+  padding: var(--space-s) var(--space-sm);
+}
+
+.asl-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  min-width: 0;
+}
+
+/* ── Title ───────────────────────────────────────────────────────────────── */
+/* Two lines before it truncates. A question is a sentence, and one line of it cut at
+   "Complete the definition: psychological safety is a …" names nothing the admin can
+   tell apart from the next row. The row grows to fit rather than the text shrinking. */
+.asl-title {
+  max-width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+/* ── Type ────────────────────────────────────────────────────────────────── */
+.asl-c-type {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* Leading icons in lists are always primary, never secondary. */
+/* Artwork, not an icon: it keeps its own colours and its box, whatever the row
+   does around it. */
+.asl-illu {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+.asl-c-type svg {
+  flex: 0 0 auto;
+  color: var(--text-primary);
+}
+
+/* ── Responses ───────────────────────────────────────────────────────────── */
+.asl-c-responses {
+  gap: var(--space-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.asl-n {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.asl-of {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* ── Action ─────────────────────────────────────────────────────────────── */
+.asl-c-action {
+  justify-content: flex-end;
+}
+
+/* ── Pagination ──────────────────────────────────────────────────────────── */
+.asl-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-m);
+  padding-top: var(--space-s);
+}
+
+.asl-count {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* 16px icons, per table.md — these were a text glyph sized to whatever the font made
+   of it, which is why the footer never quite matched the spec. */
+.asl-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+/* "disabled nav uses opacity: 0.4" — dimming a token is not the same thing on an icon. */
+.asl-nav[aria-disabled='true'] {
+  opacity: 0.4;
+  cursor: default;
+}
+

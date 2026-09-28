@@ -1,0 +1,189 @@
+/* Force Trigger drawer — right-anchored side drawer.
+   Follows the 5Mins Side Drawer spec (overlays.md). */
+
+/* ===== Overlay Backdrop ===== */
+.force-trigger-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--scrim);
+  animation: force-trigger-overlay-fade 200ms ease-out;
+}
+
+@keyframes force-trigger-overlay-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.force-trigger-overlay--closing {
+  animation: force-trigger-overlay-fade-out 300ms ease forwards;
+}
+
+@keyframes force-trigger-overlay-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ===== Drawer panel ===== */
+.force-trigger-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 720px;
+  max-width: 100%;
+  height: 100vh;
+  padding: var(--space-ml) var(--space-l);
+  background: var(--page-background, #20222A);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  z-index: 1001;
+  animation: force-trigger-drawer-slide 300ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes force-trigger-drawer-slide {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.force-trigger-drawer--closing {
+  animation: force-trigger-drawer-slide-out 300ms ease forwards;
+}
+
+@keyframes force-trigger-drawer-slide-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+/* ===== Header (Section Header pattern) ===== */
+.force-trigger-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.force-trigger-headline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+  position: relative;
+}
+
+.force-trigger-title {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.force-trigger-subtitle {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary, #BFC2CC);
+}
+
+.force-trigger-close {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
+
+.force-trigger-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border, #2D313D);
+  border-radius: var(--radius-xs);
+}
+
+/* ===== Success state ===== */
+.force-trigger-success {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.force-trigger-success-icon {
+  margin-bottom: var(--space-s);
+}
+
+.force-trigger-success-title {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.force-trigger-success-subtitle {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.force-trigger-success-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-ml);
+  padding: var(--space-m) var(--space-ml);
+  width: 100%;
+  max-width: 420px;
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+}
+
+.force-trigger-success-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.force-trigger-success /* ===== Enrolled tooltip (fixed, escapes scroll overflow) ===== */
+.force-trigger-tooltip {
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.force-trigger-tooltip__content {
+  background: var(--tooltip-background);
+  color: var(--neutral-25, #f9f9fa);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: var(--space-s) var(--space-sm);
+  border-radius: var(--radius-sm);
+  max-width: 288px;
+  filter: drop-shadow(-4px 0px 24px rgba(32, 34, 42, 0.12));
+}
+
+.force-trigger-tooltip__caret {
+  margin-right: var(--space-m);
+}

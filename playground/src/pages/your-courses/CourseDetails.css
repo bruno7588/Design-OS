@@ -1,0 +1,597 @@
+.cd-layout {
+  display: flex;
+  flex: 1;
+}
+
+.cd-main {
+  flex: 1;
+  padding: var(--space-xl);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+/* Breadcrumb */
+.cd-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.cd-breadcrumb-link {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.2;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+/* Hover is --text-primary + underline (navigation.md → Breadcrumb item states). */
+.cd-breadcrumb-link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.cd-breadcrumb-current {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+/* Page header */
+.cd-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.cd-header-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.cd-metadata {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.cd-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.cd-header-ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.cd-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.cd-icon-btn:hover {
+  background: var(--cards-background-hover);
+}
+
+.cd-icon-btn--sm {
+  width: 32px;
+  height: 32px;
+}
+
+/* Row actions (⋯) menu trigger — hover uses input-background */
+.cd-link-icon {
+  transform: rotate(-45deg);
+}
+
+/* Headline + helper badges */
+.cd-headline-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cd-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cd-helper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.cd-helper-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.cd-helper-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.cd-divider {
+  height: 1px;
+  width: 100%;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* Tabs */
+.cd-tabs {
+  display: flex;
+  gap: var(--space-m);
+}
+
+.cd-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0 0 var(--space-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.cd-tab-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.cd-tab:hover .cd-tab-label {
+  color: var(--text-primary);
+}
+
+.cd-tab--active .cd-tab-label {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cd-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  border-radius: var(--radius-xs);
+}
+
+.cd-tab--active::after {
+  background: var(--selected);
+}
+
+.cd-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-secondary);
+}
+
+/* Enrolments section */
+.cd-enrolments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+/* Stats */
+/* One row of four on a full-width screen; the 2×2 grid is only for when the
+   width demands it (see the 1200px breakpoint). */
+.cd-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-m);
+}
+
+/* Icon on the left at 32px, then a column with the label above the figure. */
+.cd-stat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+/* The status icon keeps its 32px box however narrow the card gets. */
+.cd-stat > svg {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+}
+
+.cd-stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.cd-stat-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.cd-stat-value {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.cd-stat-pct {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cd-stat-sub {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.2;
+}
+
+/* Filters */
+.cd-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-s) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: var(--cards-background);
+  box-shadow: var(--shadow-s);
+}
+
+.cd-filters-headline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.cd-filters-label {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.cd-filters-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 21px;
+  padding: 0 var(--space-xs);
+  border-radius: var(--radius-full);
+  background: var(--input-background-elevated);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.cd-filters-add {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-button-outlined);
+}
+
+/* Actions row */
+.cd-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.cd-select-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.cd-select-count {
+  font-size: 14px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.cd-select-divider {
+  width: 1px;
+  height: 12px;
+  background: var(--border);
+}
+
+.cd-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: color 150ms ease;
+}
+
+.cd-link-btn:disabled {
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+.cd-link-btn--primary {
+  color: var(--text-button-outlined);
+}
+
+.cd-actions .cd-search {
+  flex: 1;
+  max-width: 400px;
+}
+
+/* Narrow: search and Download Report move above the selection controls */
+@media (max-width: 1200px) {
+  .cd-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cd-actions {
+    flex-wrap: wrap;
+  }
+
+  .cd-actions .cd-search {
+    order: -1;
+  }
+
+  .cd-download-btn {
+    order: -1;
+    /* Search is capped at 400px, so pin the button to the right edge of the
+       wrapped row instead of letting it float beside the field. */
+    margin-left: auto;
+  }
+
+  .cd-select-info {
+    flex-basis: 100%;
+  }
+}
+
+.cd-cell--progress {
+  gap: var(--space-s);
+}
+
+.cd-cell--status {
+  gap: var(--space-xs);
+}
+
+/* Header label sitting beside an info mark */
+.cd-head-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.cd-status-tooltip,
+.cd-status-tooltip .tooltip__trigger {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cd-status-tooltip .tooltip__trigger {
+  cursor: default;
+}
+
+.cd-attempt {
+  color: var(--text-primary);
+}
+
+.cd-attempt-max {
+  color: var(--text-tertiary);
+}
+
+.cd-cell--sortable {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Attempt no header — sort button + info tooltip */
+.cd-attempt-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Reset-progress dialog width (Figma: 600px, vs ConfirmModal default 560px) */
+.confirm-modal.cd-reset-modal {
+  width: 600px;
+}
+
+/* Reset-progress over-cap warning: Figma uses 14px Medium (DS Alert default is 16px Regular) */
+.cd-reset-cap-alert {
+  gap: var(--space-sm); /* 12px bell→text, vs DS Alert default 24px */
+}
+
+.cd-reset-cap-alert .alert__message {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Status badge */
+.cd-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.cd-status--failed {
+  background: rgba(223, 22, 66, 0.16);
+  color: var(--text-error);
+}
+
+.cd-status--in-progress {
+  background: rgba(0, 206, 230, 0.16);
+  color: var(--primary-700);
+}
+
+/* Content done but quizzes not yet passed — warning styling */
+.cd-status--quizzes-pending {
+  background: rgba(255, 187, 56, 0.16);
+  color: var(--text-warning);
+}
+
+.cd-status--completed {
+  background: rgba(24, 169, 87, 0.16);
+  color: var(--text-success);
+}
+
+.cd-status--not-started {
+  background: var(--input-background);
+  color: var(--text-secondary);
+}
+
+.cd-learner-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cd-learner-email {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Stacked dates */
+.cd-date {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.cd-date-year {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text-secondary);
+}
+
+.cd-cell-muted {
+  color: var(--text-tertiary);
+}
+
+/* Progress bar */
+.cd-progress {
+  flex: 1;
+  height: 8px;
+  border-radius: var(--radius-s);
+  background: var(--border);
+  overflow: hidden;
+}
+
+.cd-progress-fill {
+  height: 100%;
+  background: var(--primary-600);
+  border-radius: var(--radius-s);
+  transition: width 200ms ease;
+}
+
+.cd-progress-pct {
+  font-size: 14px;
+  color: var(--text-primary);
+  width: 33px;
+  flex-shrink: 0;
+}
+
+/* Empty + pagination */
+.cd-empty {
+  padding: var(--space-xl);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+.cd-placeholder {
+  padding: var(--space-xxl);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-sm);
+}

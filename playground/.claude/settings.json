@@ -1,0 +1,59 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx tsc -b)",
+      "mcp__claude_ai_Figma__get_screenshot",
+      "mcp__claude_ai_Figma__get_metadata",
+      "mcp__claude_ai_Figma__get_design_context",
+      "mcp__claude_ai_Figma__search_design_system",
+      "mcp__claude_ai_Figma__get_variable_defs",
+      "mcp__mobbin__search_screens",
+      "mcp__mobbin__search_flows"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "q=.design-inspect/queue.jsonl; [ -f tools/design-inspect/vite-plugin.ts ] || exit 0; n=0; [ -f \"$q\" ] && n=$(wc -l < \"$q\" | tr -d \" \"); printf '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"Design Inspect is wired into this repo. Arm the listener now by invoking the inspect skill, so the browser overlay Send to Claude button reaches this session instead of only queueing. Requests currently waiting in .design-inspect/queue.jsonl: %s.\"}}\\n' \"$n\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh tools/design-inspect/stop-hook.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  }
+}

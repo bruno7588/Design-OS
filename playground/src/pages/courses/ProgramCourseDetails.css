@@ -1,0 +1,586 @@
+.pcd-body {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 64px;
+}
+
+/* Cover image behind the header (Figma 17311:66659). An inset, rounded panel —
+   not full-bleed — held at full opacity through the top half and masked out
+   before it reaches the content, so the page background takes over cleanly.
+   The Figma mask is an SVG alpha rectangle; a gradient mask is the same fade
+   expressed in CSS, and keeps it resolution-independent. */
+.pcd-cover {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0; /* spans the full width of the body */
+  /* Figma draws this 600px tall, but against a taller header card. Here the
+     card is shorter, so 600 pushes the fade well past the tabs and the image
+     sits behind the outline. 420 restores the designed relationship: opaque
+     behind the card, gone by the time the content starts. */
+  height: 420px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 60%);
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Offset 20px below the cover, which is itself inset 20px from the top of the
+   body — so the cover's rounded top edge shows above the header card instead of
+   being covered by it. */
+.pcd-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  width: 100%;
+  max-width: 900px;
+  margin: var(--space-ml) auto 0;
+}
+
+/* ---- Header card ---- */
+/* Scoped to the learner course page so this card styling does not leak onto
+   the admin (.pcd-layout) CourseDetails header, which shares the .pcd-header class. */
+.pcd-content .pcd-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  padding: var(--space-l);
+  background: var(--page-background);
+  border-radius: 16px;
+  box-shadow: var(--shadow-s);
+}
+
+/* "Part of a program" context uses the shared DS Breadcrumb component
+   (src/components/Breadcrumb) — rendered as the first child of .pcd-header. */
+
+.pcd-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+}
+
+.pcd-header__info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+}
+
+.pcd-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.pcd-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.pcd-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.pcd-iconbtn:hover {
+  background: var(--page-background-hover);
+}
+
+.pcd-header__title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pcd-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pcd-helper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.pcd-helper__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.pcd-helper__icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+/* Segmented progress (shared by header + lesson rows via .pcd-seg) */
+.pcd-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  background: unset;
+  background-color: unset;
+}
+
+.pcd-progress__track {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 8px;
+  border-radius: 24px;
+  background: var(--border-elevated);
+  overflow: hidden;
+}
+
+.pcd-progress__fill {
+  height: 100%;
+  border-radius: 24px;
+  background: var(--primary-600);
+}
+
+.pcd-seg {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 100%;
+  background: var(--border-elevated);
+}
+
+.pcd-seg--filled {
+  background: var(--primary-600);
+}
+
+.pcd-progress__pct {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ---- Tabs ---- */
+.pcd-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+}
+
+.pcd-tab {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0 0 var(--space-xss);
+  background: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.pcd-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pcd-tab--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--selected);
+}
+
+.pcd-tab__count {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xxs) var(--space-s);
+  border-radius: 40px;
+  background: var(--input-background);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ---- Course outline ---- */
+.pcd-outline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.pcd-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pcd-section__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pcd-section__headline {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.pcd-section__name {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pcd-section__summary {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+.pcd-section__chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+
+.pcd-section__chevron--closed {
+  transform: rotate(180deg);
+}
+
+.pcd-section__lessons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ---- Lesson card ---- */
+.pcd-lesson {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border-radius: 12px;
+  box-shadow: var(--shadow-s);
+  transition: background 150ms ease;
+}
+
+/* DS Lesson hover (cards.md §Lesson states): card fill switches to
+   --cards-background-hover and the title shifts to --text-button-hover.
+   Locked lessons are excluded — they stay inert. */
+.pcd-lesson:not(.pcd-lesson--locked):hover {
+  background: var(--cards-background-hover);
+}
+
+.pcd-lesson:not(.pcd-lesson--locked):hover .pcd-lesson__title {
+  color: var(--text-button-hover);
+}
+
+/* "Start!" tooltip floating above the active lesson, centered on the card */
+.pcd-tooltip {
+  position: absolute;
+  bottom: calc(100% - 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: var(--space-sm) var(--space-m);
+  border: none;
+  border-radius: 12px;
+  background: var(--primary-button-background);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-button-foreground);
+  white-space: nowrap;
+  box-shadow: -4px 0 12px rgba(32, 34, 42, 0.12);
+  cursor: pointer;
+  transition: background 120ms ease;
+  animation: pcd-tooltip-bob 1.6s ease-in-out infinite;
+}
+
+@keyframes pcd-tooltip-bob {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcd-tooltip {
+    animation: none;
+  }
+}
+
+.pcd-tooltip:hover {
+  background: var(--primary-button-background-hover);
+}
+
+.pcd-tooltip:hover::after {
+  border-top-color: var(--primary-button-background-hover);
+}
+
+.pcd-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--primary-button-background);
+}
+
+.pcd-lesson__thumb {
+  position: relative;
+  flex: 0 0 auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pcd-lesson__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pcd-lesson--locked .pcd-lesson__thumb img {
+  filter: grayscale(1);
+}
+
+.pcd-lesson__tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+  background: var(--border);
+  border-bottom-right-radius: 8px;
+}
+
+.pcd-lesson__info {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.pcd-lesson__title {
+  margin: 0;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 150ms ease;
+}
+
+.pcd-lesson--locked .pcd-lesson__title {
+  color: var(--text-disabled);
+}
+
+.pcd-lesson__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+}
+
+/* The lesson's tail (progress track or lock) stays right; anything before it — the
+   meta text, then the resources chip — reads as one line. */
+.pcd-lesson__meta > :last-child {
+  margin-left: auto;
+}
+
+.pcd-lesson__metatext {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pcd-lesson--locked .pcd-lesson__metatext {
+  color: var(--text-disabled);
+}
+
+.pcd-lesson__track {
+  display: flex;
+  flex: 0 0 auto;
+  width: 96px;
+  height: 4px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* ---- Divider ---- */
+.pcd-divider {
+  width: 100%;
+  height: 1px;
+  border-radius: 4px;
+  background: var(--border);
+}
+
+/* Resources tab: the shared ResourceCard, stacked. */
+.pcd-resources {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.pcd-empty {
+  padding: 48px var(--space-m);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ── Builder preview chrome ───────────────────────────────────────────────────
+   Only rendered when the course builder hands a draft over in router state. */
+.pcd-previewbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding: var(--space-s) var(--space-xl);
+  background: var(--input-background);
+  border-bottom: 1px solid var(--border);
+}
+
+.pcd-previewbar__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.pcd-previewbar__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.pcd-previewbar__back:hover {
+  background: var(--input-background);
+}
+
+/* A row that opens an authored assessment in preview. */
+.pcd-lesson--openable {
+  cursor: pointer;
+}
+
+.pcd-lesson--openable:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}
+
+/* The interactive formats are mobile-first, so they play in the phone frame. */
+.pcd-quizstage {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-l);
+  background: var(--page-background);
+  overflow-y: auto;
+}
+
+/* Lesson resources (DES-334): the count reads as the tail of the lesson's meta line.
+   It is a marker only — the resources themselves live in the lesson. */
+.pcd-lesson__resources-count {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.pcd-lesson--locked .pcd-lesson__resources-count {
+  color: var(--text-disabled);
+}

@@ -1,0 +1,392 @@
+:root {
+  /* Palette values per Figma variables — see docs/design-system/colors.md */
+
+  /* Primary (Cyan Brand) */
+  --primary-900: #002C31;
+  --primary-800: #005862;
+  --primary-700: #008393;
+  --primary-600: #00AFC4;
+  --primary-500: #00CEE6;
+  --primary-400: #33E2F7;
+  --primary-300: #66E9F9;
+  --primary-200: #99F1FB;
+  --primary-100: #CCF8FD;
+
+  /* Secondary (Yellow) */
+  --secondary-900: #191306;
+  --secondary-800: #33250B;
+  --secondary-700: #664B16;
+  --secondary-600: #EDA30D;
+  --secondary-500: #FFBB38;
+  --secondary-400: #FFCF74;
+  --secondary-300: #FFE4AF;
+  --secondary-200: #FFF1D7;
+  --secondary-100: #FFF8EB;
+
+  /* Success (Green) */
+  --success-900: #021109;
+  --success-800: #052211;
+  --success-700: #0A4423;
+  --success-600: #11763D;
+  --success-500: #18A957;
+  --success-400: #5DC389;
+  --success-300: #A3DDBC;
+  --success-200: #D1EEDD;
+  --success-100: #E8F6EE;
+
+  /* Warning (Orange) */
+  --warning-900: #33210B;
+  --warning-800: #664216;
+  --warning-700: #996322;
+  --warning-600: #E88206;
+  --warning-500: #FFA538;
+  --warning-400: #FFB760;
+  --warning-300: #FFC988;
+  --warning-200: #FFDBAF;
+  --warning-100: #FFEDD7;
+
+  /* Danger (Red) */
+  --danger-900: #160207;
+  --danger-800: #2D040D;
+  --danger-700: #59091A;
+  --danger-600: #9C0F2E;
+  --danger-500: #DF1642;
+  --danger-400: #E95C7B;
+  --danger-300: #F2A2B3;
+  --danger-200: #F9D0D9;
+  --danger-100: #FCE8EC;
+
+  /* Neutral (Grays) */
+  --neutral-0: #FFFFFF;
+  --neutral-25: #F9F9FA;
+  --neutral-50: #EFF0F2;
+  --neutral-100: #DFE1E6;
+  --neutral-200: #BFC2CC;
+  --neutral-300: #9EA4B3;
+  --neutral-400: #656B7C;
+  --neutral-500: #454C5E;
+  --neutral-600: #383D4C;
+  --neutral-700: #2D313D;
+  --neutral-800: #20222A;
+  --neutral-900: #0F1014;
+
+  /* Gamification */
+  --blaze-quiz: #8158EC;
+  --flash-poll: #9B55C9;
+  --lesson-quiz: #FA715F;
+  --certificate-quiz: #6368DB;
+  --course-assessments: #2A90D8;
+
+  /* AI gradient — cyan into Blaze purple, the mark of a generative surface.
+     Two ramps, and the difference is deliberate rather than drift: a fill starts at
+     --primary-500, while gradient-filled TEXT starts one step lighter at --primary-400
+     so the first glyphs still carry against the page.
+
+     Only the endpoints are declared. buttons.md (verified against Figma 2026-08-04)
+     records that the six stops Figma paints are collinear, so the intermediate ones
+     were only ever a longhand for the interpolation the browser already does — the
+     hand-typed 4- and 6-stop copies this replaces render identically to these two.
+
+     Angle is per-surface, so the stop list is its own token and each gradient picks
+     its own: 90deg along a progress bar, 135deg across a card or a border. Buttons do
+     NOT use these — .btn-ai paints a radial gradient on the mode-aware primary ladder
+     (buttons.md §AI), which is a different geometry, not a different colour. */
+  --gradient-ai-stops: var(--primary-500) 0%, var(--blaze-quiz) 100%;
+  --gradient-ai: linear-gradient(90deg, var(--gradient-ai-stops));
+  --gradient-ai-diagonal: linear-gradient(135deg, var(--gradient-ai-stops));
+  --gradient-ai-text: linear-gradient(135deg, var(--primary-400) 0%, var(--blaze-quiz) 100%);
+
+  /* Certificate-quiz @ 16% — the quiz badge fill and the callout on assessment drawers.
+     Identical in both themes: it tints the quiz colour, which does not flip. */
+  --quiz-background: rgba(99, 104, 219, 0.16);
+
+  /* Semantic aliases — light mode (Figma dark-mode values live in colors.md) */
+  --page-background: var(--neutral-25);
+  --page-background-hover: var(--neutral-50);
+  --cards-background: var(--neutral-0);
+
+  /* AI callout — the branded banner on generative surfaces (Figma 9156:42774 light,
+     9156:42714 dark). Brand cyan at 16% reads correctly over both page grounds, so
+     only the text flips: cyan in light, the secondary yellow in dark, where
+     cyan-on-cyan would not carry. */
+  --ai-callout-background: rgba(0, 131, 147, 0.16);
+  --ai-callout-text: var(--primary-700);
+
+  --cards-background-hover: var(--neutral-50);
+  --input-background: rgba(191, 194, 204, 0.16); /* Neutral-200 @ 16% */
+  /* Same fill, one step up, for a field sitting on a card rather than on the page. */
+  --input-background-elevated: rgba(191, 194, 204, 0.24); /* Neutral-200 @ 24% */
+  --input-background-hover: var(--neutral-100);
+  /* Two weights, chosen by what the border sits ON, not by what it draws:
+     --border on the page ground, --border-elevated on an elevated surface
+     (card, menu, drawer). Light needs no step because the page and the card
+     already separate; dark does, because there --border is the same neutral as
+     --cards-background and a border drawn in it disappears. */
+  --border: var(--neutral-100);
+  --border-elevated: var(--neutral-100);
+  --border-hover: var(--neutral-300);
+  --tooltip-background: var(--neutral-800);
+  --text-primary: var(--neutral-800);
+  --text-secondary: var(--neutral-500);
+  --text-tertiary: var(--neutral-400);
+  --text-disabled: var(--neutral-300);
+  --text-success: var(--success-600);
+  --text-warning: var(--warning-600);
+  --text-error: var(--danger-500);
+  --text-selected: var(--secondary-600);
+  /* Knockout label on the amber --selected fill (chips, switcher pills, selected
+     menu options, selected day cells). Mode-invariant: the fill is the same amber
+     in both themes, so the label stays Neutral-800 in both. Pair with weight 500. */
+  --text-on-selected: var(--neutral-800);
+  --text-progress: var(--primary-700);
+  --text-quiz: var(--certificate-quiz);
+  --primary-button-background: var(--primary-700);
+  --primary-button-background-hover: var(--primary-800);
+  --primary-button-background-pressed: var(--primary-900);
+  --button-background-disabled: var(--neutral-100);
+  --button-danger-hover: var(--danger-600);
+  --button-danger-pressed: var(--danger-700);
+  --button-warning-background: var(--warning-600);
+  --button-warning-background-hover: var(--warning-700);
+  --button-warning-background-pressed: var(--warning-800);
+  --button-success-background: var(--success-500);
+  --button-success-background-hover: var(--success-600);
+  --button-success-background-pressed: var(--success-700);
+  --text-button-foreground: var(--neutral-25);
+  --text-button-disabled: var(--neutral-300);
+  --text-button-hover: var(--primary-700);
+  --text-button-outlined: var(--primary-700);
+  --button-outline-hover: rgba(0, 206, 230, 0.16); /* Primary-500 @ 16% — generic Outlined/Text button hover/active tint; translucent so it reads correctly in both light & dark (DS buttons.md) */
+  /* Outlined-button fill ladder (buttons.md 2026-08-04): transparent rest → 16% hover → transparent pressed */
+  --button-outline-fill: transparent;
+  --button-outline-fill-hover: rgba(0, 206, 230, 0.16); /* Primary-500 @ 16% */
+  --button-outline-fill-pressed: transparent;
+  --button-outline-fill-disabled: transparent;
+  --selected: var(--secondary-600);
+  --selected-tint: rgba(237, 163, 13, 0.15); /* selected-row / highlight fill derived from --selected */
+  --selected-tint-hover: rgba(237, 163, 13, 0.24); /* hover state of --selected-tint rows */
+  --selected-fill: var(--secondary-100); /* opaque fill for sticky cells over scrolling content */
+  --selected-fill-hover: #FDECC5; /* hover state of --selected-fill / selected rows (opaque) */
+  --control-selected: var(--secondary-600); /* radio/checkbox selected amber, per selection-controls.md */
+  --scrim: rgba(15, 16, 20, 0.25); /* overlay backdrop — Neutral-900 @ 25%; overridden to 50% in dark mode (layout.md §7) */
+
+  /* Spacing (4px base) */
+  --space-xxs: 0.125rem; /* 2px */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-xss: 0.375rem; /* 6px */
+  --space-s: 0.5rem;     /* 8px */
+  --space-ssm: 0.625rem; /* 10px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-m: 1rem;       /* 16px */
+  --space-ml: 1.25rem;   /* 20px */
+  --space-l: 1.5rem;     /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-xxl: 2.5rem;   /* 40px */
+
+  /* Border Radius */
+  --radius-xs: 0.25rem;  /* 4px */
+  --radius-s: 0.5rem;    /* 8px */
+  --radius-sm: 0.75rem;  /* 12px */
+  --radius-m: 1rem;      /* 16px */
+  --radius-ml: 1.25rem;  /* 20px */
+  --radius-l: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+
+  /* Icon Sizes */
+  --icon-size-sm: 16px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 32px;
+
+  /* Shadows — see docs/design-system/layout.md */
+  --shadow-s: -1px -1px 4px 0 rgba(32, 34, 42, 0.04), 1px 1px 4px 0 rgba(32, 34, 42, 0.04);
+  --shadow-l: 4px 4px 24px 0 rgba(32, 34, 42, 0.12);
+  --shadow-xl: 0 4px 32px 0 rgba(32, 34, 42, 0.24);
+  --shadow-panel: -24px 0px 24px 0px rgba(32, 34, 42, 0.04);
+  /* Lift for a filled card sitting on the page. Light mode needs it — --cards-background
+     is one step off --page-background and the fill alone barely separates. Dark mode
+     doesn't: there the same two tokens are a visible step apart, and a shadow over a dark
+     ground reads as grime rather than elevation. */
+  --shadow-card: var(--shadow-s);
+}
+
+/* ── Dark mode ─────────────────────────────────────────────────────────────
+   Semantic overrides per docs/design-system/colors.md §6 (Figma-verified).
+   Raw palettes, brand button fills, badge/status 16% tints, spacing, radius
+   and shadows are mode-independent and stay in :root. Applied via
+   <html data-theme="dark"> (see src/hooks/useTheme.ts). */
+[data-theme='dark'] {
+  --ai-callout-text: var(--secondary-400);
+  /* Surfaces */
+  --page-background: var(--neutral-800);
+  --page-background-hover: var(--neutral-700);
+  --cards-background: var(--neutral-700);
+  --shadow-card: none;
+  --cards-background-hover: var(--neutral-600);
+  --input-background: rgba(69, 76, 94, 0.16); /* Neutral-500 @ 16% */
+  --input-background-elevated: rgba(69, 76, 94, 0.24); /* Neutral-500 @ 24% */
+  --input-background-hover: var(--neutral-700);
+  /* Neutral-600, not the Neutral-700 the Figma surface table gives: there --border
+     is the same colour as --cards-background, so every border and divider drawn on a
+     card, menu or drawer is invisible. One step up resolves it at the source rather
+     than asking ~185 call sites to know which surface they sit on. The two border
+     tokens therefore hold the same value in both modes; --border-elevated keeps its
+     name for the elevated case so the distinction survives if the palette moves. */
+  --border: var(--neutral-600);
+  --border-elevated: var(--neutral-600);
+  --border-hover: var(--neutral-300);
+  --tooltip-background: var(--neutral-900);
+
+  /* Text */
+  --text-primary: var(--neutral-25);
+  --text-secondary: var(--neutral-200);
+  --text-tertiary: var(--neutral-300);
+  --text-disabled: var(--neutral-400);
+  --text-success: var(--success-500);
+  --text-warning: var(--warning-500);
+  --text-error: var(--danger-400);
+  --text-selected: var(--secondary-500);
+  --text-progress: var(--primary-500);
+  --text-quiz: var(--warning-200);
+  --text-button-hover: var(--primary-400);
+  --text-button-outlined: var(--primary-500);
+  --text-button-foreground: var(--neutral-800); /* dark label on the bright cyan filled button */
+
+  /* Buttons (buttons.md) — primary lightens on dark hover; the semantic families all darken */
+  --primary-button-background: var(--primary-500);
+  --primary-button-background-hover: var(--primary-400);
+  --primary-button-background-pressed: var(--primary-700);
+  --button-background-disabled: var(--neutral-400);
+
+  /* Selection amber flips 600 → 500 in dark (colors.md / chips-switcher spec) */
+  --selected: var(--secondary-500);
+  --control-selected: var(--secondary-500);
+  --selected-tint: rgba(255, 187, 56, 0.15); /* Secondary-500 @ 15% */
+  --selected-tint-hover: rgba(255, 187, 56, 0.24);
+  --selected-fill: var(--secondary-800); /* opaque fill for sticky cells over scrolling content */
+  /* Translucent stand-in for the opaque light-mode fill — designer review pending */
+  --selected-fill-hover: rgba(255, 187, 56, 0.24);
+
+  /* Overlay backdrop — Neutral-900 @ 50% in dark mode (layout.md §7) */
+  --scrim: rgba(15, 16, 20, 0.5);
+}
+
+/* Prototype-wide "not built yet" treatment: controls that look real but have no
+   behaviour are dimmed and inert instead of silently doing nothing. Pair with the
+   native `disabled` attribute (buttons) or aria-disabled so they also leave the
+   tab order. */
+.ui-disabled,
+.ui-disabled:hover,
+.ui-disabled:active {
+  opacity: 0.45 !important;
+  pointer-events: none !important;
+}
+
+/* Reusable button */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-ssm) var(--space-ml);
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background);
+  color: var(--text-button-foreground);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  transition: background 150ms ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-button-background-hover);
+}
+
+.btn-outlined {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-ssm) var(--space-ml);
+  border-radius: var(--radius-sm);
+  background: var(--button-outline-fill);
+  border: 1px solid var(--text-button-outlined);
+  color: var(--text-button-outlined);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.btn-outlined:hover {
+  background: var(--button-outline-fill-hover);
+  border-color: var(--text-button-hover);
+  color: var(--text-button-hover);
+}
+
+.btn-outlined:active {
+  background: var(--button-outline-fill-pressed);
+  border-color: var(--primary-button-background-pressed);
+  color: var(--primary-button-background-pressed);
+}
+
+.btn-outlined:disabled {
+  background: var(--button-outline-fill-disabled);
+  border-color: var(--text-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.btn-success {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-ssm) var(--space-ml);
+  border-radius: var(--radius-sm);
+  background: var(--button-success-background);
+  color: var(--neutral-25);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  transition: background 150ms ease;
+}
+
+.btn-success:hover {
+  background: var(--button-success-background-hover);
+}
+
+.btn-danger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-ssm) var(--space-ml);
+  border-radius: var(--radius-sm);
+  background: var(--danger-500);
+  color: var(--neutral-25);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  transition: background 150ms ease;
+}
+
+.btn-danger:hover {
+  background: var(--button-danger-hover);
+}
+
+/* Leading-icon buttons: icon side sits 4px tighter than the label side (buttons.md 2026-08-04).
+   Applies to legacy .btn-* usages whose first child is an Iconsax svg. */
+.btn-primary:has(> svg:first-child),
+.btn-outlined:has(> svg:first-child),
+.btn-success:has(> svg:first-child),
+.btn-danger:has(> svg:first-child) {
+  padding-left: var(--space-m); /* 16px vs 20px right */
+}

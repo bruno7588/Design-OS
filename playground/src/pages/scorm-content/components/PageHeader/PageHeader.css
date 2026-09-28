@@ -1,0 +1,78 @@
+.sc-page-header {
+  padding: 0 var(--space-xl);
+  background: var(--page-background);
+}
+
+.sc-page-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-m) 0;
+}
+
+.sc-page-header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.sc-page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.sc-page-header-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  transition: background 150ms ease;
+}
+
+.sc-page-header-close:hover {
+  background: var(--input-background-hover);
+}
+
+/* Tabs */
+.sc-page-header-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.sc-page-header-tab {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: var(--space-s) 0 var(--space-sm) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.sc-page-header-tab:hover {
+  color: var(--text-primary);
+}
+
+.sc-page-header-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sc-page-header-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--secondary-500);
+  border-radius: 2px;
+}

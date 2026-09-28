@@ -1,0 +1,286 @@
+/* 5Mins.ai DS Dropdown — matches Figma library node 11659:2103
+   See docs/design-system/dropdown.md */
+.dropdown-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s); /* 8px label → field → helper, as input.md and dropdown.md's helper */
+  width: 100%;
+}
+
+.dropdown-field.label-start {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.dropdown-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Trigger — transparent, border only, 12px radius */
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+/* `:not(.is-active)` rather than source order: the hover selector carries two
+   pseudo-classes, so it outranks `.is-active` wherever it sits, and an open
+   dropdown under the cursor would lose its amber border. */
+.dropdown-trigger:hover:not(:disabled):not(.is-active) {
+  background: var(--input-background);
+  border-color: var(--border-hover);
+}
+
+.dropdown-trigger.is-active,
+.dropdown-trigger:focus-visible {
+  background: transparent;
+  /* Mode-aware, like every other form-field active border: #EDA30D light /
+     #FFBB38 dark. Raw --secondary-500 was the dark value in both modes. */
+  border-color: var(--selected);
+  outline: none;
+}
+
+.dropdown-trigger:disabled,
+.dropdown-trigger[aria-disabled='true'] {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+/* --danger-500 rather than --text-error, which resolves to --danger-400 in
+   dark and pulled the border a ramp step lighter there. Hover darkens, so a
+   hovered error field answers like every other state does (dropdown.md). */
+.dropdown-trigger.has-error { border-color: var(--danger-500); }
+.dropdown-trigger.has-error:hover { border-color: var(--danger-600); }
+
+/* Sizes */
+.dropdown-sm .dropdown-trigger { height: 33px; padding: 4px 12px; font-size: 12px;
+ line-height: 1.2; }
+/* 37px is the Figma frame (library 8925:1408): 8px padding over a 14px/1.5
+   line, with the 1px stroke drawn inside it. Stated height wins over the
+   arithmetic, the same way lg's 48px does. */
+.dropdown-md .dropdown-trigger { height: 37px; padding: 8px 12px;  font-size: 14px; }
+.dropdown-lg .dropdown-trigger { height: 48px; padding: 12px 16px; font-size: 16px; }
+
+.dropdown-trigger-leading {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dropdown-trigger-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Empty (unselected) trigger reads as a placeholder, so it takes the same
+   --text-disabled token as an empty input. Filled switches to --text-primary. */
+.dropdown-trigger-text--placeholder {
+  color: var(--text-disabled);
+}
+
+/* The chevron is --text-secondary whatever colour the value is, so it reads as
+   the control's affordance rather than part of the text. Read-only still tints
+   it with everything else. */
+.dropdown-chevron {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: transform 150ms ease;
+}
+
+.dropdown-trigger:disabled .dropdown-chevron,
+.dropdown-trigger[aria-disabled='true'] .dropdown-chevron {
+  color: var(--text-disabled);
+}
+
+.dropdown-trigger.is-active .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* Menu — matches Figma library listbox node 11186:4418.
+   Portalled to <body> and positioned from the trigger's viewport rect, so an
+   ancestor with overflow (modal panel, drawer, scroll area) can't clip it.
+   top/left/min-width come from the component; above modals, below toasts. */
+.dropdown-menu {
+  position: fixed;
+  z-index: 1060;
+  width: max-content;
+  max-height: 240px;
+  overflow-y: auto;
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px 0 rgba(32, 34, 42, 0.12);
+  margin: 0;
+  padding: var(--space-s);
+  list-style: none;
+}
+
+.dropdown-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-s);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: background 100ms ease;
+}
+
+.dropdown-option:hover:not(:disabled) {
+  background: var(--cards-background-hover);
+}
+
+/* Medium on the amber, the weight listbox.md gives a selected item. Stated on the label
+   too, or the supporting-text row's Semibold would win on the child span and the selected
+   row would come out heavier than the spec. */
+.dropdown-option.is-selected .dropdown-option__label {
+  font-weight: 500;
+}
+
+/* --selected, not raw --secondary-500: the raw token is the dark value, so a
+   selected row came out #FFBB38 in light where the ramp wants #EDA30D. Same
+   fix the trigger border carries above. */
+.dropdown-option.is-selected,
+.dropdown-option.is-selected:hover:not(:disabled) {
+  background: var(--selected);
+  color: var(--text-on-selected);
+  font-weight: 500;
+}
+
+.dropdown-option.is-disabled,
+.dropdown-option:disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.dropdown-option__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  min-width: 0;
+}
+
+/* Supporting-text rows (listbox.md slot matrix): supporting is Regular 14 and the
+   label goes Semibold 14 — the same primary-over-supporting pair the table cells use,
+   so the two lines separate on weight rather than size. */
+.dropdown-option__text.is-rich .dropdown-option__label {
+  font-weight: 600;
+}
+
+.dropdown-option__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  /* Wraps rather than runs on. The menu sizes to max-content by default, where the
+     description never needs a second line and this changes nothing — but a menu given a
+     width (see .mt-cp__scope-menu) had the description overflow the panel instead of
+     folding under itself, which is what nowrap does once the room runs out. */
+  white-space: normal;
+}
+
+.dropdown-option.is-selected .dropdown-option__desc {
+  color: var(--neutral-700);
+}
+
+/* Helper / Error */
+.dropdown-helper {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+.dropdown-helper.is-error {
+  color: var(--text-error);
+}
+
+
+/* ===== Multi-select rows (checkbox) ===== */
+
+/* Checkbox sits against the label rather than opposite it — the row's default
+   space-between is for the single-select's right-hand helper slot. 8px gap per
+   listbox.md's checkbox item. */
+.dropdown-option--check {
+  justify-content: flex-start;
+}
+
+/* The box states the selection, so the row keeps its normal fill and weight: the
+   amber single-select row (and its bold label) behind a ticked checkbox would say
+   the same thing twice. */
+.dropdown-option--check.is-selected,
+.dropdown-option--check.is-selected:hover {
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.dropdown-option--check.is-selected .dropdown-option__label {
+  font-weight: 400;
+}
+
+.dropdown-option--check.is-selected:hover,
+.dropdown-option--check:hover {
+  background: var(--cards-background-hover);
+}
+
+.dropdown-option--check:focus-visible {
+  outline: 2px solid var(--text-selected);
+  outline-offset: -2px;
+}
+
+/* "All" row of a multi-select (allLabel): the listbox's selected item, no checkbox,
+   Medium not Bold. Figma: Course details, Type filter menu 12143:73822. Unselected it
+   is a plain row like any other. */
+.dropdown-option--all.is-selected,
+.dropdown-option--all.is-selected:hover {
+  background: var(--selected);
+  color: var(--text-on-selected);
+}
+
+.dropdown-option--all.is-selected .dropdown-option__label {
+  font-weight: 500;
+}
+
+.dropdown-option--all:hover {
+  background: var(--cards-background-hover);
+}
+
+.dropdown-option--all:focus-visible {
+  outline: 2px solid var(--text-selected);
+  outline-offset: -2px;
+}

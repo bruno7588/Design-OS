@@ -1,0 +1,105 @@
+/* Anchored "Add Content" dropdown — replaces the old picker drawer.
+   Geometry per Figma 8695:16349 (container r12 / p8, rows 12·16, shadow L).
+   Rendered in a body portal as position:fixed so it can't be clipped by the
+   content area's overflow. Light panel to match this project's overlay rule. */
+.acm-popover {
+  position: fixed;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-s);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px 0 rgba(32, 34, 42, 0.12), 0 12px 28px 0 rgba(32, 34, 42, 0.14);
+  transform-origin: top left;
+  animation: acm-pop-in 120ms ease;
+}
+.acm-popover--up {
+  transform-origin: bottom left;
+}
+
+@keyframes acm-pop-in {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Rows are fully self-styled here — this portal menu must NOT depend on
+   .add-content-menu-item from AddContentSidebar.css, whose stylesheet isn't
+   loaded on every screen that opens this menu (e.g. Create Course), which left
+   the rows unstyled: centred text, icons colliding with labels. */
+.acm-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  padding: var(--space-sm) var(--space-m);
+  border: none;
+  border-radius: var(--radius-s);
+  background: transparent;
+  font: 400 14px/1.5 'Poppins', sans-serif;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.acm-row .add-content-menu-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Iconsax rows pass color=currentColor, so the icon tracks the row's color. */
+  color: currentColor;
+}
+
+.acm-row .add-content-menu-item-label {
+  flex: 1;
+  text-align: left;
+}
+/* Rows live on the --cards-background popover, so override the shared
+   .add-content-menu-item hover (page-background-hover collides with the card
+   surface in dark mode → invisible). */
+.acm-row:hover {
+  background: var(--cards-background-hover);
+}
+.acm-row--open {
+  background: var(--cards-background-hover);
+}
+
+.acm-has-sub {
+  position: relative;
+  width: 100%;
+}
+
+/* Side-by-side flyout panel (Figma 8695:16555). Offset up by the container padding so
+   its first item lines up with the Assessments row. */
+.acm-submenu {
+  position: absolute;
+  top: calc(-1 * var(--space-s));
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-s);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px 0 rgba(32, 34, 42, 0.12), 0 12px 28px 0 rgba(32, 34, 42, 0.14);
+  animation: acm-pop-in 120ms ease;
+}
+/* Offset = popover padding (8px) + the visible gap (8px) so the two cards read as
+   separate floating panels, matching Figma rather than sharing an edge. */
+.acm-submenu--right {
+  left: calc(100% + 16px);
+  transform-origin: top left;
+}
+.acm-submenu--left {
+  right: calc(100% + 16px);
+  transform-origin: top right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acm-popover,
+  .acm-submenu {
+    animation: none;
+  }
+}

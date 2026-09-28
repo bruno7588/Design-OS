@@ -1,0 +1,93 @@
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 70px;
+  background: var(--page-background);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-s) var(--space-xl);
+}
+
+.topnav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.topnav-logo {
+  color: var(--text-primary); /* logo letters use currentColor */
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.topnav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  transition: background 150ms ease;
+}
+
+.topnav-icon-btn:hover {
+  background: var(--page-background-hover);
+}
+
+/* Logout menu — listbox-style popover anchored to the logout icon */
+
+.topnav-menu-wrap {
+  position: relative;
+}
+
+.topnav-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 1000;
+  min-width: 180px;
+  padding: var(--space-s);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(32, 34, 42, 0.12);
+}
+
+.topnav-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  padding: var(--space-s) var(--space-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-s);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease;
+}
+
+.topnav-menu__item:hover {
+  background: var(--cards-background-hover);
+}

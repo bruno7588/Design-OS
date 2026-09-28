@@ -1,0 +1,150 @@
+/* Set as completed modal (DES-333). Shell (scrim, radius, 24px padding, 20px
+   section gap, animations) comes from ConfirmModal; the width and body layout
+   mirror the user-profile date modals (ExtendDueDateModal). */
+
+.scm {
+  width: 600px;
+  position: relative;
+}
+
+.scm__close {
+  position: absolute;
+  top: var(--space-s);
+  right: var(--space-s);
+}
+
+/* ── Header ── */
+.scm__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  width: 100%;
+}
+
+.scm__headline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-right: var(--space-xl);
+}
+
+.scm__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.scm__supporting {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.scm__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* ── Body ── */
+.scm__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  width: 100%;
+}
+
+.scm__field,
+.scm__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm); /* 12px label to control, matching the Score group */
+  align-items: flex-start;
+}
+
+.scm__fieldset {
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+/* Field label — Paragraph M semibold, as the calendar.md date field label. */
+.scm__label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding: 0;
+}
+
+/* A <legend> sits outside the fieldset's flex flow, so the gap above never
+   reaches it; space it from the radios directly. */
+.scm__fieldset > .scm__label {
+  margin-bottom: var(--space-sm);
+}
+
+/* Constraint in brackets after a label: Regular, tertiary. */
+.scm__label-hint {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.scm__option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  width: 100%;
+}
+
+/* No gap: the score stepper below is a collapsing box, and a group gap would
+   hold its 4px open while it is closed. Each child carries its own offset. */
+.scm__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* The label's first line is as tall as the 24px radio and centres its text,
+   so radio and label stay centred even when the score stepper opens below. */
+.scm__option-label {
+  display: flex;
+  align-items: center;
+  min-height: var(--space-l);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.scm__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: var(--space-xs) 0 0;
+}
+
+/* 12px under the label, as the old 4px gap + 8px margin came to. It sits inside
+   the collapsing box so it animates away with the stepper. */
+.scm__score .input-integer {
+  margin-top: var(--space-sm);
+}
+
+/* ── CTA ── DS modal spec puts a single filled button, centred. */
+.scm__cta {
+  align-self: center;
+}
+
+/* Step 2 — the confirmation dialog (overlays.md Dialog, Info type). */
+.confirm-modal.scm-confirm {
+  width: 500px;
+}

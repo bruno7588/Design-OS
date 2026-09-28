@@ -1,0 +1,629 @@
+/* SaveReportDrawer — form-specific styles. Shell (.side-drawer*, .overlay-backdrop,
+   .modal__divider) comes from the shared drawer stylesheet, imported here so the
+   shell is present regardless of which other drawers are mounted. */
+@import '../../../my-team/CoursesDrawer.css';
+
+.rd-header-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.rd-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* "Created by …" provenance line under the title (edit mode) */
+.rd-meta {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Header actions: the ⋯ menu + close button, grouped top-right */
+.rd-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.rd-more-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.rd-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.rd-icon-btn:hover {
+  background: var(--page-background-hover);
+}
+
+.rd-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-s);
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px rgba(32, 34, 42, 0.12);
+  min-width: 160px;
+}
+
+.rd-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-m);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.rd-menu-item:hover {
+  background: var(--cards-background-hover);
+}
+
+.rd-menu-item--danger {
+  color: var(--text-error);
+}
+
+.rd-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.rd-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+/* A grouped block of related fields (e.g. Name + Filters). Fields sit 16px
+   apart inside; the 24px form gap separates one section from the next. */
+.rd-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+/* Next-report alert — bell + "Scheduled to …" (Figma 11637:125022) */
+.rd-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-s) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: var(--input-background);
+}
+
+.rd-alert-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rd-alert-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Generic field block */
+.rd-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.rd-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.rd-hint {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.rd-hint--warn {
+  color: var(--text-warning);
+}
+
+/* Inline editable filters (ReportFiltersEditor) */
+.rfe {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.rfe .flb {
+  width: 100%;
+}
+
+.rfe-chip-wrap {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.rfe-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  max-width: 100%;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  transition: border-color 120ms ease;
+}
+
+.rfe-chip.is-open,
+.rfe-chip-wrap:hover .rfe-chip {
+  border-color: var(--border-hover);
+}
+
+.rfe-chip-main {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.rfe-chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rfe-chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.rfe-chip-remove:hover {
+  background: var(--input-background);
+  color: var(--text-primary);
+}
+
+/* Value menu under a chip */
+.rfe-value-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 20;
+  min-width: 180px;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0;
+  padding: var(--space-s);
+  list-style: none;
+  background: var(--cards-background, var(--neutral-0));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px 0 rgba(32, 34, 42, 0.12);
+}
+
+.rfe-value-opt {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-s) var(--space-sm);
+  border: none;
+  border-radius: var(--radius-s);
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rfe-value-opt:hover {
+  background: var(--cards-background-hover);
+}
+
+.rfe-value-opt.is-active {
+  background: var(--cards-background-hover);
+  font-weight: 500;
+}
+
+/* + Add filter */
+.rfe-add {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s) var(--space-sm) var(--space-s) var(--space-s);
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.rfe-add:hover {
+  background: var(--page-background-hover);
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+/* Schedule toggle — bordered card; whole card is clickable */
+.rd-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-m) var(--space-sm) var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.rd-toggle-row:hover {
+  background: var(--page-background-hover, var(--neutral-50));
+  border-color: var(--border-hover);
+}
+
+.rd-toggle-row:focus-visible {
+  outline: none;
+  border-color: var(--selected);
+}
+
+.rd-toggle-control {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.rd-toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  flex: 1;
+  min-width: 0;
+}
+
+.rd-toggle-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Filter summary chips — read-only snapshot kept to a single row with a "+N"
+   overflow chip. Click "+N" to expand (.rd-chips--expanded) and wrap them all. */
+.rd-chips {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space-s);
+  overflow: hidden;
+}
+
+.rd-chips--expanded {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+/* Off-flow copy of every chip at natural width — used only for measurement. */
+.rd-chips-measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-s);
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.rd-chip {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--space-xs);
+  max-width: 220px;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* "+N" overflow chip — expands the row on click. */
+.rd-chip--more {
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.rd-chip--more:hover {
+  background: var(--page-background-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.rd-chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Footer row: vertically center the button(s) */
+.rd-footer-buttons {
+  align-items: center;
+}
+
+/* Schedule grid — 2 columns: Frequency / cadence, Time / Timezone */
+.rd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-m);
+}
+
+/* Recipients combobox (RecipientsField) */
+.rcp-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.rcp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 48px;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-s);
+  background: transparent;
+  cursor: text;
+  transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.rcp:hover {
+  border-color: var(--border-hover);
+  background: var(--input-background);
+}
+
+.rcp:focus-within {
+  border-color: var(--selected);
+  background: transparent;
+}
+
+.rcp--error {
+  border-color: var(--danger-500);
+}
+
+.rcp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  max-width: 100%;
+  padding: var(--space-xss) var(--space-xss) var(--space-xss) var(--space-ssm);
+  border-radius: var(--radius-full);
+  background: var(--cards-background-hover, var(--neutral-50));
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.rcp-chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rcp-chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.rcp-chip-remove:hover {
+  background: var(--input-background);
+  color: var(--text-error);
+}
+
+.rcp-input {
+  flex: 1 1 120px;
+  min-width: 120px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.rcp-input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Suggestions menu — "Listbox" component (Figma 11597:113490) */
+.rcp-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 5;
+  margin: 0;
+  padding: var(--space-s);
+  list-style: none;
+  max-height: 280px;
+  overflow-y: auto;
+  background: var(--cards-background, var(--neutral-0));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px 0 rgba(32, 34, 42, 0.12);
+}
+
+.rcp-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: var(--space-s) var(--space-sm);
+  border: none;
+  border-radius: var(--radius-s);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.rcp-option:hover {
+  background: var(--cards-background-hover, var(--neutral-50));
+}
+
+.rcp-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.rcp-option-name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rcp-option-email {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Initials avatar (suggestion rows) — 40px per the Listbox spec */
+.rcp-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--neutral-300);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.rcp-avatar--photo {
+  object-fit: cover;
+  background: var(--cards-background-hover, var(--neutral-100));
+}
+
+/* Envelope avatar for the "Add external email" row (Figma 11597:116482) */
+.rcp-avatar--email {
+  background: transparent;
+  color: var(--text-secondary);
+  transition: background 120ms ease;
+}
+
+.rcp-option:hover .rcp-avatar--email {
+  background: var(--input-background-hover);
+}
+
+.rcp-option-add {
+  color: var(--text-primary);
+}
+
+.rcp-helper {
+  font-size: 14px;
+  color: var(--text-error);
+  line-height: 1.5;
+}
+

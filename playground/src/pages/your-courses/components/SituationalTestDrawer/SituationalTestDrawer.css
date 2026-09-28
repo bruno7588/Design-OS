@@ -1,0 +1,521 @@
+/* Situational test authoring (DES-276). Hosted inside the shared ContentDrawer shell,
+   which owns the panel, its padding and the slide animation — this file only styles the
+   form. Field chrome deliberately matches the Add assessment drawer (AssessmentModal.css)
+   so the two read as one family; class names are prefixed .st-drawer__ because the
+   prototype bundles CSS globally. */
+
+/* The rule under the header belongs to SectionHeader itself (headers.md) —
+   keeping the border here drew a second line. Nothing is added beneath it
+   either: the header's own padding used to stack on top of the shell's 20px
+   flex gap and read as a gap twice the size of every other one on the panel.
+   One gap, 20px, whatever leads the body. */
+.situational-test-drawer-shell .section-header {
+  padding-bottom: 0;
+}
+
+/* 12px between the back arrow and the title. The title group has to absorb the free
+   space (Figma's flex-1 headline), or space-between pushes it to the middle of the row
+   and the arrow ends up marooned on the far left. */
+.situational-test-drawer-shell .section-header__headline {
+  gap: var(--space-sm);
+}
+
+.situational-test-drawer-shell .section-header__title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 32px filled circle with a 16px arrow, per Figma 8998:55648. */
+.st-drawer__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: var(--space-s);
+  background: var(--input-background);
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.st-drawer__back:hover {
+  background: var(--input-background-hover);
+}
+
+.st-drawer__back:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.st-drawer__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  overflow-y: auto;
+}
+
+.st-drawer__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+/* ===== Collapsible guidance callout ===== */
+
+/* The DS Callout's own 8px body gap would survive the collapse and leave a gap under
+   the title, so the bullets carry their own spacing instead. */
+.st-drawer__guidance .alert__body {
+  gap: 0;
+}
+
+.st-drawer__guidance .alert__bullets {
+  margin-top: var(--space-s);
+}
+
+.st-drawer__guidance-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  /* Icon-only button — circular hover fill. */
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.st-drawer__guidance-toggle:hover {
+  background: var(--page-background-hover);
+  color: var(--text-primary);
+}
+
+.st-drawer__guidance-toggle:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.st-drawer__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* The "(optional)" flag rides the label in tertiary at 12px, so it reads as an aside
+   rather than part of the label. Matches .assessment-modal-label-hint. */
+.st-drawer__label-optional {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+/* ===== Text fields — outlined, per input.md ===== */
+
+/* Both are textareas: question and option text wrap rather than truncating, so a long
+   option can be read in full. Height is driven from scrollHeight in the component, so
+   the resize grip and inner scrollbar are off. */
+.st-drawer__input,
+.st-drawer__textarea {
+  width: 100%;
+  resize: none;
+  overflow-y: hidden;
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+/* Empty, the brief holds two lines so its placeholder isn't clipped. Once there is
+   content the pseudo-class stops matching and autoGrow's inline height takes over, so the
+   box hugs the text rather than sitting a line taller than it needs. */
+.st-drawer__textarea:placeholder-shown {
+  min-height: calc(2 * 1.5em + 2 * var(--space-sm) + 2px);
+}
+
+.st-drawer__input::placeholder,
+.st-drawer__textarea::placeholder {
+  color: var(--text-disabled);
+}
+
+/* input.md § Outlined text field: hover is --border-hover plus the --input-background
+   tint. The card underneath already carries that token, so the two translucent layers
+   compound and the hovered field still reads a shade deeper than the card. */
+.st-drawer__input:hover,
+.st-drawer__textarea:hover {
+  border-color: var(--border-hover);
+  background: var(--input-background);
+}
+
+.st-drawer__input:focus,
+.st-drawer__textarea:focus {
+  border-color: var(--selected);
+}
+
+.st-drawer__input--error,
+.st-drawer__textarea--error {
+  border-color: var(--text-error);
+}
+
+/* ===== Helper + word count ===== */
+
+.st-drawer__helper {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+.st-drawer__helper--error {
+  color: var(--text-error);
+}
+
+/* ===== Question cards ===== */
+
+/* No gap — the collapsing body carries its own top margin, so a folded question is
+   exactly its header tall. */
+/* Filled, no border (Figma 9012:2884). The fill is what separates one question from the
+   next; the fields inside keep their hairline, so the field reads as a field on the
+   card rather than the card and the field being the same bordered box twice. */
+.st-drawer__question {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-sm) var(--space-m);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+}
+
+.st-drawer__question-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+/* The question field sits outside the collapse and is always visible; the options block
+   is what folds away. Both carry the same top margin so the rhythm doesn't change as
+   the card opens and closes. */
+.st-drawer__question-body,
+.st-drawer__question-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin-top: var(--space-m);
+}
+
+/* The whole title area folds the question — a bigger target than the chevron alone. */
+.st-drawer__question-toggle {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.st-drawer__question-toggle:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Icon-only buttons in the question header share the circular hover treatment. */
+.st-drawer__question-chevron,
+.st-drawer__question-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: var(--space-xs);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.st-drawer__question-chevron:hover {
+  background: var(--page-background-hover);
+  color: var(--text-primary);
+}
+
+.st-drawer__question-chevron:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* Bold: it titles the card it sits on rather than labelling a field inside it
+   (typography.md — Bold for headings). */
+.st-drawer__question-index {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.st-drawer__question-remove:hover {
+  background: var(--page-background-hover);
+  color: var(--text-error);
+}
+
+.st-drawer__question-remove:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* ===== Options ===== */
+
+.st-drawer__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Top-aligned so the radio, Correct badge and remove control stay level with the first
+   line once a long option wraps. */
+.st-drawer__option-field {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  min-height: 44px;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  /* The correct answer reads green, matching the Add assessment drawer, not the
+     amber the DS Radio uses for a neutral selection. */
+  --control-selected: var(--success-500);
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+/* Same hover as the text fields above — an option row is an outlined field too. */
+.st-drawer__option-field:hover {
+  border-color: var(--border-hover);
+  background: var(--input-background);
+}
+
+/* After the hover rule, so a focused row keeps the amber border while the pointer is
+   still over it. */
+.st-drawer__option-field:focus-within {
+  border-color: var(--selected);
+}
+
+.st-drawer__option-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  outline: none;
+  /* Wraps and grows with its content — see .st-drawer__input. */
+  resize: none;
+  overflow-y: hidden;
+  padding: 0;
+  /* Sits on the same baseline as the 20px radio beside it. */
+  margin-top: var(--space-xxs);
+}
+
+.st-drawer__option-input::placeholder {
+  color: var(--text-disabled);
+}
+
+.st-drawer__correct-badge {
+  flex-shrink: 0;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+/* Sits inside the option field, hard right. Smaller box than the DS default so it
+   fits the 44px row without pushing it taller. */
+.st-drawer__option-remove {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.st-drawer__option-remove:hover {
+  color: var(--text-error);
+}
+
+/* ===== Dashed add row ===== */
+
+/* Inside a question card only. The step-2 "Add Question" action is a DS Button
+   (outlined-2) per Figma 8998:65568, not a dashed row. */
+.st-drawer__add-option {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+/* Same hover as the fields it sits under. */
+.st-drawer__add-option:hover {
+  background: var(--input-background);
+  border-color: var(--border-hover);
+}
+
+/* ===== Step 2 action row ===== */
+
+/* Add Question is an add-row button, so it takes the same treatment as the four in
+   InteractiveDrawer (.iq-drawer__add-btn): borderless with a --text-primary label.
+   The DS Text button is brand cyan — buttons.md has no neutral text variant — so the
+   colour is pinned here rather than inventing a DS variant. Hover keeps the DS brand
+   step, so the control still reads as interactive. */
+.st-drawer__add-btn.ds-btn--text {
+  color: var(--text-primary);
+}
+
+.st-drawer__question-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+/* ===== Footer ===== */
+
+/* Primary action left, step indicator right — the two-step drawer pattern already
+   used by the roles panel. */
+.st-drawer__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.st-drawer__footer-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.st-drawer__step-indicator {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+/* ===== Format label + read-only structure (DES-279) ===== */
+
+/* The format the generator wrote this question in, beside its number — the admin picked
+   the formats, so the output says which one it got. */
+.st-drawer__question-format {
+  padding: var(--space-xxs) var(--space-s);
+  background: var(--input-background);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  /* Tertiary: it says what kind of question this is, which is a note on the heading
+     beside it rather than a second heading. */
+  color: var(--text-tertiary);
+}
+
+.st-drawer__structure-note {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ===== Read-only fields ===== */
+
+/* Read-only reads as a field, not as a filled slab: the same --border-elevated outline
+   an enabled field carries, and no fill behind it. A generated draft is edited where it
+   is read, so the only cards still using this are the ones that genuinely cannot be
+   typed into. */
+.st-drawer__input[readonly],
+.st-drawer__input[readonly]:hover,
+.st-drawer__input[readonly]:focus,
+.st-drawer__option-field:has(> .st-drawer__option-input[readonly]),
+.st-drawer__option-field:has(> .st-drawer__option-input[readonly]):hover,
+.st-drawer__option-field:has(> .st-drawer__option-input[readonly]):focus-within {
+  border-color: var(--border-elevated);
+  background: transparent;
+}
+
+/* The two panes of a test that already exists. The body is a stretching column, so the
+   switcher has to opt out of it — segments size to their labels (the DS default) rather
+   than stretching a two-item control across 720px. */
+.st-drawer__panes {
+  align-self: flex-start;
+}
+
+/* On a generated draft the marked answer is the generator.s claim, not a choice the admin
+   has made — so it takes the same green as the "Correct" badge beside it rather than the
+   amber that means "you picked this". Still selectable: editing the draft is the point. */
+.st-drawer__question--generated .radio--selected .radio__ring,
+.st-drawer__question--generated .radio--selected .radio__ring::after {
+  border-color: var(--success-500);
+  background: var(--success-500);
+}
+
+/* ===== Fields on a card take the elevated fill =====
+
+   .st-drawer__question is a --cards-background card, and in dark the base 16% tint over
+   it lands within a point of the card, so the field disappears. --input-background-elevated
+   is that same tint one step up (24% dark; light is already separated and holds at 16%).
+
+   Scoped to the card rather than baked into the classes: Title and Brief use the same
+   ones out on the drawer panel, where the base tint is the right answer. */
+.st-drawer__question .st-drawer__input:hover,
+.st-drawer__question .st-drawer__textarea:hover,
+.st-drawer__question .st-drawer__option-field:hover,
+.st-drawer__question .st-drawer__add-option:hover,
+.st-drawer__question .st-drawer__question-format {
+  background: var(--input-background-elevated);
+}
+
+/* The option's remove button is a shared CloseButton, whose hover fill comes from its own
+   stylesheet — the rule below it here only sets the colour. On a card that fill needs the
+   same step up, and scoping it keeps every other CloseButton on the base tint. */
+.st-drawer__question .st-drawer__option-remove:hover {
+  background: var(--input-background-elevated);
+}

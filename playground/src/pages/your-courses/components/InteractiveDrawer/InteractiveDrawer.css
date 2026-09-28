@@ -1,0 +1,551 @@
+/* Interactive question authoring (fill in the blanks, match the pairs, categorise,
+   sequence). Hosted inside the shared ContentDrawer shell, which owns the panel,
+   its padding and the slide animation — this file only styles the form. Field
+   chrome deliberately matches SituationalTestDrawer.css so the drawers read as one
+   family; class names are prefixed .iq-drawer__ because the prototype bundles CSS
+   globally. */
+
+/* The rule under the header belongs to SectionHeader itself (headers.md) —
+   keeping a border here drew a second line. Nothing is added beneath it either:
+   the 20px between the rule and the callout is the drawer shell's own flex gap,
+   so this header contributes no padding of its own. */
+.interactive-drawer-shell .section-header {
+  padding-bottom: 0;
+}
+
+.iq-drawer__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  overflow-y: auto;
+}
+
+.iq-drawer__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+/* Wrapper that arms blur validation for whichever body is mounted. It must not
+   collapse the body's own field spacing, so it inherits the column layout. */
+.iq-drawer__body-slot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+}
+
+.iq-drawer__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.iq-drawer__label-optional {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+}
+
+/* ===== Text fields — outlined, per input.md ===== */
+
+.iq-drawer__input,
+.iq-drawer__textarea {
+  width: 100%;
+  resize: none;
+  overflow-y: hidden;
+  padding: var(--space-sm) var(--space-m);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.iq-drawer__input::placeholder,
+.iq-drawer__textarea::placeholder {
+  color: var(--text-disabled);
+}
+
+.iq-drawer__input:hover,
+.iq-drawer__textarea:hover {
+  border-color: var(--border-hover);
+  background: var(--input-background);
+}
+
+.iq-drawer__input:focus,
+.iq-drawer__textarea:focus {
+  border-color: var(--selected);
+}
+
+/* The DS helper text in its error colour (input.md → Typography, and
+   .input-field__helper), directly under the field it belongs to. A duplicate is
+   two rows, so the line appears under both — each field states its own problem
+   rather than pointing at a message somewhere below the list. */
+.iq-drawer__conflict {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-error);
+}
+
+/* Row plus its helper: the DS field → helper gap (input.md → Spacing). Wrapping
+   is what lets the message sit under one row rather than after the whole list —
+   the row containers space their children further apart than 8px. */
+.iq-drawer__row-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+/* In the pair grid the helper can't be wrapped — the four cells of a row are
+   grid items — so it spans the full width as an item of its own, pulled up to
+   the same 8px the wrapper gives everywhere else (grid row-gap is 12px). */
+.iq-drawer__pair-grid .iq-drawer__conflict {
+  grid-column: 1 / -1;
+  margin-top: -4px;
+}
+
+/* ===== Editable rows (steps, pairs, categories, items, wrong words) ===== */
+
+.iq-drawer__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* An outlined field that happens to hold several controls — same chrome as the
+   situational drawer's option row, top-aligned so the grip, arrows and remove
+   stay level with the first line once the text wraps. */
+.iq-drawer__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  min-height: 44px;
+  padding: var(--space-s) var(--space-sm);
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.iq-drawer__row:hover {
+  border-color: var(--border-hover);
+  background: var(--input-background);
+}
+
+/* After the hover rule, so a focused row keeps the amber border while the pointer
+   is still over it. */
+.iq-drawer__row:focus-within {
+  border-color: var(--selected);
+}
+
+.iq-drawer__row--dragging {
+  opacity: 0.5;
+}
+
+/* Where the dragged row will land. Amber, per the DnD selection convention. */
+.iq-drawer__row--dragover {
+  border-color: var(--selected);
+  background: var(--selected-tint);
+}
+
+/* DS input error state (input.md → Validation, InputField.css): danger border on
+   the field, a 20px Bold Danger icon inside it, message below as helper text.
+   Two class names so it outranks the hover and focus-within rules above — the
+   DS keeps the error border through both, since focusing the field doesn't make
+   the clash go away. */
+.iq-drawer__row.iq-drawer__row--error,
+.iq-drawer__row.iq-drawer__row--error:hover,
+.iq-drawer__row.iq-drawer__row--error:focus-within {
+  border-color: var(--text-error);
+}
+
+.iq-drawer__row-danger {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.iq-drawer__row-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  outline: none;
+  resize: none;
+  overflow-y: hidden;
+  padding: 0;
+  /* Sits on the same baseline as the controls beside it. */
+  margin-top: var(--space-xxs);
+}
+
+.iq-drawer__row-input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Only the grip starts a drag, so the textarea beside it stays selectable. */
+.iq-drawer__grip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--text-tertiary);
+  cursor: grab;
+}
+
+.iq-drawer__grip:active {
+  cursor: grabbing;
+}
+
+.iq-drawer__row-index {
+  flex-shrink: 0;
+  min-width: 20px;
+  margin-top: var(--space-xxs);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.iq-drawer__row-move {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-xs);
+}
+
+/* Icon-only, so circular hover per the house rule. */
+.iq-drawer__move-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+/* --input-background-hover, not --page-background-hover: the row is already
+   filled with --input-background by its own hover, and the two are a shade
+   apart, so the arrow's circle vanished exactly when it was needed. */
+.iq-drawer__move-btn:hover:not(:disabled) {
+  background: var(--input-background-hover);
+  color: var(--text-primary);
+}
+
+.iq-drawer__move-btn:disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.iq-drawer__move-btn:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+.iq-drawer__row-remove {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.iq-drawer__row-remove:hover {
+  color: var(--text-error);
+}
+
+/* 12px between a field's last input and the button that adds another — the
+   field's own 8px gap plus 4. */
+.iq-drawer__row-actions {
+  margin-top: var(--space-xs);
+}
+
+.iq-drawer__row-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+/* ===== Match the pairs ===== */
+
+/* Two columns of fields with the link glyph between them. Header and rows share
+   one template so the labels sit over their column, and the remove slot is always
+   present so the columns hold still when a pair is deleted. */
+.iq-drawer__pair-head,
+.iq-drawer__pair-grid {
+  display: grid;
+  grid-template-columns: 1fr 20px 1fr 24px;
+  gap: var(--space-sm) var(--space-s);
+}
+
+.iq-drawer__pair-head {
+  row-gap: 0;
+}
+
+/* Aligns each label with the text inside the field below it. */
+.iq-drawer__pair-head .iq-drawer__label {
+  padding-inline: var(--space-sm);
+}
+
+.iq-drawer__pair-head .iq-drawer__label:last-child {
+  grid-column: 3;
+}
+
+/* Centred against the pair, which grows taller when either field wraps. */
+.iq-drawer__pair-link,
+.iq-drawer__pair-grid .iq-drawer__row-remove {
+  align-self: center;
+}
+
+/* ===== Categorise ===== */
+
+/* Categories are further apart than the rows inside one, so a category and its
+   items read as a single block. */
+.iq-drawer__categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+}
+
+.iq-drawer__category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Indented under the category name. Every concept carries its own arrow, so the
+   line back to the category holds however far down the list you read. */
+.iq-drawer__category-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding-left: var(--space-s);
+}
+
+.iq-drawer__concept {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  align-self: stretch;
+}
+
+/* Flipped so it leaves the category above and turns into the concept, rather
+   than curving back up out of it. */
+.iq-drawer__category-arrow {
+  flex-shrink: 0;
+  transform: scaleY(-1);
+  color: var(--text-tertiary);
+  /* Centres the 20px glyph on the 44px row. */
+  margin-top: var(--space-sm);
+}
+
+/* The field column takes whatever the arrow leaves. Without this it hugs its own text
+   — the row inside it stretches, but only within a wrapper already shrunk to content —
+   and a four-word concept wraps to two lines in a half-empty box. */
+.iq-drawer__concept > .iq-drawer__row-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.iq-drawer__concept .iq-drawer__row {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Lines up with the concepts it heads, not with the arrows pointing at them. */
+.iq-drawer__label--concepts {
+  margin-left: calc(var(--space-ml) + var(--space-s));
+}
+
+/* Lines the button up with the inputs rather than the arrows. */
+.iq-drawer__category-items > .ds-btn {
+  margin-left: calc(var(--space-ml) + var(--space-s));
+}
+
+
+/* ===== Format callout ===== */
+
+/* The quiz treatment from Figma 16693:47451 (light) / 17445:77087 (dark): the
+   indigo quiz tint rather than the neutral callout grey, so the banner reads as
+   part of the assessment family. Doubled class so it beats .alert--callout
+   whichever order the global bundle lands in. */
+.alert.iq-drawer__callout {
+  background: var(--quiz-background);
+  color: var(--text-quiz);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s) var(--space-sm);
+  /* 8px rather than the badge's 4px — this banner runs to two lines, where a
+     one-line pill's tighter gap reads cramped. Weight stays Medium, as designed. */
+  gap: var(--space-s);
+  font-weight: 500;
+}
+
+/* ===== Fill in the blanks ===== */
+
+/* The sentence, marked up. This is the control *and* the read-back: the words
+   clicked amber here are the gaps the learner gets. */
+.iq-drawer__marker {
+  padding: var(--space-sm) var(--space-m);
+  border-radius: var(--radius-sm);
+  background: var(--cards-background);
+  box-shadow: var(--shadow-s);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+}
+
+/* 4px of side padding so the hover and blank fills have room around the word
+   rather than clamping its letters. It is padding, not margin, so the fill grows
+   with it — and it carries the gap between words, which is why there is no
+   margin on top of it. */
+.iq-drawer__marker-word {
+  padding: var(--space-xxs) var(--space-xs);
+  border: none;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.iq-drawer__marker-word:hover {
+  background: var(--cards-background-hover);
+}
+
+.iq-drawer__marker-word:focus-visible {
+  outline: 2px solid var(--text-selected);
+  outline-offset: 1px;
+}
+
+/* Raw secondary-500 rather than the mode-aware --selected: this is a chip fill,
+   and chip fills hold the same amber in both modes (Figma 9105:3554). */
+.iq-drawer__marker-word--blank {
+  background: var(--secondary-500);
+  color: var(--text-on-selected);
+  font-weight: 500;
+  border-radius: var(--radius-xs);
+}
+
+/* A blanked word keeps its solid amber on hover — swapping to the translucent
+   hover tint would read as already-unblanked. */
+.iq-drawer__marker-word--blank:hover {
+  background: var(--selected);
+}
+
+/* Sub-label above the preview — instruction, not a field label. */
+.iq-drawer__label-sub {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+/* ===== Footer ===== */
+
+.iq-drawer__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* Reorder announcements — visible to screen readers only. */
+.iq-drawer__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The ConfirmModal panel, stripped of every panel style: the preview is the
+   feed panel alone on the scrim, so the shell contributes only its behaviour. */
+.iq-preview-modal {
+  width: auto;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.iq-drawer__preview-stage {
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== Read-only (the AI review approves a draft, it doesn't author one) =====
+
+   Filled, and no border: the hairline is what said "type here", which is the one thing
+   this field is not for. The fill is what says the value is shown rather than collected
+   (input.md § states), and hover/focus stay put because neither leads anywhere.
+
+   :has() reads the state off the field itself, so nothing has to remember to pass a second
+   class alongside readOnly. */
+.iq-drawer__row:has(> .iq-drawer__row-input[readonly]),
+.iq-drawer__row:has(> .iq-drawer__row-input[readonly]):hover,
+.iq-drawer__row:has(> .iq-drawer__row-input[readonly]):focus-within,
+.iq-drawer__textarea[readonly],
+.iq-drawer__textarea[readonly]:hover,
+.iq-drawer__textarea[readonly]:focus {
+  border-color: var(--border-elevated);
+  background: transparent;
+}
+
+/* The words still read back which of them are gaps; they just no longer take a click. */
+.iq-drawer__marker-word:disabled {
+  cursor: default;
+}
+
+/* Add-row buttons (Add Wrong Word / Add Step / Add Pair / Add Concept).
+   Figma draws these borderless with a --text-primary label, but the DS Text
+   button is brand cyan (buttons.md has no neutral text variant), so the colour
+   is pinned here rather than inventing a DS variant. Hover keeps the DS brand
+   step so the control still reads as interactive. */
+.iq-drawer__add-btn.ds-btn--text {
+  color: var(--text-primary);
+}
+
+/* The interactive bodies render both standalone in this drawer (on the panel) and inside
+   a question card, so the elevated fill is scoped to the card — see tokens.css. */
+.st-drawer__question .iq-drawer__textarea:hover,
+.st-drawer__question .iq-drawer__row:hover,
+.st-drawer__question .iq-drawer__textarea[readonly],
+.st-drawer__question .iq-drawer__textarea[readonly]:hover,
+.st-drawer__question .iq-drawer__textarea[readonly]:focus,
+.st-drawer__question .iq-drawer__row:has(> .iq-drawer__row-input[readonly]),
+.st-drawer__question .iq-drawer__row:has(> .iq-drawer__row-input[readonly]):hover,
+.st-drawer__question .iq-drawer__row:has(> .iq-drawer__row-input[readonly]):focus-within {
+  background: var(--input-background-elevated);
+}

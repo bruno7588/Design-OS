@@ -1,0 +1,331 @@
+/* DS Side Drawer — follows docs/design-system/overlays.md, content per Figma 10613:658 */
+
+/* Backdrop */
+/* The DS scrim (layout.md §7) — 50% in dark, 25% in light. It used to be a hardcoded
+   Neutral-900 at 64%, which buried the page behind it; the token keeps the content
+   underneath readable. The alpha lives in the colour, so the fade runs 0 → 1. */
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--scrim);
+  z-index: 1000;
+  animation: overlay-fade-in 200ms ease-out;
+}
+.overlay-backdrop--closing { animation: overlay-fade-out 300ms ease-out forwards; }
+@keyframes overlay-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes overlay-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+/* Drawer panel */
+.side-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 720px;
+  max-width: 100%;
+  height: 100vh;
+  padding: var(--space-ml) var(--space-l);
+  background: var(--page-background);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml);
+  z-index: 1001;
+  overflow: hidden;
+  /* Even ease-in-out. The old iOS-sheet curve (cubic-bezier(0.32, 0.72, 0, 1))
+     put ~90% of the travel in the first 40% of the time, so it read as a snap
+     however long the duration was. Every drawer unmount timer must stay in step
+     with this 300ms — see the 300 in each handleClose. */
+  animation: side-drawer-in 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.side-drawer--closing { animation: side-drawer-out 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+@keyframes side-drawer-in  { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes side-drawer-out { from { transform: translateX(0);    } to { transform: translateX(100%); } }
+
+/* Instant mount — used when a drawer hands off to another in place (e.g. the
+   reports list → edit screen), so the panel/backdrop swap content without a
+   slide-in/fade that would read as a jump. */
+.side-drawer--instant { animation: none; }
+.overlay-backdrop--instant { animation: none; }
+
+/* When rendered alongside a collapsed icons-only sidebar (CreateCourse pattern),
+   the backdrop stops at the sidebar's left edge so the icons stay visible. The drawer
+   itself extends full-width (right: 0) so its panel covers the vertical space above
+   where the strip's icons begin — the icon strip (z-index 1002) sits on top of the
+   drawer's right edge with its icons; the drawer's content area is padded right to
+   keep its inner content clear of the strip. */
+/* The Add Content rail is 60px wide and held 32px off the viewport edge by the page
+   gutter, so the drawer clears 92px on its right. (A drawer always shows the sidebar
+   as its rail, never the 240px panel — see CreateCourse's openDrawer.)
+   Both start below the PageHeader divider so the builder's title and CTAs stay
+   visible and undimmed while a drawer is open. */
+.overlay-backdrop.overlay-backdrop--with-sidebar { inset: auto; top: var(--page-header-offset, 0px); right: calc(60px + var(--space-xl)); bottom: 0; left: 0; }
+.side-drawer.side-drawer--with-sidebar {
+  top: var(--page-header-offset, 0px);
+  height: auto;
+  right: 0;
+  padding-right: calc(var(--space-l) + 60px + var(--space-xl));
+  /* In step with the rail's own width tween (AddContentIconStrip.css). */
+  transition: right 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* The rail can still be expanded while a drawer is open — the admin may need the
+   labels to know which source they are in. The panel keeps its 720px and simply slides
+   left by the extra width the panel takes (240 − 60), so nothing inside it reflows. */
+.overlay-backdrop.overlay-backdrop--sidebar-expanded { right: calc(240px + var(--space-xl)); }
+.side-drawer.side-drawer--sidebar-expanded {
+  right: calc(240px - 60px);
+}
+
+/* Header (member chip + close, divider below) */
+.side-drawer__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.side-drawer__headline {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m);
+  width: 100%;
+}
+
+.cd-drawer__member {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  min-width: 0;
+}
+
+.cd-drawer__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--input-background);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+.cd-drawer__avatar--img { object-fit: cover; }
+
+.cd-drawer__member-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  line-height: 1.5;
+  min-width: 0;
+}
+
+.cd-drawer__member-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cd-drawer__member-role {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.cd-drawer__close {
+  flex-shrink: 0;
+  padding: var(--space-xs);
+}
+
+.modal__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* Filter toolbar — search + status filter, fixed above the scrolling table */
+.cd-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  width: 100%;
+  flex-shrink: 0;
+}
+.cd-toolbar__search {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.cd-toolbar__filter {
+  flex: 0 0 auto;
+  width: 180px;
+}
+
+/* Content */
+.side-drawer__content {
+  flex: 1 0 0;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Footer */
+.side-drawer__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  width: 100%;
+  background: var(--page-background);
+  flex-shrink: 0;
+}
+.side-drawer__footer-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+.side-drawer__buttons {
+  display: flex;
+  gap: var(--space-m);
+  align-items: flex-start;
+}
+.side-drawer__btn-secondary:hover { background: var(--button-outline-fill-hover); }
+
+/* Courses table */
+.cd-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cd-table__header {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+}
+
+.cd-table__header .cd-table__cell {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  padding: 0 var(--space-m);
+}
+
+.cd-table__row {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.cd-table__cell {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-m);
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.cd-table__cell--course {
+  flex: 1 0 0;
+  min-width: 0;
+  gap: var(--space-sm);
+}
+
+.cd-table__cell--progress {
+  width: 145px;
+  gap: var(--space-s);
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding: var(--space-sm) var(--space-m);
+}
+
+.cd-table__thumb {
+  width: 90px;
+  height: 44px;
+  border-radius: var(--radius-s);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cd-table__course-title {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.cd-table__cell--status {
+  width: 148px;
+  flex-shrink: 0;
+}
+
+/* Sortable Status header — the only sortable column, so the arrow is always
+   shown rather than revealed on hover like the Course Tracker's headers. */
+.cd-table__th-btn {
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  gap: var(--space-xs);
+  cursor: pointer;
+}
+.cd-table__header .cd-table__th-btn:hover { color: var(--text-primary); }
+.cd-table__header .cd-table__th-btn:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Empty state — no courses match the search / status filter */
+.cd-table__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xxl) var(--space-l);
+  text-align: center;
+}
+.cd-table__empty-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+.cd-table__empty-subtext {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.cd-table__progress {
+  display: flex;
+  width: 72px;
+  height: 8px;
+  border-radius: var(--radius-ml);
+  overflow: hidden;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.cd-table__progress-seg {
+  flex: 1 0 0;
+  height: 100%;
+  background: var(--border);
+}
+.cd-table__progress-seg--filled {
+  background: var(--primary-600);
+}
+.cd-table__progress-pct {
+  font-size: 14px;
+  color: var(--text-secondary);
+  min-width: 33px;
+  text-align: left;
+}

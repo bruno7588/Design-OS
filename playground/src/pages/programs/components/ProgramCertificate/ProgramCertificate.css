@@ -1,0 +1,114 @@
+/* ===== Locked state (Figma 2495:20734) ===== */
+.pcert-locked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 280px;
+  max-width: 100%;
+  height: 175px;
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+}
+
+.pcert-locked__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--page-background-hover);
+}
+
+.pcert-locked__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+}
+
+.pcert-locked__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.pcert-locked__lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xss);
+  width: 100%;
+}
+
+.pcert-locked__line {
+  width: 133px;
+  max-width: 100%;
+  height: 8px;
+  border-radius: 3px;
+  background: var(--cards-background-hover);
+}
+
+.pcert-locked__line--short {
+  width: 107px;
+}
+
+/* ===== Unlocked state — "Get Certificate" card (Figma 2510:23596) ===== */
+.pcert-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border-radius: 12px;
+  box-shadow: -1px -1px 4px 0 rgba(32, 34, 42, 0.04), 1px 1px 4px 0 rgba(32, 34, 42, 0.04);
+}
+
+.pcert-card__medallion {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.pcert-card__title {
+  flex: 1 0 0;
+  min-width: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pcert-card__cta {
+  flex-shrink: 0;
+  padding: var(--space-s) var(--space-m);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--primary-button-background);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-button-foreground);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.pcert-card__cta:hover {
+  background: var(--primary-button-background-hover);
+}
+
+.pcert-card__cta:focus-visible {
+  outline: 2px solid var(--selected);
+  outline-offset: 2px;
+}

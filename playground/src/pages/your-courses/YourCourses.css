@@ -1,0 +1,390 @@
+.your-courses-layout {
+  display: flex;
+  flex: 1;
+}
+
+.your-courses-main {
+  flex: 1;
+  padding: var(--space-xl);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.your-courses-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.your-courses-headline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.your-courses-title {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.your-courses-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.your-courses-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.your-courses-tab::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  border-radius: var(--radius-xs);
+}
+
+.your-courses-tab:hover {
+  color: var(--text-primary);
+}
+
+.your-courses-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.your-courses-tab--active::after {
+  background: var(--selected);
+}
+
+/* Folders grid */
+.your-courses-folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+}
+
+/* New Folder card */
+.your-courses-new-folder {
+  width: 308px;
+  height: 272px;
+  /* Plain CSS dashed border. The old data-URI SVG hardcoded its stroke hexes, so
+     the frame never followed --border across themes. */
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: background 150ms ease, border-color 150ms ease;
+  position: relative;
+}
+
+.your-courses-new-folder:hover {
+  background-color: var(--cards-background-hover);
+  border-color: var(--border-hover);
+}
+
+.your-courses-new-folder-icon {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.your-courses-new-folder-label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Course folder card */
+.your-courses-folder-card {
+  width: 308px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.your-courses-folder-thumb {
+  width: 308px;
+  height: 272px;
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-l);
+  position: relative;
+  box-shadow: var(--shadow-s);
+  transition: box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.your-courses-folder-card:hover .your-courses-folder-thumb {
+  background: var(--cards-background-hover);
+  box-shadow: var(--shadow-s);
+}
+
+.your-courses-folder-thumbs {
+  width: 240px;
+  height: 164px;
+  position: relative;
+}
+
+.your-courses-folder-img-back {
+  position: absolute;
+  width: 208px;
+  height: 118px;
+  left: 50%;
+  top: calc(50% - 23px);
+  transform: translate(-50%, -50%);
+  background: var(--cards-background-hover);
+  border-radius: var(--radius-s);
+  transition: background-color 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.your-courses-folder-card:hover .your-courses-folder-img-back {
+  background: var(--border);
+  transform: translate(-50%, -50%) scale(0.833);
+}
+
+.your-courses-folder-img-mid {
+  position: absolute;
+  width: 224px;
+  height: 132px;
+  left: 50%;
+  top: calc(50% - 4px);
+  transform: translate(-50%, -50%);
+  background: var(--border);
+  border-radius: var(--radius-s);
+  transition: background-color 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.your-courses-folder-card:hover .your-courses-folder-img-mid {
+  background: var(--border-hover);
+  transform: translate(-50%, -50%) scale(0.833);
+}
+
+.your-courses-folder-img-front {
+  position: absolute;
+  width: 240px;
+  height: 140px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transform-origin: bottom center;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  transition: transform 300ms ease-in-out;
+}
+
+.your-courses-folder-card:hover .your-courses-folder-img-front {
+  transform: translateX(-50%) scale(0.833);
+}
+
+.your-courses-folder-img-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.your-courses-folder-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  line-height: 1.5;
+}
+
+.your-courses-folder-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.your-courses-folder-count {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Active Enrolments table */
+.your-courses-enrol-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.your-courses-enrol-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: background 150ms ease;
+}
+
+.your-courses-enrol-row:hover {
+  background: var(--input-background);
+}
+
+.your-courses-enrol-row--head,
+.your-courses-enrol-row--head:hover {
+  border: none;
+  background: var(--input-background);
+  border-radius: var(--radius-sm);
+}
+
+.your-courses-enrol-cell {
+  display: flex;
+  align-items: center;
+  padding: var(--space-s) var(--space-sm);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.your-courses-enrol-row--head .your-courses-enrol-cell {
+  padding: var(--space-s) var(--space-sm);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Columns */
+.your-courses-enrol-cell--course {
+  flex: 1;
+  min-width: 0;
+  gap: var(--space-m);
+}
+
+.your-courses-enrol-cell--last {
+  width: 154px;
+  flex-shrink: 0;
+  gap: var(--space-xs);
+  white-space: nowrap;
+}
+
+.your-courses-enrol-cell--sortable {
+  cursor: pointer;
+}
+
+.your-courses-enrol-cell--users {
+  width: 122px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  gap: var(--space-s);
+}
+
+.your-courses-enrol-row--head .your-courses-enrol-cell--users {
+  justify-content: flex-start;
+}
+
+/* Course cell */
+.your-courses-enrol-thumb {
+  width: 90px;
+  height: 44px;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.your-courses-enrol-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.your-courses-enrol-course-title {
+  min-width: 0;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.your-courses-enrol-course-title:hover {
+  color: var(--text-button-hover);
+}
+
+/* Enrol users action */
+.your-courses-enrol-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.your-courses-enrol-action-btn:hover {
+  background: var(--page-background-hover);
+}
+
+/* Pagination */
+.your-courses-enrol-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-m);
+  margin-top: var(--space-xs);
+}
+
+.your-courses-enrol-pagination-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.your-courses-enrol-pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.your-courses-enrol-pagination-btn:hover {
+  background: var(--page-background-hover);
+}
+
+.your-courses-enrol-pagination-btn--disabled {
+  cursor: default;
+  pointer-events: none;
+}

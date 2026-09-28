@@ -1,0 +1,148 @@
+.left-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: var(--page-background);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-s) var(--space-sm);
+  overflow-y: auto;
+  height: calc(100vh - 70px);
+  position: sticky;
+  top: 70px;
+}
+
+.left-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  flex: 1;
+}
+
+.left-sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  padding-top: var(--space-m);
+  border-width: 0;
+  margin-top: var(--space-m);
+}
+
+.left-sidebar-powered {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  padding: var(--space-sm) var(--space-sm);
+  margin-top: var(--space-s);
+}
+
+.left-sidebar-powered span {
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+/* Sidebar item */
+/* Menu item — Figma Library 10372:4045 (Menu/Itens/Admin): 12px 16px, 8px gap,
+   8px radius. */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-sm) var(--space-m);
+  border-radius: var(--radius-s);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 150ms ease;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-item:hover {
+  background: var(--input-background);
+}
+
+/* Selected is the amber Bold label; --text-selected is the mode-aware token
+   (secondary-600 light / secondary-500 dark), not the raw palette value. */
+.sidebar-item--active {
+  color: var(--text-selected);
+  font-weight: 700;
+}
+
+.sidebar-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-item-label__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: var(--space-xss);
+  vertical-align: middle;
+  background: var(--danger-500);
+  border-radius: var(--radius-full);
+}
+
+.sidebar-item-label {
+  flex: 1;
+}
+
+.sidebar-item-chevron {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+}
+
+/* Sub-items */
+.sidebar-sub-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+/* Sub-menu item — same row metrics, indented to clear the parent icon. */
+.sidebar-sub-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-m);
+  padding-left: 42px;
+  border-radius: var(--radius-s);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: background 150ms ease;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-sub-item:hover {
+  background: var(--input-background);
+}
+
+.sidebar-sub-item--active {
+  color: var(--text-selected);
+  font-weight: 700;
+}
+
+.sidebar-sub-item__badge {
+  margin-left: var(--space-s);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--space-xss);
+  background: var(--danger-500);
+  color: var(--neutral-25);
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+}

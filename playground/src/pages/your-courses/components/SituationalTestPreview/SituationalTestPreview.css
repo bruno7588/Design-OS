@@ -1,0 +1,98 @@
+/* Situational test preview (DES-279) — the feed panel on the scrim, then the
+   walkthrough's own paging under it. The screens themselves are the quiz's
+   (quiz-lab.css) and the frame is DesktopPreview's; this file only stages it and
+   styles what sits outside.
+
+   Mirrors .iq-preview-modal in InteractiveDrawer.css, which stages the same frame for
+   a single question. */
+
+.confirm-modal.st-preview-modal {
+  width: auto;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.st-preview__stage {
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== The brief, as the course feed draws it (Figma 17024:82020) ===== */
+
+.st-preview__brief-screen {
+  flex: 1;
+  min-height: 0;
+  padding: var(--space-m);
+  overflow-y: auto;
+}
+
+.st-preview__brief-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  background: var(--cards-background);
+  border-radius: var(--radius-m);
+  /* The same lift the outline's cards take: in light mode the card and the page it
+     sits on are one step apart, in dark they already separate. */
+  box-shadow: var(--shadow-card);
+}
+
+.st-preview__brief-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.st-preview__brief-label {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.st-preview__brief-divider {
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs);
+}
+
+.st-preview__brief-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.st-preview__brief-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.st-preview__brief-text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Full-bleed inside the card, like every primary action on a phone. */
+.st-preview__brief-card .ds-btn {
+  width: 100%;
+}
+
+/* The note for the formats a learner answers in their own words. */
+.st-preview__brief {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}

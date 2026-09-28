@@ -1,0 +1,315 @@
+/* Learning Records tab */
+
+.lr {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  width: 100%;
+  padding: var(--space-l) 0;
+}
+
+/* ── Actions bar (chips + download) ── */
+.lr__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lr__chips {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.lr__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-elevated);
+  cursor: pointer;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.lr__chip:hover:not(.lr__chip--active) {
+  background: var(--input-background);
+  color: var(--text-primary);
+}
+
+.lr__chip--active {
+  background: var(--secondary-500);
+  color: var(--text-on-selected);
+  font-weight: 500;
+  border-color: var(--secondary-500);
+}
+
+.lr__actions-right {
+  display: flex;
+  gap: var(--space-m);
+  align-items: center;
+}
+
+.lr__add-training-wrap {
+  position: relative;
+}
+
+.lr__add-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 1000;
+  min-width: 200px;
+  width: max-content;
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px 0 rgba(32, 34, 42, 0.12);
+  padding: var(--space-s);
+  margin: 0;
+  list-style: none;
+}
+
+.lr__add-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-s);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: background 100ms ease;
+}
+
+.lr__add-menu-item:hover {
+  background: var(--cards-background-hover);
+}
+
+/* ── Filters bar ── */
+.lr__filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-s);
+  background: var(--cards-background);
+  border-radius: var(--radius-sm);
+}
+
+.lr__filters-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+.lr__filters-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.lr__filters-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  padding: 1px var(--space-xss);
+  border-radius: var(--radius-full);
+  background: var(--input-background-elevated);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.lr__filters-add {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-button-outlined);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 0 var(--space-s) 0 var(--space-xs);
+}
+
+.lr__filters-spacer {
+  flex: 1;
+}
+
+.lr__filters-chevron {
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: var(--space-xxs);
+}
+
+/* Date cell content */
+.lr__date-cell {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.lr__date-line1 {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.lr__date-line2 {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.lr__date-dash {
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+/* ── Badges (pill style, matching Figma) ── */
+.lr__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xss) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Enrollment badges */
+.lr__badge--current {
+  background: rgba(0, 206, 230, 0.16);
+  color: var(--primary-600);
+}
+
+.lr__badge--archived {
+  background: var(--input-background);
+  color: var(--text-secondary);
+}
+
+/* Status badges */
+.lr__badge--completed {
+  background: rgba(24, 169, 87, 0.16);
+  color: var(--success-500);
+}
+
+.lr__badge--failed {
+  background: rgba(223, 22, 66, 0.16);
+  color: var(--danger-400);
+}
+
+.lr__badge--in-progress {
+  background: rgba(0, 206, 230, 0.16);
+  color: var(--primary-600);
+}
+
+.lr__badge--not-passed {
+  background: rgba(223, 22, 66, 0.16);
+  color: var(--danger-400);
+}
+
+/* ── Floating bulk action bar ── */
+.lr__bulk-bar {
+  position: fixed;
+  bottom: var(--space-l);
+  left: 50%;
+  transform: translateX(calc(-50% + 120px));
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--tooltip-background);
+  border-radius: var(--radius-m); /* 16px — same as the shared .bulk-bar */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  animation: lr-bulk-bar-slide-up 140ms ease-out;
+}
+
+.lr__bulk-bar-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--input-background);
+  border: none;
+  cursor: pointer;
+  color: var(--neutral-300);
+}
+
+.lr__bulk-bar-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--neutral-0);
+}
+
+.lr__bulk-bar-count {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--neutral-200);
+  white-space: nowrap;
+}
+
+.lr__bulk-bar-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.16);
+  flex-shrink: 0;
+}
+
+.lr__bulk-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xss) var(--space-sm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  background: var(--danger-500);
+  color: var(--neutral-0);
+  white-space: nowrap;
+}
+
+.lr__bulk-bar-btn:hover {
+  background: var(--danger-600);
+}
+
+@keyframes lr-bulk-bar-slide-up {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-50% + 120px)) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(calc(-50% + 120px)) translateY(0);
+  }
+}

@@ -1,0 +1,786 @@
+.automations-layout {
+  display: flex;
+  flex: 1;
+}
+
+.automations-main {
+  flex: 1;
+  padding: var(--space-xl);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.automations-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.automations-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.automations-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.automations-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Reads as a link in the brand colour, but nothing is wired behind it yet, so
+   it keeps the arrow cursor and does not answer hover. */
+.automations-description-link {
+  color: var(--primary-button-background);
+  text-decoration: underline;
+  cursor: default;
+}
+
+.automations-tabs {
+  display: flex;
+  gap: var(--space-l);
+}
+
+.automations-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.automations-tab::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  border-radius: var(--radius-xs);
+}
+
+.automations-tab:hover {
+  color: var(--text-primary);
+}
+
+.automations-tab--active {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.automations-tab--active::after {
+  background: var(--secondary-500);
+}
+
+/* ===== Manage tab body ===== */
+.automations-manage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml); /* 20px */
+}
+
+/* ── Template cards ── */
+.automations-templates {
+  display: flex;
+  gap: var(--space-l); /* 24px */
+  width: 100%;
+}
+
+.automations-template {
+  flex: 1 0 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m); /* 16px */
+  padding: var(--space-m); /* 16px */
+  border: none;
+  border-radius: var(--radius-sm); /* 12px */
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 150ms ease;
+}
+
+.automations-template--purple {
+  background: rgba(129, 88, 236, 0.16);
+}
+
+.automations-template--purple:hover {
+  background: rgba(129, 88, 236, 0.32);
+}
+
+.automations-template--blue {
+  background: rgba(42, 144, 216, 0.16);
+}
+
+.automations-template--blue:hover {
+  background: rgba(42, 144, 216, 0.32);
+}
+
+.automations-template--quiz {
+  background: rgba(250, 113, 95, 0.16);
+}
+
+.automations-template--quiz:hover {
+  background: rgba(250, 113, 95, 0.32);
+}
+
+.automations-template-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.automations-template-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs); /* 4px */
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.automations-template-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.automations-template-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Text columns truncate inside the cell: .tbl-cell clips its flex items, so
+   the ellipsis has to live on the span rather than on the cell. */
+.automations-cell-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Inactive automations read muted on both text columns. */
+.automations-cell--muted {
+  color: var(--text-tertiary);
+}
+
+.automations-table-cell--toggle {
+  gap: var(--space-m);
+  padding: var(--space-m);
+}
+
+/* ── Toggle switch ── */
+.automations-toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--neutral-400); /* off-state toggle track — same value as the shared DS Toggle (.toggle__track) */
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.automations-toggle--on {
+  background: var(--success-500, #14B870);
+}
+
+.automations-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--neutral-0, #fff);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 150ms ease;
+}
+
+.automations-toggle--on .automations-toggle-thumb {
+  transform: translateX(16px);
+}
+
+.automations-toggle-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* ── Row action button ── */
+.automations-row-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: var(--space-xs);
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.automations-row-action:hover {
+  background: var(--cards-background-hover);
+}
+
+/* ── Row action menu ── */
+.automations-more-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.automations-action-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 220px;
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0px 24px 0px rgba(32, 34, 42, 0.12);
+  z-index: 100;
+  padding: var(--space-s);
+}
+
+.automations-action-menu-caret {
+  position: absolute;
+  top: -6px;
+  right: 12px;
+  width: 12px;
+  height: 6px;
+}
+
+.automations-action-menu-caret::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--border);
+}
+
+.automations-action-menu-caret::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--cards-background);
+}
+
+.automations-action-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: var(--space-sm) var(--space-m);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-s);
+  white-space: nowrap;
+  transition: background 150ms ease;
+}
+
+.automations-action-menu-item:hover {
+  background: var(--cards-background-hover);
+}
+
+.automations-action-menu-item:disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  position: relative;
+}
+
+.automations-action-menu-item:disabled:hover {
+  background: transparent;
+}
+
+/* CSS tooltip for disabled menu items — appears to the left of the row.
+   Uses data-tooltip attribute so the message is content-driven from JSX.
+   Styled per 5Mins Tooltip spec (alerts-toast.md). */
+.automations-action-menu-item[disabled][data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--space-s) var(--space-sm);
+  background: var(--tooltip-background);
+  color: var(--neutral-25, #f9f9fa);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: var(--radius-sm);
+  max-width: 288px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(-4px 0px 24px rgba(32, 34, 42, 0.12));
+}
+
+.automations-action-menu-item[disabled][data-tooltip]:hover::before {
+  content: '';
+  position: absolute;
+  right: calc(100% + 2px);
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--tooltip-background);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.automations-action-menu-item--danger {
+  color: var(--text-error);
+}
+
+.automations-action-menu-item svg {
+  flex-shrink: 0;
+}
+
+/* ===== Activity tab body ===== */
+.automations-activity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-ml); /* 20px */
+}
+
+/* ── Stat cards ── */
+.automations-stat-cards {
+  display: flex;
+  gap: var(--space-m); /* 16px */
+  width: 100%;
+}
+
+.automations-stat-card {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm); /* 12px */
+  padding: var(--space-m); /* 16px */
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm); /* 12px */
+  min-width: 0;
+}
+
+.automations-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.automations-stat-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.automations-stat-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.automations-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.automations-stat-label-meta {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+/* ── Filter bar ── */
+.automations-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.automations-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-sm);
+  background: var(--input-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 320px;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.automations-search:hover {
+  background: var(--input-background-hover);
+  border-color: var(--border-hover);
+}
+
+.automations-search:focus-within {
+  border-color: var(--selected);
+  background: var(--input-background);
+}
+
+.automations-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  outline: none;
+  min-width: 0;
+}
+
+.automations-search-input::placeholder {
+  color: var(--text-disabled);
+}
+
+.automations-search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+/* ── Dropdown ── */
+.automations-dropdown {
+  position: relative;
+  width: 230px;
+  flex-shrink: 0;
+}
+
+.automations-dropdown--state {
+  width: auto;
+}
+
+.automations-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  padding: var(--space-s) var(--space-m);
+  background: transparent;
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.automations-dropdown-trigger:hover {
+  background: var(--input-background);
+  border-color: var(--border-hover);
+}
+
+.automations-dropdown--open .automations-dropdown-trigger {
+  border-color: var(--selected);
+  background: transparent;
+}
+
+.automations-dropdown-value {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.automations-listbox {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 100%;
+  width: max-content;
+  background: var(--cards-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: -4px 0 24px 0 rgba(32, 34, 42, 0.12);
+  padding: var(--space-s);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 10;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.automations-listbox-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-m);
+  border: none;
+  border-radius: var(--radius-s);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.automations-listbox-item:hover {
+  background: var(--cards-background-hover);
+}
+
+.automations-listbox-item--selected {
+  background: var(--secondary-500);
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.automations-listbox-item--selected:hover {
+  background: var(--secondary-600);
+}
+
+.automations-filter-dropdowns {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.automations-filter-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-right: var(--space-xs);
+}
+
+.automations-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.automations-user-email {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  line-height: 1.2;
+}
+
+.automations-table-cell--automation {
+  color: var(--text-primary);
+}
+
+/* Dot + name + optional badge on one line inside the cell. */
+.automations-automation-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  min-width: 0;
+}
+
+.automations-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.automations-status-dot--active {
+  background: var(--success-500);
+}
+
+.automations-status-dot--inactive {
+  background: var(--text-disabled);
+}
+
+.automations-table-cell--automation-muted {
+  color: var(--text-disabled);
+}
+
+.automations-automation-name--deleted {
+  text-decoration: line-through;
+}
+
+.automations-trigger-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.automations-trigger-date-day {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.automations-trigger-date-year {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-secondary);
+}
+
+
+.automations-table-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-m);
+  font-size: 14px;
+  color: var(--text-tertiary);
+  border: 1px dashed var(--border-elevated);
+  border-radius: var(--radius-s);
+}
+
+.automations-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-xxl) var(--space-m);
+  text-align: center;
+}
+
+.automations-empty-state-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: var(--space-sm);
+  line-height: 1.5;
+}
+
+.automations-empty-state-body {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+/* Outlined-2 button — Figma library node 11609:8315 (Enabled/Hover/Pressed) */
+.automations-empty-state-action {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-sm);
+  padding: var(--space-ssm) var(--space-ml); /* 10px 20px to match figma height (41px) */
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.automations-empty-state-action:hover {
+  background: var(--button-outline-fill-hover);
+  border-color: var(--text-button-hover);
+  color: var(--text-button-hover);
+}
+
+.automations-empty-state-action:active {
+  background: var(--button-outline-fill-pressed);
+  border-color: var(--primary-button-background-pressed);
+  color: var(--primary-button-background-pressed);
+}
+
+.automations-empty-state-action:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* ── Pagination ── */
+.automations-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-m);
+  padding: var(--space-s) var(--space-m);
+}
+
+.automations-pagination-info {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.automations-pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.automations-pagination-btn:disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}

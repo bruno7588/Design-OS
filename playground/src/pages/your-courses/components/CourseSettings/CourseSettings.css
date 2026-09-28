@@ -1,0 +1,178 @@
+.cs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  padding: var(--space-m) var(--space-m);
+}
+
+/* Sub-header — "Course Settings" title left, Settings-history entry point right,
+   divider below (Figma 8543:4431) */
+.cs-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m); /* 16px */
+}
+
+.cs-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.cs-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font: 700 20px/1.5 'Poppins', sans-serif;
+  color: var(--text-primary);
+}
+
+.cs-header-divider {
+  height: 1px;
+  background: var(--border);
+  border-radius: var(--radius-xs); /* 4px */
+}
+
+/* Outlined-2 (neutral tertiary) button per buttons.md */
+.cs-history {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s); /* 8px — buttons.md gap for a 20px leading icon */
+  height: 41px;
+  padding: var(--space-ssm) var(--space-ml) var(--space-ssm) var(--space-m); /* medium, leading icon — icon-side 4px tighter */
+  border: 1px solid var(--border-elevated);
+  border-radius: var(--radius-sm); /* 12px */
+  background: transparent;
+  color: var(--text-primary);
+  font: 700 14px/1.5 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.cs-history:hover {
+  background: var(--button-outline-fill-hover);
+  border-color: var(--primary-button-background-hover);
+  color: var(--text-button-hover);
+}
+
+.cs-history:focus-visible {
+  outline: 2px solid var(--primary-button-background);
+  outline-offset: 2px;
+}
+
+/* Section */
+.cs-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cs-section-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Section card — holds all of a section's settings + one Save at the bottom */
+.cs-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  border-radius: var(--radius-sm);
+  background: var(--cards-background);
+  box-shadow: var(--shadow-s);
+}
+
+/* A single setting row inside the section card */
+.cs-setting {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  width: 100%;
+}
+
+/* Save CTA — indented to align with the body text (past the 24px checkbox + 8px gap) */
+.cs-cta {
+  display: flex;
+  padding-left: var(--space-xl);
+}
+
+.cs-card-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Spacing via margins (not flex gap) so the collapsible's gap lives inside the
+   animated height — no residual dead space when collapsed. */
+.cs-card-desc {
+  margin-top: var(--space-xs);
+}
+
+.cs-card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cs-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.cs-link {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cs-link:hover {
+  color: var(--text-button-hover);
+}
+
+/* Revealed content (e.g. max attempts when auto-reset is on).
+   Spacing lives here (inside the animated Collapse) so it tweens with the height. */
+.cs-card-expand {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+/* The Pass Score block: a free-standing pass-score stepper followed by the
+   re-attempts / auto-reset settings, each in its own grouped panel. */
+.cs-passscore-group {
+  margin-top: var(--space-ml);
+  gap: var(--space-ml);
+}
+
+/* A grouped sub-setting panel (toggle + body) nested under Pass Score. */
+.cs-panel {
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+/* Align the small toggle with the panel title's cap height. */
+.cs-panel > .toggle {
+  margin-top: var(--space-xs);
+}
+
+/* Match the toggles to the checkbox's amber "on" colour (rather than the default green). */
+.cs-panel .toggle--on .toggle__track {
+  background: var(--control-selected);
+}
+
+/* Emphasised "Failed" inside helper copy */
+.cs-failed {
+  color: var(--text-error);
+  font-weight: 500;
+}

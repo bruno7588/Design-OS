@@ -1,0 +1,13 @@
+/* Multi-question answers — the By Learner row-card (LearnerList.css) reused inside
+   the answers drawer, with the two things its own questions need on top of it. */
+
+/* An assessment title fits a line; a scenario question does not, and the question is
+   what the answer under it is read against, so it wraps instead of truncating. It also
+   carries secondary rather than tertiary: here the question is content being read, not
+   a label naming the row. */
+.mqa-answers .lrn-answer__title {
+  white-space: normal;
+  overflow: visible;
+  color: var(--text-secondary);
+}
+
