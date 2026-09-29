@@ -76,7 +76,9 @@ const dark: SemanticTokens = {
   cardsBackgroundHover: p.neutral[600],
   inputBackground: 'rgba(69, 76, 94, 0.16)',
   inputBackgroundHover: p.neutral[700],
-  border: p.neutral[600],
+  // Figma: Border is Neutral-700, Border-elevated Neutral-600 (Bruno, 2026-09-29).
+  // The prototype's tokens.css uses Neutral-600 for both, so borders show on cards.
+  border: p.neutral[700],
   borderElevated: p.neutral[600],
   tooltipBackground: p.neutral[900],
   textPrimary: p.neutral[25],

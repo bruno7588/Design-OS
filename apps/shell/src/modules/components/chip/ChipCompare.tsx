@@ -17,9 +17,9 @@ const compare: Compare = {
     {
       property: 'Disabled border, dark',
       figma: 'Border #2D313D (Neutral-700)',
-      reference: 'Border #383D4C (Neutral-600)',
-      status: 'Design to update',
-      note: 'Kept from the prototype on purpose: with Neutral-700, borders on cards disappear (tokens.css). Needs a decision for the whole Border token.',
+      reference: 'Same',
+      status: 'Matches',
+      note: 'Bruno, 2026-09-29: Figma is correct. The prototype uses Neutral-600 for Border: code to update there.',
     },
     { property: 'Selected hover', figma: 'Not in the set', reference: 'Same as selected', status: 'Design to update', note: 'The prototype darkens to Secondary-600 on hover.' },
     { property: 'Focus', figma: 'No focus frames', reference: '2px ring in the primary button colour, 2px offset', status: 'Design to update' },

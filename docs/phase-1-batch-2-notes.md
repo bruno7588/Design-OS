@@ -35,13 +35,8 @@ Checked 2026-09-29.
 - Escape and scrim clicks do nothing; Cancel closes it and returns focus to the trigger.
 
 ## Decided
+- **Dark `Border` token** (Bruno, 2026-09-29): Figma is correct, Neutral-700 `#2D313D`. `tokens.ts` now follows it; `Border-elevated` stays Neutral-600, as in Figma. The prototype's `tokens.css` sets both to Neutral-600 (to keep borders visible on cards), so it needs updating.
 - **Dialog closing** (Bruno, 2026-09-28): only Cancel or the action closes it. Escape and a click on the scrim do nothing, as `overlays.md` says. The prototype's ConfirmModal closes on both, so its code needs updating. Checked 2026-09-29 in the running prototype (Roles > Company Roles > Delete role): Escape and a click on the scrim both close it (`ConfirmModal.tsx:17` and `:26`).
-
-## To decide
-- **Dark `Border` token:**
-  - Figma: Neutral-700 `#2D313D`.
-  - The prototype (and so our `tokens.ts`): Neutral-600 `#383D4C`, changed on purpose because Neutral-700 borders vanish on cards.
-  - We kept the prototype's value. Either Figma updates the variable, or we accept that borders are invisible on cards.
 
 ## Changed in the theme
 - `shadow.l` is now Figma's Shadow L (`-4px 0 24px`, 12%). The prototype's `tokens.css` has `4px 4px 24px`.
