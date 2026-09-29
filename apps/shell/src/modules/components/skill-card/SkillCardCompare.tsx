@@ -13,7 +13,7 @@ const compare: Compare = {
     { property: 'Hover', figma: 'Page-background-hover fill, Border-hover outline', reference: 'Same', status: 'Matches' },
     { property: 'Remove', figma: 'close Linear 20 in Text-secondary', reference: 'CloseOutlineIcon at 20 (the same X), in a named button', status: 'Matches' },
     { property: 'Disabled', figma: 'Illustration in Luminosity, Text-disabled', reference: 'Greyscale, Text-disabled, aria-disabled', status: 'Matches' },
-    { property: 'Illustration', figma: 'Illustrations{Type=Hard skills}: its set (8990:21241) is no longer on any page', reference: 'An icon slot; the docs use the Hard skills artwork', status: 'Design to update', note: 'Restore the set, or point the card at Illustrations/ Functions.' },
+    { property: 'Illustration', figma: 'Icons/Skill Icon/Pricing Strategy (Hugo Library), 20px; swapped in on 2026-09-29 from a deleted Illustrations set', reference: 'An icon slot; the docs use the same Pricing Strategy artwork', status: 'Matches', note: 'The full skill library is in the prototype’s src/assets/skill-icons (see iconography.md).' },
     { property: 'Hover width', figma: 'The hover variant is 285 wide; the label box is wider (233 against 197)', reference: 'Hugs its content', status: 'Matches' },
     { property: 'Built component', figma: '–', reference: 'SkillCard', status: 'Code to update', note: 'The prototype has SkillCard.' },
   ],

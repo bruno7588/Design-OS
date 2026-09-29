@@ -12,7 +12,7 @@ const compare: Compare = {
     { property: 'Surface', figma: '308 × 272, Cards-background, radius 12, padding 24; Shadow S in the light set', reference: 'Same', status: 'Matches' },
     { property: 'Deck', figma: 'Cover 240 × 140 at the bottom; 224 × 132 Border-elevated 12 higher; 208 × 118 Cards-background-hover at the top; radius 8', reference: 'Same', status: 'Matches' },
     { property: 'Hover', figma: 'Deck 200 wide (radius 6.7); back layers Border-elevated and Neutral-400', reference: 'The deck scales to 5/6 and the layers change colour', status: 'Matches' },
-    { property: 'Info gap', figma: '4 on Default (3+, 2, 1); 8 on Hover and on 0 courses', reference: '4 everywhere', status: 'Design to update', note: 'The card grows by 4px on hover in Figma.' },
+    { property: 'Info gap', figma: '8 everywhere (set on 2026-09-29; was 4 on the rest states)', reference: 'Same', status: 'Matches' },
     { property: 'Empty', figma: 'Artwork in Border-elevated with a Cards-background stroke', reference: 'The same artwork, drawn from the tokens', status: 'Matches' },
     { property: 'Deleted variable', figma: 'The deck, the empty artwork and the New Folder outline were bound to a deleted Border-elevated (7423:2)', reference: '–', status: 'Matches', note: 'Rebound to the current Border-elevated on 2026-09-29 (22 layers).' },
     { property: 'New Folder', figma: '1.5px dashed Border-elevated (4, 4), radius 12; + Regular 48 and "New Folder" Regular 16 in Text-secondary', reference: 'A button with the same look (CSS dashes are close to 4, 4; a 1.5px border shows as 1px on standard screens)', status: 'Matches' },

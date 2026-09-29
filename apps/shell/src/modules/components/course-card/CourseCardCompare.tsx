@@ -15,7 +15,7 @@ const compare: Compare = {
     { property: 'Due date', figma: 'Badge Type=Warning on Cards-background; Medium 14/1.2 (Regular 12 on mobile)', reference: 'The 5Mins Badge, same overrides', status: 'Matches' },
     { property: 'New', figma: 'A plain frame: raw #E95C7B fill, #FFFFFF text, padding 4/8, radius 20, Medium 12/1.5', reference: 'Danger-400 and Neutral-25, same size', status: 'Design to update', note: 'Bind to Danger-400 and Neutral-25, or use the Badge (New) as the Category card does.' },
     { property: 'Hover', figma: 'Cards-background-hover; the picture grows to 336 × 157 (1.12×)', reference: 'Same, animated 300ms, off with reduced motion', status: 'Matches' },
-    { property: 'State names', figma: 'Enabled in the dark set, Default in the light set', reference: '–', status: 'Design to update', note: 'Pick one name.' },
+    { property: 'State names', figma: 'Enabled in both sets (renamed from Default on 2026-09-29)', reference: '–', status: 'Matches' },
     { property: 'Shadow', figma: 'Shadow S in the light set', reference: 'Same', status: 'Matches' },
     { property: 'Built component', figma: '–', reference: 'CourseCard', status: 'Code to update', note: 'The prototype has WorkspaceCourseCard and mobile/CourseCard.' },
   ],

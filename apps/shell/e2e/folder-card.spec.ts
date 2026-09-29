@@ -26,6 +26,7 @@ test('surface, deck layers and New Folder match Figma', async ({ page }) => {
           surface: [Math.round(s.getBoundingClientRect().width), Math.round(s.getBoundingClientRect().height), getComputedStyle(s).boxShadow !== 'none'],
           layers: deck ? deck.children.length : 0,
           count: c.querySelector('p')!.textContent,
+          gap: Math.round(c.querySelector('p')!.getBoundingClientRect().top - c.querySelector('.ds-card-heading')!.getBoundingClientRect().bottom),
         }
       })
       const tile = el.querySelector('.ds-new-folder')!
@@ -33,6 +34,7 @@ test('surface, deck layers and New Folder match Figma', async ({ page }) => {
       return { cards, tile: [Math.round(tile.getBoundingClientRect().width), Math.round(tile.getBoundingClientRect().height), cs.borderStyle, cs.borderWidth] }
     })
     expect(m.cards.map((c) => c.layers)).toEqual([3, 2, 1, 0])
+    expect(m.cards.map((c) => c.gap)).toEqual([8, 8, 8, 8]) // title to count, 8 everywhere
     expect(m.cards[0].surface).toEqual([308, 272, true])
     expect(m.cards.map((c) => c.count)).toEqual(['3+ courses', '2 courses', '1 course', '0 courses'])
     expect(m.tile.slice(0, 3)).toEqual([308, 272, 'dashed'])

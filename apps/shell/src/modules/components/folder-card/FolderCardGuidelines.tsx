@@ -14,7 +14,7 @@ const g: Guidelines = {
       { name: 'Surface', description: '308 × 272, Cards-background, radius 12, padding 24, Shadow S in light mode.' },
       { name: 'Deck', description: 'The cover, 240 × 140, radius 8, with up to two layers behind it: Border-elevated (224 × 132) and Cards-background-hover (208 × 118).' },
       { name: 'Title', description: 'Bold 16/1.5, Text-primary, 16px under the surface.' },
-      { name: 'Count', description: '"5 courses", Regular 14, Text-secondary, 4px under the title.' },
+      { name: 'Count', description: '"5 courses", Regular 14, Text-secondary, 8px under the title.' },
     ],
   },
   variants: [

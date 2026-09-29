@@ -567,7 +567,7 @@
         "5132:5756",
         "11916:10292"
       ],
-      "copiesDiffer": true,
+      "copiesDiffer": false,
       "lightVersion": "copy",
       "namesDiffer": false,
       "variants": {
@@ -585,8 +585,7 @@
         ],
         "State": [
           "Enabled",
-          "Hover",
-          "Default"
+          "Hover"
         ]
       },
       "slots": [],
@@ -619,7 +618,7 @@
           "Desktop"
         ],
         "State": [
-          "Default",
+          "Enabled",
           "Hover"
         ]
       },
@@ -649,7 +648,7 @@
           "Desktop"
         ],
         "State": [
-          "Default",
+          "Enabled",
           "Hover"
         ]
       },
@@ -753,7 +752,7 @@
           "true"
         ],
         "State": [
-          "Default",
+          "Enabled",
           "Hover"
         ],
         "New": [
@@ -791,7 +790,7 @@
           "true"
         ],
         "State": [
-          "Default",
+          "Enabled",
           "Hover"
         ],
         "Number of courses": [

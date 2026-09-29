@@ -576,7 +576,7 @@
               "Desktop"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ]
           },
@@ -592,7 +592,7 @@
               "Desktop"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ]
           },
@@ -650,7 +650,7 @@
               "true"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ],
             "New": [
@@ -670,7 +670,7 @@
               "true"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ],
             "Number of courses": [
@@ -792,7 +792,7 @@
               "true"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ]
           },
@@ -808,7 +808,7 @@
               "Desktop"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ]
           },
@@ -824,7 +824,7 @@
               "Desktop"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ]
           },
@@ -882,7 +882,7 @@
               "true"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ],
             "New": [
@@ -902,7 +902,7 @@
               "true"
             ],
             "State": [
-              "Default",
+              "Enabled",
               "Hover"
             ],
             "Number of courses": [

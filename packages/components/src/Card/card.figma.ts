@@ -50,8 +50,7 @@ export const courseCardFigma: FigmaMapping = {
   page: 'Cards',
   set: 'Card/Courses',
   nodes: { light: '11916:10292', dark: '5132:5756' },
-  // The dark set calls the rest state Enabled, the light set Default.
-  variants: { Device: ['Mobile', 'Desktop'], New: ['false', 'true'], 'Due date': ['false', 'true'], State: ['Enabled', 'Default', 'Hover'] },
+  variants: { Device: ['Mobile', 'Desktop'], New: ['false', 'true'], 'Due date': ['false', 'true'], State: ['Enabled', 'Hover'] },
 }
 
 export const categoryCardFigma: FigmaMapping = {
@@ -60,7 +59,7 @@ export const categoryCardFigma: FigmaMapping = {
   page: 'Cards',
   set: 'Card/ Category',
   nodes: { light: '10574:3913', dark: '10176:1806' },
-  variants: { Device: ['Desktop', 'Mobile'], Disabled: ['false', 'true'], State: ['Default', 'Hover'], New: ['false', 'true'] },
+  variants: { Device: ['Desktop', 'Mobile'], Disabled: ['false', 'true'], State: ['Enabled', 'Hover'], New: ['false', 'true'] },
 }
 
 export const folderCardFigma: FigmaMapping = {
@@ -69,7 +68,7 @@ export const folderCardFigma: FigmaMapping = {
   page: 'Cards',
   set: 'Card/Folder',
   nodes: { light: '10175:3183', dark: '10175:3106' },
-  variants: { 'New folder': ['false', 'true'], State: ['Default', 'Hover'], 'Number of courses': ['0', '3+', 'n/a', '2', '1'] },
+  variants: { 'New folder': ['false', 'true'], State: ['Enabled', 'Hover'], 'Number of courses': ['0', '3+', 'n/a', '2', '1'] },
 }
 
 export const skillCardFigma: FigmaMapping = {

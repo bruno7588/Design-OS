@@ -51,12 +51,14 @@ Checked 2026-09-29.
 
 ## Mismatches recorded (Design to update)
 - **Course New pill:** a plain frame with a raw `#E95C7B` fill and `#FFFFFF` text. Code uses Danger-400 and Neutral-25. It could use the Badge (New), as the Category card does.
-- **Course state names:** the rest state is Enabled in the dark set and Default in the light set.
-- **Folder info gap:** 4 on the Default variants, but 8 on Hover and on 0 courses. Code uses 4 everywhere.
 - **Folder set names:** Card/Folder (dark) against Card/folder (light).
-- **Skill illustration:** the card's Illustrations set (`8990:21241`) is no longer on any page, so the instances point at a deleted component.
 - **Category mobile height:** 238 in Figma, because it gives the 21px title a 24px box. Code is 235.
 - **Category tooltip:** `cards.md` shows Customer Success as a link, but Figma's tooltip is plain text. A link would need an interactive tooltip.
+
+## Follow-up (Bruno, 2026-09-29)
+- **Folder info gap is 8 everywhere:** in Figma, the 10 Default info frames went from 4 to 8, and code went from 4 to 8.
+- **Skill illustration:** it's the skill library (`iconography.md` → Skill Illustrations; Figma `Icons/Skill Icon/*` in the Hugo Library). All 10 Skill card instances now use `Icons/Skill Icon/Pricing Strategy` at 20px, instead of the deleted Illustrations set. The docs sample is the prototype's `pricing-strategy.svg`.
+- **State is Enabled everywhere:** 38 variants on the Cards page were renamed from State=Default to State=Enabled, across Courses, Category, Folder, Instructor and External training.
 
 ## Prototype differences
 - **The prototype has:** WorkspaceCourseCard, CategoryCard, SkillCard, and the mobile Course and Category cards.

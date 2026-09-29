@@ -41,7 +41,7 @@ export function SkillCardPreview() {
           <FormControlLabel control={<Switch checked={disabled} onChange={(e) => setDisabled(e.target.checked)} />} label="Disabled" />
         </>
       }
-      hint="The skill illustrations come with the Illustrations batch; the docs use Hard skills."
+      hint="Skill illustrations are the Icons/Skill Icon set (Hugo Library); the docs use Pricing Strategy."
       matrix={<SkillCardMatrix mode={mode} />}
     />
   )

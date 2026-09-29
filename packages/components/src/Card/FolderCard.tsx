@@ -124,7 +124,7 @@ export function FolderCard({ title, count, countLabel, image, onClick, className
           </Box>
         )}
       </Box>
-      <Box sx={(theme) => ({ display: 'flex', flexDirection: 'column', gap: `${theme.tokens.space.xs}px` })}>
+      <Box sx={(theme) => ({ display: 'flex', flexDirection: 'column', gap: `${theme.tokens.space.s}px` })}>
         <CardTitle onClick={onClick} sx={(theme) => ({ fontSize: 16, fontWeight: 700, lineHeight: 1.5, color: theme.tokens.semantic.textPrimary })}>
           {title}
         </CardTitle>

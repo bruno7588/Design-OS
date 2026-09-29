@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import { SkillCard, type Mode } from '@design-os/components'
 import { Canvas } from '../shared/Canvas'
 
-export const SKILL_ICON = <img src="/samples/skill-hard-skills.svg" alt="" />
+export const SKILL_ICON = <img src="/samples/skill-pricing-strategy.svg" alt="" />
 export const LABEL = 'Pricing Strategy Automation'
 
 // The Figma Card/skill set: Enabled, Hover, Remove, Remove hover, Disabled.
