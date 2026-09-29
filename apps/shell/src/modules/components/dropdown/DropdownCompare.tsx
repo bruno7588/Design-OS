@@ -24,10 +24,10 @@ const compare: Compare = {
     },
     {
       property: 'Error',
-      figma: 'Not in the set',
-      reference: 'As the input field: Text-error border, label and message, Bold Danger icon 24px after the value, 8px before the chevron',
-      status: 'Design to update',
-      note: 'Bruno, 2026-09-29: dropdowns need an error state. The prototype uses Danger-500 in both modes, leaves the label unchanged and has no icon.',
+      figma: 'State=Error: Text-error border, label and message, Bold Danger icon before the chevron',
+      reference: 'Same',
+      status: 'Matches',
+      note: 'Added to both Figma sets on 2026-09-29 (Bruno). The prototype uses Danger-500 in both modes, leaves the label unchanged and has no icon: code to update there.',
     },
     { property: 'Rich rows', figma: 'Checkbox, radio, avatar, skill icon, search, helper and supporting text rows', reference: 'Not built yet', status: 'Code to update', note: 'They arrive with Checkbox and Radio; the inventory lists them as missing in code.' },
     {

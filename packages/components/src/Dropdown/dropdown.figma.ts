@@ -8,7 +8,7 @@ export const dropdownFigma: FigmaMapping = {
   nodes: { light: '12113:14844', dark: '8925:1408' },
   variants: {
     Disabled: ['false', 'true'],
-    State: ['Enabled', 'Hover', 'Active', 'Read-only'],
+    State: ['Enabled', 'Hover', 'Active', 'Read-only', 'Error'],
     'Icon left': ['true', 'false'],
     'Label top': ['false', 'true'],
     'Label start': ['false', 'true'],

@@ -1,30 +1,3126 @@
 {
   "fileKey": "EC26cSVe9KNTCWXvYovakw",
-  "fetchedAt": "2026-09-28",
+  "fetchedAt": "2026-09-29",
   "source": "use_figma, read-only, one call per page under COMPONENTS",
   "pages": [
-    {"page":"Alert","pageId":"5453:37623","items":[{"name":"Alert","id":"3658:32304","type":"set","variants":{"Type":["Callout","Alert"],"Illustration":["true","false"],"Icon":["false","true"],"Button":["false","true"],"Supporting text":["false","true"]}},{"name":"Alert","id":"12060:2785","type":"set","variants":{"Type":["Callout","Alert"],"Illustration":["true","false"],"Icon":["false","true"],"Button":["false","true"],"Supporting text":["false","true"]}}]},
-    {"page":"Avatar","pageId":"5453:37804","items":[{"name":"Avatar","id":"5097:5884","type":"set","variants":{"Size":["24px","32px","40px","72px","64px","56px","48px"],"Picture":["true","false"]}},{"name":"Avatar group","id":"5097:5584","type":"set","variants":{"Size":["24px","32px","40px"]}},{"name":"Avatar","id":"11914:2605","type":"set","variants":{"Size":["24px","32px","40px","72px","64px","56px","48px"],"Picture":["true","false"]}},{"name":"Avatar group","id":"11915:3296","type":"set","variants":{"Size":["24px","32px","40px"]}},{"name":"Emojies","id":"10587:2256","type":"set","variants":{"Type":["Angel","Gossip","Got_an_idea","Hand_waving","Laugh_with_tear","Love","Pleased","Sad_smile","Shy","Silly","Smile","Straving","Tenant"]}}]},
-    {"page":"Badges / Tags","pageId":"5798:453","items":[{"name":"Badge","id":"5799:479","type":"set","variants":{"Type":["Success","Warning","Error","New","Informative","In progress"],"Icon left":["true","false"],"Icon right":["false","true"]}},{"name":"Badge","id":"12186:1609","type":"set","variants":{"Type":["Success","Warning","Error","New","Informative","In progress"],"Icon left":["true","false"],"Icon right":["false","true"]}},{"name":"Tags","id":"4603:27712","type":"set","variants":{"Media Type":["Video","PDF","Link","SCORM","Flashcard","Audio"],"Size":["L","M","S"]}},{"name":"Tags","id":"11337:14129","type":"set","variants":{"Media Type":["Video","PDF","Link","SCORM","Flashcard","Audio"],"Size":["L","M","S"]}}]},
-    {"page":"Buttons","pageId":"5453:37882","items":[{"name":"Buttons","id":"10825:3269","type":"set","variants":{"Disabled":["false","true"],"Icon":["true","false"],"Configuration":["Filled","Outlined","Text","Link","Outlined-2","Danger","Danger-outlined","Danger-text","Warning","Warning-outlined","Warning-text","Success","Success-outlined","Success-text","AI","AI-Outlined"],"State":["Hover","Pressed","Enabled","Loading","n/a"],"Size":["Large","Medium","Small"]}},{"name":"Buttons","id":"12141:7567","type":"set","variants":{"Disabled":["false","true"],"Icon":["true","false"],"Configuration":["Filled","Outlined","Text","Link","Outlined-2","Danger","Danger-outlined","Danger-text","Warning","Warning-outlined","Warning-text","Success","Success-outlined","Success-text","AI","AI-Outlined"],"State":["Hover","Pressed","Enabled","Loading","n/a"],"Size":["Large","Medium","Small"]}}]},
-    {"page":"Calendar","pageId":"7505:436","items":[{"name":"Calendar","id":"11529:406","type":"set","variants":{"Calendar":["Active","Enabled","Hover","Error"],"Label":["true","false"]}},{"name":"Day item","id":"5279:26511","type":"set","variants":{"Disabled":["false","true"],"Selected":["false","true"],"State":["n/a","Enabled","Hover","Focus","Illustration","Current day"]}},{"name":"Calendar","id":"12204:5743","type":"set","variants":{"Calendar":["Active","Enabled","Hover","Error"],"Label":["true","false"]}},{"name":"Day item","id":"11916:6094","type":"set","variants":{"Disabled":["false","true"],"Selected":["false","true"],"State":["n/a","Enabled","Hover","Focus","Illustration","Current day"]}}]},
-    {"page":"Cards","pageId":"5702:2773","items":[{"name":"Card/Lessons","id":"5144:14181","type":"set","variants":{"View":["grid","list"],"Device":["Mobile","Web app","n/a","Admin"],"Disabled":["false","true"],"Completed":["false","true"],"State":["Enabled","Hover"],"Quiz":["Completed","Pending","n/a"]}},{"name":"Card/Assessments","id":"10242:2782","type":"set","variants":{"Device":["Web App","Mobile app","Admin"],"Disabled":["false","true"],"State":["Enabled","Hover"],"Completed":["false","true"]}},{"name":"Card/Resources","id":"12213:3040","type":"set","variants":{"Device":["Mobile app","Web/Admin"],"State":["Enabled","Hover"]}},{"name":"Type thumbnail","id":"12213:2984","type":"set","variants":{"Type":["PDF","Excel","Word","PowerPoint","Image","External link"]}},{"name":"Card/Courses","id":"5132:5756","type":"set","variants":{"Device":["Mobile","Desktop"],"New":["false","true"],"Due date":["false","true"],"State":["Enabled","Hover"]}},{"name":"Card/External training","id":"5908:21523","type":"set","variants":{"Device":["Mobile","Desktop"],"State":["Default","Hover"]}},{"name":"Card/Instructor","id":"5149:27386","type":"set","variants":{"Device":["Mobile","Desktop"],"State":["Default","Hover"]}},{"name":"Card/Marketplace","id":"5213:4524","type":"set","variants":{"Type":["Subscription","Coaching","Reward"],"Device":["Mobile","Desktop"]}},{"name":"Card/skill","id":"11802:3704","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Hover","n/a"],"Remove":["false","true"]}},{"name":"Card/ Category","id":"10176:1806","type":"set","variants":{"Device":["Desktop","Mobile"],"Disabled":["false","true"],"State":["Default","Hover"],"New":["false","true"]}},{"name":"Card/Folder","id":"10175:3106","type":"set","variants":{"New folder":["false","true"],"State":["Default","Hover"],"Number of courses":["0","3+","n/a","2","1"]}},{"name":"Card/Lessons","id":"11916:9353","type":"set","variants":{"View":["grid","list"],"Device":["Mobile","Web app","n/a","Admin"],"Disabled":["false","true"],"Completed":["false","true"],"State":["Enabled","Hover"],"Quiz":["Completed","Pending","n/a"]}},{"name":"Card/Assessments","id":"12104:3647","type":"set","variants":{"Device":["Web App","Mobile app","Admin"],"Disabled":["false","true"],"State":["Enabled","Hover"],"Completed":["false","true"]}},{"name":"Card/Resources","id":"12228:2749","type":"set","variants":{"Device":["Mobile app","Web/Admin"],"State":["Enabled","Hover"]}},{"name":"Type thumbnail","id":"12228:2778","type":"set","variants":{"Type":["PDF","Excel","Word","PowerPoint","External Link"]}},{"name":"Card/Courses","id":"11916:10292","type":"set","variants":{"Device":["Mobile","Desktop"],"New":["false","true"],"Due date":["false","true"],"State":["Default","Hover"]}},{"name":"Card/External training","id":"9577:3582","type":"set","variants":{"Device":["Mobile","Desktop"],"State":["Default","Hover"]}},{"name":"Card/Instructor","id":"9926:2477","type":"set","variants":{"Device":["Mobile","Desktop"],"State":["Default","Hover"]}},{"name":"Card/Marketplace","id":"9577:3648","type":"set","variants":{"Type":["Subscription","Coaching","Reward"],"Device":["Mobile","Desktop"]}},{"name":"Card/skill","id":"11828:5184","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Hover","n/a"],"Remove":["false","true"]}},{"name":"Card/ Category","id":"10574:3913","type":"set","variants":{"Device":["Desktop","Mobile"],"Disabled":["false","true"],"State":["Default","Hover"],"New":["false","true"]}},{"name":"Card/folder","id":"10175:3183","type":"set","variants":{"New folder":["false","true"],"State":["Default","Hover"],"Number of courses":["0","3+","n/a","2","1"]}}]},
-    {"page":"Checkbox / Radio / Toggle","pageId":"6322:1579","items":[{"name":"radio-button instances","id":"5001:18926","type":"set","variants":{"Disabled":["false","true"],"Selected":["true","false"],"State":["Enabled","Hover","n/a"]}},{"name":"radio-button instances","id":"11917:3950","type":"set","variants":{"Disabled":["false","true"],"Selected":["true","false"],"State":["Enabled","Hover","n/a"]}},{"name":"Checkbox instances","id":"6339:10484","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Hover","n/a"],"Checked":["Checked","Not checked","Indeterminate"]}},{"name":"Checkbox instances","id":"11917:3924","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Hover","n/a"],"Checked":["Checked","Not checked","Indeterminate"]}},{"name":"Toggle","id":"8160:364","type":"set","variants":{"Toggle":["true","false"]}},{"name":"Toggle","id":"11917:3970","type":"set","variants":{"Toggle":["true","false"]}}]},
-    {"page":"Chips / Content Switcher / Tabs","pageId":"5455:39030","items":[{"name":"Chips","id":"5162:28510","type":"set","variants":{"Disabled":["false","true"],"Selected":["false","true"],"State":["Hover","Enabled","n/a"],"Icon right":["True","False"],"Icon left":["false","true"]}},{"name":"Chips","id":"12160:12109","type":"set","variants":{"Disabled":["false","true"],"Selected":["false","true"],"State":["Hover","Enabled","n/a"],"Icon right":["True","False"],"Icon left":["false","true"]}},{"name":"Content switcher","id":"7128:23859","type":"component"},{"name":"Content switcher item","id":"8497:24186","type":"set","variants":{"Disabled":["false","true"],"Selected":["True","False"],"State":["Enabled","Hover"],"icon right":["false","true"],"icon left":["false","true"]}},{"name":"Content switcher item","id":"11908:5278","type":"set","variants":{"Disabled":["false","true"],"Selected":["True","False"],"State":["Enabled","Hover"],"icon right":["false","true"],"icon left":["false","true"]}},{"name":"Tabs","id":"8497:24855","type":"component"},{"name":"Tab items","id":"1939:18281","type":"set","variants":{"Selected":["true","false"],"State":["Enabled","Hover"],"counter":["false","true"]}},{"name":"Tab items","id":"12134:6969","type":"set","variants":{"Selected":["true","false"],"State":["Enabled","Hover"],"counter":["false","true"]}}]},
-    {"page":"Dialog / Modal / Sheet","pageId":"5746:2312","items":[{"name":"Dialog","id":"7789:24651","type":"set","variants":{"Type":["Error","Warning","Info","Success"],"Icon":["True","False"],"Secondary text":["True","False"]},"props":["Info:SLOT"]},{"name":"Dialog","id":"12242:5728","type":"set","variants":{"Type":["Error","Warning","Info","Success"],"Icon":["True","False"],"Secondary text":["True","False"]},"props":["Info:SLOT"]},{"name":"Modal","id":"7479:4350","type":"component","props":["Placeholder:SLOT"]},{"name":"Side Drawer","id":"10871:12768","type":"component","props":["Form:SLOT"]},{"name":"Modal/Full screen","id":"3223:31934","type":"set","variants":{"State":["Default"],"Device":["Desktop","Mobile"]}},{"name":"Modal/Full screen","id":"11498:1694","type":"set","variants":{"State":["Default"],"Device":["Desktop","Mobile"]}},{"name":"Modal/Send","id":"5399:12437","type":"set","variants":{"Type":["Team","Company"]}},{"name":"Bottom sheet","id":"7479:106","type":"component","props":["Sheet content:SLOT"]}]},
-    {"page":"Dropdown","pageId":"6076:2643","items":[{"name":"Dropdown","id":"8925:1408","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Hover","Active","Read-only"],"Icon left":["true","false"],"Label top":["false","true"],"Label start":["false","true"],"Helper text":["false","true"]}},{"name":"Dropdown","id":"12113:14844","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Hover","Active","Read-only"],"Icon left":["true","false"],"Label top":["false","true"],"Label start":["false","true"],"Helper text":["false","true"]}}]},
-    {"page":"Empty state","pageId":"5450:27141","items":[{"name":"Empty state","id":"5452:37234","type":"set","variants":{"Device":["Desktop","Mobile"]}},{"name":"Empty state","id":"11921:5779","type":"set","variants":{"Device":["Desktop","Mobile"]}},{"name":"Illustrations Empty state","id":"9120:8372","type":"set","variants":{"Illustration":["Calendar","Certificates","Computer screen","Connect brain","Empty box","Flashcards","Message","No internet","No likes","No bookmarks","Not following","Party","Pie chart","Rocket","Search","Share","UFO","null","No results","Buble","Cloud","Skill level","Add users","No playlists","Add","Category","Quiz","Resources","Deactivated","Custom Fields","No automations","No activity","HRIS mapping","Programs"]}}]},
-    {"page":"File uploader","pageId":"8964:20454","items":[{"name":"File uploader","id":"11546:1560","type":"set","variants":{"State":["Enabled","Hover","Error","Uploading","Filled"],"Size":["L","S"]},"props":["Info:SLOT","Info2:SLOT"]},{"name":"File uploader","id":"12113:20254","type":"set","variants":{"State":["Enabled","Hover","Error","Uploading","Filled"],"Size":["L","S"]},"props":["Info:SLOT","Info2:SLOT"]}]},
-    {"page":"Gamification","pageId":"5502:20087","items":[{"name":"Learning path","id":"5514:8463","type":"set","variants":{"State":["In progress","Completed","Disabled","Pending"],"Expanded":["false","true"],"Size":["s","l","md"],"Type":["Level","Certificate"],"Modules":["true","false"]}},{"name":"Certificate instances","id":"5514:2390","type":"set","variants":{"Type":["Master","Expert","Advanced","Mastery"],"Size":["small","large","md"]}},{"name":"Ranking, leaderboard","id":"2613:26421","type":"set","variants":{"Property 1":["1","2","3","4"]}},{"name":"Quiz/Options","id":"5504:24966","type":"set","variants":{"Device":["Mobile","Desktop"],"Disabled":["false","true"],"State":["Enabled","Hover","Read only"],"Selected":["false","true"],"Validation":["n/a","Success","Error"],"Explanation":["false","true"]}},{"name":"Learning path","id":"11984:7015","type":"set","variants":{"State":["In progress","Completed","Disabled","Pending"],"Expanded":["false","true"],"Size":["s","l","md"],"Type":["Level","Certificate"],"Modules":["true","false"]}},{"name":"Certificate instances","id":"8442:6119","type":"set","variants":{"Type":["Master","Expert","Advanced","Mastery"],"Size":["small","large","md"]}},{"name":"Ranking, leaderboard","id":"8442:6198","type":"set","variants":{"Property 1":["1","2","3","4"]}},{"name":"Quiz/Options","id":"12112:10047","type":"set","variants":{"Device":["Mobile","Desktop"],"Disabled":["false","true"],"State":["Enabled","Hover","Read only"],"Selected":["false","true"],"Validation":["n/a","Success","Error"],"Explanation":["false","true"]}},{"name":"Progress bar","id":"7046:25097","type":"set","variants":{"Progress":["25%","0%","50%","75%","100%","12%","37%","62%","87%"]}},{"name":"Progress bar","id":"12000:10067","type":"set","variants":{"Progress":["25%","0%","50%","75%","100%","12%","37%","62%","87%"]}},{"name":"Illustrations/Certificate","id":"9120:9301","type":"set","variants":{"Size":["L","M","S","XL"]}},{"name":"Illustrations/Gamification","id":"11196:7607","type":"set","variants":{"Type":["Progress","Certificate","Quiz","Learning Path"]}},{"name":"Illustrations/ Progress","id":"10157:9081","type":"set","variants":{"Type":["Streak","Points","Jewels","Certificates","Passed","Nearly there","Not passed"]}},{"name":"Illustrations/ Assessments","id":"9120:8850","type":"set","variants":{"Type":["Short text","Situational test","Multiple choice","Fast Track","Poll","Exercise","Fill in the blank","Sequence","Categorize","Match the pairs","Lesson quiz"],"Device":["Mobile","Desktop"]}},{"name":"Illustrations/ Learning path","id":"9120:9437","type":"set","variants":{"Level":["1","2","3","Advanced","Master","5","4","Expert"],"Disabled":["false","true"],"Size":["small","large"]}},{"name":"Illustrations/Certificate","id":"11196:7670","type":"set","variants":{"Size":["L","M","S","XL"]}},{"name":"Illustrations/Gamification","id":"11196:7707","type":"set","variants":{"Type":["Progress","Certificate","Quiz","Learning Path"]}},{"name":"Illustrations/ Progress","id":"11196:7723","type":"set","variants":{"Type":["Streak","Points","Jewels","Certificates","Passed","Nearly there","Not passed"]}},{"name":"Illustrations/ Assessments","id":"12154:10371","type":"set","variants":{"Type":["Short text","Situational test","Multiple choice","Fast Track","Poll","Exercise","Fill in the blank","Sequence","Categorize","Match the pairs","Lesson quiz"],"Device":["Mobile","Desktop"]}},{"name":"Illustrations/ Learning path","id":"11196:8794","type":"set","variants":{"Level":["1","2","3","Advanced","Master","5","4","Expert"],"Disabled":["false","true"],"Size":["small","large"]}},{"name":"Illustrations/ Functions","id":"9120:9874","type":"set","variants":{"Function":["Creative","Customer Experience","Customer Happiness","Customer Success","Engineering","Finances","General Admin","IT Network & Security","Logistics","Leadership","Legal","Marketing","Operations","Partnerships","People","Product","Rev Ops","Sales","Contact Centre","Custom"]}}]},
-    {"page":"Header","pageId":"7278:8242","items":[{"name":"Header","id":"7902:1019","type":"set","variants":{"Type":["Page","Section"]},"props":["Navigation:SLOT","Label:SLOT","Header:SLOT"]},{"name":"Header","id":"11921:13215","type":"set","variants":{"Type":["Page","Section"]},"props":["Navigation:SLOT","Label:SLOT","Header:SLOT"]}]},
-    {"page":"Input","pageId":"6227:17850","items":[{"name":"Input field","id":"11180:1982","type":"set","variants":{"Type":["Outlined","Radio","Integer","Inline"]}},{"name":"Input field/Outlined","id":"8974:24610","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Active","Filled","n/a"],"Hovering":["false","true"],"Validation":["none","error","success"],"Icon right":["false","true"],"Label":["true","false"],"Helper text":["false","true"]}},{"name":"Input field/Inline","id":"10330:4736","type":"set","variants":{"Disabled":["false"],"Validation":["none","error"],"State":["Enabled","Active","Filled"],"Description":["true","false"]}},{"name":"Input field/Radio button","id":"8974:30479","type":"set","variants":{"Validation":["none","success"],"Disabled":["false","true"],"Label":["true","false"],"Selected":["false","true"],"State":["Enabled","Hover","Active","Filled","n/a"]}},{"name":"Input field/Integer","id":"10145:10895","type":"set","variants":{"Validation":["none","success","error"],"Disabled":["false","true"],"Label":["true","false"],"Helper text":["false","true"],"State":["Enabled","Hover","Active","Filled","n/a"]}},{"name":"Input field","id":"12114:20552","type":"set","variants":{"Type":["Outlined","Radio","Integer","Inline"]}},{"name":"Input field/Outlined","id":"12114:20561","type":"set","variants":{"Disabled":["false","true"],"State":["Enabled","Active","Filled","n/a"],"Hovering":["false","true"],"Validation":["none","error","success"],"Icon right":["false","true"],"Label":["true","false"],"Helper text":["false","true"]}},{"name":"Input field/Inline","id":"12114:20828","type":"set","variants":{"Disabled":["false"],"Validation":["none","error"],"State":["Enabled","Active","Filled"],"Description":["true","false"]}},{"name":"Input field/Radio button","id":"12114:20857","type":"set","variants":{"Validation":["none","success"],"Disabled":["false","true"],"Label":["true","false"],"Selected":["false","true"],"State":["Enabled","Hover","Active","Filled","n/a"]}},{"name":"Input field/Integer","id":"12114:20914","type":"set","variants":{"Validation":["none","success","error"],"Disabled":["false","true"],"Label":["true","false"],"Helper text":["false","true"],"State":["Enabled","Hover","Active","Filled","n/a"]}}]},
-    {"page":"Listbox / Multiselect","pageId":"9439:3407","items":[{"name":"Listbox","id":"9162:1042","type":"set","variants":{"Caret":["true","false"],"Position":["Bottom","Top","n/a"],"Wrapping menu itens":["false","true"]},"props":["List-1:SLOT","List-2:SLOT","List-3:SLOT"]},{"name":"List itens","id":"9162:941","type":"set","variants":{"Disabled":["false","true"],"Selected":["false","true"],"State":["Enabled","Hover","Read-only"],"Helper text":["false","true"],"Supporting text":["false","true"],"Icon left":["true","false"],"Icon right":["false","true"],"Avatar":["false","true"],"Skill icon":["false","true"],"Checkbox":["false","true"],"Radio":["false","true"],"Search":["false","true"]}},{"name":"Listbox","id":"11923:3466","type":"set","variants":{"Caret":["true","false"],"Position":["Bottom","Top","n/a"],"Wrapping menu itens":["false","true"]},"props":["List-1:SLOT","List-2:SLOT","List-3:SLOT"]},{"name":"List itens","id":"12202:2766","type":"set","variants":{"Disabled":["false","true"],"Selected":["false","true"],"State":["Enabled","Hover","Read-only"],"Helper text":["false","true"],"Supporting text":["false","true"],"Icon left":["true","false"],"Icon right":["false","true"],"Avatar":["false","true"],"Skill icon":["false","true"],"Checkbox":["false","true"],"Radio":["false","true"],"Search":["false","true"]}}]},
-    {"page":"Navigation","pageId":"5453:37855","items":[{"name":"Tab nav","id":"1324:35285","type":"set","variants":{"Page":["Enabled","Home","Search","Progress","Feed","Profile"]}},{"name":"Top nav/ App","id":"1910:18375","type":"set","variants":{"Page":["Home","Detail page","Search","Progress","Feed","Profile","Lesson feed","Skill","Mobile web"]}},{"name":"Top Nav/Admin","id":"5385:20137","type":"set","variants":{"System":["Admin","Web app"],"Breakpoint":["large","small"]}},{"name":"Side navigation","id":"4697:13314","type":"set","variants":{"System":["Web app","Admin"],"State":["Collapsed","Expanded"]}},{"name":"Menu/Itens/WebApp","id":"4674:25675","type":"set","variants":{"Selected":["false","true"],"State":["Hover","Enabled"],"Expanded":["true","false"]}},{"name":"Menu/Itens/Admin","id":"10372:4045","type":"set","variants":{"Type":["Menu","Sub-menu"],"Selected":["false","true"],"chevron right":["false","true"],"State":["Hover","Enabled"],"Expanded":["true","false"]}},{"name":"Tab nav","id":"9897:18192","type":"set","variants":{"Page":["Enabled","Home","Search","Progress","Feed","Profile"]}},{"name":"Top nav/ App","id":"11235:11758","type":"set","variants":{"Page":["Home","Detail page","Search","Progress","Feed","Profile","Lesson feed","Skill","Mobile web"]}},{"name":"Top Nav/Admin","id":"11982:3602","type":"set","variants":{"System":["Admin","Web app"],"Breakpoint":["large","small"]}},{"name":"Side navigation","id":"12048:2302","type":"set","variants":{"System":["Web app","Admin"],"State":["Collapsed","Expanded"]}},{"name":"Menu/Itens/WebApp","id":"12048:2401","type":"set","variants":{"Selected":["false","true"],"State":["Hover","Enabled"],"Expanded":["true","false"]}},{"name":"Menu/Itens/Admin","id":"12048:2440","type":"set","variants":{"Type":["Menu","Sub-menu"],"Selected":["false","true"],"chevron right":["false","true"],"State":["Hover","Enabled"],"Expanded":["true","false"]}},{"name":"Breadcrumb","id":"8497:2231","type":"component"},{"name":"Breadcrumb item","id":"8497:1494","type":"set","variants":{"Type":["Link","Current page"],"State":["Hover","Enabled","n/a"],"Disabled":["false","true"]}},{"name":"Breadcrumb item","id":"11935:2383","type":"set","variants":{"Type":["Link","Current page"],"State":["Hover","Enabled","n/a"],"Disabled":["false","true"]}}]},
-    {"page":"Search","pageId":"6159:9140","items":[{"name":"Search","id":"697:33529","type":"set","variants":{"State":["Enabled","Active","Hover"],"Filled":["false","true"],"Size":["M","L"]}},{"name":"Search","id":"11927:6338","type":"set","variants":{"State":["Enabled","Active","Hover"],"Filled":["false","true"],"Size":["M","L"]}}]},
-    {"page":"Stepper","pageId":"8108:4254","items":[{"name":"stepper","id":"8108:5464","type":"component"},{"name":"Step/Instances","id":"8108:5472","type":"set","variants":{"State":["Disabled","In progress","Completed"]}},{"name":"Step/line","id":"8108:5482","type":"set","variants":{"State":["Complete","Incomplete"]}},{"name":"Step/Instances","id":"11249:219","type":"set","variants":{"State":["Disabled","In progress","Completed"]}},{"name":"Step/line","id":"11248:125","type":"set","variants":{"State":["Complete","Incomplete"]}}]},
-    {"page":"Slider","pageId":"10662:11842","items":[{"name":"<Slider>","id":"10662:14039","type":"set","variants":{"State":["Enabled","Hover","Disabled"],"%":["50","80","0"]}},{"name":"<Slider>","id":"11045:9459","type":"set","variants":{"State":["Enabled","Hover","Disabled"],"%":["50","80","0"]}}]},
-    {"page":"Table","pageId":"7880:8433","items":[{"name":"Table","id":"7896:2624","type":"component","props":["Table header:SLOT","Table row1:SLOT","Table row2:SLOT","Table row3:SLOT","Table row4:SLOT","Table row5:SLOT","Table row6:SLOT","Table row7:SLOT","Table row8:SLOT","Table row9:SLOT","Table row10:SLOT"]},{"name":"Table row","id":"7896:2804","type":"set","variants":{"Selected":["false","true"],"Disabled":["false","true"],"State":["Enabled","Hover","n/a"]}},{"name":"Table header","id":"11872:3077","type":"set","variants":{"Type":["Text"],"Checkbox":["false","true"],"Icon":["false","true"],"Disabled":["false","true"]}},{"name":"Table data","id":"11766:619","type":"set","variants":{"Text":["true","false"],"Supporting text":["false","true"],"date":["false","true"],"Checkbox":["false","true"],"Avatar":["false","true"],"Thumbnail":["false","true"],"Icon":["false","true"],"Progress bar":["false","true"],"Illustration":["false","true"],"Button":["false","true"],"Badge":["false","true"],"Dropdown":["false","true"],"Disabled":["false","true"],"State":["Hover","Selected","Read-only","Enabled"]}},{"name":"Table row","id":"11927:7487","type":"set","variants":{"Selected":["false","true"],"Disabled":["false","true"],"State":["Enabled","Hover","n/a"]}},{"name":"Table header","id":"11927:7554","type":"set","variants":{"Type":["Text"],"Checkbox":["false","true"],"Icon":["false","true"],"Disabled":["false","true"]}},{"name":"Table data","id":"11927:7602","type":"set","variants":{"Text":["true","false"],"Supporting text":["false","true"],"date":["false","true"],"Checkbox":["false","true"],"Avatar":["false","true"],"Thumbnail":["false","true"],"Icon":["false","true"],"Progress bar":["false","true"],"Illustration":["false","true"],"Button":["false","true"],"Badge":["false","true"],"Dropdown":["false","true"],"Disabled":["false","true"],"State":["Hover","Selected","Read-only","Enabled"]}},{"name":"Thumbnail type","id":"9537:7400","type":"set","variants":{"Thumbnail":["Course","Your content","Lesson"]}}]},
-    {"page":"Toast","pageId":"5776:27599","items":[{"name":"Toast","id":"5045:14119","type":"set","variants":{"Icon":["True","False"],"Type":["Success","Warning","Error","Info"]}}]},
-    {"page":"Tooltip","pageId":"5618:3049","items":[{"name":"Tooltip","id":"2683:29027","type":"set","variants":{"Position":["Top","Bottom","Left","Right"],"Alignment":["Center","Start","End"],"Icon":["True","False"]}},{"name":"Tooltip","id":"11927:8087","type":"set","variants":{"Position":["Top","Bottom","Left","Right"],"Alignment":["Center","Start","End"],"Icon":["True","False"]}}]}
+    {
+      "page": "Alert",
+      "pageId": "5453:37623",
+      "items": [
+        {
+          "name": "Alert",
+          "id": "3658:32304",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Callout",
+              "Alert"
+            ],
+            "Illustration": [
+              "true",
+              "false"
+            ],
+            "Icon": [
+              "false",
+              "true"
+            ],
+            "Button": [
+              "false",
+              "true"
+            ],
+            "Supporting text": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Alert",
+          "id": "12060:2785",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Callout",
+              "Alert"
+            ],
+            "Illustration": [
+              "true",
+              "false"
+            ],
+            "Icon": [
+              "false",
+              "true"
+            ],
+            "Button": [
+              "false",
+              "true"
+            ],
+            "Supporting text": [
+              "false",
+              "true"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Avatar",
+      "pageId": "5453:37804",
+      "items": [
+        {
+          "name": "Avatar",
+          "id": "5097:5884",
+          "type": "set",
+          "variants": {
+            "Size": [
+              "24px",
+              "32px",
+              "40px",
+              "72px",
+              "64px",
+              "56px",
+              "48px"
+            ],
+            "Picture": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Avatar group",
+          "id": "5097:5584",
+          "type": "set",
+          "variants": {
+            "Size": [
+              "24px",
+              "32px",
+              "40px"
+            ]
+          }
+        },
+        {
+          "name": "Avatar",
+          "id": "11914:2605",
+          "type": "set",
+          "variants": {
+            "Size": [
+              "24px",
+              "32px",
+              "40px",
+              "72px",
+              "64px",
+              "56px",
+              "48px"
+            ],
+            "Picture": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Avatar group",
+          "id": "11915:3296",
+          "type": "set",
+          "variants": {
+            "Size": [
+              "24px",
+              "32px",
+              "40px"
+            ]
+          }
+        },
+        {
+          "name": "Emojies",
+          "id": "10587:2256",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Angel",
+              "Gossip",
+              "Got_an_idea",
+              "Hand_waving",
+              "Laugh_with_tear",
+              "Love",
+              "Pleased",
+              "Sad_smile",
+              "Shy",
+              "Silly",
+              "Smile",
+              "Straving",
+              "Tenant"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Badges / Tags",
+      "pageId": "5798:453",
+      "items": [
+        {
+          "name": "Badge",
+          "id": "5799:479",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Success",
+              "Warning",
+              "Error",
+              "New",
+              "Informative",
+              "In progress"
+            ],
+            "Icon left": [
+              "true",
+              "false"
+            ],
+            "Icon right": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Badge",
+          "id": "12186:1609",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Success",
+              "Warning",
+              "Error",
+              "New",
+              "Informative",
+              "In progress"
+            ],
+            "Icon left": [
+              "true",
+              "false"
+            ],
+            "Icon right": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Tags",
+          "id": "4603:27712",
+          "type": "set",
+          "variants": {
+            "Media Type": [
+              "Video",
+              "PDF",
+              "Link",
+              "SCORM",
+              "Flashcard",
+              "Audio"
+            ],
+            "Size": [
+              "L",
+              "M",
+              "S"
+            ]
+          }
+        },
+        {
+          "name": "Tags",
+          "id": "11337:14129",
+          "type": "set",
+          "variants": {
+            "Media Type": [
+              "Video",
+              "PDF",
+              "Link",
+              "SCORM",
+              "Flashcard",
+              "Audio"
+            ],
+            "Size": [
+              "L",
+              "M",
+              "S"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Buttons",
+      "pageId": "5453:37882",
+      "items": [
+        {
+          "name": "Buttons",
+          "id": "10825:3269",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Icon": [
+              "true",
+              "false"
+            ],
+            "Configuration": [
+              "Filled",
+              "Outlined",
+              "Text",
+              "Link",
+              "Outlined-2",
+              "Danger",
+              "Danger-outlined",
+              "Danger-text",
+              "Warning",
+              "Warning-outlined",
+              "Warning-text",
+              "Success",
+              "Success-outlined",
+              "Success-text",
+              "AI",
+              "AI-Outlined"
+            ],
+            "State": [
+              "Hover",
+              "Pressed",
+              "Enabled",
+              "Loading",
+              "n/a"
+            ],
+            "Size": [
+              "Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        {
+          "name": "Buttons",
+          "id": "12141:7567",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Icon": [
+              "true",
+              "false"
+            ],
+            "Configuration": [
+              "Filled",
+              "Outlined",
+              "Text",
+              "Link",
+              "Outlined-2",
+              "Danger",
+              "Danger-outlined",
+              "Danger-text",
+              "Warning",
+              "Warning-outlined",
+              "Warning-text",
+              "Success",
+              "Success-outlined",
+              "Success-text",
+              "AI",
+              "AI-Outlined"
+            ],
+            "State": [
+              "Hover",
+              "Pressed",
+              "Enabled",
+              "Loading",
+              "n/a"
+            ],
+            "Size": [
+              "Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Calendar",
+      "pageId": "7505:436",
+      "items": [
+        {
+          "name": "Calendar",
+          "id": "11529:406",
+          "type": "set",
+          "variants": {
+            "Calendar": [
+              "Active",
+              "Enabled",
+              "Hover",
+              "Error"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Day item",
+          "id": "5279:26511",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "n/a",
+              "Enabled",
+              "Hover",
+              "Focus",
+              "Illustration",
+              "Current day"
+            ]
+          }
+        },
+        {
+          "name": "Calendar",
+          "id": "12204:5743",
+          "type": "set",
+          "variants": {
+            "Calendar": [
+              "Active",
+              "Enabled",
+              "Hover",
+              "Error"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Day item",
+          "id": "11916:6094",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "n/a",
+              "Enabled",
+              "Hover",
+              "Focus",
+              "Illustration",
+              "Current day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Cards",
+      "pageId": "5702:2773",
+      "items": [
+        {
+          "name": "Card/Lessons",
+          "id": "5144:14181",
+          "type": "set",
+          "variants": {
+            "View": [
+              "grid",
+              "list"
+            ],
+            "Device": [
+              "Mobile",
+              "Web app",
+              "n/a",
+              "Admin"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Completed": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "Quiz": [
+              "Completed",
+              "Pending",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Card/Assessments",
+          "id": "10242:2782",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Web App",
+              "Mobile app",
+              "Admin"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "Completed": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Card/Resources",
+          "id": "12213:3040",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile app",
+              "Web/Admin"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Type thumbnail",
+          "id": "12213:2984",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "PDF",
+              "Excel",
+              "Word",
+              "PowerPoint",
+              "Image",
+              "External link"
+            ]
+          }
+        },
+        {
+          "name": "Card/Courses",
+          "id": "5132:5756",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "New": [
+              "false",
+              "true"
+            ],
+            "Due date": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Card/External training",
+          "id": "5908:21523",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Card/Instructor",
+          "id": "5149:27386",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Card/Marketplace",
+          "id": "5213:4524",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Subscription",
+              "Coaching",
+              "Reward"
+            ],
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ]
+          }
+        },
+        {
+          "name": "Card/skill",
+          "id": "11802:3704",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ],
+            "Remove": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Card/ Category",
+          "id": "10176:1806",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Desktop",
+              "Mobile"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ],
+            "New": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Card/Folder",
+          "id": "10175:3106",
+          "type": "set",
+          "variants": {
+            "New folder": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ],
+            "Number of courses": [
+              "0",
+              "3+",
+              "n/a",
+              "2",
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "Card/Lessons",
+          "id": "11916:9353",
+          "type": "set",
+          "variants": {
+            "View": [
+              "grid",
+              "list"
+            ],
+            "Device": [
+              "Mobile",
+              "Web app",
+              "n/a",
+              "Admin"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Completed": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "Quiz": [
+              "Completed",
+              "Pending",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Card/Assessments",
+          "id": "12104:3647",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Web App",
+              "Mobile app",
+              "Admin"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "Completed": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Card/Resources",
+          "id": "12228:2749",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile app",
+              "Web/Admin"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Type thumbnail",
+          "id": "12228:2778",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "PDF",
+              "Excel",
+              "Word",
+              "PowerPoint",
+              "External Link"
+            ]
+          }
+        },
+        {
+          "name": "Card/Courses",
+          "id": "11916:10292",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "New": [
+              "false",
+              "true"
+            ],
+            "Due date": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Card/External training",
+          "id": "9577:3582",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Card/Instructor",
+          "id": "9926:2477",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ]
+          }
+        },
+        {
+          "name": "Card/Marketplace",
+          "id": "9577:3648",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Subscription",
+              "Coaching",
+              "Reward"
+            ],
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ]
+          }
+        },
+        {
+          "name": "Card/skill",
+          "id": "11828:5184",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ],
+            "Remove": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Card/ Category",
+          "id": "10574:3913",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Desktop",
+              "Mobile"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ],
+            "New": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Card/folder",
+          "id": "10175:3183",
+          "type": "set",
+          "variants": {
+            "New folder": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Default",
+              "Hover"
+            ],
+            "Number of courses": [
+              "0",
+              "3+",
+              "n/a",
+              "2",
+              "1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Checkbox / Radio / Toggle",
+      "pageId": "6322:1579",
+      "items": [
+        {
+          "name": "radio-button instances",
+          "id": "5001:18926",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "true",
+              "false"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "radio-button instances",
+          "id": "11917:3950",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "true",
+              "false"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Checkbox instances",
+          "id": "6339:10484",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ],
+            "Checked": [
+              "Checked",
+              "Not checked",
+              "Indeterminate"
+            ]
+          }
+        },
+        {
+          "name": "Checkbox instances",
+          "id": "11917:3924",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ],
+            "Checked": [
+              "Checked",
+              "Not checked",
+              "Indeterminate"
+            ]
+          }
+        },
+        {
+          "name": "Toggle",
+          "id": "8160:364",
+          "type": "set",
+          "variants": {
+            "Toggle": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Toggle",
+          "id": "11917:3970",
+          "type": "set",
+          "variants": {
+            "Toggle": [
+              "true",
+              "false"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Chips / Content Switcher / Tabs",
+      "pageId": "5455:39030",
+      "items": [
+        {
+          "name": "Chips",
+          "id": "5162:28510",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Enabled",
+              "n/a"
+            ],
+            "Icon right": [
+              "True",
+              "False"
+            ],
+            "Icon left": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Chips",
+          "id": "12160:12109",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Enabled",
+              "n/a"
+            ],
+            "Icon right": [
+              "True",
+              "False"
+            ],
+            "Icon left": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Content switcher",
+          "id": "7128:23859",
+          "type": "component"
+        },
+        {
+          "name": "Content switcher item",
+          "id": "8497:24186",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "True",
+              "False"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "icon right": [
+              "false",
+              "true"
+            ],
+            "icon left": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Content switcher item",
+          "id": "11908:5278",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "True",
+              "False"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "icon right": [
+              "false",
+              "true"
+            ],
+            "icon left": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Tabs",
+          "id": "8497:24855",
+          "type": "component"
+        },
+        {
+          "name": "Tab items",
+          "id": "1939:18281",
+          "type": "set",
+          "variants": {
+            "Selected": [
+              "true",
+              "false"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "counter": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Tab items",
+          "id": "12134:6969",
+          "type": "set",
+          "variants": {
+            "Selected": [
+              "true",
+              "false"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
+            ],
+            "counter": [
+              "false",
+              "true"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Dialog / Modal / Sheet",
+      "pageId": "5746:2312",
+      "items": [
+        {
+          "name": "Dialog",
+          "id": "7789:24651",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Error",
+              "Warning",
+              "Info",
+              "Success"
+            ],
+            "Icon": [
+              "True",
+              "False"
+            ],
+            "Secondary text": [
+              "True",
+              "False"
+            ]
+          },
+          "props": [
+            "Info:SLOT"
+          ]
+        },
+        {
+          "name": "Dialog",
+          "id": "12242:5728",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Error",
+              "Warning",
+              "Info",
+              "Success"
+            ],
+            "Icon": [
+              "True",
+              "False"
+            ],
+            "Secondary text": [
+              "True",
+              "False"
+            ]
+          },
+          "props": [
+            "Info:SLOT"
+          ]
+        },
+        {
+          "name": "Modal",
+          "id": "7479:4350",
+          "type": "component",
+          "props": [
+            "Placeholder:SLOT"
+          ]
+        },
+        {
+          "name": "Side Drawer",
+          "id": "10871:12768",
+          "type": "component",
+          "props": [
+            "Form:SLOT"
+          ]
+        },
+        {
+          "name": "Modal/Full screen",
+          "id": "3223:31934",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Default"
+            ],
+            "Device": [
+              "Desktop",
+              "Mobile"
+            ]
+          }
+        },
+        {
+          "name": "Modal/Full screen",
+          "id": "11498:1694",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Default"
+            ],
+            "Device": [
+              "Desktop",
+              "Mobile"
+            ]
+          }
+        },
+        {
+          "name": "Modal/Send",
+          "id": "5399:12437",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Team",
+              "Company"
+            ]
+          }
+        },
+        {
+          "name": "Bottom sheet",
+          "id": "7479:106",
+          "type": "component",
+          "props": [
+            "Sheet content:SLOT"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "Dropdown",
+      "pageId": "6076:2643",
+      "items": [
+        {
+          "name": "Dropdown",
+          "id": "8925:1408",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Active",
+              "Read-only",
+              "Error"
+            ],
+            "Icon left": [
+              "true",
+              "false"
+            ],
+            "Label top": [
+              "false",
+              "true"
+            ],
+            "Label start": [
+              "false",
+              "true"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Dropdown",
+          "id": "12113:14844",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Active",
+              "Read-only",
+              "Error"
+            ],
+            "Icon left": [
+              "true",
+              "false"
+            ],
+            "Label top": [
+              "false",
+              "true"
+            ],
+            "Label start": [
+              "false",
+              "true"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Empty state",
+      "pageId": "5450:27141",
+      "items": [
+        {
+          "name": "Empty state",
+          "id": "5452:37234",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Desktop",
+              "Mobile"
+            ]
+          }
+        },
+        {
+          "name": "Empty state",
+          "id": "11921:5779",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Desktop",
+              "Mobile"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations Empty state",
+          "id": "9120:8372",
+          "type": "set",
+          "variants": {
+            "Illustration": [
+              "Calendar",
+              "Certificates",
+              "Computer screen",
+              "Connect brain",
+              "Empty box",
+              "Flashcards",
+              "Message",
+              "No internet",
+              "No likes",
+              "No bookmarks",
+              "Not following",
+              "Party",
+              "Pie chart",
+              "Rocket",
+              "Search",
+              "Share",
+              "UFO",
+              "null",
+              "No results",
+              "Buble",
+              "Cloud",
+              "Skill level",
+              "Add users",
+              "No playlists",
+              "Add",
+              "Category",
+              "Quiz",
+              "Resources",
+              "Deactivated",
+              "Custom Fields",
+              "No automations",
+              "No activity",
+              "HRIS mapping",
+              "Programs"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "File uploader",
+      "pageId": "8964:20454",
+      "items": [
+        {
+          "name": "File uploader",
+          "id": "11546:1560",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Enabled",
+              "Hover",
+              "Error",
+              "Uploading",
+              "Filled"
+            ],
+            "Size": [
+              "L",
+              "S"
+            ]
+          },
+          "props": [
+            "Info:SLOT",
+            "Info2:SLOT"
+          ]
+        },
+        {
+          "name": "File uploader",
+          "id": "12113:20254",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Enabled",
+              "Hover",
+              "Error",
+              "Uploading",
+              "Filled"
+            ],
+            "Size": [
+              "L",
+              "S"
+            ]
+          },
+          "props": [
+            "Info:SLOT",
+            "Info2:SLOT"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "Gamification",
+      "pageId": "5502:20087",
+      "items": [
+        {
+          "name": "Learning path",
+          "id": "5514:8463",
+          "type": "set",
+          "variants": {
+            "State": [
+              "In progress",
+              "Completed",
+              "Disabled",
+              "Pending"
+            ],
+            "Expanded": [
+              "false",
+              "true"
+            ],
+            "Size": [
+              "s",
+              "l",
+              "md"
+            ],
+            "Type": [
+              "Level",
+              "Certificate"
+            ],
+            "Modules": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Certificate instances",
+          "id": "5514:2390",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Master",
+              "Expert",
+              "Advanced",
+              "Mastery"
+            ],
+            "Size": [
+              "small",
+              "large",
+              "md"
+            ]
+          }
+        },
+        {
+          "name": "Ranking, leaderboard",
+          "id": "2613:26421",
+          "type": "set",
+          "variants": {
+            "Property 1": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          }
+        },
+        {
+          "name": "Quiz/Options",
+          "id": "5504:24966",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Read only"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "Validation": [
+              "n/a",
+              "Success",
+              "Error"
+            ],
+            "Explanation": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Learning path",
+          "id": "11984:7015",
+          "type": "set",
+          "variants": {
+            "State": [
+              "In progress",
+              "Completed",
+              "Disabled",
+              "Pending"
+            ],
+            "Expanded": [
+              "false",
+              "true"
+            ],
+            "Size": [
+              "s",
+              "l",
+              "md"
+            ],
+            "Type": [
+              "Level",
+              "Certificate"
+            ],
+            "Modules": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Certificate instances",
+          "id": "8442:6119",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Master",
+              "Expert",
+              "Advanced",
+              "Mastery"
+            ],
+            "Size": [
+              "small",
+              "large",
+              "md"
+            ]
+          }
+        },
+        {
+          "name": "Ranking, leaderboard",
+          "id": "8442:6198",
+          "type": "set",
+          "variants": {
+            "Property 1": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          }
+        },
+        {
+          "name": "Quiz/Options",
+          "id": "12112:10047",
+          "type": "set",
+          "variants": {
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Read only"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "Validation": [
+              "n/a",
+              "Success",
+              "Error"
+            ],
+            "Explanation": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Progress bar",
+          "id": "7046:25097",
+          "type": "set",
+          "variants": {
+            "Progress": [
+              "25%",
+              "0%",
+              "50%",
+              "75%",
+              "100%",
+              "12%",
+              "37%",
+              "62%",
+              "87%"
+            ]
+          }
+        },
+        {
+          "name": "Progress bar",
+          "id": "12000:10067",
+          "type": "set",
+          "variants": {
+            "Progress": [
+              "25%",
+              "0%",
+              "50%",
+              "75%",
+              "100%",
+              "12%",
+              "37%",
+              "62%",
+              "87%"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/Certificate",
+          "id": "9120:9301",
+          "type": "set",
+          "variants": {
+            "Size": [
+              "L",
+              "M",
+              "S",
+              "XL"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/Gamification",
+          "id": "11196:7607",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Progress",
+              "Certificate",
+              "Quiz",
+              "Learning Path"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/ Progress",
+          "id": "10157:9081",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Streak",
+              "Points",
+              "Jewels",
+              "Certificates",
+              "Passed",
+              "Nearly there",
+              "Not passed"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/ Assessments",
+          "id": "9120:8850",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Short text",
+              "Situational test",
+              "Multiple choice",
+              "Fast Track",
+              "Poll",
+              "Exercise",
+              "Fill in the blank",
+              "Sequence",
+              "Categorize",
+              "Match the pairs",
+              "Lesson quiz"
+            ],
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/ Learning path",
+          "id": "9120:9437",
+          "type": "set",
+          "variants": {
+            "Level": [
+              "1",
+              "2",
+              "3",
+              "Advanced",
+              "Master",
+              "5",
+              "4",
+              "Expert"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Size": [
+              "small",
+              "large"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/Certificate",
+          "id": "11196:7670",
+          "type": "set",
+          "variants": {
+            "Size": [
+              "L",
+              "M",
+              "S",
+              "XL"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/Gamification",
+          "id": "11196:7707",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Progress",
+              "Certificate",
+              "Quiz",
+              "Learning Path"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/ Progress",
+          "id": "11196:7723",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Streak",
+              "Points",
+              "Jewels",
+              "Certificates",
+              "Passed",
+              "Nearly there",
+              "Not passed"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/ Assessments",
+          "id": "12154:10371",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Short text",
+              "Situational test",
+              "Multiple choice",
+              "Fast Track",
+              "Poll",
+              "Exercise",
+              "Fill in the blank",
+              "Sequence",
+              "Categorize",
+              "Match the pairs",
+              "Lesson quiz"
+            ],
+            "Device": [
+              "Mobile",
+              "Desktop"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/ Learning path",
+          "id": "11196:8794",
+          "type": "set",
+          "variants": {
+            "Level": [
+              "1",
+              "2",
+              "3",
+              "Advanced",
+              "Master",
+              "5",
+              "4",
+              "Expert"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Size": [
+              "small",
+              "large"
+            ]
+          }
+        },
+        {
+          "name": "Illustrations/ Functions",
+          "id": "9120:9874",
+          "type": "set",
+          "variants": {
+            "Function": [
+              "Creative",
+              "Customer Experience",
+              "Customer Happiness",
+              "Customer Success",
+              "Engineering",
+              "Finances",
+              "General Admin",
+              "IT Network & Security",
+              "Logistics",
+              "Leadership",
+              "Legal",
+              "Marketing",
+              "Operations",
+              "Partnerships",
+              "People",
+              "Product",
+              "Rev Ops",
+              "Sales",
+              "Contact Centre",
+              "Custom"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Header",
+      "pageId": "7278:8242",
+      "items": [
+        {
+          "name": "Header",
+          "id": "7902:1019",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Page",
+              "Section"
+            ]
+          },
+          "props": [
+            "Navigation:SLOT",
+            "Label:SLOT",
+            "Header:SLOT"
+          ]
+        },
+        {
+          "name": "Header",
+          "id": "11921:13215",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Page",
+              "Section"
+            ]
+          },
+          "props": [
+            "Navigation:SLOT",
+            "Label:SLOT",
+            "Header:SLOT"
+          ]
+        }
+      ]
+    },
+    {
+      "page": "Input",
+      "pageId": "6227:17850",
+      "items": [
+        {
+          "name": "Input field",
+          "id": "11180:1982",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Outlined",
+              "Radio",
+              "Integer",
+              "Inline"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Outlined",
+          "id": "8974:24610",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Active",
+              "Filled",
+              "n/a"
+            ],
+            "Hovering": [
+              "false",
+              "true"
+            ],
+            "Validation": [
+              "none",
+              "error",
+              "success"
+            ],
+            "Icon right": [
+              "false",
+              "true"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Inline",
+          "id": "10330:4736",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false"
+            ],
+            "Validation": [
+              "none",
+              "error"
+            ],
+            "State": [
+              "Enabled",
+              "Active",
+              "Filled"
+            ],
+            "Description": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Radio button",
+          "id": "8974:30479",
+          "type": "set",
+          "variants": {
+            "Validation": [
+              "none",
+              "success"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Active",
+              "Filled",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Integer",
+          "id": "10145:10895",
+          "type": "set",
+          "variants": {
+            "Validation": [
+              "none",
+              "success",
+              "error"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Active",
+              "Filled",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Input field",
+          "id": "12114:20552",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Outlined",
+              "Radio",
+              "Integer",
+              "Inline"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Outlined",
+          "id": "12114:20561",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Active",
+              "Filled",
+              "n/a"
+            ],
+            "Hovering": [
+              "false",
+              "true"
+            ],
+            "Validation": [
+              "none",
+              "error",
+              "success"
+            ],
+            "Icon right": [
+              "false",
+              "true"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Inline",
+          "id": "12114:20828",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false"
+            ],
+            "Validation": [
+              "none",
+              "error"
+            ],
+            "State": [
+              "Enabled",
+              "Active",
+              "Filled"
+            ],
+            "Description": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Radio button",
+          "id": "12114:20857",
+          "type": "set",
+          "variants": {
+            "Validation": [
+              "none",
+              "success"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Active",
+              "Filled",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Input field/Integer",
+          "id": "12114:20914",
+          "type": "set",
+          "variants": {
+            "Validation": [
+              "none",
+              "success",
+              "error"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Label": [
+              "true",
+              "false"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Active",
+              "Filled",
+              "n/a"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Listbox / Multiselect",
+      "pageId": "9439:3407",
+      "items": [
+        {
+          "name": "Listbox",
+          "id": "9162:1042",
+          "type": "set",
+          "variants": {
+            "Caret": [
+              "true",
+              "false"
+            ],
+            "Position": [
+              "Bottom",
+              "Top",
+              "n/a"
+            ],
+            "Wrapping menu itens": [
+              "false",
+              "true"
+            ]
+          },
+          "props": [
+            "List-1:SLOT",
+            "List-2:SLOT",
+            "List-3:SLOT"
+          ]
+        },
+        {
+          "name": "List itens",
+          "id": "9162:941",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Read-only"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ],
+            "Supporting text": [
+              "false",
+              "true"
+            ],
+            "Icon left": [
+              "true",
+              "false"
+            ],
+            "Icon right": [
+              "false",
+              "true"
+            ],
+            "Avatar": [
+              "false",
+              "true"
+            ],
+            "Skill icon": [
+              "false",
+              "true"
+            ],
+            "Checkbox": [
+              "false",
+              "true"
+            ],
+            "Radio": [
+              "false",
+              "true"
+            ],
+            "Search": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Listbox",
+          "id": "11923:3466",
+          "type": "set",
+          "variants": {
+            "Caret": [
+              "true",
+              "false"
+            ],
+            "Position": [
+              "Bottom",
+              "Top",
+              "n/a"
+            ],
+            "Wrapping menu itens": [
+              "false",
+              "true"
+            ]
+          },
+          "props": [
+            "List-1:SLOT",
+            "List-2:SLOT",
+            "List-3:SLOT"
+          ]
+        },
+        {
+          "name": "List itens",
+          "id": "12202:2766",
+          "type": "set",
+          "variants": {
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "Read-only"
+            ],
+            "Helper text": [
+              "false",
+              "true"
+            ],
+            "Supporting text": [
+              "false",
+              "true"
+            ],
+            "Icon left": [
+              "true",
+              "false"
+            ],
+            "Icon right": [
+              "false",
+              "true"
+            ],
+            "Avatar": [
+              "false",
+              "true"
+            ],
+            "Skill icon": [
+              "false",
+              "true"
+            ],
+            "Checkbox": [
+              "false",
+              "true"
+            ],
+            "Radio": [
+              "false",
+              "true"
+            ],
+            "Search": [
+              "false",
+              "true"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Navigation",
+      "pageId": "5453:37855",
+      "items": [
+        {
+          "name": "Tab nav",
+          "id": "1324:35285",
+          "type": "set",
+          "variants": {
+            "Page": [
+              "Enabled",
+              "Home",
+              "Search",
+              "Progress",
+              "Feed",
+              "Profile"
+            ]
+          }
+        },
+        {
+          "name": "Top nav/ App",
+          "id": "1910:18375",
+          "type": "set",
+          "variants": {
+            "Page": [
+              "Home",
+              "Detail page",
+              "Search",
+              "Progress",
+              "Feed",
+              "Profile",
+              "Lesson feed",
+              "Skill",
+              "Mobile web"
+            ]
+          }
+        },
+        {
+          "name": "Top Nav/Admin",
+          "id": "5385:20137",
+          "type": "set",
+          "variants": {
+            "System": [
+              "Admin",
+              "Web app"
+            ],
+            "Breakpoint": [
+              "large",
+              "small"
+            ]
+          }
+        },
+        {
+          "name": "Side navigation",
+          "id": "4697:13314",
+          "type": "set",
+          "variants": {
+            "System": [
+              "Web app",
+              "Admin"
+            ],
+            "State": [
+              "Collapsed",
+              "Expanded"
+            ]
+          }
+        },
+        {
+          "name": "Menu/Itens/WebApp",
+          "id": "4674:25675",
+          "type": "set",
+          "variants": {
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Enabled"
+            ],
+            "Expanded": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Menu/Itens/Admin",
+          "id": "10372:4045",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Menu",
+              "Sub-menu"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "chevron right": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Enabled"
+            ],
+            "Expanded": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Tab nav",
+          "id": "9897:18192",
+          "type": "set",
+          "variants": {
+            "Page": [
+              "Enabled",
+              "Home",
+              "Search",
+              "Progress",
+              "Feed",
+              "Profile"
+            ]
+          }
+        },
+        {
+          "name": "Top nav/ App",
+          "id": "11235:11758",
+          "type": "set",
+          "variants": {
+            "Page": [
+              "Home",
+              "Detail page",
+              "Search",
+              "Progress",
+              "Feed",
+              "Profile",
+              "Lesson feed",
+              "Skill",
+              "Mobile web"
+            ]
+          }
+        },
+        {
+          "name": "Top Nav/Admin",
+          "id": "11982:3602",
+          "type": "set",
+          "variants": {
+            "System": [
+              "Admin",
+              "Web app"
+            ],
+            "Breakpoint": [
+              "large",
+              "small"
+            ]
+          }
+        },
+        {
+          "name": "Side navigation",
+          "id": "12048:2302",
+          "type": "set",
+          "variants": {
+            "System": [
+              "Web app",
+              "Admin"
+            ],
+            "State": [
+              "Collapsed",
+              "Expanded"
+            ]
+          }
+        },
+        {
+          "name": "Menu/Itens/WebApp",
+          "id": "12048:2401",
+          "type": "set",
+          "variants": {
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Enabled"
+            ],
+            "Expanded": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Menu/Itens/Admin",
+          "id": "12048:2440",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Menu",
+              "Sub-menu"
+            ],
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "chevron right": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Enabled"
+            ],
+            "Expanded": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "Breadcrumb",
+          "id": "8497:2231",
+          "type": "component"
+        },
+        {
+          "name": "Breadcrumb item",
+          "id": "8497:1494",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Link",
+              "Current page"
+            ],
+            "State": [
+              "Hover",
+              "Enabled",
+              "n/a"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Breadcrumb item",
+          "id": "11935:2383",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Link",
+              "Current page"
+            ],
+            "State": [
+              "Hover",
+              "Enabled",
+              "n/a"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Search",
+      "pageId": "6159:9140",
+      "items": [
+        {
+          "name": "Search",
+          "id": "697:33529",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Enabled",
+              "Active",
+              "Hover"
+            ],
+            "Filled": [
+              "false",
+              "true"
+            ],
+            "Size": [
+              "M",
+              "L"
+            ]
+          }
+        },
+        {
+          "name": "Search",
+          "id": "11927:6338",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Enabled",
+              "Active",
+              "Hover"
+            ],
+            "Filled": [
+              "false",
+              "true"
+            ],
+            "Size": [
+              "M",
+              "L"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Stepper",
+      "pageId": "8108:4254",
+      "items": [
+        {
+          "name": "stepper",
+          "id": "8108:5464",
+          "type": "component"
+        },
+        {
+          "name": "Step/Instances",
+          "id": "8108:5472",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Disabled",
+              "In progress",
+              "Completed"
+            ]
+          }
+        },
+        {
+          "name": "Step/line",
+          "id": "8108:5482",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Complete",
+              "Incomplete"
+            ]
+          }
+        },
+        {
+          "name": "Step/Instances",
+          "id": "11249:219",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Disabled",
+              "In progress",
+              "Completed"
+            ]
+          }
+        },
+        {
+          "name": "Step/line",
+          "id": "11248:125",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Complete",
+              "Incomplete"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Slider",
+      "pageId": "10662:11842",
+      "items": [
+        {
+          "name": "<Slider>",
+          "id": "10662:14039",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Enabled",
+              "Hover",
+              "Disabled"
+            ],
+            "%": [
+              "50",
+              "80",
+              "0"
+            ]
+          }
+        },
+        {
+          "name": "<Slider>",
+          "id": "11045:9459",
+          "type": "set",
+          "variants": {
+            "State": [
+              "Enabled",
+              "Hover",
+              "Disabled"
+            ],
+            "%": [
+              "50",
+              "80",
+              "0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Table",
+      "pageId": "7880:8433",
+      "items": [
+        {
+          "name": "Table",
+          "id": "7896:2624",
+          "type": "component",
+          "props": [
+            "Table header:SLOT",
+            "Table row1:SLOT",
+            "Table row2:SLOT",
+            "Table row3:SLOT",
+            "Table row4:SLOT",
+            "Table row5:SLOT",
+            "Table row6:SLOT",
+            "Table row7:SLOT",
+            "Table row8:SLOT",
+            "Table row9:SLOT",
+            "Table row10:SLOT"
+          ]
+        },
+        {
+          "name": "Table row",
+          "id": "7896:2804",
+          "type": "set",
+          "variants": {
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Table header",
+          "id": "11872:3077",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Text"
+            ],
+            "Checkbox": [
+              "false",
+              "true"
+            ],
+            "Icon": [
+              "false",
+              "true"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Table data",
+          "id": "11766:619",
+          "type": "set",
+          "variants": {
+            "Text": [
+              "true",
+              "false"
+            ],
+            "Supporting text": [
+              "false",
+              "true"
+            ],
+            "date": [
+              "false",
+              "true"
+            ],
+            "Checkbox": [
+              "false",
+              "true"
+            ],
+            "Avatar": [
+              "false",
+              "true"
+            ],
+            "Thumbnail": [
+              "false",
+              "true"
+            ],
+            "Icon": [
+              "false",
+              "true"
+            ],
+            "Progress bar": [
+              "false",
+              "true"
+            ],
+            "Illustration": [
+              "false",
+              "true"
+            ],
+            "Button": [
+              "false",
+              "true"
+            ],
+            "Badge": [
+              "false",
+              "true"
+            ],
+            "Dropdown": [
+              "false",
+              "true"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Selected",
+              "Read-only",
+              "Enabled"
+            ]
+          }
+        },
+        {
+          "name": "Table row",
+          "id": "11927:7487",
+          "type": "set",
+          "variants": {
+            "Selected": [
+              "false",
+              "true"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Enabled",
+              "Hover",
+              "n/a"
+            ]
+          }
+        },
+        {
+          "name": "Table header",
+          "id": "11927:7554",
+          "type": "set",
+          "variants": {
+            "Type": [
+              "Text"
+            ],
+            "Checkbox": [
+              "false",
+              "true"
+            ],
+            "Icon": [
+              "false",
+              "true"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        {
+          "name": "Table data",
+          "id": "11927:7602",
+          "type": "set",
+          "variants": {
+            "Text": [
+              "true",
+              "false"
+            ],
+            "Supporting text": [
+              "false",
+              "true"
+            ],
+            "date": [
+              "false",
+              "true"
+            ],
+            "Checkbox": [
+              "false",
+              "true"
+            ],
+            "Avatar": [
+              "false",
+              "true"
+            ],
+            "Thumbnail": [
+              "false",
+              "true"
+            ],
+            "Icon": [
+              "false",
+              "true"
+            ],
+            "Progress bar": [
+              "false",
+              "true"
+            ],
+            "Illustration": [
+              "false",
+              "true"
+            ],
+            "Button": [
+              "false",
+              "true"
+            ],
+            "Badge": [
+              "false",
+              "true"
+            ],
+            "Dropdown": [
+              "false",
+              "true"
+            ],
+            "Disabled": [
+              "false",
+              "true"
+            ],
+            "State": [
+              "Hover",
+              "Selected",
+              "Read-only",
+              "Enabled"
+            ]
+          }
+        },
+        {
+          "name": "Thumbnail type",
+          "id": "9537:7400",
+          "type": "set",
+          "variants": {
+            "Thumbnail": [
+              "Course",
+              "Your content",
+              "Lesson"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Toast",
+      "pageId": "5776:27599",
+      "items": [
+        {
+          "name": "Toast",
+          "id": "5045:14119",
+          "type": "set",
+          "variants": {
+            "Icon": [
+              "True",
+              "False"
+            ],
+            "Type": [
+              "Success",
+              "Warning",
+              "Error",
+              "Info"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "page": "Tooltip",
+      "pageId": "5618:3049",
+      "items": [
+        {
+          "name": "Tooltip",
+          "id": "2683:29027",
+          "type": "set",
+          "variants": {
+            "Position": [
+              "Top",
+              "Bottom",
+              "Left",
+              "Right"
+            ],
+            "Alignment": [
+              "Center",
+              "Start",
+              "End"
+            ],
+            "Icon": [
+              "True",
+              "False"
+            ]
+          }
+        },
+        {
+          "name": "Tooltip",
+          "id": "11927:8087",
+          "type": "set",
+          "variants": {
+            "Position": [
+              "Top",
+              "Bottom",
+              "Left",
+              "Right"
+            ],
+            "Alignment": [
+              "Center",
+              "Start",
+              "End"
+            ],
+            "Icon": [
+              "True",
+              "False"
+            ]
+          }
+        }
+      ]
+    }
   ]
 }

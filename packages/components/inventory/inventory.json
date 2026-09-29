@@ -1,6 +1,6 @@
 {
   "fileKey": "EC26cSVe9KNTCWXvYovakw",
-  "figmaFetchedAt": "2026-09-28",
+  "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
     "inCode": 11,
@@ -1126,7 +1126,8 @@
           "Enabled",
           "Hover",
           "Active",
-          "Read-only"
+          "Read-only",
+          "Error"
         ],
         "Icon left": [
           "true",

@@ -16,7 +16,7 @@ import { Danger } from 'iconsax-react'
 //   Helper text=true        → helperText
 //   State=Active            → open
 //   Disabled / Read-only    → disabled
-//   (Error, not yet in Figma) → error + helperText: as the input field, with the Bold Danger icon
+//   State=Error             → error + helperText: as the input field, with the Bold Danger icon
 
 export interface DropdownOption {
   value: string

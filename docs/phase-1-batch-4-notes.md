@@ -50,7 +50,7 @@ The shell's own panels use stock MUI TextField and Select, so they now render as
 
 **Figma**
 - **Input field:** no Warning validation (the prototype has one).
-- **Dropdown:** no Error state. Bruno (2026-09-29) wants one. The reference has it, matching the input field: Text-error border, label and message, and the Bold Danger icon 24px after the value, 8px before the chevron.
+- **Dropdown:** done 2026-09-29. Both sets (dark `8925:1408`, light `12113:14844`) now have `State=Error`: 10 variants each, cloned from Enabled, with the Text-error border, label and message and the Bold Danger icon instance before the chevron, matching the input field and the reference.
 - **Search:** Hover with text has no clear-button variant of its own; the reference shows the clear button.
 
 **Prototype**

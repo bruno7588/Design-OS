@@ -49,7 +49,7 @@ const g: Guidelines = {
     { name: 'Hover', description: 'Border-hover and a 16% Input-background fill.' },
     { name: 'Active', description: 'While open: the border turns Selected and the chevron turns up.' },
     { name: 'Menu rows', description: 'Hover: Cards-background-hover. Selected: Secondary-500 with a Medium Neutral-800 label. Disabled: Text-disabled.' },
-    { name: 'Error', description: 'As the input field: the border, label and message turn Text-error, and the Bold Danger icon sits before the chevron. Not in Figma yet.' },
+    { name: 'Error', description: 'As the input field: the border, label and message turn Text-error, and the Bold Danger icon sits before the chevron.' },
     { name: 'Disabled and read-only', description: 'The quieter Border and Text-disabled. Not focusable.' },
   ],
   dos: [
