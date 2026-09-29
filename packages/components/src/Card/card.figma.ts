@@ -43,3 +43,40 @@ export const typeThumbnailFigma: FigmaMapping = {
   // The light set has no Image variant yet; code has it.
   variants: { Type: ['PDF', 'Excel', 'Word', 'PowerPoint', 'Image', 'External link'] },
 }
+
+export const courseCardFigma: FigmaMapping = {
+  component: 'CourseCard',
+  mui: 'Box (article) + Badge + LinearProgress',
+  page: 'Cards',
+  set: 'Card/Courses',
+  nodes: { light: '11916:10292', dark: '5132:5756' },
+  // The dark set calls the rest state Enabled, the light set Default.
+  variants: { Device: ['Mobile', 'Desktop'], New: ['false', 'true'], 'Due date': ['false', 'true'], State: ['Enabled', 'Default', 'Hover'] },
+}
+
+export const categoryCardFigma: FigmaMapping = {
+  component: 'CategoryCard',
+  mui: 'Box (article) + Badge + Tooltip',
+  page: 'Cards',
+  set: 'Card/ Category',
+  nodes: { light: '10574:3913', dark: '10176:1806' },
+  variants: { Device: ['Desktop', 'Mobile'], Disabled: ['false', 'true'], State: ['Default', 'Hover'], New: ['false', 'true'] },
+}
+
+export const folderCardFigma: FigmaMapping = {
+  component: 'FolderCard',
+  mui: 'Box (article) + ButtonBase (New Folder)',
+  page: 'Cards',
+  set: 'Card/Folder',
+  nodes: { light: '10175:3183', dark: '10175:3106' },
+  variants: { 'New folder': ['false', 'true'], State: ['Default', 'Hover'], 'Number of courses': ['0', '3+', 'n/a', '2', '1'] },
+}
+
+export const skillCardFigma: FigmaMapping = {
+  component: 'SkillCard',
+  mui: 'Box + IconButton',
+  page: 'Cards',
+  set: 'Card/skill',
+  nodes: { light: '11828:5184', dark: '11802:3704' },
+  variants: { Disabled: ['false', 'true'], State: ['Enabled', 'Hover', 'n/a'], Remove: ['false', 'true'] },
+}

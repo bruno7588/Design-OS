@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 52,
-    "both": 52,
-    "figmaOnly": 25,
+    "inCode": 56,
+    "both": 56,
+    "figmaOnly": 21,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -591,11 +591,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "CourseCard",
+        "mui": "Box (article) + Badge + LinearProgress",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/External training",
@@ -717,11 +721,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "SkillCard",
+        "mui": "Box + IconButton",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/ Category",
@@ -755,11 +763,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "CategoryCard",
+        "mui": "Box (article) + Badge + Tooltip",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/Folder",
@@ -792,11 +804,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "FolderCard",
+        "mui": "Box (article) + ButtonBase (New Folder)",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "radio-button instances",

@@ -155,6 +155,22 @@ import { ResourceCardPreview } from './resource-card/ResourceCardPreview'
 import { ResourceCardCode } from './resource-card/ResourceCardCode'
 import { ResourceCardGuidelines } from './resource-card/ResourceCardGuidelines'
 import { ResourceCardCompare } from './resource-card/ResourceCardCompare'
+import { CourseCardPreview } from './course-card/CourseCardPreview'
+import { CourseCardCode } from './course-card/CourseCardCode'
+import { CourseCardGuidelines } from './course-card/CourseCardGuidelines'
+import { CourseCardCompare } from './course-card/CourseCardCompare'
+import { CategoryCardPreview } from './category-card/CategoryCardPreview'
+import { CategoryCardCode } from './category-card/CategoryCardCode'
+import { CategoryCardGuidelines } from './category-card/CategoryCardGuidelines'
+import { CategoryCardCompare } from './category-card/CategoryCardCompare'
+import { FolderCardPreview } from './folder-card/FolderCardPreview'
+import { FolderCardCode } from './folder-card/FolderCardCode'
+import { FolderCardGuidelines } from './folder-card/FolderCardGuidelines'
+import { FolderCardCompare } from './folder-card/FolderCardCompare'
+import { SkillCardPreview } from './skill-card/SkillCardPreview'
+import { SkillCardCode } from './skill-card/SkillCardCode'
+import { SkillCardGuidelines } from './skill-card/SkillCardGuidelines'
+import { SkillCardCompare } from './skill-card/SkillCardCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -602,6 +618,50 @@ export const components: ComponentDoc[] = [
     Code: ResourceCardCode,
     Guidelines: ResourceCardGuidelines,
     Compare: ResourceCardCompare,
+  },
+  {
+    slug: 'course-card',
+    name: 'Course card',
+    summary: 'A course or playlist: image, title, lessons, duration and progress.',
+    figma: { light: `${LIBRARY}11916-10292`, dark: `${LIBRARY}5132-5756` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: CourseCardPreview,
+    Code: CourseCardCode,
+    Guidelines: CourseCardGuidelines,
+    Compare: CourseCardCompare,
+  },
+  {
+    slug: 'category-card',
+    name: 'Category card',
+    summary: 'A category of courses in the learner browse experience.',
+    figma: { light: `${LIBRARY}10574-3913`, dark: `${LIBRARY}10176-1806` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: CategoryCardPreview,
+    Code: CategoryCardCode,
+    Guidelines: CategoryCardGuidelines,
+    Compare: CategoryCardCompare,
+  },
+  {
+    slug: 'folder-card',
+    name: 'Folder card',
+    summary: 'An Admin library folder, previewing its courses as a deck.',
+    figma: { light: `${LIBRARY}10175-3183`, dark: `${LIBRARY}10175-3106` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: FolderCardPreview,
+    Code: FolderCardCode,
+    Guidelines: FolderCardGuidelines,
+    Compare: FolderCardCompare,
+  },
+  {
+    slug: 'skill-card',
+    name: 'Skill card',
+    summary: 'One skill as a compact outlined tag.',
+    figma: { light: `${LIBRARY}11828-5184`, dark: `${LIBRARY}11802-3704` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: SkillCardPreview,
+    Code: SkillCardCode,
+    Guidelines: SkillCardGuidelines,
+    Compare: SkillCardCompare,
   },
 ]
 

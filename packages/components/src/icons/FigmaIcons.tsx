@@ -198,3 +198,20 @@ export function MoreVerticalIcon({ size = 24, ...props }: IconProps) {
     </svg>
   )
 }
+
+/** Card/ Category meta: collection-play (a stack with a play button), Linear. Iconsax has no
+ *  match, so it's copied from the Category set (10176:1806). Takes the text colour. */
+export function CollectionPlayIcon({ size = 20, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M4.24 5.2c0 .127.05.25.14.34.09.09.213.14.34.14h10.56a.48.48 0 0 0 0-.96H4.72a.48.48 0 0 0-.48.48Zm1.92-1.92c0 .127.05.25.14.34.09.09.213.14.34.14h6.72a.48.48 0 0 0 0-.96H6.64a.48.48 0 0 0-.48.48Zm2.654 5.353a.48.48 0 0 0-.734.407v4.8a.48.48 0 0 0 .734.407l3.84-2.4a.48.48 0 0 0 0-.814l-3.84-2.4Z"
+        fill="currentColor"
+      />
+      <path
+        d="M3.76 16.24a1.44 1.44 0 0 1-1.44-1.44V8.08a1.44 1.44 0 0 1 1.44-1.44h12.48a1.44 1.44 0 0 1 1.44 1.44v6.72a1.44 1.44 0 0 1-1.44 1.44H3.76Zm12.48-.96a.48.48 0 0 0 .48-.48V8.08a.48.48 0 0 0-.48-.48H3.76a.48.48 0 0 0-.48.48v6.72c0 .127.05.25.14.34.09.09.213.14.34.14h12.48Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
