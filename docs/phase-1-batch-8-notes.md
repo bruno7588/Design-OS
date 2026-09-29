@@ -25,7 +25,7 @@ A plain MUI Table renders the Figma table and keeps real table semantics:
 - **Pagination:** "1-10 of 28", right-aligned.
 - **Row states:**
   - Hover is Input-background.
-  - Selected is Secondary-500 at 12%, or 24% on hover, on fill and border.
+  - Selected is the Selected-row variable (Secondary-500 at 16%), or Selected-row-hover (24%), on fill and border.
   - Read-only is Text-disabled.
 - **Cells:**
   - 24px checkboxes, 12px from the text.
@@ -40,13 +40,14 @@ A plain MUI Table renders the Figma table and keeps real table semantics:
 
 ## Changed in the theme
 - **New overrides:** `MuiTable`, `MuiTableCell`, `MuiTableRow`, `MuiTableSortLabel` and `MuiTablePagination`.
-- **New tokens:** `rowSelected` and `rowSelectedHover` (Secondary-500 at 12% and 24%, as in Figma).
+- **New tokens:** `rowSelected` and `rowSelectedHover`: the Figma variables Selected-row (Secondary-500 at 16%) and Selected-row-hover (24%).
 
 ## Out of date, to update
 **Figma**
-- **Selected row:** the fill and border aren't bound to variables.
-- **Text with avatar and checkbox:** SemiBold on one line, where other one-line cells are Regular.
-- **Checkbox with illustration:** uses a 16px checkbox frame; the other cells use 24px.
+- Done 2026-09-29 (Bruno):
+  - Selected rows use the Selected-row and Selected-row-hover variables in both boards; the light board had raw 12% before.
+  - Single-line text is Regular in every cell.
+  - The light checkbox + illustration cells use 24px checkbox frames.
 - **Focus:** no focus states for cells, the sort label or pagination.
 
 **Prototype**

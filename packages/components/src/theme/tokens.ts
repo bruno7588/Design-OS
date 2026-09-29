@@ -66,9 +66,9 @@ const light = {
   // Figma Alert (Type=Alert) fill: Secondary-500 @ 12% in both modes, not bound to a variable.
   // alerts-toast.md says Warning-500 @ 16% in one place and this value in another.
   alertBackground: 'rgba(255, 187, 56, 0.12)',
-  // Figma Table row Selected=true: Secondary-500 @ 12% (24% on hover), fill and border, both modes.
-  // Not bound to a variable in Figma. The prototype uses the #EDA30D amber instead.
-  rowSelected: 'rgba(255, 187, 56, 0.12)',
+  // Figma variables Selected-row and Selected-row-hover (Surface colours): Secondary-500 at 16%
+  // and 24%, the same in both modes. The prototype uses the #EDA30D amber instead.
+  rowSelected: 'rgba(255, 187, 56, 0.16)',
   rowSelectedHover: 'rgba(255, 187, 56, 0.24)',
   scrim: 'rgba(15, 16, 20, 0.25)',
 }

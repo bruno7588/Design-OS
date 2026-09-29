@@ -49,7 +49,7 @@ const g: Guidelines = {
   ],
   states: [
     { name: 'Hover', description: 'The row fills with Input-background. Links in it turn Text-button-hover.' },
-    { name: 'Selected', description: 'Secondary-500 at 12% on the fill and border; 24% on hover.' },
+    { name: 'Selected', description: 'Selected-row (Secondary-500 at 16%) on the fill and border; Selected-row-hover (24%) on hover.' },
     { name: 'Disabled (read-only)', description: 'Text-disabled; pictures lose their colour. Set it on the row, not on cells.' },
     { name: 'Focus', description: 'Controls in cells show the 2px primary button ring.' },
   ],
