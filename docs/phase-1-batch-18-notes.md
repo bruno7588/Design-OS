@@ -49,9 +49,11 @@ Checked 2026-09-29.
   - **Buttons:** hand-built with a raw `#00CEE6` stroke, 45px tall, labelled "Share to" and "Copy link". Code uses the Buttons set, 41px, with "Share To" and "Copy Link" in Title Case.
   - **Close control:** the two variants draw it differently.
   - **Scrollbar:** a raw `#3E4354` bar.
-- **Full screen close on mobile:** a scaled 43px instance. Code uses 40.
-- **Bottom sheet scrim:** a raw `#0F1014` at 64%, darker than the Scrim token (25% light, 50% dark).
 - **Bottom sheet swipe:** the handle suggests swipe to close, which isn't built. MUI SwipeableDrawer could add it.
+
+## Follow-up (Bruno, 2026-09-29)
+- **Bottom sheet scrim uses the token:** in Figma, the raw `#0F1014` at 64% rectangle is swapped for the Overlay component (Device=Mobile), which the Modal and Side drawer use. In code the sheet uses the Scrim token through the theme's MuiDrawer backdrop.
+- **Full-screen close is 40px:** in Figma, both sets' mobile close button (a scaled 43px) is replaced with a copy of the desktop 40px button (padding 4, a 32px glyph), 60 from the top and 20 from the right. `overlays.md` and the prototype's `CloseButton.css` go from 44 to 40.
 
 ## Prototype differences
 - **overlays.md:** it gives the full-screen close button as 44px (from the Programs file). The Library draws 40.

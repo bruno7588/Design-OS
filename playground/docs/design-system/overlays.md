@@ -75,11 +75,11 @@ A full-screen modal (lesson editors, Create Flashcard, the Add Content lesson fo
 
 | Property | Value |
 |---|---|
-| Size | 44 × 44px |
+| Size | 40 × 40px (Library Modal/Full screen `3223:31934`; was 44, from the Programs file) |
 | Padding | 4px (`--space-xs`) |
 | Shape | Circle (`--radius-full`) |
 | Fill | `--input-background` (Neutral-500 @ 16% dark, Neutral-200 @ 16% light) |
-| Glyph | `IoCloseOutline`, 36 × 36px box, two 15.75px strokes at 1.5px, round caps |
+| Glyph | `IoCloseOutline`, 32 × 32px box |
 | Glyph colour | `--text-secondary` |
 | Hover | Fill `--input-background-hover`, glyph `--text-primary` |
 | Focus | 2px `--primary-button-background` outline, 2px offset (shared `.close-btn`) |

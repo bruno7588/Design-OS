@@ -1,14 +1,14 @@
 import type { ReactNode } from 'react'
 import Box from '@mui/material/Box'
 import Drawer, { type DrawerProps } from '@mui/material/Drawer'
-import { alpha } from '@mui/material/styles'
 
 // 5Mins Bottom sheet (Figma Bottom sheet 7479:106; the light board has an instance) on MUI
 // Drawer, anchored to the bottom. For the mobile app: options and short forms that rise
 // over the page.
 //
 // Figma: Page-background, top corners 12, padding 0 16 20 16, 8px gap; a 36px header with a
-// 64 × 4 Neutral-500 handle; the content slot below. The page dims behind it.
+// 64 × 4 Neutral-500 handle; the content slot below. The page dims behind it under the Scrim
+// (the theme's MuiDrawer backdrop; Figma's Overlay component).
 // Closes on a tap on the scrim and Escape; MUI traps focus inside and returns it on close.
 
 export interface BottomSheetProps extends Omit<DrawerProps, 'anchor' | 'onClose' | 'children'> {
@@ -24,8 +24,6 @@ export function BottomSheet({ onClose, children, PaperProps, 'aria-label': label
       anchor="bottom"
       onClose={onClose}
       PaperProps={{ ...PaperProps, role: 'dialog', 'aria-modal': true, 'aria-label': label, 'aria-labelledby': labelledBy, className: 'ds-bottom-sheet', sx: sheetStyles } as DrawerProps['PaperProps']}
-      // Figma dims the page with Neutral-900 at 64%, darker than the Scrim token.
-      sx={(theme) => ({ '& .MuiBackdrop-root': { backgroundColor: alpha(theme.tokens.palette.neutral[900], 0.64) } })}
       {...props}
     >
       <BottomSheetContent>{children}</BottomSheetContent>
@@ -73,7 +71,7 @@ export function BottomSheetPreview({ children, height = 560 }: { children: React
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-end',
-        backgroundColor: alpha(theme.tokens.palette.neutral[900], 0.64),
+        backgroundColor: theme.tokens.semantic.scrim,
       })}
     >
       <Box className="ds-bottom-sheet" sx={[(theme) => sheetStyles(theme), { height, boxSizing: 'border-box' }]}>

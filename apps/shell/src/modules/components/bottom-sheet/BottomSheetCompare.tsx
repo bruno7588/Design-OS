@@ -12,7 +12,7 @@ const compare: Compare = {
     { property: 'Sheet', figma: '375 × 560, Page-background, top corners 12, padding 0/16/20/16, gap 8', reference: 'Same; the height follows the content', status: 'Matches' },
     { property: 'Handle', figma: '64 × 4, Neutral-500, radius 8, in a 36px header (padding 16)', reference: 'Same', status: 'Matches' },
     { property: 'Content', figma: 'A slot, 12px gap', reference: 'Same', status: 'Matches' },
-    { property: 'Scrim', figma: 'A raw #0F1014 at 64%', reference: 'Neutral-900 at 64%', status: 'Design to update', note: 'Darker than the Scrim token (25% light, 50% dark). Bind it, or use Scrim.' },
+    { property: 'Scrim', figma: 'The Overlay component (Device=Mobile), as the Modal and Side drawer use; swapped in for a raw #0F1014 at 64% on 2026-09-29', reference: 'The Scrim token', status: 'Matches' },
     { property: 'Swipe to close', figma: 'The handle suggests it', reference: 'Not built: Escape and the scrim close it', status: 'Code to update', note: 'MUI SwipeableDrawer can add it.' },
     { property: 'Built component', figma: '–', reference: 'BottomSheet', status: 'Code to update', note: 'overlays.md has no bottom sheet section yet.' },
   ],

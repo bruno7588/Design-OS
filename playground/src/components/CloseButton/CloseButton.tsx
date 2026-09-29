@@ -7,8 +7,8 @@ interface CloseButtonProps {
   size?: number
   className?: string
   ariaLabel?: string
-  /** `fullscreen` is the close for a full-screen modal (Figma Programs 4221:63780):
-      a 44px `--input-background` disc around a 36px IoCloseOutline in
+  /** `fullscreen` is the close for a full-screen modal (Figma Library Modal/Full screen 3223:31934):
+      a 40px `--input-background` disc around a 32px IoCloseOutline in
       `--text-secondary`. `size` is ignored for it. */
   variant?: 'default' | 'fullscreen'
 }
@@ -24,10 +24,10 @@ function CloseButton({ onClick, onMouseDown, size = 24, className = '', ariaLabe
       type="button"
     >
       {fullscreen ? (
-        /* IoCloseOutline: two 15.75px strokes at 1.5px in a 36px box. */
-        <svg width={36} height={36} viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        /* IoCloseOutline: two 14px strokes at 1.5px in a 32px box. */
+        <svg width={32} height={32} viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <path
-            d="M25.875 25.875L10.125 10.125M25.875 10.125L10.125 25.875"
+            d="M23 23L9 9M23 9L9 23"
             stroke="currentColor"
             strokeWidth="1.5"
             strokeLinecap="round"

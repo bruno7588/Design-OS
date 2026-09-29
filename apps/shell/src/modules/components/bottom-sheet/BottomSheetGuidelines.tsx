@@ -17,7 +17,7 @@ const g: Guidelines = {
       </Box>
     ),
     parts: [
-      { name: 'Scrim', description: 'The page dims under Neutral-900 at 64%.' },
+      { name: 'Scrim', description: 'The page dims under the Scrim, as behind the Modal and Side drawer.' },
       { name: 'Sheet', description: 'Page-background, top corners 12, padding 0 16 20 16, 8px gap.' },
       { name: 'Handle', description: 'A 64 × 4 Neutral-500 bar, centred in a 36px header.' },
       { name: 'Content', description: 'A slot, 12px between items; it scrolls if it grows past the screen.' },

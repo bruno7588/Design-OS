@@ -10,9 +10,9 @@ const compare: Compare = {
   live: (mode) => <FullScreenModalMatrix mode={mode} />,
   differences: [
     { property: 'Surface', figma: 'Page-background, 1536 × 864 (Desktop), 375 × 812 (Mobile)', reference: 'The whole viewport in Page-background', status: 'Matches' },
-    { property: 'Close button', figma: 'Desktop: 40px, padding 4, Input-background, radius full, at 20 / 30. Mobile: 43px (padding 5.3) at 60 / 20', reference: '40px on both; 20 / 30, or 16 under the status bar / 20 on small screens', status: 'Design to update', note: 'The mobile button is a scaled 43px instance.' },
+    { property: 'Close button', figma: '40px, padding 4, Input-background, radius full. Desktop at 20 / 30; Mobile at 60 / 20 (40px since 2026-09-29; was a scaled 43)', reference: 'Same; on small screens 16 under the status bar / 20', status: 'Matches' },
     { property: 'Close glyph', figma: 'close Linear, 32px, Text-secondary', reference: 'CloseOutlineIcon at 32 (the same X)', status: 'Matches' },
-    { property: 'Size in overlays.md', figma: '40px in the Library', reference: '40px', status: 'Code to update', note: 'overlays.md says 44px (taken from the Programs file); the Library is 40.' },
+    { property: 'Size in overlays.md', figma: '40px', reference: '40px', status: 'Matches', note: 'overlays.md and the prototype’s CloseButton.css said 44; updated to 40 on 2026-09-29.' },
     { property: 'Built component', figma: '–', reference: 'FullScreenModal, CloseButton variant="fullscreen"', status: 'Code to update', note: 'The prototype has CloseButton variant="fullscreen"; each editor builds its own full-screen surface.' },
   ],
   engineering: {

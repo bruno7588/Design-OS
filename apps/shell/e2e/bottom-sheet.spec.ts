@@ -31,7 +31,7 @@ test('sheet, handle and scrim match Figma', async ({ page }) => {
       scrim: getComputedStyle(sheet.parentElement!).backgroundColor,
     }
   })
-  expect(m).toMatchObject({ sheet: [375, 560], pad: '0px 16px 20px', radius: ['12px', '0px'], handle: 36, bar: [64, 4, 'rgb(69, 76, 94)'], scrim: 'rgba(15, 16, 20, 0.64)' })
+  expect(m).toMatchObject({ sheet: [375, 560], pad: '0px 16px 20px', radius: ['12px', '0px'], handle: 36, bar: [64, 4, 'rgb(69, 76, 94)'], scrim: 'rgba(15, 16, 20, 0.25)' })
 })
 
 test('opens from the bottom and closes on Escape; focus returns', async ({ page }) => {
