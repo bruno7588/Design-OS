@@ -16,6 +16,9 @@ const examples = `import { Dropdown } from '@design-os/components'
 // Label beside the field, with a leading icon, as a sort control
 <Dropdown label="Sort by" labelPlacement="start" iconLeft={<Sort />} options={sorts} value={sort} onChange={setSort} />
 
+// Multi-select: the rows show a checkbox, the field lists the picks
+<Dropdown multiple label="Departments" placeholder="Select departments" options={departments} value={picked} onChange={setPicked} />
+
 // Plain MUI renders the same field and menu
 import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'

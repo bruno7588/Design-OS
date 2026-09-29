@@ -39,6 +39,18 @@ import { DropdownPreview } from './dropdown/DropdownPreview'
 import { DropdownCode } from './dropdown/DropdownCode'
 import { DropdownGuidelines } from './dropdown/DropdownGuidelines'
 import { DropdownCompare } from './dropdown/DropdownCompare'
+import { CheckboxPreview } from './checkbox/CheckboxPreview'
+import { CheckboxCode } from './checkbox/CheckboxCode'
+import { CheckboxGuidelines } from './checkbox/CheckboxGuidelines'
+import { CheckboxCompare } from './checkbox/CheckboxCompare'
+import { RadioPreview } from './radio/RadioPreview'
+import { RadioCode } from './radio/RadioCode'
+import { RadioGuidelines } from './radio/RadioGuidelines'
+import { RadioCompare } from './radio/RadioCompare'
+import { TogglePreview } from './toggle/TogglePreview'
+import { ToggleCode } from './toggle/ToggleCode'
+import { ToggleGuidelines } from './toggle/ToggleGuidelines'
+import { ToggleCompare } from './toggle/ToggleCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -167,6 +179,39 @@ export const components: ComponentDoc[] = [
     Code: DropdownCode,
     Guidelines: DropdownGuidelines,
     Compare: DropdownCompare,
+  },
+  {
+    slug: 'checkbox',
+    name: 'Checkbox',
+    summary: 'Picks any number of options, or accepts a statement. Checked, not checked and indeterminate.',
+    figma: { light: `${LIBRARY}11917-3924`, dark: `${LIBRARY}6339-10484` },
+    spec: 'playground/docs/design-system/selection-controls.md',
+    Preview: CheckboxPreview,
+    Code: CheckboxCode,
+    Guidelines: CheckboxGuidelines,
+    Compare: CheckboxCompare,
+  },
+  {
+    slug: 'radio',
+    name: 'Radio',
+    summary: 'Picks exactly one option from a short list, with every option in view.',
+    figma: { light: `${LIBRARY}11917-3950`, dark: `${LIBRARY}5001-18926` },
+    spec: 'playground/docs/design-system/selection-controls.md',
+    Preview: RadioPreview,
+    Code: RadioCode,
+    Guidelines: RadioGuidelines,
+    Compare: RadioCompare,
+  },
+  {
+    slug: 'toggle',
+    name: 'Toggle',
+    summary: 'Turns a setting on or off, straight away.',
+    figma: { light: `${LIBRARY}11917-3970`, dark: `${LIBRARY}8160-364` },
+    spec: 'playground/docs/design-system/selection-controls.md',
+    Preview: TogglePreview,
+    Code: ToggleCode,
+    Guidelines: ToggleGuidelines,
+    Compare: ToggleCompare,
   },
 ]
 

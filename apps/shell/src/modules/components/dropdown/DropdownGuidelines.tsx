@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import { Chip, Dropdown, type DropdownProps } from '@design-os/components'
+import { Chip, Dropdown, type DropdownBaseProps } from '@design-os/components'
 import { Sort } from 'iconsax-react'
 import { GuidelinesTemplate, type Guidelines } from '../shared/GuidelinesTemplate'
 
@@ -8,7 +8,7 @@ const OPTIONS = [
   { value: 'people', label: 'People' },
   { value: 'sales', label: 'Sales' },
 ]
-const Example = (props: Partial<DropdownProps>) => (
+const Example = (props: Partial<DropdownBaseProps> & { value?: string }) => (
   <Box sx={{ width: 260 }}>
     <Dropdown options={OPTIONS} value="" onChange={noop} fullWidth SelectProps={{ tabIndex: -1 }} {...props} />
   </Box>
@@ -27,7 +27,7 @@ const g: Guidelines = {
     'For 2 to 4 options people should see at once. Use radios or chips.',
     'For long lists that need typing to find. Use search, or a searchable listbox.',
     'For actions. Use a button or a menu button.',
-    'To pick several options: multi-select arrives with the checkbox rows.',
+    'For 2 to 6 options that should stay visible when picking several. Use a group of checkboxes.',
   ],
   anatomy: {
     example: <Example label="Department" value="people" helperText="Learners see courses for their department first." />,
@@ -42,6 +42,12 @@ const g: Guidelines = {
   variants: [
     { name: 'Label on top', description: 'The default in forms.', example: <Example label="Language" placeholder="Select a language" /> },
     { name: 'Error', description: 'A required choice is missing or invalid. The message says what to do.', example: <Example label="Department" placeholder="Select a department" error helperText="Select a department to continue" /> },
+    { name: 'Multi-select', description: 'To pick several options. Each row has a checkbox; the field lists the picks, separated by commas. The menu stays open until Escape or a click outside.', example: (
+        <Box sx={{ width: 260 }}>
+          <Dropdown multiple label="Departments" options={OPTIONS} value={['people', 'sales']} onChange={noop} fullWidth SelectProps={{ tabIndex: -1 }} />
+        </Box>
+      ),
+    },
     { name: 'Label at the start', description: 'For compact controls such as sorting a table.', example: <Example label="Sort by" labelPlacement="start" iconLeft={<Sort color="currentColor" />} value="people" /> },
   ],
   states: [
@@ -49,6 +55,7 @@ const g: Guidelines = {
     { name: 'Hover', description: 'Border-hover and a 16% Input-background fill.' },
     { name: 'Active', description: 'While open: the border turns Selected and the chevron turns up.' },
     { name: 'Menu rows', description: 'Hover: Cards-background-hover. Selected: Secondary-500 with a Medium Neutral-800 label. Disabled: Text-disabled.' },
+    { name: 'Multi-select rows', description: 'A 16px checkbox 12px from the label. Selected rows keep the plain fill: the tick shows the selection.' },
     { name: 'Error', description: 'As the input field: the border, label and message turn Text-error, and the Bold Danger icon sits before the chevron.' },
     { name: 'Disabled and read-only', description: 'The quieter Border and Text-disabled. Not focusable.' },
   ],
@@ -73,6 +80,7 @@ const g: Guidelines = {
     'Enter, Space or the arrow keys open it; arrows move, typing jumps to a match, Enter picks, Escape closes and returns focus.',
     'Helper and error text are linked with aria-describedby.',
     'Selected rows are shown by the fill and the Medium label, not by colour alone.',
+    'Multi-select: the listbox is aria-multiselectable and each row is one option with aria-selected. The checkbox is only drawn, not a separate control.',
   ],
   figma: [
     { label: 'Dropdown, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12113-14844' },

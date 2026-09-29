@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 11,
-    "both": 11,
-    "figmaOnly": 66,
+    "inCode": 14,
+    "both": 14,
+    "figmaOnly": 63,
     "codeOnly": 0
   },
   "rows": [
@@ -736,11 +736,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Radio (plain MUI)",
+        "mui": "Radio",
+        "path": "packages/components/src/Selection"
+      },
       "prototype": "Radio",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Checkbox instances",
@@ -770,11 +774,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Checkbox",
+        "mui": "Checkbox",
+        "path": "packages/components/src/Selection"
+      },
       "prototype": "Checkbox",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Toggle",
@@ -794,11 +802,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Toggle",
+        "mui": "Switch",
+        "path": "packages/components/src/Selection"
+      },
       "prototype": "Toggle",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Chips",

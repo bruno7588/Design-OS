@@ -9,7 +9,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 1, batch 2 (Chip, Tabs, Dialog): done. Notes and open decisions: `docs/phase-1-batch-2-notes.md`.
 - Phase 1, batch 3 (Badge, Tooltip, Toast): done. Notes: `docs/phase-1-batch-3-notes.md`.
 - Phase 1, batch 4 (Input field, Search, Dropdown): done. Notes: `docs/phase-1-batch-4-notes.md`. Shared field overrides in `packages/components/src/Field`.
-- Next: Phase 1, next batch (Checkbox, Radio, Toggle, which also unlock multi-select rows), or Phase 1c (share with engineering).
+- Phase 1, batch 5 (Checkbox, Radio, Toggle, plus Dropdown multi-select): done. Notes and one open decision (Toggle off colour in light mode): `docs/phase-1-batch-5-notes.md`. Shared overrides in `packages/components/src/Selection`.
+- Next: Phase 1, next batch, or Phase 1c (share with engineering).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)

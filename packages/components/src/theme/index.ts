@@ -21,6 +21,7 @@ import {
   MuiSelect,
   MuiTextField,
 } from '../Field/field.overrides'
+import { MuiCheckbox, MuiFormControlLabel, MuiFormLabel, MuiRadio, MuiSwitch } from '../Selection/selection.overrides'
 
 export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
   const t = tokensFor(mode)
@@ -62,6 +63,11 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiSelect,
       MuiMenu,
       MuiMenuItem,
+      MuiCheckbox,
+      MuiRadio,
+      MuiSwitch,
+      MuiFormControlLabel,
+      MuiFormLabel,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })

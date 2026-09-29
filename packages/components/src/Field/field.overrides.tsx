@@ -233,6 +233,18 @@ export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {
           fontWeight: 500,
         },
         '&.Mui-disabled': { opacity: 1, color: s.textDisabled },
+        // Figma List itens Checkbox=true: a 16px checkbox 12px from the label. The checkbox
+        // shows the selection, so selected rows keep the plain fill.
+        '&:has(> .ds-row-check)': {
+          gap: t.space.sm,
+          '&.Mui-selected': { backgroundColor: 'transparent', color: s.textPrimary, fontWeight: 400 },
+          '&.Mui-selected:hover, &.Mui-selected.Mui-focusVisible, &.Mui-selected.ds-hover': {
+            backgroundColor: s.cardsBackgroundHover,
+          },
+        },
+        '& > .ds-row-check': { flexShrink: 0, color: s.textPrimary },
+        '&.Mui-selected > .ds-row-check': { color: s.selected },
+        '&.Mui-disabled > .ds-row-check': { color: s.textDisabled },
         '& .MuiListItemIcon-root': { minWidth: 0, color: 'inherit' },
         '& .MuiListItemIcon-root svg': { width: t.iconSize.md, height: t.iconSize.md },
       }

@@ -4,6 +4,7 @@ import InputAdornment from '@mui/material/InputAdornment'
 import MenuItem from '@mui/material/MenuItem'
 import TextField, { type TextFieldProps } from '@mui/material/TextField'
 import { Danger } from 'iconsax-react'
+import { CheckboxCheckedIcon, CheckboxIcon } from '../icons/FigmaIcons'
 
 // 5Mins Dropdown. MUI TextField with select: the field, chevron and menu are all
 // styled in the theme (field.overrides.tsx), so <TextField select> looks the same.
@@ -17,6 +18,9 @@ import { Danger } from 'iconsax-react'
 //   State=Active            → open
 //   Disabled / Read-only    → disabled
 //   State=Error             → error + helperText: as the input field, with the Bold Danger icon
+//   List itens Checkbox=true → multiple: the rows show a checkbox, the field lists the picks.
+//                              The listbox is aria-multiselectable; the checkbox is only a glyph,
+//                              so each row stays one option.
 
 export interface DropdownOption {
   value: string
@@ -24,31 +28,38 @@ export interface DropdownOption {
   disabled?: boolean
 }
 
-export type DropdownProps = Omit<TextFieldProps, 'select' | 'variant' | 'onChange' | 'value' | 'children'> & {
+type Single = { multiple?: false; value: string; onChange: (value: string) => void }
+type Multiple = { multiple: true; value: string[]; onChange: (value: string[]) => void }
+
+/** Everything but value, onChange and multiple. */
+export type DropdownBaseProps = Omit<TextFieldProps, 'select' | 'variant' | 'onChange' | 'value' | 'children'> & {
   options: DropdownOption[]
-  value: string
-  onChange: (value: string) => void
   labelPlacement?: 'top' | 'start'
   iconLeft?: ReactNode
 }
 
+export type DropdownProps = DropdownBaseProps & (Single | Multiple)
+
 export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
-  { options, value, onChange, placeholder = 'Select', labelPlacement = 'top', iconLeft, error, className, SelectProps, InputProps, ...props },
+  { options, value, onChange, multiple, placeholder = 'Select', labelPlacement = 'top', iconLeft, error, className, SelectProps, InputProps, ...props },
   ref,
 ) {
   const labelOf = (v: string) => options.find((o) => o.value === v)?.label
+  const picked = (v: unknown) => (multiple ? (v as string[]).map(labelOf).join(', ') : labelOf(v as string))
+  const isEmpty = multiple ? value.length === 0 : !value
   return (
     <TextField
       ref={ref}
       select
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => (onChange as (v: unknown) => void)(e.target.value)}
       error={error}
       className={[labelPlacement === 'start' && 'ds-label-start', className].filter(Boolean).join(' ') || undefined}
       SelectProps={{
         displayEmpty: true,
+        multiple,
         renderValue: (v) =>
-          v ? labelOf(v as string) : <Box component="span" sx={{ color: 'text.disabled' }}>{placeholder}</Box>,
+          !isEmpty ? picked(v) : <Box component="span" sx={{ color: 'text.disabled' }}>{placeholder}</Box>,
         ...SelectProps,
       }}
       InputProps={{
@@ -64,6 +75,12 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
     >
       {options.map((o) => (
         <MenuItem key={o.value} value={o.value} disabled={o.disabled}>
+          {multiple &&
+            (value.includes(o.value) ? (
+              <CheckboxCheckedIcon className="ds-row-check" />
+            ) : (
+              <CheckboxIcon className="ds-row-check" />
+            ))}
           {o.label}
         </MenuItem>
       ))}

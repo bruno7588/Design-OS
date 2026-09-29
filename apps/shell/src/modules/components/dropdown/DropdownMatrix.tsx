@@ -1,5 +1,5 @@
 import { Box, ListItemIcon, MenuItem, MenuList, Stack, Typography } from '@mui/material'
-import { Dropdown, menuPaperStyles, type DropdownProps, type Mode } from '@design-os/components'
+import { CheckboxCheckedIcon, CheckboxIcon, Dropdown, menuPaperStyles, type DropdownBaseProps, type Mode } from '@design-os/components'
 import { Sort } from 'iconsax-react'
 import { Canvas } from '../shared/Canvas'
 
@@ -15,7 +15,7 @@ export const OPTIONS = [
 export const STATES = ['Enabled', 'Hover', 'Active', 'Error', 'Disabled'] as const
 export type DropdownState = (typeof STATES)[number]
 
-export function stateProps(state: DropdownState): Partial<DropdownProps> {
+export function stateProps(state: DropdownState): Partial<DropdownBaseProps> {
   switch (state) {
     case 'Hover':
       return { InputProps: { className: 'ds-hover' } }
@@ -30,7 +30,7 @@ export function stateProps(state: DropdownState): Partial<DropdownProps> {
   }
 }
 
-const LAYOUTS: { name: string; props: Partial<DropdownProps> }[] = [
+const LAYOUTS: { name: string; props: Partial<DropdownBaseProps> }[] = [
   { name: 'Field', props: {} },
   { name: 'Label top and helper', props: { label: 'Label', helperText: 'Helper text' } },
   { name: 'Label start', props: { label: 'Label', labelPlacement: 'start' } },
@@ -90,6 +90,33 @@ export function DropdownMatrix({ mode }: { mode: Mode }) {
                   <Sort color="currentColor" />
                 </ListItemIcon>
                 Icon left
+              </MenuItem>
+            </MenuList>
+          </Box>
+          <Typography variant="h6" color="text.secondary" sx={{ mt: 4 }}>
+            Multi-select
+          </Typography>
+          <Box data-testid={`dropdown-multi-${mode}`} sx={(theme) => ({ ...menuPaperStyles(theme), width: 200 })}>
+            <MenuList sx={{ p: 2 }}>
+              <MenuItem>
+                <CheckboxIcon className="ds-row-check" />
+                Enabled
+              </MenuItem>
+              <MenuItem className="ds-hover">
+                <CheckboxIcon className="ds-row-check" />
+                Hover
+              </MenuItem>
+              <MenuItem selected>
+                <CheckboxCheckedIcon className="ds-row-check" />
+                Selected
+              </MenuItem>
+              <MenuItem selected className="ds-hover">
+                <CheckboxCheckedIcon className="ds-row-check" />
+                Selected · hover
+              </MenuItem>
+              <MenuItem disabled>
+                <CheckboxIcon className="ds-row-check" />
+                Disabled
               </MenuItem>
             </MenuList>
           </Box>

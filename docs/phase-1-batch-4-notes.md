@@ -74,4 +74,4 @@ The shell's own panels use stock MUI TextField and Select, so they now render as
 
 ## Not built yet (shown in the inventory as missing in code)
 - **Input field:** the Integer, Inline and Radio button inputs.
-- **Dropdown menu rows:** checkbox, radio, avatar, skill icon, search, helper and supporting text. These arrive with the Checkbox and Radio batch, along with multi-select.
+- **Dropdown menu rows:** radio, avatar, skill icon, search, helper and supporting text. Checkbox rows and multi-select arrived in batch 5.

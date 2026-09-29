@@ -29,7 +29,9 @@ const compare: Compare = {
       status: 'Matches',
       note: 'Added to both Figma sets on 2026-09-29 (Bruno). The prototype uses Danger-500 in both modes, leaves the label unchanged and has no icon: code to update there.',
     },
-    { property: 'Rich rows', figma: 'Checkbox, radio, avatar, skill icon, search, helper and supporting text rows', reference: 'Not built yet', status: 'Code to update', note: 'They arrive with Checkbox and Radio; the inventory lists them as missing in code.' },
+    { property: 'Checkbox rows (multi-select)', figma: 'List itens Checkbox=true: a 16px checkbox, 12px from the label; selected rows keep the Cards-background fill', reference: 'Dropdown multiple: the same rows, the picks listed in the field', status: 'Matches', note: 'The checkbox is a glyph, so each row stays one option in an aria-multiselectable listbox.' },
+    { property: 'Radio rows', figma: 'List itens Radio=true: the radio instance is 16×24 on some rows and 20×20 on others', reference: 'Not built', status: 'Design to update', note: 'Make the radio instance the same size on every row. A single-select dropdown already shows its pick with the Secondary-500 row.' },
+    { property: 'Rich rows', figma: 'Avatar, skill icon, search, helper and supporting text rows', reference: 'Not built yet', status: 'Code to update', note: 'The inventory lists them as missing in code.' },
     {
       property: 'Accessibility',
       figma: 'Not shown',

@@ -90,3 +90,38 @@ test('an error in the preview is announced', async ({ page }) => {
   await expect(combo).toHaveAccessibleDescription('Select a department to continue')
   await expect(page.locator('input[aria-invalid="true"]').first()).toHaveCount(1)
 })
+
+test('multi-select rows match the Figma checkbox rows', async ({ page }) => {
+  const rows = await page.getByTestId('dropdown-multi-light').evaluate((el) =>
+    [...el.querySelectorAll('.MuiMenuItem-root')].map((r) => {
+      const glyph = r.querySelector('.ds-row-check')!.getBoundingClientRect()
+      const range = document.createRange()
+      range.selectNodeContents(r.lastChild!)
+      return {
+        h: Math.round(r.getBoundingClientRect().height),
+        gap: Math.round(range.getBoundingClientRect().left - glyph.right),
+        glyph: Math.round(glyph.width),
+        bg: getComputedStyle(r).backgroundColor,
+        check: getComputedStyle(r.querySelector('.ds-row-check')!).color,
+        weight: getComputedStyle(r).fontWeight,
+      }
+    }),
+  )
+  for (const r of rows) expect(r).toMatchObject({ h: 37, gap: 12, glyph: 16 })
+  expect(rows[1].bg).toBe('rgb(239, 240, 242)') // hover
+  expect(rows[2]).toMatchObject({ bg: 'rgba(0, 0, 0, 0)', check: 'rgb(237, 163, 13)', weight: '400' }) // selected keeps the plain fill
+  expect(rows[3].bg).toBe('rgb(239, 240, 242)') // selected and hovered
+})
+
+test('multi-select picks several and lists them in the field', async ({ page }) => {
+  await page.getByLabel('Multiple').check()
+  const combo = page.getByRole('combobox', { name: 'Department' })
+  await combo.click()
+  const listbox = page.getByRole('listbox')
+  await expect(listbox).toHaveAttribute('aria-multiselectable', 'true')
+  await listbox.getByRole('option', { name: 'People' }).click()
+  await listbox.getByRole('option', { name: 'Sales' }).click()
+  await expect(listbox.getByRole('option', { name: 'Sales' })).toHaveAttribute('aria-selected', 'true')
+  await page.keyboard.press('Escape')
+  await expect(combo).toHaveText('People, Sales')
+})

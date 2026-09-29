@@ -64,3 +64,59 @@ export function CloseOutlineIcon({ size = 16, ...props }: IconProps) {
     </svg>
   )
 }
+
+// Checkbox and radio glyphs, copied from the Checkbox (11917:3924) and radio-button (11917:3950) sets.
+// They take currentColor, so the theme colours them per state. The checked and indeterminate
+// boxes are one filled shape with the tick or bar cut out, as in Figma: the mark shows what's behind.
+
+const BOX = 'M11.3577 0H4.6503C1.7369 0 0 1.736 0 4.648V11.344C0 14.264 1.7369 16 4.6503 16H11.3497C14.2631 16 16 14.264 16 11.352V4.648C16.008 1.736 14.2711 0 11.3577 0Z'
+
+/** Checkbox, not checked: a 16px box with a 1px border inside. */
+export function CheckboxIcon({ size = 16, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+      <rect x={0.5} y={0.5} width={15} height={15} rx={4.9} stroke="currentColor" />
+    </svg>
+  )
+}
+
+/** Checkbox, checked. */
+export function CheckboxCheckedIcon({ size = 16, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d={`${BOX}M11.8299 6.16L7.2916 10.696C7.1796 10.808 7.0275 10.872 6.8674 10.872C6.7073 10.872 6.5553 10.808 6.4432 10.696L4.1781 8.432C3.946 8.2 3.946 7.816 4.1781 7.584C4.4102 7.352 4.7944 7.352 5.0265 7.584L6.8674 9.424L10.9815 5.312C11.2136 5.08 11.5978 5.08 11.8299 5.312C12.062 5.544 12.062 5.92 11.8299 6.16Z`}
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+/** Checkbox, indeterminate. */
+export function CheckboxIndeterminateIcon({ size = 16, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+      <path fillRule="evenodd" d={`${BOX}M11.2056 8.6H4.8024C4.4742 8.6 4.2021 8.328 4.2021 8C4.2021 7.672 4.4742 7.4 4.8024 7.4H11.2056C11.5337 7.4 11.8059 7.672 11.8059 8C11.8059 8.328 11.5337 8.6 11.2056 8.6Z`} fill="currentColor" />
+    </svg>
+  )
+}
+
+/** Radio, not selected: a 15px ring in a 24px frame. */
+export function RadioIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <circle cx={12} cy={12} r={7.5} stroke="currentColor" strokeWidth={1.07} />
+    </svg>
+  )
+}
+
+/** Radio, selected: the ring and a 7.5px dot. */
+export function RadioCheckedIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <circle cx={12} cy={12} r={7.5} stroke="currentColor" strokeWidth={1.07} />
+      <circle cx={12} cy={12} r={3.75} fill="currentColor" />
+    </svg>
+  )
+}

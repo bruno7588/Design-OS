@@ -23,6 +23,8 @@ export function DropdownPreview() {
   const [helper, setHelper] = useState(true)
   const [disabled, setDisabled] = useState(false)
   const [error, setError] = useState(false)
+  const [multiple, setMultiple] = useState(false)
+  const [values, setValues] = useState<string[]>([])
 
   return (
     <PreviewLayout
@@ -33,10 +35,9 @@ export function DropdownPreview() {
           <Dropdown
             label="Department"
             labelPlacement={placement}
-            placeholder="Select a department"
+            placeholder={multiple ? "Select departments" : "Select a department"}
             options={DEPARTMENTS}
-            value={value}
-            onChange={setValue}
+            {...(multiple ? { multiple: true as const, value: values, onChange: setValues } : { value, onChange: setValue })}
             error={error}
             helperText={error ? 'Select a department to continue' : helper ? 'Learners see courses for their department first.' : undefined}
             iconLeft={icon ? <Sort color="currentColor" /> : undefined}
@@ -59,6 +60,7 @@ export function DropdownPreview() {
           </Control>
           <FormControlLabel control={<Switch checked={icon} onChange={(e) => setIcon(e.target.checked)} />} label="Icon left" />
           <FormControlLabel control={<Switch checked={helper} onChange={(e) => setHelper(e.target.checked)} />} label="Helper text" />
+          <FormControlLabel control={<Switch checked={multiple} onChange={(e) => setMultiple(e.target.checked)} />} label="Multiple" />
           <FormControlLabel control={<Switch checked={error} onChange={(e) => setError(e.target.checked)} />} label="Error" />
           <FormControlLabel control={<Switch checked={disabled} onChange={(e) => setDisabled(e.target.checked)} />} label="Disabled" />
         </>
