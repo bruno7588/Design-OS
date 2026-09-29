@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 23,
-    "both": 23,
-    "figmaOnly": 54,
+    "inCode": 28,
+    "both": 28,
+    "figmaOnly": 49,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -2599,11 +2599,15 @@
         "Table row10:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Table (MUI)",
+        "mui": "Table",
+        "path": "packages/components/src/Table"
+      },
       "prototype": "Table",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Table row",
@@ -2634,11 +2638,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "TableRow (MUI)",
+        "mui": "TableRow",
+        "path": "packages/components/src/Table"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Table header",
@@ -2671,11 +2679,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "TableHead (MUI)",
+        "mui": "TableCell (head), TableSortLabel",
+        "path": "packages/components/src/Table"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Table data",
@@ -2751,11 +2763,22 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "CellContent",
+        "mui": "TableCell (body)",
+        "path": "packages/components/src/Table"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {
+        "Progress bar": [
+          "true"
+        ],
+        "Illustration": [
+          "true"
+        ]
+      },
+      "missingInFigma": {}
     },
     {
       "name": "Thumbnail type",
@@ -2777,11 +2800,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "TableThumbnail",
+        "mui": "img",
+        "path": "packages/components/src/Table"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Toast",

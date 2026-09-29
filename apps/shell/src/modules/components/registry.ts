@@ -79,6 +79,10 @@ import { ContentSwitcherPreview } from './content-switcher/ContentSwitcherPrevie
 import { ContentSwitcherCode } from './content-switcher/ContentSwitcherCode'
 import { ContentSwitcherGuidelines } from './content-switcher/ContentSwitcherGuidelines'
 import { ContentSwitcherCompare } from './content-switcher/ContentSwitcherCompare'
+import { TablePreview } from './table/TablePreview'
+import { TableCode } from './table/TableCode'
+import { TableGuidelines } from './table/TableGuidelines'
+import { TableCompare } from './table/TableCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -317,6 +321,17 @@ export const components: ComponentDoc[] = [
     Code: ContentSwitcherCode,
     Guidelines: ContentSwitcherGuidelines,
     Compare: ContentSwitcherCompare,
+  },
+  {
+    slug: 'table',
+    name: 'Table',
+    summary: 'Rows of records to compare, sort and select, each row its own card under a header bar.',
+    figma: { light: `${LIBRARY}11927-7332`, dark: `${LIBRARY}7896-2624` },
+    spec: 'playground/docs/design-system/table.md',
+    Preview: TablePreview,
+    Code: TableCode,
+    Guidelines: TableGuidelines,
+    Compare: TableCompare,
   },
 ]
 

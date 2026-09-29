@@ -25,6 +25,7 @@ import { MuiDrawer } from '../Overlay/overlay.overrides'
 import { MuiAvatar, MuiAvatarGroup } from '../Avatar/avatar.overrides'
 import { MuiBreadcrumbs } from '../Breadcrumb/breadcrumb.overrides'
 import { MuiToggleButton, MuiToggleButtonGroup } from '../ContentSwitcher/contentSwitcher.overrides'
+import { MuiTable, MuiTableCell, MuiTablePagination, MuiTableRow, MuiTableSortLabel } from '../Table/table.overrides'
 import { MuiCheckbox, MuiFormControlLabel, MuiFormLabel, MuiRadio, MuiSwitch } from '../Selection/selection.overrides'
 
 export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
@@ -78,6 +79,11 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiBreadcrumbs,
       MuiToggleButtonGroup,
       MuiToggleButton,
+      MuiTable,
+      MuiTableCell,
+      MuiTableRow,
+      MuiTableSortLabel,
+      MuiTablePagination,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })

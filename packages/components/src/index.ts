@@ -60,3 +60,5 @@ export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem } from './Breadcr
 export { breadcrumbFigma, breadcrumbItemFigma } from './Breadcrumb/breadcrumb.figma'
 export { ContentSwitcher, type ContentSwitcherProps, type ContentSwitcherItem } from './ContentSwitcher/ContentSwitcher'
 export { contentSwitcherFigma, contentSwitcherItemFigma } from './ContentSwitcher/contentSwitcher.figma'
+export { CellContent, CellDate, TableThumbnail, type CellContentProps, type ThumbnailType } from './Table/CellContent'
+export { tableFigma, tableRowFigma, tableHeaderFigma, tableDataFigma, thumbnailTypeFigma } from './Table/table.figma'
