@@ -21,7 +21,7 @@ const compare: Compare = {
     { property: 'Off, dark mode', figma: 'Text-disabled: Neutral-400', reference: 'Same', status: 'Matches' },
     { property: 'Thumb', figma: 'Neutral-25, no shadow', reference: 'Same', status: 'Matches', note: 'The prototype adds a 0 1px 2px shadow: code to update there.' },
     { property: 'Hover', figma: 'None', reference: 'None', status: 'Matches' },
-    { property: 'Disabled', figma: 'Not in the set', reference: 'The track at 40%, the label in Text-disabled', status: 'Design to update', note: 'Follows the prototype.' },
+    { property: 'Disabled', figma: 'Not in the set', reference: 'Text-disabled track, on or off; the label in Text-disabled', status: 'Design to update', note: 'Decided 2026-09-29, like the disabled checkbox and radio. The prototype fades Selected to 40% when on: code to update there.' },
     { property: 'Focus', figma: 'Not in the set', reference: '2px ring in the primary button colour, 2px outside the track', status: 'Design to update' },
     { property: 'Small size', figma: 'Not in the set', reference: 'Not built', status: 'Design to update', note: 'The prototype has a 28×16 size. Add it to Figma or remove it from the prototype.' },
     { property: 'Semantics', figma: 'Not shown', reference: 'A checkbox input with role switch, linked to its label', status: 'Matches', note: 'MUI 5 Switch has no switch role: the Toggle wrapper adds it. The prototype Toggle has it too.' },

@@ -34,7 +34,7 @@ const g: Guidelines = {
   states: [
     { name: 'Enabled', description: 'On or off. Figma has no hover state.' },
     { name: 'Focus', description: 'A 2px ring in the primary button colour, 2px outside the track. Not in Figma yet.' },
-    { name: 'Disabled', description: 'The track at 40%, the label in Text-disabled. Not in Figma yet.' },
+    { name: 'Disabled', description: 'Text-disabled track, on or off: only the thumb shows the value. The label in Text-disabled. Not in Figma yet.' },
   ],
   dos: [
     {

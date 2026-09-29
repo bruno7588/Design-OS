@@ -19,7 +19,7 @@ const compare: Compare = {
       note: 'The mark shows what is behind it: white on a light page, dark in dark mode. The prototype draws a white mark on top.',
     },
     { property: 'Hover', figma: 'Page-background-hover halo, radius XXL', reference: 'Same, also when hovering the label', status: 'Matches' },
-    { property: 'Disabled', figma: 'Not checked only: Text-disabled border', reference: 'Text-disabled for every value', status: 'Design to update', note: 'Add Disabled Checked and Disabled Indeterminate frames.' },
+    { property: 'Disabled', figma: 'Not checked only: Text-disabled border', reference: 'Text-disabled for every value: the border, or the fill of checked and indeterminate', status: 'Design to update', note: 'Add Disabled Checked and Disabled Indeterminate frames, filled with Text-disabled (decided 2026-09-29).' },
     { property: 'Focus', figma: 'Not in the set', reference: '2px ring in the primary button colour round the halo', status: 'Design to update', note: 'The same ring as Button, Chip and Tabs.' },
     { property: 'Label', figma: 'Not in the set (the List itens rows put the box 12px from the text)', reference: 'FormControlLabel: Regular 14px Text-primary, 12px from the box', status: 'Matches' },
     {

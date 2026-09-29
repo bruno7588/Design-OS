@@ -36,6 +36,7 @@ function controlStyles(theme: Theme, halo: number, glyph: number): CSSObject {
     '&:hover, &.ds-hover': { backgroundColor: s.pageBackgroundHover },
     '&.Mui-checked, &.MuiCheckbox-indeterminate': { color: s.selected },
     '&.Mui-disabled': { color: s.textDisabled, backgroundColor: 'transparent' },
+    // Disabled is Text-disabled whatever the value, indeterminate included.
     // Figma has no focus frames: the ring the other components use, on the halo.
     '&.Mui-focusVisible, &.ds-focus': { outline: `2px solid ${s.primaryButtonBackground}`, outlineOffset: 0 },
   }
@@ -58,8 +59,8 @@ export const MuiRadio: Components<Theme>['MuiRadio'] = {
 }
 
 // Figma Toggle: a 36×20 track, a 16px Neutral-25 thumb 2px in, no shadow and no hover.
-// Off is Text-disabled, on is Selected. Figma has no disabled toggle: the reference
-// follows the prototype and fades the track to 40%.
+// Off is Text-disabled, on is Selected. Figma has no disabled toggle: disabled is
+// Text-disabled, on or off (Bruno, 2026-09-29), like the disabled checkbox and radio.
 export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
   defaultProps: { disableRipple: true },
   styleOverrides: {
@@ -77,7 +78,7 @@ export const MuiSwitch: Components<Theme>['MuiSwitch'] = {
           '&:hover': { backgroundColor: 'transparent' },
           '&.Mui-checked': { transform: 'translateX(16px)' },
           '&.Mui-checked + .MuiSwitch-track': { backgroundColor: s.selected, opacity: 1 },
-          '&.Mui-disabled + .MuiSwitch-track': { opacity: 0.4 },
+          '&.Mui-disabled + .MuiSwitch-track': { backgroundColor: s.textDisabled, opacity: 1 },
         },
         '& .Mui-focusVisible + .MuiSwitch-track, &.ds-focus .MuiSwitch-track': {
           outline: `2px solid ${s.primaryButtonBackground}`,

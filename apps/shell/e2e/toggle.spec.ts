@@ -45,8 +45,8 @@ test('size, thumb and colours match Figma in light mode', async ({ page }) => {
     expect(t[0]).toMatchObject({ thumbLeft: 2, track: 'rgb(158, 164, 179)', opacity: '1' }) // Off: Text-disabled
     expect(t[1]).toMatchObject({ thumbLeft: 18, track: 'rgb(237, 163, 13)', opacity: '1' }) // On: Selected
     expect(t[2].outline).toBe('solid')
-    expect(t[4].opacity).toBe('0.4')
-    expect(t[5].opacity).toBe('0.4')
+    expect(t[4]).toMatchObject({ track: 'rgb(158, 164, 179)', opacity: '1' }) // Disabled off: Text-disabled
+    expect(t[5]).toMatchObject({ track: 'rgb(158, 164, 179)', opacity: '1', thumbLeft: 18 }) // Disabled on: Text-disabled
   }).toPass()
 })
 

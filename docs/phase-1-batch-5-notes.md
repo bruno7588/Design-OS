@@ -34,7 +34,7 @@ The wrappers exist only where MUI 5 falls short:
 
 **Toggle**
 - 36×20 track and a 16px Neutral-25 thumb, 2px in, with no shadow.
-- Off is Text-disabled, on is Selected (light and dark). Disabled is the track at 40%.
+- Off is Text-disabled, on is Selected (light and dark). Disabled is Text-disabled, on or off (decided 2026-09-29).
 - It's a switch, named and described by the settings row.
 
 **Dropdown multi-select**
@@ -56,7 +56,7 @@ Every stock MUI Switch in the Preview panels now draws the Figma Toggle.
 ## Out of date, to update
 
 **Figma**
-- **Checkbox:** no Disabled Checked or Disabled Indeterminate frames; no focus.
+- **Checkbox:** no Disabled Checked or Disabled Indeterminate frames (they should be filled with Text-disabled, decided 2026-09-29); no focus.
 - **Radio:**
   - No focus.
   - The Not selected Hover frame has 3px padding, while the others have none.
@@ -75,7 +75,7 @@ Every stock MUI Switch in the Preview panels now draws the Figma Toggle.
   - A 1.5px ring (Figma: 1.07px).
   - The unselected ring turns Border-hover on hover.
   - The focus ring is Selected.
-- **Toggle:** Neutral-400 off in both modes, and a thumb shadow.
+- **Toggle:** Neutral-400 off in both modes, a thumb shadow, and disabled on fades Selected to 40% (should be Text-disabled).
 - **selection-controls.md:** gives 1.5px strokes for both the box and the ring.
 
 ## Not built yet
