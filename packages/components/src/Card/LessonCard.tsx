@@ -50,6 +50,11 @@ export interface LessonCardProps {
   sx?: SxProps<Theme>
 }
 
+// Figma resizes the media Tag inside two rows. Mobile: 22px, padding 4, a 14px icon.
+// Admin: 20px, padding 2, a 16px icon (Figma scales the corner to 5.7; the Tag keeps its 8).
+const TAG_MOBILE = { width: 22, height: 22, '& svg': { width: 14, height: 14 } }
+const TAG_ADMIN = (theme: Theme) => ({ width: 20, height: 20, padding: `${theme.tokens.space.xxs}px`, '& svg': { width: 16, height: 16 } })
+
 const Thumb = ({ image, size, radius, disabled, children }: { image?: string; size?: number; radius: number; disabled?: boolean; children?: ReactNode }) => (
   <Box
     className="ds-card-thumb"
@@ -155,7 +160,7 @@ export function LessonCard({
       <CardRoot className={['ds-lesson-card', className].filter(Boolean).join(' ')} radius="s" hover={false} sx={[(theme) => ({ display: 'flex', flexDirection: 'column', color: disabled ? theme.tokens.semantic.textDisabled : undefined }), ...(Array.isArray(sx) ? sx : [sx])]}>
         <Box sx={(theme) => ({ display: 'flex', alignItems: 'flex-start', gap: `${theme.tokens.space.sm}px`, padding: `${theme.tokens.space.sm}px` })}>
           <Thumb image={image} size={56} radius={4} disabled={disabled}>
-            <Tag type={mediaType} size="S" sx={{ position: 'absolute', top: 0, left: 0 }} />
+            <Tag type={mediaType} size="S" sx={[{ position: 'absolute', top: 0, left: 0 }, TAG_MOBILE]} />
           </Thumb>
           <Box sx={(theme) => ({ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: `${quizButton ? theme.tokens.space.sm : theme.tokens.space.xs}px` })}>
             <Box sx={(theme) => ({ display: 'flex', flexDirection: 'column', gap: `${theme.tokens.space.xs}px`, alignSelf: 'stretch', minWidth: 0 })}>
@@ -190,7 +195,7 @@ export function LessonCard({
         ]}
       >
         <Thumb image={image} size={48} radius={8}>
-          <Tag type={mediaType} size="S" sx={{ position: 'absolute', top: 0, left: 0 }} />
+          <Tag type={mediaType} size="S" sx={[{ position: 'absolute', top: 0, left: 0 }, TAG_ADMIN]} />
         </Thumb>
         <Box sx={(theme) => ({ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: `${theme.tokens.space.xs}px` })}>
           <CardTitle onClick={onClick} sx={(theme) => ({ fontSize: 16, fontWeight: 700, lineHeight: 1.5, color: theme.tokens.semantic.textPrimary, ...clamp(1) })}>

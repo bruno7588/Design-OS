@@ -68,6 +68,15 @@ test('progress, quiz buttons and completed states', async ({ page }) => {
   expect(bars[14]).toEqual([96, 4, 'rgb(0, 175, 196)'])
   expect(bars[16]).toBeNull() // quiz pending: no bar
 
+  // Media Tag sizes follow Figma: 28 / icon 20 (grid, web), 22 / 14 (mobile), 20 / 16 (Admin)
+  const tags = await m.evaluate((el) =>
+    [...el.querySelectorAll('.ds-lesson-card')].map((c) => {
+      const t = c.querySelector('.ds-tag')!
+      return [Math.round(t.getBoundingClientRect().width), Math.round(t.querySelector('svg')!.getBoundingClientRect().width)]
+    }),
+  )
+  expect([tags[0], tags[6], tags[12], tags[14]]).toEqual([[28, 20], [22, 14], [20, 16], [28, 20]])
+
   const cards = m.locator('.ds-lesson-card')
   await expect(cards.nth(8).getByRole('button', { name: 'Take Quiz' })).toBeVisible()
   await expect(cards.nth(9).getByRole('button', { name: 'Retake Quiz' })).toBeEnabled()

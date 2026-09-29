@@ -47,19 +47,22 @@ Checked 2026-09-29.
 - **Inventory:** 52 components in code, 25 Figma-only.
 
 ## Mismatches recorded (Design to update)
-- **Shadow:** the light Lessons and Resources sets carry Shadow S, but the light Assessments set doesn't. Code gives all three Shadow S in light mode.
 - **Title on hover:** Lesson list rows turn the title Text-button-hover, but Assessment rows keep Text-primary.
 - **Quiz naming on Lessons:**
   - On web, Completed with Quiz=n/a shows a disabled Retake Quiz.
   - On mobile, that disabled button sits on Completed with Quiz=n/a, and Quiz=Completed shows no button.
   - Code has `quiz: 'pending' | 'passed'`: passed shows the disabled Retake Quiz, and no quiz shows no button.
-- **Media Tag sizes:** the Admin (20px, 16 icon) and mobile (22px, 14 icon) Tags are resized instances. Code uses Tag S (24, 16 icon).
-- **Duration badge:** a raw `#0F1014` at 50%. Code uses Neutral-900 at 50%.
-- **Review on the web app:** an older 37px Buttons Medium instance. Code uses the current Medium (41). The row stays 112 either way.
 - **Completed Assessment hover:** Review switches to Outlined-2 Hover with a raw `#00CEE6` at 16% fill. In code the button only changes when it's pointed at itself.
 - **Admin Lesson row:** it's 74px, while its contents add up to 73, the same as the Admin Assessment row. Code is 73.
 - **Type thumbnail:** the light set has no Image variant.
 - **Resource link action:** Figma draws only Download. Code adds Open link (export-square), from `resource-card.md`.
+
+## Follow-up (Bruno, 2026-09-29)
+- **Every card has Shadow S in light mode:** Figma's light Assessments set now has it on all 11 variants.
+- **Tag sizes follow Figma:** in code the mobile row's Tag is 22px (padding 4, 14px icon) and the Admin row's is 20px (padding 2, 16px icon). The Admin corner stays the Tag's 8; Figma scales it to 5.7.
+- **Review uses the current Medium:** in both Assessments sets, the web app Review buttons had padding overrides (8/16, 37px). They're reset to the component's own 10/20 (41px). The rows stay 112.
+- **Duration badge is Neutral-900 at 50%:** all 12 badges in both Lessons sets are bound to it.
+- **Still open:** title hover (Lessons against Assessments), the Lesson quiz naming, the completed Assessment hover, the light Type thumbnail's missing Image and the link action.
 
 ## Prototype differences
 - **The prototype has:** `LessonGridCard`, `ResourceCard` and the mobile Lesson and Assessment cards.
