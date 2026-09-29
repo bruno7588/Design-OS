@@ -38,7 +38,7 @@ export function ComponentPage() {
         sx={(theme) => ({ mb: 8, borderBottom: `1px solid ${theme.tokens.semantic.border}` })}
       >
         {TABS.map((t) => (
-          <Tab key={t} value={t} label={t} disableRipple sx={{ textTransform: 'none' }} />
+          <Tab key={t} value={t} label={t} />
         ))}
       </Tabs>
 

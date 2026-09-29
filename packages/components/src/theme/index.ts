@@ -7,6 +7,9 @@ import './augment'
 import { tokensFor, type Mode } from './tokens'
 import { typography } from './typography'
 import { MuiButton } from '../Button/button.overrides'
+import { MuiChip } from '../Chip/chip.overrides'
+import { MuiTab, MuiTabs } from '../Tabs/tabs.overrides'
+import { MuiDialog } from '../Dialog/dialog.overrides'
 
 export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
   const t = tokensFor(mode)
@@ -33,6 +36,10 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
     shape: { borderRadius: t.radius.sm },
     components: {
       MuiButton,
+      MuiChip,
+      MuiTabs,
+      MuiTab,
+      MuiDialog,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })

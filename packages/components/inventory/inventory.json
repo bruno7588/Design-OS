@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-28",
   "summary": {
     "inFigma": 77,
-    "inCode": 1,
-    "both": 1,
-    "figmaOnly": 76,
+    "inCode": 4,
+    "both": 4,
+    "figmaOnly": 73,
     "codeOnly": 0
   },
   "rows": [
@@ -831,11 +831,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Chip",
+        "mui": "Chip",
+        "path": "packages/components/src/Chip"
+      },
       "prototype": "Chip",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Content switcher",
@@ -939,11 +943,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Tab",
+        "mui": "Tabs + Tab",
+        "path": "packages/components/src/Tabs"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Dialog",
@@ -975,11 +983,15 @@
         "Info:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ConfirmDialog",
+        "mui": "Dialog",
+        "path": "packages/components/src/Dialog"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Modal",

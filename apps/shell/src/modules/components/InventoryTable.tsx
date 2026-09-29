@@ -104,7 +104,10 @@ export function InventoryTable() {
 }
 
 function NameLink({ row }: { row: InventoryRow }) {
-  const doc = row.code && components.find((c) => c.name === row.code!.component)
+  // A built page is linked by its Figma node, since code names differ (Tab, ConfirmDialog).
+  const doc = components.find((c) =>
+    row.nodes.some((n) => [c.figma.light, c.figma.dark].some((url) => url.endsWith(`node-id=${n.replace(':', '-')}`))),
+  )
   if (doc) {
     return (
       <Link component={RouterLink} to={`/components/${doc.slug}`} variant="body2" sx={{ fontWeight: 600 }}>

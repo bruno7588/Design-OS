@@ -6,7 +6,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 0 (foundations): done. Empty shell and server.
 - Phase 1a (theme and Button): done. Light and dark MUI theme from the Figma tokens, Button on MUI Button, Components module with Preview, Code and Guidelines tabs (Compare is empty). Figma and prototype mismatches: `docs/phase-1a-button-notes.md`.
 - Phase 1b (inventory and Compare): done. `component-inventory` skill plus `pnpm inventory`; overview with filters on `/components`; Button's Compare tab (Figma frame at 1:1 next to the live reference, differences, inventory status, notes for engineering).
-- Next: Phase 1, next batch: Chip, Tabs, Dialog.
+- Phase 1, batch 2 (Chip, Tabs, Dialog): done. Notes and open decisions: `docs/phase-1-batch-2-notes.md` (the dark Border token needs a decision).
+- Next: Phase 1, next batch (most used first), or Phase 1c (share with engineering).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
@@ -25,7 +26,7 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - `pnpm dev`: starts shell and server together
 - `pnpm build`: type-checks and builds every package
 - `pnpm inventory`: rebuilds `inventory.json` from `figma.json` and the code (no Figma needed)
-- `cd apps/shell && pnpm exec playwright test`: component, inventory and Compare checks, plus screenshots (`e2e/screenshots`)
+- `cd apps/shell && pnpm exec playwright test`: component, inventory and Compare checks, plus screenshots (`e2e/screenshots`). `e2e/review.spec.ts` captures each component's Preview and Compare tabs for sign-off
 - Playground: `cd playground && npm install && npm run dev`
 
 ## Stack (matches engineering, we have no access to production code)

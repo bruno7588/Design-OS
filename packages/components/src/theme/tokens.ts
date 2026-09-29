@@ -54,6 +54,9 @@ const light = {
   textButtonOutlined: p.primary[700],
   buttonOutlineFillHover: 'rgba(0, 206, 230, 0.16)', // Primary-500 @ 16%
   selected: p.secondary[600],
+  // Selected chip fill: Secondary-500 in both modes (Figma Chips), unlike `selected`.
+  chipSelectedBackground: p.secondary[500],
+  textOnSelected: p.neutral[800],
   scrim: 'rgba(15, 16, 20, 0.25)',
 }
 
@@ -102,7 +105,8 @@ export const iconSize = { sm: 16, md: 20, lg: 24, xl: 32 } as const
 
 export const shadow = {
   s: '-1px -1px 4px 0 rgba(32, 34, 42, 0.04), 1px 1px 4px 0 rgba(32, 34, 42, 0.04)',
-  l: '4px 4px 24px 0 rgba(32, 34, 42, 0.12)',
+  // Figma Shadow L (checked on the Dialog set, 2026-09-28). The prototype's tokens.css has 4px 4px 24px.
+  l: '-4px 0 24px 0 rgba(32, 34, 42, 0.12)',
   xl: '0 4px 32px 0 rgba(32, 34, 42, 0.24)',
   panel: '-24px 0px 24px 0px rgba(32, 34, 42, 0.04)',
 } as const
