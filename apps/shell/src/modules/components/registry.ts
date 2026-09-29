@@ -510,7 +510,7 @@ export const components: ComponentDoc[] = [
     slug: 'top-navigation',
     name: 'Top navigation',
     summary: 'The bar across the top of every page: the logo and a few global actions.',
-    figma: { light: `${LIBRARY}11982-3602`, dark: `${LIBRARY}5385-20137` },
+    figma: { light: `${LIBRARY}12328-8954`, dark: `${LIBRARY}5385-20137` },
     spec: 'playground/docs/design-system/navigation.md',
     Preview: TopNavigationPreview,
     Code: TopNavigationCode,

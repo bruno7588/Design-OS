@@ -13,7 +13,8 @@ const g: Guidelines = {
     example: <Wide><TopNav system="admin" /></Wide>,
     parts: [
       { name: 'Bar', description: '70px (72 small), Page-background, a 1px Border underneath, padding 8px by 32px (16 small).' },
-      { name: 'Logo', description: '5Mins.ai, 102 × 22.' },
+      { name: 'Menu button (Admin)', description: 'sidebar-left, 20px, before the logo: expands and collapses the side navigation.' },
+      { name: 'Logo', description: '5Mins.ai, 102 × 22, 16px after the menu button.' },
       { name: 'Actions', description: 'Admin: Exit Admin (Outlined-2), the theme button and Log out, 16px apart. Web app: Get App, Create, Streak and Events, 24px apart.' },
       { name: 'Icon buttons', description: '32px round, 20 to 24px icons in Text-primary, Page-background-hover on hover.' },
     ],
@@ -32,11 +33,11 @@ const g: Guidelines = {
   content: ['Button labels in Title Case: "Exit Admin", "Get App".', 'Icon buttons need a name: "Log out", "Switch to dark mode".'],
   accessibility: [
     'The bar is the banner landmark (header).',
-    'Every icon button has an accessible name and a tooltip.',
+    'Every icon button has an accessible name and a tooltip. The menu button has aria-expanded.',
     'The theme button says what it switches to, and Events says when there is something new.',
   ],
   figma: [
-    { label: 'Top Nav/Admin, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=11982-3602' },
+    { label: 'Top Nav/Admin, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12328-8954' },
     { label: 'Top Nav/Admin, dark mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=5385-20137' },
   ],
   spec: 'playground/docs/design-system/navigation.md',

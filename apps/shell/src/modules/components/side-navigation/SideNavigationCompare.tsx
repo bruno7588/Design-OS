@@ -13,7 +13,7 @@ const compare: Compare = {
     { property: 'Panel', figma: '240 wide; collapsed 88 (web) and 68 (Admin); Admin 1px Border on the right', reference: 'Same', status: 'Matches' },
     { property: 'Web app item', figma: 'Padding 16, 24px Bold icon, Regular 16, radius 8; selected Text-selected Bold', reference: 'Same', status: 'Matches' },
     { property: 'Admin item', figma: 'Padding 12/16, 20px Linear icon (Bold when selected), Regular 14; menu gap 4', reference: 'Same', status: 'Matches' },
-    { property: 'Sub-menu item', figma: 'Component: padding 12/16/12/42. Panel: 8/16/8/44', reference: 'The component (12/16/12/42)', status: 'Design to update', note: 'The assembled panel uses older sub-items; navigation.md already takes the component as the reference.' },
+    { property: 'Sub-menu item', figma: 'Padding 12/16/12/42, 45px (the panels follow the component since 2026-09-29)', reference: 'Same', status: 'Matches' },
     { property: 'Hover', figma: 'Input-background', reference: 'Same', status: 'Matches' },
     { property: 'Collapsed hover', figma: 'The tile fills and a Tooltip (Position=Right) shows the label', reference: 'MUI Tooltip on the right, on hover and focus', status: 'Matches' },
     { property: 'Group with a selected item', figma: 'Bold label and icon in Text-secondary', reference: 'Same', status: 'Matches', note: 'navigation.md also gives it a Page-background-hover fill; Figma doesn’t.' },

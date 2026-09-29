@@ -75,7 +75,7 @@ Base: `padding: 12px 16px` · radius 8 · icon **20px Iconsax Linear** · label 
 
 **Expandable groups** (People & Teams, Content) append a 14px `ArrowDown2`/`ArrowUp2` chevron right-aligned (label flexes). **Sub-menu items** are text-only rows: `padding: 12px 16px 12px 42px` (aligns text under the parent label), Regular 14 `--text-tertiary`.
 
-> Reversed 2026-08-13. The assembled panel (`11925:5294`) draws sub-items at `44px` left / `8px` vertical, the item component at `42px` / `12px`; this doc previously took the panel as reference. The component set — `10372:4045`, which carries the full Menu/Sub-menu × selected × Enabled/Hover matrix — is now the reference, so sub-items are **42px / 12px** and menu items share the same `12px 16px` row metrics. `LeftSidebar` follows this.
+> Settled 2026-09-29: the assembled panels now use the component values too (12px / 42px), so the panel and the component agree. Earlier note: the assembled panel (`11925:5294`) drew sub-items at `44px` left / `8px` vertical, the item component at `42px` / `12px`; this doc previously took the panel as reference. The component set — `10372:4045`, which carries the full Menu/Sub-menu × selected × Enabled/Hover matrix — is now the reference, so sub-items are **42px / 12px** and menu items share the same `12px 16px` row metrics. `LeftSidebar` follows this.
 
 ### Item states (both systems)
 
@@ -135,8 +135,8 @@ Base: `padding: 12px 16px` · radius 8 · icon **20px Iconsax Linear** · label 
 .side-nav__item--open      { background: var(--page-background-hover); }
 
 .side-nav__sub-item {
-  padding: var(--space-s) var(--space-m);
-  padding-left: 44px;
+  padding: var(--space-sm) var(--space-m);
+  padding-left: 42px;
   font: 400 14px/1.5 'Poppins', sans-serif;
   color: var(--text-tertiary);
 }

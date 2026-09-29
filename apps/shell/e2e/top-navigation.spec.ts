@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-// Top navigation checks against Figma Top Nav/Admin (dark 5385:20137, light 11982:3602).
+// Top navigation checks against Figma Top Nav/Admin (dark 5385:20137, light 12328:8954).
 
 test.use({ viewport: { width: 1600, height: 1200 } })
 
@@ -48,4 +48,8 @@ test('every action is a named button; the theme button says what it switches to'
   await theme.click()
   await expect(preview.getByRole('button', { name: /Switch to (dark|light) mode/ })).not.toHaveAttribute('aria-label', before!)
   await expect(preview.getByRole('button', { name: 'Log out' })).toBeVisible()
+  const toggle = preview.getByRole('button', { name: 'Collapse the menu' })
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+  await toggle.click()
+  await expect(preview.getByRole('button', { name: 'Expand the menu' })).toHaveAttribute('aria-expanded', 'false')
 })

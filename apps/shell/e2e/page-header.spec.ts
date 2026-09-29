@@ -38,6 +38,16 @@ test('type, gaps and colours match Figma for Page and Section', async ({ page })
   }).toPass()
 })
 
+test('tabs are 16px apart', async ({ page }) => {
+  const gaps = await page.getByTestId('page-header-matrix-light').evaluate((el) =>
+    [...el.querySelectorAll('.ds-page-header')].map((h) => {
+      const tabs = [...h.querySelectorAll('[role="tab"]')].map((t) => t.getBoundingClientRect())
+      return Math.round(tabs[1].left - tabs[0].right)
+    }),
+  )
+  expect(gaps).toEqual([16, 16])
+})
+
 test('the title is a heading and the navigation is a tablist', async ({ page }) => {
   const preview = page.getByTestId('page-header-preview')
   await expect(preview.getByRole('heading', { name: 'Title of this page' })).toBeVisible()

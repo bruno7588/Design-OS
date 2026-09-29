@@ -11,6 +11,7 @@ export function TopNavigationPreview() {
   const [system, setSystem] = useState<'web' | 'admin'>('admin')
   const [small, setSmall] = useState(false)
   const [last, setLast] = useState('')
+  const [expanded, setExpanded] = useState(true)
   const say = (s: string) => () => setLast(s)
 
   return (
@@ -28,6 +29,11 @@ export function TopNavigationPreview() {
             onExitAdmin={say('Exit Admin')}
             onLogout={say('Log out')}
             onMenu={say('Menu')}
+            sideNavExpanded={expanded}
+            onToggleSideNav={() => {
+              setExpanded((e) => !e)
+              setLast(expanded ? 'Collapse the menu' : 'Expand the menu')
+            }}
             onGetApp={say('Get App')}
             onCreate={say('Create')}
             onStreak={say('Streak')}

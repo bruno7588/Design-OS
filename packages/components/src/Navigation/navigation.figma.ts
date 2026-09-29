@@ -38,7 +38,7 @@ export const topNavFigma: FigmaMapping = {
   mui: 'Box (header) + Button + IconButton',
   page: 'Navigation',
   set: 'Top Nav/Admin',
-  nodes: { light: '11982:3602', dark: '5385:20137' },
+  nodes: { light: '12328:8954', dark: '5385:20137' },
   variants: { System: ['Admin', 'Web app'], Breakpoint: ['large', 'small'] },
 }
 

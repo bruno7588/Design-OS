@@ -15,7 +15,7 @@ const compare: Compare = {
     { property: 'Supporting text', figma: 'Regular 16 / 14, Text-secondary, 4px under', reference: 'Same', status: 'Matches' },
     { property: 'Label', figma: 'Regular 14 / 12 in Text-tertiary; 16 / 14px icons; 8px apart', reference: 'Same', status: 'Matches' },
     { property: 'Actions', figma: 'Search M, an AI icon, Outlined and Filled buttons, 12px apart', reference: 'Same (a slot)', status: 'Matches' },
-    { property: 'Navigation', figma: 'Tab items, 24px apart (20 in Section)', reference: 'MUI Tabs with the 5Mins Tab (its own spacing)', status: 'Design to update', note: 'The Tabs component spaces its tabs the same in both.' },
+    { property: 'Navigation', figma: 'Tab items, 16px apart (was 24 in Page and 20 in Section)', reference: 'MUI Tabs with the 5Mins Tab, 16px apart', status: 'Matches' },
     { property: 'Built component', figma: '–', reference: 'PageHeader', status: 'Code to update', note: 'headers.md documents many page-local headers; this is the shared one.' },
   ],
   engineering: {

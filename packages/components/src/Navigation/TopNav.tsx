@@ -2,18 +2,19 @@ import type { ReactNode } from 'react'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
-import { Add, CalendarTick, FlashCircle, HambergerMenu, Logout, Mobile, Moon, Sun1 } from 'iconsax-react'
+import { Add, CalendarTick, FlashCircle, HambergerMenu, Logout, Mobile, Moon, SidebarLeft, Sun1 } from 'iconsax-react'
 import { Button } from '../Button/Button'
 import { Logo } from './Logo'
 
-// 5Mins top navigation (Figma Top Nav/Admin: dark 5385:20137, light 11982:3602). A 70px
+// 5Mins top navigation (Figma Top Nav/Admin: dark 5385:20137, light 12328:8954). A 70px
 // header: the logo on the left, actions on the right, a 1px Border underneath.
 //
 // Figma → props
 //   System=Web app      → system "web": Get App, Create, Streak and Events (with a dot)
 //   System=Admin        → system "admin": Exit Admin, theme and log out
 //   Breakpoint=small    → small: 72px, padding 16, the menu button replaces the logo (Admin)
-//   The Admin slot before the logo (expand and collapse the side navigation) → leading
+//   Admin, large: the sidebar-left button before the logo expands and collapses the side
+//   navigation (sideNavExpanded, onToggleSideNav). Anything else before the logo → leading
 
 export interface TopNavProps {
   system?: 'web' | 'admin'
@@ -21,6 +22,9 @@ export interface TopNavProps {
   /** Before the logo, such as the side navigation toggle. */
   leading?: ReactNode
   onLogo?: () => void
+  /** Admin, large: whether the side navigation is expanded; the button says what it does. */
+  sideNavExpanded?: boolean
+  onToggleSideNav?: () => void
   // Web app
   onGetApp?: () => void
   onCreate?: () => void
@@ -42,6 +46,8 @@ export function TopNav({
   small = false,
   leading,
   onLogo,
+  sideNavExpanded = true,
+  onToggleSideNav,
   onGetApp,
   onCreate,
   onStreak,
@@ -87,6 +93,19 @@ export function TopNav({
           </IconButton>
         ) : (
           <>
+            {admin && (
+              <Tooltip title={sideNavExpanded ? 'Collapse menu' : 'Expand menu'}>
+                <IconButton
+                  className="ds-top-nav-icon"
+                  aria-label={sideNavExpanded ? 'Collapse the menu' : 'Expand the menu'}
+                  aria-expanded={sideNavExpanded}
+                  onClick={onToggleSideNav}
+                  disableRipple
+                >
+                  <SidebarLeft size={20} color="currentColor" />
+                </IconButton>
+              </Tooltip>
+            )}
             {leading}
             <Box
               component={onLogo ? 'button' : 'span'}
