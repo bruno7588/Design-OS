@@ -1,5 +1,5 @@
 import { Stack, Table, TableBody, TableCell, TableHead, TablePagination, TableRow, TableSortLabel, Typography } from '@mui/material'
-import { Avatar, Badge, Button, CellContent, CellDate, Checkbox, Dropdown, TableThumbnail, type Mode } from '@design-os/components'
+import { Avatar, Badge, Button, CellContent, CellDate, Checkbox, Dropdown, ProgressBar, TableThumbnail, type Mode } from '@design-os/components'
 import { Danger, More } from 'iconsax-react'
 import { Canvas } from '../shared/Canvas'
 import { PHOTO } from '../avatar/AvatarMatrix'
@@ -128,7 +128,7 @@ export function TableMatrix({ mode }: { mode: Mode }) {
                   <CellContent start={<TableThumbnail src={THUMB} />} primary="Text" secondary="Supporting text" />
                 </TableCell>
                 <TableCell>
-                  <CellContent primary="Text" link />
+                  <ProgressBar value={100} width={72} showLabel aria-label="Progress" />
                 </TableCell>
               </TableRow>
               <TableRow>

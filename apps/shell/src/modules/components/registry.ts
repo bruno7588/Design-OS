@@ -83,6 +83,14 @@ import { TablePreview } from './table/TablePreview'
 import { TableCode } from './table/TableCode'
 import { TableGuidelines } from './table/TableGuidelines'
 import { TableCompare } from './table/TableCompare'
+import { ProgressBarPreview } from './progress-bar/ProgressBarPreview'
+import { ProgressBarCode } from './progress-bar/ProgressBarCode'
+import { ProgressBarGuidelines } from './progress-bar/ProgressBarGuidelines'
+import { ProgressBarCompare } from './progress-bar/ProgressBarCompare'
+import { EmptyStatePreview } from './empty-state/EmptyStatePreview'
+import { EmptyStateCode } from './empty-state/EmptyStateCode'
+import { EmptyStateGuidelines } from './empty-state/EmptyStateGuidelines'
+import { EmptyStateCompare } from './empty-state/EmptyStateCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -332,6 +340,28 @@ export const components: ComponentDoc[] = [
     Code: TableCode,
     Guidelines: TableGuidelines,
     Compare: TableCompare,
+  },
+  {
+    slug: 'progress-bar',
+    name: 'Progress bar',
+    summary: 'How much of a course, program or path is done.',
+    figma: { light: `${LIBRARY}12000-10067`, dark: `${LIBRARY}7046-25097` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: ProgressBarPreview,
+    Code: ProgressBarCode,
+    Guidelines: ProgressBarGuidelines,
+    Compare: ProgressBarCompare,
+  },
+  {
+    slug: 'empty-state',
+    name: 'Empty state',
+    summary: 'Fills an empty list, table or search, and points to the action that fills it.',
+    figma: { light: `${LIBRARY}11921-5779`, dark: `${LIBRARY}5452-37234` },
+    spec: 'playground/docs/design-system/empty-state.md',
+    Preview: EmptyStatePreview,
+    Code: EmptyStateCode,
+    Guidelines: EmptyStateGuidelines,
+    Compare: EmptyStateCompare,
   },
 ]
 

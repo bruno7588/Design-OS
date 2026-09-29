@@ -55,4 +55,4 @@ A plain MUI Table renders the Figma table and keeps real table semantics:
 - **Hover and selected fills:** the prototype uses the `#EDA30D` amber for selected rows; Figma uses Secondary-500.
 
 ## Not built yet
-- Progress bar and illustration cells: they need the Progress bar and Illustrations components (Gamification page).
+- Illustration cells: they need the Gamification illustrations. The progress cell arrived in batch 9.

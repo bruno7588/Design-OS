@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 28,
-    "both": 28,
-    "figmaOnly": 49,
+    "inCode": 30,
+    "both": 30,
+    "figmaOnly": 47,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -1289,11 +1289,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "EmptyState",
+        "mui": "Typography + Button (no MUI equivalent)",
+        "path": "packages/components/src/EmptyState"
+      },
       "prototype": "EmptyState",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Illustrations Empty state",
@@ -1569,11 +1573,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ProgressBar",
+        "mui": "LinearProgress (determinate)",
+        "path": "packages/components/src/ProgressBar"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Illustrations/Certificate",
@@ -2771,9 +2779,6 @@
       },
       "prototype": null,
       "missingInCode": {
-        "Progress bar": [
-          "true"
-        ],
         "Illustration": [
           "true"
         ]

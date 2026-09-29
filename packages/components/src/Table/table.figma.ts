@@ -33,7 +33,7 @@ export const tableHeaderFigma: FigmaMapping = {
   variants: { Type: ['Text'], Checkbox: ['false', 'true'], Icon: ['false', 'true'], Disabled: ['false', 'true'] },
 }
 
-// Progress bar and Illustration cells need components not built yet (Progress bar, Illustrations).
+// Illustration cells need the Gamification illustrations, not built yet.
 export const tableDataFigma: FigmaMapping = {
   component: 'CellContent',
   mui: 'TableCell (body)',
@@ -48,7 +48,7 @@ export const tableDataFigma: FigmaMapping = {
     Avatar: ['false', 'true'],
     Thumbnail: ['false', 'true'],
     Icon: ['false', 'true'],
-    'Progress bar': ['false'],
+    'Progress bar': ['false', 'true'],
     Illustration: ['false'],
     Button: ['false', 'true'],
     Badge: ['false', 'true'],

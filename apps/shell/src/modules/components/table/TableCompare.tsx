@@ -27,7 +27,8 @@ const compare: Compare = {
     { property: 'Checkbox in cells', figma: '24px frames everywhere (checkbox + illustration updated 2026-09-29)', reference: 'Same', status: 'Matches' },
     { property: 'Pagination', figma: '"1-10 of 28" Text-secondary; 16px chevrons, disabled Text-disabled', reference: 'Same (TablePagination)', status: 'Matches' },
     { property: 'Sort', figma: 'ArrowDown 20px, 4px after the label', reference: 'Same; it turns when the order is ascending', status: 'Matches' },
-    { property: 'Progress bar and illustration cells', figma: 'In the Table data set', reference: 'Not built', status: 'Code to update', note: 'They need the Progress bar and Illustrations components (Gamification page).' },
+    { property: 'Progress bar cell', figma: '72px bar, the percentage 8px after it', reference: 'ProgressBar width 72, showLabel', status: 'Matches' },
+    { property: 'Illustration cells', figma: 'In the Table data set', reference: 'Not built', status: 'Code to update', note: 'They need the Gamification illustrations.' },
   ],
   engineering: {
     mui: 'Table, TableRow, TableCell, TableSortLabel, TablePagination',

@@ -62,3 +62,7 @@ export { ContentSwitcher, type ContentSwitcherProps, type ContentSwitcherItem } 
 export { contentSwitcherFigma, contentSwitcherItemFigma } from './ContentSwitcher/contentSwitcher.figma'
 export { CellContent, CellDate, TableThumbnail, type CellContentProps, type ThumbnailType } from './Table/CellContent'
 export { tableFigma, tableRowFigma, tableHeaderFigma, tableDataFigma, thumbnailTypeFigma } from './Table/table.figma'
+export { ProgressBar, type ProgressBarProps } from './ProgressBar/ProgressBar'
+export { progressBarFigma } from './ProgressBar/progressBar.figma'
+export { EmptyState, ILLUSTRATIONS, type EmptyStateProps, type EmptyStateAction, type IllustrationName } from './EmptyState/EmptyState'
+export { emptyStateFigma } from './EmptyState/emptyState.figma'
