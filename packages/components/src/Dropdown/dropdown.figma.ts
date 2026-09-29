@@ -41,12 +41,12 @@ export const listItemsFigma: FigmaMapping = {
 }
 
 // The menu surface (Cards-background, Border-elevated, radius 12, padding 8): MuiMenu / MuiList.
-// Caret=true (the arrow pointing at the field) isn't built; grouped items use a Divider.
+// Caret=true → caret (+ menuPosition for Top/Bottom); Wrapping menu itens=true → options[].group.
 export const listboxFigma: FigmaMapping = {
   component: 'Dropdown (menu)',
   mui: 'Menu + List (+ Divider)',
   page: 'Listbox / Multiselect',
   set: 'Listbox',
   nodes: { light: '11923:3466', dark: '9162:1042' },
-  variants: { Caret: ['false'], Position: ['n/a'], 'Wrapping menu itens': ['false', 'true'] },
+  variants: { Caret: ['true', 'false'], Position: ['Bottom', 'Top', 'n/a'], 'Wrapping menu itens': ['false', 'true'] },
 }

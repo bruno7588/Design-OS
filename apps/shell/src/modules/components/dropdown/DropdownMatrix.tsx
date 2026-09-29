@@ -1,5 +1,5 @@
-import { Box, ListItemIcon, MenuItem, MenuList, Stack, Typography } from '@mui/material'
-import { CheckboxCheckedIcon, CheckboxIcon, Dropdown, menuPaperStyles, type DropdownBaseProps, type Mode } from '@design-os/components'
+import { Box, Divider, ListItemIcon, ListSubheader, MenuItem, MenuList, Stack, Typography } from '@mui/material'
+import { CheckboxCheckedIcon, CheckboxIcon, Dropdown, menuCaretStyles, menuListStyles, menuPaperStyles, type DropdownBaseProps, type Mode } from '@design-os/components'
 import { Sort } from 'iconsax-react'
 import { Canvas } from '../shared/Canvas'
 
@@ -119,6 +119,33 @@ export function DropdownMatrix({ mode }: { mode: Mode }) {
                 Disabled
               </MenuItem>
             </MenuList>
+          </Box>
+        </Stack>
+        <Stack sx={{ gap: 3 }}>
+          <Typography variant="h6" color="text.secondary">
+            Listbox
+          </Typography>
+          <Box data-testid={`dropdown-listbox-${mode}`} sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+            {(['bottom', 'top'] as const).map((side) => (
+              <Box key={side} className={`ds-listbox-caret-${side}`} sx={(theme) => ({ ...menuPaperStyles(theme), ...menuCaretStyles(theme, side), position: 'relative', width: 140, mt: side === 'bottom' ? 2 : 0 })}>
+                <MenuList sx={(theme) => menuListStyles(theme)}>
+                  {['Input text', 'Input text', 'Input text'].map((t, i) => (
+                    <MenuItem key={i}>{t}</MenuItem>
+                  ))}
+                </MenuList>
+              </Box>
+            ))}
+            <Box className="ds-listbox-groups" sx={(theme) => ({ ...menuPaperStyles(theme), width: 140, maxHeight: 'none' })}>
+              <MenuList sx={(theme) => menuListStyles(theme)}>
+                <ListSubheader>Group title</ListSubheader>
+                <MenuItem>Input text</MenuItem>
+                <MenuItem>Input text</MenuItem>
+                <Divider />
+                <ListSubheader>Group title</ListSubheader>
+                <MenuItem>Input text</MenuItem>
+                <MenuItem>Input text</MenuItem>
+              </MenuList>
+            </Box>
           </Box>
         </Stack>
       </Stack>

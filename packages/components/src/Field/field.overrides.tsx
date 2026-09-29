@@ -208,11 +208,73 @@ export function menuPaperStyles(theme: Theme): CSSObject {
   }
 }
 
+// Figma Listbox Caret=true: a 16 × 8 Cards-background triangle with a 1px Border edge, 24px
+// from the end, on the side that faces the field. Put ds-menu-caret-bottom (the menu opens
+// below the field) or ds-menu-caret-top on the menu paper. The list scrolls instead of the
+// paper, so the caret isn't clipped.
+export function menuCaretStyles(theme: Theme, side: 'top' | 'bottom'): CSSObject {
+  const t = theme.tokens
+  const up = side === 'bottom'
+  return {
+    overflow: 'visible',
+    maxHeight: 'none',
+    marginTop: up ? `${t.space.sm}px` : `-${t.space.sm}px`,
+    '& .MuiMenu-list': { maxHeight: '302px', overflowY: 'auto' },
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      right: `${t.space.l}px`,
+      [up ? 'top' : 'bottom']: -8,
+      width: 16,
+      height: 8,
+      backgroundColor: t.semantic.cardsBackground,
+      clipPath: up ? 'polygon(0 100%, 50% 0, 100% 100%)' : 'polygon(0 0, 50% 100%, 100% 0)',
+      filter: `drop-shadow(0 ${up ? -1 : 1}px 0 ${t.semantic.borderElevated})`,
+    },
+  }
+}
+
 export const MuiMenu: Components<Theme>['MuiMenu'] = {
   styleOverrides: {
-    paper: ({ theme }) => ({ ...menuPaperStyles(theme), marginTop: `${theme.tokens.space.xs}px` }),
-    list: ({ theme }) => ({ padding: `${theme.tokens.space.s}px` }),
+    paper: ({ theme }) => ({
+      ...menuPaperStyles(theme),
+      marginTop: `${theme.tokens.space.xs}px`,
+      '&.ds-menu-caret-bottom': menuCaretStyles(theme, 'bottom'),
+      '&.ds-menu-caret-top': menuCaretStyles(theme, 'top'),
+    }),
+    list: ({ theme }) => menuListStyles(theme),
   },
+}
+
+/** The menu list: padding 8, and the Figma Listbox groups (Wrapping menu itens=true). Also for docs. */
+export function menuListStyles(theme: Theme): CSSObject {
+  const t = theme.tokens
+  return {
+    padding: `${t.space.s}px`,
+    // Group titles (Figma List/Item): SemiBold 14/1.5 in Text-tertiary, padding 8/4; 12 on top
+    // after a divider. A plain <ListSubheader> inside a Menu gets it.
+    '& .MuiListSubheader-root': {
+      position: 'static',
+      padding: `${t.space.s}px ${t.space.xs}px`,
+      backgroundColor: 'transparent',
+      fontFamily: theme.typography.fontFamily,
+      fontSize: 14,
+      fontWeight: 600,
+      lineHeight: 1.5,
+      color: t.semantic.textTertiary,
+    },
+    // Between groups: a Border divider inset 4px, 4px above and below.
+    '& .MuiDivider-root': { margin: `${t.space.xs}px`, borderColor: t.semantic.border },
+    '& .MuiDivider-root + .MuiListSubheader-root': { paddingTop: `${t.space.sm}px` },
+    // In a Select, a later group title draws the divider itself (a Divider there would become an
+    // option): 4px gap, the 1px Border line inset 4px, 4px gap, then the title's 12px padding.
+    '& .MuiListSubheader-root.ds-group-divided': {
+      position: 'relative',
+      marginTop: `${t.space.xs}px`,
+      paddingTop: `${t.space.xs + 1 + t.space.sm}px`,
+      '&::before': { content: '""', position: 'absolute', top: 0, left: t.space.xs, right: t.space.xs, height: 1, backgroundColor: t.semantic.border },
+    },
+  }
 }
 
 export const MuiMenuItem: Components<Theme>['MuiMenuItem'] = {

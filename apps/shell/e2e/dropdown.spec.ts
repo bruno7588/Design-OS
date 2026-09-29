@@ -125,3 +125,31 @@ test('multi-select picks several and lists them in the field', async ({ page }) 
   await page.keyboard.press('Escape')
   await expect(combo).toHaveText('People, Sales')
 })
+
+test('Listbox: the caret points at the field and groups have titles', async ({ page }) => {
+  await page.getByTestId('dropdown-listbox-light').screenshot({ path: 'e2e/screenshots/dropdown-listbox-light.png', animations: 'disabled' })
+  await page.getByRole('checkbox', { name: 'Groups' }).check()
+  await page.getByRole('checkbox', { name: 'Caret' }).check()
+  await page.getByRole('combobox', { name: /Department/ }).click()
+  const listbox = page.getByRole('listbox')
+  await expect(listbox).toBeVisible()
+  // The titles are presentational: only the five departments are options.
+  await expect(listbox.getByRole('option')).toHaveCount(5)
+  await page.locator('.MuiMenu-list .MuiListSubheader-root').first().click()
+  await expect(listbox).toBeVisible() // clicking a title picks nothing
+  const titles = await page.locator('.MuiMenu-list .MuiListSubheader-root').evaluateAll((els) =>
+    els.map((e) => [e.textContent, getComputedStyle(e).fontWeight, getComputedStyle(e).color, getComputedStyle(e).paddingTop]),
+  )
+  expect(titles).toEqual([
+    ['Business', '600', 'rgb(101, 107, 124)', '8px'],
+    ['Technical', '600', 'rgb(101, 107, 124)', '17px'], // 4 gap + 1px divider + 12
+  ])
+  const caret = await page.locator('.ds-menu-caret-bottom').evaluate((p) => {
+    const cs = getComputedStyle(p, '::before')
+    return [cs.width, cs.height, cs.top, cs.right, getComputedStyle(p).overflow]
+  })
+  expect(caret).toEqual(['16px', '8px', '-8px', '24px', 'visible'])
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('Enter')
+  await expect(page.getByRole('listbox')).toBeHidden()
+})

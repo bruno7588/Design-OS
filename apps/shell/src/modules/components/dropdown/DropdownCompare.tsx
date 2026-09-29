@@ -10,7 +10,7 @@ const compare: Compare = {
   frames: { light: '/figma/dropdown-light.png', dark: '/figma/dropdown-dark.png' },
   live: (mode) => <DropdownMatrix mode={mode} />,
   differences: [
-    { property: 'Listbox (the menu)', figma: 'Listbox 9162:1042 / 11923:3466: Cards-background, radius 12, padding 8; grouped items with SemiBold Text-tertiary titles and a divider; a Caret variant pointing at the field', reference: 'MuiMenu and MuiList; groups with a Divider', status: 'Code to update', note: 'Mapped (listboxFigma). The caret and the group titles aren’t built.' },
+    { property: 'Listbox (the menu)', figma: 'Listbox 9162:1042 / 11923:3466: Cards-background, radius 12, padding 8; grouped items with SemiBold Text-tertiary titles and a divider; a Caret variant pointing at the field', reference: 'MuiMenu and MuiList; the caret and group titles and dividers', status: 'Matches', note: 'Built 2026-09-29: caret and menuPosition on the Dropdown (ds-menu-caret-bottom / -top on any Menu); options[].group adds the titles and dividers (ListSubheader and Divider in any Menu).' },
     { property: 'Field', figma: '37px: padding 8/12, gap 8, radius 12, Border-elevated; 20px ArrowDown2', reference: 'Same', status: 'Matches' },
     { property: 'Label', figma: 'Semibold 14, top (8px) or start (12px)', reference: 'Same', status: 'Matches' },
     { property: 'States', figma: 'Hover Border-hover; Active Selected with the chevron up; Read-only and disabled with Border and Text-disabled', reference: 'Same', status: 'Matches' },

@@ -14,6 +14,9 @@ const DEPARTMENTS = [
   { value: 'legal', label: 'Legal', disabled: true },
 ]
 
+// The same options in two groups (Figma Listbox Wrapping menu itens=true).
+const GROUPED = DEPARTMENTS.map((d) => ({ ...d, group: ['people', 'sales', 'finance'].includes(d.value) ? 'Business' : 'Technical' })).sort((a, b) => a.group.localeCompare(b.group))
+
 export function DropdownPreview() {
   const { mode: appMode } = useThemeMode()
   const [mode, setMode] = useState<Mode>(appMode)
@@ -25,6 +28,9 @@ export function DropdownPreview() {
   const [error, setError] = useState(false)
   const [multiple, setMultiple] = useState(false)
   const [values, setValues] = useState<string[]>([])
+  const [caret, setCaret] = useState(false)
+  const [groups, setGroups] = useState(false)
+  const [above, setAbove] = useState(false)
 
   return (
     <PreviewLayout
@@ -36,7 +42,9 @@ export function DropdownPreview() {
             label="Department"
             labelPlacement={placement}
             placeholder={multiple ? "Select departments" : "Select a department"}
-            options={DEPARTMENTS}
+            options={groups ? GROUPED : DEPARTMENTS}
+            caret={caret}
+            menuPosition={above ? 'top' : 'bottom'}
             {...(multiple ? { multiple: true as const, value: values, onChange: setValues } : { value, onChange: setValue })}
             error={error}
             helperText={error ? 'Select a department to continue' : helper ? 'Learners see courses for their department first.' : undefined}
@@ -61,6 +69,9 @@ export function DropdownPreview() {
           <FormControlLabel control={<Switch checked={icon} onChange={(e) => setIcon(e.target.checked)} />} label="Icon left" />
           <FormControlLabel control={<Switch checked={helper} onChange={(e) => setHelper(e.target.checked)} />} label="Helper text" />
           <FormControlLabel control={<Switch checked={multiple} onChange={(e) => setMultiple(e.target.checked)} />} label="Multiple" />
+          <FormControlLabel control={<Switch checked={groups} onChange={(e) => setGroups(e.target.checked)} />} label="Groups" />
+          <FormControlLabel control={<Switch checked={caret} onChange={(e) => setCaret(e.target.checked)} />} label="Caret" />
+          <FormControlLabel control={<Switch checked={above} onChange={(e) => setAbove(e.target.checked)} />} label="Open above" />
           <FormControlLabel control={<Switch checked={error} onChange={(e) => setError(e.target.checked)} />} label="Error" />
           <FormControlLabel control={<Switch checked={disabled} onChange={(e) => setDisabled(e.target.checked)} />} label="Disabled" />
         </>

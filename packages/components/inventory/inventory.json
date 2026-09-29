@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 66,
-    "both": 66,
-    "figmaOnly": 11,
+    "inCode": 65,
+    "both": 65,
+    "figmaOnly": 12,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -156,15 +156,11 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": true,
-      "code": {
-        "component": "Emoji",
-        "mui": "Box (svg / img)",
-        "path": "packages/components/src/Avatar"
-      },
+      "inCode": false,
+      "code": null,
       "prototype": null,
-      "missingInCode": {},
-      "missingInFigma": {}
+      "missingInCode": null,
+      "missingInFigma": null
     },
     {
       "name": "Badge",
@@ -2195,15 +2191,7 @@
         "path": "packages/components/src/Dropdown"
       },
       "prototype": null,
-      "missingInCode": {
-        "Caret": [
-          "true"
-        ],
-        "Position": [
-          "Bottom",
-          "Top"
-        ]
-      },
+      "missingInCode": {},
       "missingInFigma": {}
     },
     {

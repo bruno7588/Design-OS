@@ -1,6 +1,7 @@
 import { forwardRef, type ReactNode } from 'react'
 import Box from '@mui/material/Box'
 import InputAdornment from '@mui/material/InputAdornment'
+import ListSubheader from '@mui/material/ListSubheader'
 import MenuItem from '@mui/material/MenuItem'
 import TextField, { type TextFieldProps } from '@mui/material/TextField'
 import { Danger } from 'iconsax-react'
@@ -18,6 +19,8 @@ import { CheckboxCheckedIcon, CheckboxIcon } from '../icons/FigmaIcons'
 //   State=Active            → open
 //   Disabled / Read-only    → disabled
 //   State=Error             → error + helperText: as the input field, with the Bold Danger icon
+//   Listbox Wrapping menu itens=true → options[].group: a title per group, a divider between
+//   Listbox Caret=true, Position     → caret, menuPosition "bottom" | "top"
 //   List itens Checkbox=true → multiple: the rows show a checkbox, the field lists the picks.
 //                              The listbox is aria-multiselectable; the checkbox is only a glyph,
 //                              so each row stays one option.
@@ -26,6 +29,8 @@ export interface DropdownOption {
   value: string
   label: string
   disabled?: boolean
+  /** Groups the options under a title (Figma Listbox Wrapping menu itens=true). */
+  group?: string
 }
 
 type Single = { multiple?: false; value: string; onChange: (value: string) => void }
@@ -36,12 +41,28 @@ export type DropdownBaseProps = Omit<TextFieldProps, 'select' | 'variant' | 'onC
   options: DropdownOption[]
   labelPlacement?: 'top' | 'start'
   iconLeft?: ReactNode
+  /** The Listbox caret, pointing at the field. */
+  caret?: boolean
+  /** Where the menu opens: below the field (default) or above it. */
+  menuPosition?: 'bottom' | 'top'
 }
 
 export type DropdownProps = DropdownBaseProps & (Single | Multiple)
 
+// A group title inside the Select. MUI Select clones every child as an option (role, onClick,
+// aria-selected); this ignores those props, so the title can't be picked and isn't announced as
+// an option. muiSkipListHighlight keeps the menu's keyboard focus on the real options.
+function GroupTitle({ title, divided }: { title: string; divided: boolean }) {
+  return (
+    <ListSubheader role="presentation" className={divided ? 'ds-group-divided' : undefined}>
+      {title}
+    </ListSubheader>
+  )
+}
+GroupTitle.muiSkipListHighlight = true
+
 export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
-  { options, value, onChange, multiple, placeholder = 'Select', labelPlacement = 'top', iconLeft, error, className, SelectProps, InputProps, ...props },
+  { options, value, onChange, multiple, placeholder = 'Select', labelPlacement = 'top', iconLeft, caret = false, menuPosition = 'bottom', error, className, SelectProps, InputProps, ...props },
   ref,
 ) {
   const labelOf = (v: string) => options.find((o) => o.value === v)?.label
@@ -60,7 +81,15 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
         multiple,
         renderValue: (v) =>
           !isEmpty ? picked(v) : <Box component="span" sx={{ color: 'text.disabled' }}>{placeholder}</Box>,
-        ...SelectProps,
+        MenuProps: {
+          ...(menuPosition === 'top' && {
+            anchorOrigin: { vertical: 'top', horizontal: 'left' },
+            transformOrigin: { vertical: 'bottom', horizontal: 'left' },
+          }),
+          ...(caret && { PaperProps: { className: `ds-menu-caret-${menuPosition}` } }),
+          ...SelectProps?.MenuProps,
+        },
+        ...(SelectProps && (({ MenuProps: _m, ...rest }) => rest)(SelectProps)),
       }}
       InputProps={{
         startAdornment: iconLeft ? <InputAdornment position="start">{iconLeft}</InputAdornment> : undefined,
@@ -73,7 +102,12 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
       }}
       {...props}
     >
-      {options.map((o) => (
+      {options.flatMap((o, i) => [
+        ...(o.group && o.group !== options[i - 1]?.group
+          ? [
+              <GroupTitle key={`group-${o.group}`} title={o.group} divided={i > 0} />,
+            ]
+          : []),
         <MenuItem key={o.value} value={o.value} disabled={o.disabled}>
           {multiple &&
             (value.includes(o.value) ? (
@@ -82,8 +116,8 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropd
               <CheckboxIcon className="ds-row-check" />
             ))}
           {o.label}
-        </MenuItem>
-      ))}
+        </MenuItem>,
+      ])}
     </TextField>
   )
 })
