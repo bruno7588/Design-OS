@@ -11,6 +11,7 @@ export function AppTopNavigationPreview() {
   const [mode, setMode] = useState<Mode>(appMode)
   const [page, setPage] = useState<AppTopNavPage>('home')
   const [statusBar, setStatusBar] = useState(true)
+  const [overMedia, setOverMedia] = useState(false)
   const [chip, setChip] = useState(0)
   const [search, setSearch] = useState('')
   const [last, setLast] = useState('')
@@ -26,6 +27,7 @@ export function AppTopNavigationPreview() {
           <Sample
             page={page}
             statusBar={statusBar}
+            backOverMedia={page === 'lesson-feed' || overMedia}
             chips={chips}
             searchValue={search}
             onSearchChange={setSearch}
@@ -60,6 +62,9 @@ export function AppTopNavigationPreview() {
             ))}
           </TextField>
           <FormControlLabel control={<Switch checked={statusBar} onChange={(e) => setStatusBar(e.target.checked)} />} label="Status bar" />
+          {(page === 'detail' || page === 'skill') && (
+            <FormControlLabel control={<Switch checked={overMedia} onChange={(e) => setOverMedia(e.target.checked)} />} label="Back over media" />
+          )}
         </>
       }
       hint="The status bar is a stand-in for prototypes; on a phone the system draws it."

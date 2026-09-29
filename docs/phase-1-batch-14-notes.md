@@ -52,7 +52,7 @@ Checked 2026-09-29.
   - It's now bound to the current Input-background (`10830:146`: Neutral-200 / Neutral-500 at 16%) in both sets.
   - Code uses the `inputBackground` token.
 
-- **Lesson feed back (Bruno):** over the video the back button is Neutral-900 at 50% with a Neutral-25 arrow, in both modes. Both Figma sets are now bound to those variables (the dark set had a raw `#0F1014`, the light set had lost the fill). Code already did this.
+- **Back over media (Bruno):** only when the back button sits over a video, image or document is it Neutral-900 at 50% with a Neutral-25 arrow, in both modes. Code: `backOverMedia` on Detail page, Skill and Lesson feed (on by default for Lesson feed); otherwise it's Input-background with a Text-primary arrow. Both Figma sets are now bound to those variables (the dark set had a raw `#0F1014`, the light set had lost the fill). Code already did this.
 
 ## Prototype differences
 - **navigation.md** is fixed to match Figma:

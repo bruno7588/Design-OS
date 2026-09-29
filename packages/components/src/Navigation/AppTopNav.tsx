@@ -25,6 +25,8 @@ import { PointsIllustration } from '../icons/Illustrations'
 //   Page=Lesson feed → page "lesson-feed": transparent over the video, back and points
 //   Page=Mobile web  → not built: it's the browser's own chrome
 //   Status Bar/iOS   → statusBar (a decorative stand-in for prototypes; the phone draws the real one)
+//   Back over a video, image or document → backOverMedia (on by default for Lesson feed):
+//   Neutral-900 at 50% behind a Neutral-25 arrow, in both modes
 
 export type AppTopNavPage = 'home' | 'search' | 'progress' | 'feed' | 'profile' | 'detail' | 'skill' | 'lesson-feed'
 
@@ -53,6 +55,9 @@ export interface AppTopNavProps {
   /** Skill: the 24px skill illustration. */
   skillIcon?: ReactNode
   onBack?: () => void
+  /** The back button sits over a video, image or document: a dark fill and a light arrow in
+   *  both modes. Defaults to true on Lesson feed. */
+  backOverMedia?: boolean
   onMore?: () => void
   /** Detail page: an icon button on the right (the slot is 32px). */
   action?: ReactNode
@@ -120,7 +125,7 @@ function StatusBar() {
   )
 }
 
-function BackButton({ onBack, overVideo }: { onBack?: () => void; overVideo?: boolean }) {
+function BackButton({ onBack, overMedia }: { onBack?: () => void; overMedia?: boolean }) {
   return (
     <IconButton
       className="ds-app-back"
@@ -131,10 +136,11 @@ function BackButton({ onBack, overVideo }: { onBack?: () => void; overVideo?: bo
         width: 40,
         height: 40,
         padding: `${theme.tokens.space.s}px`,
-        color: 'inherit',
-        // Over a video the button keeps a fixed dark fill in both modes, so it stays legible.
-        backgroundColor: overVideo ? alpha(theme.tokens.palette.neutral[900], 0.5) : theme.tokens.semantic.inputBackground,
-        '&:hover': { backgroundColor: overVideo ? alpha(theme.tokens.palette.neutral[900], 0.5) : theme.tokens.semantic.inputBackgroundHover },
+        // Over media the button keeps a fixed dark fill and a light arrow in both modes, so it
+        // stays legible whatever is behind it.
+        color: overMedia ? theme.tokens.palette.neutral[25] : theme.tokens.semantic.textPrimary,
+        backgroundColor: overMedia ? alpha(theme.tokens.palette.neutral[900], 0.5) : theme.tokens.semantic.inputBackground,
+        '&:hover': { backgroundColor: overMedia ? alpha(theme.tokens.palette.neutral[900], 0.5) : theme.tokens.semantic.inputBackgroundHover },
       })}
     >
       <ArrowLeft size={24} color="currentColor" />
@@ -171,6 +177,7 @@ export function AppTopNav({
   title,
   skillIcon,
   onBack,
+  backOverMedia,
   onMore,
   action,
   points,
@@ -182,6 +189,7 @@ export function AppTopNav({
   className,
 }: AppTopNavProps) {
   const overVideo = page === 'lesson-feed'
+  const overMedia = backOverMedia ?? overVideo
 
   let row: ReactNode
   switch (page) {
@@ -282,7 +290,7 @@ export function AppTopNav({
     case 'detail':
       row = (
         <>
-          <BackButton onBack={onBack} />
+          <BackButton onBack={onBack} overMedia={overMedia} />
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', minWidth: 0 }}>
             <Title>{title}</Title>
           </Box>
@@ -293,7 +301,7 @@ export function AppTopNav({
     case 'skill':
       row = (
         <>
-          <BackButton onBack={onBack} />
+          <BackButton onBack={onBack} overMedia={overMedia} />
           <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', gap: `${theme.tokens.space.s}px`, minWidth: 0, '& > svg, & > img': { width: 24, height: 24, flexShrink: 0 } })}>
             {skillIcon}
             <Title small>{title}</Title>
@@ -307,7 +315,7 @@ export function AppTopNav({
     case 'lesson-feed':
       row = (
         <>
-          <BackButton onBack={onBack} overVideo />
+          <BackButton onBack={onBack} overMedia={overMedia} />
           <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', gap: `${theme.tokens.space.xs}px` })}>
             <Typography component="span" sx={{ fontSize: 12, fontWeight: 700, lineHeight: 1.4, color: 'inherit' }}>
               {points}

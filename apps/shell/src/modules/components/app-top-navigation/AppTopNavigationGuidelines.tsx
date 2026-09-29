@@ -15,7 +15,7 @@ const g: Guidelines = {
       { name: 'Bar', description: '375 wide, Page-background, a 1px Border underneath. 64px on top-level pages (padding 12/16), 56px on detail pages (padding 8/16).' },
       { name: 'Chips', description: 'The 5Mins Chip: Home 8px apart, Progress 16px apart.' },
       { name: 'Icon actions', description: 'Home: flash-circle and notification-bing, Bold 28 in Text-primary, 16px apart. An 8px Text-error dot marks new notifications.' },
-      { name: 'Back', description: '40px round, Input-background, arrow-left Linear 24.' },
+      { name: 'Back', description: '40px round, Input-background, arrow-left Linear 24 in Text-primary. Over a video, image or document: Neutral-900 at 50% with a Neutral-25 arrow, in both modes.' },
       { name: 'Title', description: 'Bold 16/1.5, centred (Bold 14 next to a skill icon on Skill).' },
       { name: 'Status bar', description: 'The iOS status bar in Figma. In code it’s an optional stand-in for prototypes.' },
     ],

@@ -17,7 +17,7 @@ const compare: Compare = {
     { property: 'Profile', figma: 'Avatar 40, 18px settings badge (Input-background, setting-2 12), name Bold 14, role Regular 12/1.2, 2px apart; 40px Primary-500 add button', reference: 'Same (the badge is Input-background)', status: 'Matches', note: 'The badge was bound to a deleted Input-background variable (solid Neutral-50 / Neutral-700); rebound to the current one on 2026-09-29.' },
     { property: 'Detail page', figma: 'Back 40, the title fills and centres, a 32px slot on the right', reference: 'Same (the slot takes an action)', status: 'Matches', note: 'The title sits 4px right of centre because the sides differ (40 and 32).' },
     { property: 'Skill', figma: 'Skill illustration 24, title Bold 14, Remix more-vertical in a 32px button', reference: 'skillIcon slot; MoreVerticalIcon copied from Figma', status: 'Matches' },
-    { property: 'Lesson feed back', figma: 'Neutral-900 at 50% fill, Neutral-25 arrow, in both sets (bound 2026-09-29)', reference: 'Same', status: 'Matches' },
+    { property: 'Back over media', figma: 'Lesson feed: Neutral-900 at 50% fill, Neutral-25 arrow, in both sets (bound 2026-09-29)', reference: 'backOverMedia: the same fill and arrow wherever the button sits over a video, image or document (on by default for Lesson feed)', status: 'Matches', note: 'Elsewhere the back button is Input-background with a Text-primary arrow.' },
     { property: 'Lesson feed points', figma: '“45 Pt” in Text-primary (dark in the light set)', reference: 'Neutral-25 in both modes, like the arrow', status: 'Design to update', note: 'Over the video the text needs to stay light.' },
     { property: 'Status bar', figma: 'Status Bar/iOS, 25px, Medium 14 clock', reference: 'statusBar: an aria-hidden stand-in, off by default', status: 'Matches', note: 'The phone draws the real one.' },
     { property: 'Mobile web', figma: 'Browser chrome with the app.5mins.ai address', reference: 'Not built', status: 'Matches', note: 'It’s the browser’s own UI, for mockups only.' },
@@ -30,6 +30,7 @@ const compare: Compare = {
       { figma: 'Page', code: 'page: home | search | progress | feed | profile | detail | skill | lesson-feed' },
       { figma: 'Nudge', code: 'notificationsUnread' },
       { figma: 'Status Bar/iOS', code: 'statusBar' },
+      { figma: 'Back over a video, image or document', code: 'backOverMedia' },
     ],
     theme: ['No theme override: styled from the tokens inside the component.'],
     files: [

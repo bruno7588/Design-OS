@@ -108,6 +108,11 @@ test('every action is a named button; search takes text', async ({ page }) => {
   await expect(preview.getByRole('heading', { name: 'Notifications' })).toBeVisible()
   await preview.getByRole('button', { name: 'Back' }).click()
   await expect(preview.getByRole('status')).toHaveText('Clicked “Back”.')
+  const back = preview.getByRole('button', { name: 'Back' })
+  await expect(back).toHaveCSS('color', 'rgb(32, 34, 42)') // Text-primary on the page
+  await page.getByLabel('Back over media').check()
+  await expect(back).toHaveCSS('background-color', 'rgba(15, 16, 20, 0.5)') // Neutral-900 at 50%
+  await expect(back).toHaveCSS('color', 'rgb(249, 249, 250)') // Neutral-25
   await pick('Search')
   await preview.getByRole('searchbox').fill('Leadership')
   await expect(preview.getByRole('searchbox')).toHaveValue('Leadership')
