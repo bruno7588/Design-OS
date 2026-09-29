@@ -41,6 +41,7 @@ const g: Guidelines = {
   },
   variants: [
     { name: 'Label on top', description: 'The default in forms.', example: <Example label="Language" placeholder="Select a language" /> },
+    { name: 'Error', description: 'A required choice is missing or invalid. The message says what to do.', example: <Example label="Department" placeholder="Select a department" error helperText="Select a department to continue" /> },
     { name: 'Label at the start', description: 'For compact controls such as sorting a table.', example: <Example label="Sort by" labelPlacement="start" iconLeft={<Sort color="currentColor" />} value="people" /> },
   ],
   states: [
@@ -48,6 +49,7 @@ const g: Guidelines = {
     { name: 'Hover', description: 'Border-hover and a 16% Input-background fill.' },
     { name: 'Active', description: 'While open: the border turns Selected and the chevron turns up.' },
     { name: 'Menu rows', description: 'Hover: Cards-background-hover. Selected: Secondary-500 with a Medium Neutral-800 label. Disabled: Text-disabled.' },
+    { name: 'Error', description: 'As the input field: the border, label and message turn Text-error, and the Bold Danger icon sits before the chevron. Not in Figma yet.' },
     { name: 'Disabled and read-only', description: 'The quieter Border and Text-disabled. Not focusable.' },
   ],
   dos: [

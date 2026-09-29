@@ -19,7 +19,7 @@ const compare: Compare = {
       figma: 'Border #2D313D (Neutral-700)',
       reference: 'Same',
       status: 'Matches',
-      note: 'Bruno, 2026-09-29: Figma is correct. The prototype uses Neutral-600 for Border: code to update there.',
+      note: 'Bruno, 2026-09-29: Figma is correct. The prototype tokens.css now follows it too.',
     },
     { property: 'Selected hover', figma: 'Not in the set', reference: 'Same as selected', status: 'Design to update', note: 'The prototype darkens to Secondary-600 on hover.' },
     { property: 'Focus', figma: 'No focus frames', reference: '2px ring in the primary button colour, 2px offset', status: 'Design to update' },

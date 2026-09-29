@@ -22,6 +22,7 @@ export function DropdownPreview() {
   const [icon, setIcon] = useState(false)
   const [helper, setHelper] = useState(true)
   const [disabled, setDisabled] = useState(false)
+  const [error, setError] = useState(false)
 
   return (
     <PreviewLayout
@@ -36,7 +37,8 @@ export function DropdownPreview() {
             options={DEPARTMENTS}
             value={value}
             onChange={setValue}
-            helperText={helper ? 'Learners see courses for their department first.' : undefined}
+            error={error}
+            helperText={error ? 'Select a department to continue' : helper ? 'Learners see courses for their department first.' : undefined}
             iconLeft={icon ? <Sort color="currentColor" /> : undefined}
             disabled={disabled}
             fullWidth
@@ -57,6 +59,7 @@ export function DropdownPreview() {
           </Control>
           <FormControlLabel control={<Switch checked={icon} onChange={(e) => setIcon(e.target.checked)} />} label="Icon left" />
           <FormControlLabel control={<Switch checked={helper} onChange={(e) => setHelper(e.target.checked)} />} label="Helper text" />
+          <FormControlLabel control={<Switch checked={error} onChange={(e) => setError(e.target.checked)} />} label="Error" />
           <FormControlLabel control={<Switch checked={disabled} onChange={(e) => setDisabled(e.target.checked)} />} label="Disabled" />
         </>
       }

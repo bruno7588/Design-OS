@@ -12,7 +12,7 @@ export const OPTIONS = [
   { value: 'az', label: 'A to Z' },
 ]
 
-export const STATES = ['Enabled', 'Hover', 'Active', 'Disabled'] as const
+export const STATES = ['Enabled', 'Hover', 'Active', 'Error', 'Disabled'] as const
 export type DropdownState = (typeof STATES)[number]
 
 export function stateProps(state: DropdownState): Partial<DropdownProps> {
@@ -21,6 +21,8 @@ export function stateProps(state: DropdownState): Partial<DropdownProps> {
       return { InputProps: { className: 'ds-hover' } }
     case 'Active':
       return { InputProps: { className: 'ds-focus' } }
+    case 'Error':
+      return { error: true }
     case 'Disabled':
       return { disabled: true }
     default:
@@ -64,6 +66,7 @@ export function DropdownMatrix({ mode }: { mode: Mode }) {
                 fullWidth
                 {...l.props}
                 {...stateProps(state)}
+                helperText={state === 'Error' && l.props.helperText ? 'Error message' : l.props.helperText}
                 SelectProps={{ tabIndex: -1 }}
               />
             )),

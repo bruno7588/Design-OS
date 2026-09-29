@@ -61,3 +61,32 @@ test('it is a combobox named by its label, and works from the keyboard', async (
   await expect(listbox).toBeHidden()
   await expect(combo).toHaveText('Sales')
 })
+
+test('the error state matches the input field: red border and label, Danger icon 24px after the value and 8px before the chevron', async ({ page }) => {
+  const m = await page.getByTestId('dropdown-matrix-light').evaluate((el) => {
+    const control = [...el.querySelectorAll('.MuiFormControl-root')][13] // Error row, label top and helper
+    const root = control.querySelector('.MuiOutlinedInput-root')!
+    const value = root.querySelector('.MuiSelect-select')!.firstChild as Node
+    const range = document.createRange()
+    range.selectNodeContents(value)
+    const text = range.getBoundingClientRect()
+    const icon = root.querySelector('.ds-validation-icon')!.getBoundingClientRect()
+    const chevron = root.querySelector('.MuiSelect-icon')!.getBoundingClientRect()
+    return {
+      border: getComputedStyle(root.querySelector('.MuiOutlinedInput-notchedOutline')!).borderTopColor,
+      label: getComputedStyle(control.querySelector('label')!).color,
+      helper: control.querySelector('.MuiFormHelperText-root')!.textContent,
+      toChevron: Math.round(chevron.left - icon.right),
+      height: Math.round(root.getBoundingClientRect().height),
+      iconAfterText: icon.left > text.right,
+    }
+  })
+  expect(m).toEqual({ border: 'rgb(223, 22, 66)', label: 'rgb(223, 22, 66)', helper: 'Error message', toChevron: 8, height: 37, iconAfterText: true })
+})
+
+test('an error in the preview is announced', async ({ page }) => {
+  await page.getByLabel('Error').check()
+  const combo = page.getByRole('combobox', { name: 'Department' })
+  await expect(combo).toHaveAccessibleDescription('Select a department to continue')
+  await expect(page.locator('input[aria-invalid="true"]').first()).toHaveCount(1)
+})

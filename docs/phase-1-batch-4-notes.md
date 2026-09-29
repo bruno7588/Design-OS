@@ -50,7 +50,7 @@ The shell's own panels use stock MUI TextField and Select, so they now render as
 
 **Figma**
 - **Input field:** no Warning validation (the prototype has one).
-- **Dropdown:** no Error state.
+- **Dropdown:** no Error state. Bruno (2026-09-29) wants one. The reference has it, matching the input field: Text-error border, label and message, and the Bold Danger icon 24px after the value, 8px before the chevron.
 - **Search:** Hover with text has no clear-button variant of its own; the reference shows the clear button.
 
 **Prototype**
@@ -70,7 +70,7 @@ The shell's own panels use stock MUI TextField and Select, so they now render as
   - No combobox role, no arrow keys, and the label isn't linked.
   - About 18 local dropdowns.
   - Four sources disagree on the selected row style.
-- **Tokens:** the prototype's `tokens.css` still has dark `--border` at Neutral-600 (Bruno chose Figma's Neutral-700 on 2026-09-29).
+- **Tokens:** done 2026-09-29. `playground/src/styles/tokens.css` dark `--border` is now Neutral-700, as in Figma, and `colors.md` is updated.
 
 ## Not built yet (shown in the inventory as missing in code)
 - **Input field:** the Integer, Inline and Radio button inputs.

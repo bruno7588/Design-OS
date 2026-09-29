@@ -22,7 +22,13 @@ const compare: Compare = {
       status: 'Matches',
       note: 'The prototype uses Selected (Secondary-600 in light); the guidelines, listbox.md and dropdown.md disagree with each other.',
     },
-    { property: 'Error', figma: 'Not in the set', reference: 'As the input field: Text-error border and message', status: 'Design to update', note: 'The prototype uses Danger-500 in both modes and leaves the label unchanged.' },
+    {
+      property: 'Error',
+      figma: 'Not in the set',
+      reference: 'As the input field: Text-error border, label and message, Bold Danger icon 24px after the value, 8px before the chevron',
+      status: 'Design to update',
+      note: 'Bruno, 2026-09-29: dropdowns need an error state. The prototype uses Danger-500 in both modes, leaves the label unchanged and has no icon.',
+    },
     { property: 'Rich rows', figma: 'Checkbox, radio, avatar, skill icon, search, helper and supporting text rows', reference: 'Not built yet', status: 'Code to update', note: 'They arrive with Checkbox and Radio; the inventory lists them as missing in code.' },
     {
       property: 'Accessibility',

@@ -125,6 +125,11 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
 
         // Dropdown: Read-only and disabled use the quieter Border.
         '&.Mui-disabled:has(.MuiSelect-select)': { [OUTLINE]: { borderColor: s.border } },
+        // Dropdown with an end icon (the error icon): it sits 8px before the chevron.
+        '&:has(.MuiSelect-select):has(.MuiInputAdornment-positionEnd)': {
+          '& .MuiSelect-select': { paddingRight: '0 !important' },
+          '& .MuiInputAdornment-positionEnd': { marginRight: `${t.iconSize.md + t.space.s}px` },
+        },
 
         // Search: a filled field. M is size small, L is size medium.
         '&.ds-search': {
