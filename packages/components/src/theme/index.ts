@@ -12,6 +12,15 @@ import { MuiTab, MuiTabs } from '../Tabs/tabs.overrides'
 import { MuiDialog } from '../Dialog/dialog.overrides'
 import { MuiTooltip } from '../Tooltip/tooltip.overrides'
 import { MuiAlert } from '../Toast/toast.overrides'
+import {
+  MuiFormHelperText,
+  MuiInputLabel,
+  MuiMenu,
+  MuiMenuItem,
+  MuiOutlinedInput,
+  MuiSelect,
+  MuiTextField,
+} from '../Field/field.overrides'
 
 export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
   const t = tokensFor(mode)
@@ -46,6 +55,13 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiDialog,
       MuiTooltip,
       MuiAlert,
+      MuiTextField,
+      MuiInputLabel,
+      MuiFormHelperText,
+      MuiOutlinedInput,
+      MuiSelect,
+      MuiMenu,
+      MuiMenuItem,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })

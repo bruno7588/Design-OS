@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-28",
   "summary": {
     "inFigma": 77,
-    "inCode": 7,
-    "both": 7,
-    "figmaOnly": 70,
+    "inCode": 11,
+    "both": 11,
+    "figmaOnly": 66,
     "codeOnly": 0
   },
   "rows": [
@@ -1147,11 +1147,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Dropdown",
+        "mui": "TextField (select)",
+        "path": "packages/components/src/Dropdown"
+      },
       "prototype": "Dropdown",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Empty state",
@@ -1739,11 +1743,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "InputField",
+        "mui": "TextField (outlined)",
+        "path": "packages/components/src/InputField"
+      },
       "prototype": "InputField",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Input field/Inline",
@@ -1968,11 +1976,40 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Dropdown (menu rows)",
+        "mui": "MenuItem",
+        "path": "packages/components/src/Dropdown"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {
+        "Helper text": [
+          "true"
+        ],
+        "Supporting text": [
+          "true"
+        ],
+        "Icon right": [
+          "true"
+        ],
+        "Avatar": [
+          "true"
+        ],
+        "Skill icon": [
+          "true"
+        ],
+        "Checkbox": [
+          "true"
+        ],
+        "Radio": [
+          "true"
+        ],
+        "Search": [
+          "true"
+        ]
+      },
+      "missingInFigma": {}
     },
     {
       "name": "Tab nav",
@@ -2239,11 +2276,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Search",
+        "mui": "OutlinedInput (className=\"ds-search\")",
+        "path": "packages/components/src/Search"
+      },
       "prototype": "Search",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "stepper",

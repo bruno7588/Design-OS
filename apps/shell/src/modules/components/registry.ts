@@ -27,6 +27,18 @@ import { ToastPreview } from './toast/ToastPreview'
 import { ToastCode } from './toast/ToastCode'
 import { ToastGuidelines } from './toast/ToastGuidelines'
 import { ToastCompare } from './toast/ToastCompare'
+import { InputPreview } from './input/InputPreview'
+import { InputCode } from './input/InputCode'
+import { InputGuidelines } from './input/InputGuidelines'
+import { InputCompare } from './input/InputCompare'
+import { SearchPreview } from './search/SearchPreview'
+import { SearchCode } from './search/SearchCode'
+import { SearchGuidelines } from './search/SearchGuidelines'
+import { SearchCompare } from './search/SearchCompare'
+import { DropdownPreview } from './dropdown/DropdownPreview'
+import { DropdownCode } from './dropdown/DropdownCode'
+import { DropdownGuidelines } from './dropdown/DropdownGuidelines'
+import { DropdownCompare } from './dropdown/DropdownCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -122,6 +134,39 @@ export const components: ComponentDoc[] = [
     Code: ToastCode,
     Guidelines: ToastGuidelines,
     Compare: ToastCompare,
+  },
+  {
+    slug: 'input',
+    name: 'Input field',
+    summary: 'Short free text with a label, helper text and validation.',
+    figma: { light: `${LIBRARY}12114-20561`, dark: `${LIBRARY}8974-24610` },
+    spec: 'playground/docs/design-system/input.md',
+    Preview: InputPreview,
+    Code: InputCode,
+    Guidelines: InputGuidelines,
+    Compare: InputCompare,
+  },
+  {
+    slug: 'search',
+    name: 'Search',
+    summary: 'Filters a list or finds content as people type, in M and L.',
+    figma: { light: `${LIBRARY}11927-6338`, dark: `${LIBRARY}697-33529` },
+    spec: 'playground/docs/design-system/search.md',
+    Preview: SearchPreview,
+    Code: SearchCode,
+    Guidelines: SearchGuidelines,
+    Compare: SearchCompare,
+  },
+  {
+    slug: 'dropdown',
+    name: 'Dropdown',
+    summary: 'Picks one option from a list that opens under the field.',
+    figma: { light: `${LIBRARY}12113-14844`, dark: `${LIBRARY}8925-1408` },
+    spec: 'playground/docs/design-system/dropdown.md',
+    Preview: DropdownPreview,
+    Code: DropdownCode,
+    Guidelines: DropdownGuidelines,
+    Compare: DropdownCompare,
   },
 ]
 
