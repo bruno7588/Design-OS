@@ -171,6 +171,18 @@ import { SkillCardPreview } from './skill-card/SkillCardPreview'
 import { SkillCardCode } from './skill-card/SkillCardCode'
 import { SkillCardGuidelines } from './skill-card/SkillCardGuidelines'
 import { SkillCardCompare } from './skill-card/SkillCardCompare'
+import { InstructorCardPreview } from './instructor-card/InstructorCardPreview'
+import { InstructorCardCode } from './instructor-card/InstructorCardCode'
+import { InstructorCardGuidelines } from './instructor-card/InstructorCardGuidelines'
+import { InstructorCardCompare } from './instructor-card/InstructorCardCompare'
+import { ExternalTrainingCardPreview } from './external-training-card/ExternalTrainingCardPreview'
+import { ExternalTrainingCardCode } from './external-training-card/ExternalTrainingCardCode'
+import { ExternalTrainingCardGuidelines } from './external-training-card/ExternalTrainingCardGuidelines'
+import { ExternalTrainingCardCompare } from './external-training-card/ExternalTrainingCardCompare'
+import { MarketplaceCardPreview } from './marketplace-card/MarketplaceCardPreview'
+import { MarketplaceCardCode } from './marketplace-card/MarketplaceCardCode'
+import { MarketplaceCardGuidelines } from './marketplace-card/MarketplaceCardGuidelines'
+import { MarketplaceCardCompare } from './marketplace-card/MarketplaceCardCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -662,6 +674,39 @@ export const components: ComponentDoc[] = [
     Code: SkillCardCode,
     Guidelines: SkillCardGuidelines,
     Compare: SkillCardCompare,
+  },
+  {
+    slug: 'instructor-card',
+    name: 'Instructor card',
+    summary: 'Who teaches a course: photo, name, bio and skills.',
+    figma: { light: `${LIBRARY}9926-2477`, dark: `${LIBRARY}5149-27386` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: InstructorCardPreview,
+    Code: InstructorCardCode,
+    Guidelines: InstructorCardGuidelines,
+    Compare: InstructorCardCompare,
+  },
+  {
+    slug: 'external-training-card',
+    name: 'External training card',
+    summary: 'A course from outside 5Mins, with its provider and price.',
+    figma: { light: `${LIBRARY}9577-3582`, dark: `${LIBRARY}5908-21523` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: ExternalTrainingCardPreview,
+    Code: ExternalTrainingCardCode,
+    Guidelines: ExternalTrainingCardGuidelines,
+    Compare: ExternalTrainingCardCompare,
+  },
+  {
+    slug: 'marketplace-card',
+    name: 'Marketplace card',
+    summary: 'An offer to buy or redeem: subscription, coaching or reward.',
+    figma: { light: `${LIBRARY}9577-3648`, dark: `${LIBRARY}5213-4524` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: MarketplaceCardPreview,
+    Code: MarketplaceCardCode,
+    Guidelines: MarketplaceCardGuidelines,
+    Compare: MarketplaceCardCompare,
   },
 ]
 

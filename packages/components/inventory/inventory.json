@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 56,
-    "both": 56,
-    "figmaOnly": 21,
+    "inCode": 59,
+    "both": 59,
+    "figmaOnly": 18,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -624,11 +624,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ExternalTrainingCard",
+        "mui": "Box (article)",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/Instructor",
@@ -654,11 +658,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "InstructorCard",
+        "mui": "Box (article)",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/Marketplace",
@@ -685,11 +693,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "MarketplaceCard",
+        "mui": "Box (article)",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/skill",

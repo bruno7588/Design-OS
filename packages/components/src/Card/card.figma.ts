@@ -79,3 +79,30 @@ export const skillCardFigma: FigmaMapping = {
   nodes: { light: '11828:5184', dark: '11802:3704' },
   variants: { Disabled: ['false', 'true'], State: ['Enabled', 'Hover', 'n/a'], Remove: ['false', 'true'] },
 }
+
+export const instructorCardFigma: FigmaMapping = {
+  component: 'InstructorCard',
+  mui: 'Box (article)',
+  page: 'Cards',
+  set: 'Card/Instructor',
+  nodes: { light: '9926:2477', dark: '5149:27386' },
+  variants: { Device: ['Mobile', 'Desktop'], State: ['Enabled', 'Hover'] },
+}
+
+export const externalTrainingCardFigma: FigmaMapping = {
+  component: 'ExternalTrainingCard',
+  mui: 'Box (article)',
+  page: 'Cards',
+  set: 'Card/External training',
+  nodes: { light: '9577:3582', dark: '5908:21523' },
+  variants: { Device: ['Mobile', 'Desktop'], State: ['Enabled', 'Hover'] },
+}
+
+export const marketplaceCardFigma: FigmaMapping = {
+  component: 'MarketplaceCard',
+  mui: 'Box (article)',
+  page: 'Cards',
+  set: 'Card/Marketplace',
+  nodes: { light: '9577:3648', dark: '5213:4524' },
+  variants: { Type: ['Subscription', 'Coaching', 'Reward'], Device: ['Mobile', 'Desktop'] },
+}

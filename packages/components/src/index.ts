@@ -96,4 +96,18 @@ export { CourseCard, type CourseCardProps } from './Card/CourseCard'
 export { CategoryCard, type CategoryCardProps } from './Card/CategoryCard'
 export { FolderCard, NewFolderCard, type FolderCardProps, type NewFolderCardProps } from './Card/FolderCard'
 export { SkillCard, type SkillCardProps } from './Card/SkillCard'
-export { lessonCardFigma, assessmentCardFigma, resourceCardFigma, typeThumbnailFigma, courseCardFigma, categoryCardFigma, folderCardFigma, skillCardFigma } from './Card/card.figma'
+export { InstructorCard, type InstructorCardProps, type InstructorSkill } from './Card/InstructorCard'
+export { ExternalTrainingCard, MarketplaceCard, type ExternalTrainingCardProps, type MarketplaceCardProps } from './Card/ProductCard'
+export {
+  lessonCardFigma,
+  assessmentCardFigma,
+  resourceCardFigma,
+  typeThumbnailFigma,
+  courseCardFigma,
+  categoryCardFigma,
+  folderCardFigma,
+  skillCardFigma,
+  instructorCardFigma,
+  externalTrainingCardFigma,
+  marketplaceCardFigma,
+} from './Card/card.figma'
