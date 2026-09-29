@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 30,
-    "both": 30,
-    "figmaOnly": 47,
+    "inCode": 33,
+    "both": 33,
+    "figmaOnly": 44,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -1943,11 +1943,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "InputInline",
+        "mui": "InputBase",
+        "path": "packages/components/src/InputField"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Input field/Radio button",
@@ -1988,11 +1992,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "InputRadio",
+        "mui": "TextField (outlined) with a Radio adornment",
+        "path": "packages/components/src/InputField"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Input field/Integer",
@@ -2034,11 +2042,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "InputInteger",
+        "mui": "TextField (outlined) with IconButton adornments",
+        "path": "packages/components/src/InputField"
+      },
       "prototype": "InputInteger",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Listbox",

@@ -73,5 +73,5 @@ The shell's own panels use stock MUI TextField and Select, so they now render as
 - **Tokens:** done 2026-09-29. `playground/src/styles/tokens.css` dark `--border` is now Neutral-700, as in Figma, and `colors.md` is updated.
 
 ## Not built yet (shown in the inventory as missing in code)
-- **Input field:** the Integer, Inline and Radio button inputs.
+- **Input field:** the Integer, Inline and Radio button inputs. Done in batch 10.
 - **Dropdown menu rows:** radio, avatar, skill icon, search, helper and supporting text. Checkbox rows and multi-select arrived in batch 5.

@@ -31,6 +31,18 @@ import { InputPreview } from './input/InputPreview'
 import { InputCode } from './input/InputCode'
 import { InputGuidelines } from './input/InputGuidelines'
 import { InputCompare } from './input/InputCompare'
+import { InputIntegerPreview } from './input-integer/InputIntegerPreview'
+import { InputIntegerCode } from './input-integer/InputIntegerCode'
+import { InputIntegerGuidelines } from './input-integer/InputIntegerGuidelines'
+import { InputIntegerCompare } from './input-integer/InputIntegerCompare'
+import { InputRadioPreview } from './input-radio/InputRadioPreview'
+import { InputRadioCode } from './input-radio/InputRadioCode'
+import { InputRadioGuidelines } from './input-radio/InputRadioGuidelines'
+import { InputRadioCompare } from './input-radio/InputRadioCompare'
+import { InputInlinePreview } from './input-inline/InputInlinePreview'
+import { InputInlineCode } from './input-inline/InputInlineCode'
+import { InputInlineGuidelines } from './input-inline/InputInlineGuidelines'
+import { InputInlineCompare } from './input-inline/InputInlineCompare'
 import { SearchPreview } from './search/SearchPreview'
 import { SearchCode } from './search/SearchCode'
 import { SearchGuidelines } from './search/SearchGuidelines'
@@ -197,6 +209,39 @@ export const components: ComponentDoc[] = [
     Code: InputCode,
     Guidelines: InputGuidelines,
     Compare: InputCompare,
+  },
+  {
+    slug: 'input-integer',
+    name: 'Integer input',
+    summary: 'A small whole number people step with − and + or type.',
+    figma: { light: `${LIBRARY}12114-20914`, dark: `${LIBRARY}10145-10895` },
+    spec: 'playground/docs/design-system/input.md',
+    Preview: InputIntegerPreview,
+    Code: InputIntegerCode,
+    Guidelines: InputIntegerGuidelines,
+    Compare: InputIntegerCompare,
+  },
+  {
+    slug: 'input-radio',
+    name: 'Radio button input',
+    summary: 'An option people type and pick, such as a quiz answer.',
+    figma: { light: `${LIBRARY}12114-20857`, dark: `${LIBRARY}8974-30479` },
+    spec: 'playground/docs/design-system/input.md',
+    Preview: InputRadioPreview,
+    Code: InputRadioCode,
+    Guidelines: InputRadioGuidelines,
+    Compare: InputRadioCompare,
+  },
+  {
+    slug: 'input-inline',
+    name: 'Inline input',
+    summary: 'A title and description edited in place, as in the course builder.',
+    figma: { light: `${LIBRARY}12114-20828`, dark: `${LIBRARY}10330-4736` },
+    spec: 'playground/docs/design-system/input.md',
+    Preview: InputInlinePreview,
+    Code: InputInlineCode,
+    Guidelines: InputInlineGuidelines,
+    Compare: InputInlineCompare,
   },
   {
     slug: 'search',

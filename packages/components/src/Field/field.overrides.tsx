@@ -1,6 +1,7 @@
 import type { CSSObject } from '@emotion/react'
 import type { Components, Theme } from '@mui/material/styles'
 import { ArrowDown2 } from 'iconsax-react'
+import { inputTypeStyles, integerHelperStyles } from '../InputField/inputTypes.overrides'
 
 // Theme overrides shared by the text fields: Input field, Search and Dropdown.
 // Figma Library: Input field/Outlined (8974:24610, 12114:20561), Search (697:33529,
@@ -28,6 +29,7 @@ export const MuiTextField: Components<Theme>['MuiTextField'] = {
         '& > .MuiInputLabel-root': { flexShrink: 0, overflow: 'visible' },
         '& > .MuiInputBase-root': { flex: 1, minWidth: 0 },
       },
+      ...integerHelperStyles(theme),
     }),
   },
 }
@@ -158,6 +160,8 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
           '& .ds-search-clear svg': { width: t.iconSize.lg, height: t.iconSize.lg },
         },
         '& input[type="search"]::-webkit-search-cancel-button': { display: 'none' },
+        // Integer and Radio button (inputTypes.overrides.ts).
+        ...inputTypeStyles(theme),
         '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
       }
     },

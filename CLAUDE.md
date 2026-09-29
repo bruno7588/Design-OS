@@ -14,7 +14,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 1, batch 7 (Avatar, Avatar group, Breadcrumb, Content switcher): done. Notes: `docs/phase-1-batch-7-notes.md`.
 - Phase 1, batch 8 (Table): done. Notes: `docs/phase-1-batch-8-notes.md`.
 - Phase 1, batch 9 (Progress bar, Empty state): done. Notes: `docs/phase-1-batch-9-notes.md`.
-- Next: Phase 1, next batch (the Integer, Inline and Radio button inputs; or File uploader and Stepper), or Phase 1c (share with engineering).
+- Phase 1, batch 10 (Integer, Radio button and Inline inputs): done. Notes: `docs/phase-1-batch-10-notes.md`. Shared rules in `packages/components/src/InputField/inputTypes.overrides.ts`.
+- Next: Phase 1, next batch (File uploader and Stepper; or Navigation), or Phase 1c (share with engineering).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)

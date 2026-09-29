@@ -21,6 +21,7 @@ import {
   MuiSelect,
   MuiTextField,
 } from '../Field/field.overrides'
+import { MuiInputBase } from '../InputField/inputTypes.overrides'
 import { MuiDrawer } from '../Overlay/overlay.overrides'
 import { MuiAvatar, MuiAvatarGroup } from '../Avatar/avatar.overrides'
 import { MuiBreadcrumbs } from '../Breadcrumb/breadcrumb.overrides'
@@ -65,6 +66,7 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiTextField,
       MuiInputLabel,
       MuiFormHelperText,
+      MuiInputBase,
       MuiOutlinedInput,
       MuiSelect,
       MuiMenu,
