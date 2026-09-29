@@ -12,7 +12,7 @@ const compare: Compare = {
     { property: 'Title', figma: 'Bold 32, line height 1.5; Text-disabled placeholder, Text-primary filled', reference: 'Same', status: 'Matches' },
     { property: 'Description', figma: 'Regular 16; Text-disabled placeholder, Text-secondary filled; 4px below', reference: 'Same, and it grows onto more lines', status: 'Matches' },
     { property: 'Placeholders', figma: '"Add Title", "Add a description"', reference: '"Add a title", "Add a description"', status: 'Design to update', note: 'Sentence case in UI copy.' },
-    { property: 'Error', figma: 'Title and message (Regular 14) in Text-error, the message right under the title', reference: 'Same', status: 'Matches', note: 'input.md says a 24px Danger icon at the end of the row. Figma has none: the doc is out of date.' },
+    { property: 'Error', figma: 'Title and message (Regular 14) in Text-error, the message right under the title', reference: 'Same', status: 'Matches', note: 'input.md said a 24px Danger icon at the end of the row; corrected 2026-09-29.' },
     { property: 'Active', figma: 'The caret (a GIF instance)', reference: 'The browser caret', status: 'Matches' },
     { property: 'Width', figma: 'Title 900, description 868', reference: 'Both fill the width', status: 'Design to update', note: 'The 32px gap at the end of the description looks unintended.' },
     { property: 'Disabled', figma: 'Only Disabled=false', reference: 'disabled: Text-disabled', status: 'Design to update' },

@@ -14,7 +14,7 @@ description: Input field system for 5Mins.ai — four types. Outlined (standard 
 | **Radio** | Bordered field row with a 21px radio inside — pick an option AND type its value | not built yet |
 | **Integer** | Compact numeric stepper (− / value / +) | `src/components/InputInteger` |
 
-Spec source: Figma Library — set light `12111:3346` / dark `11180:1982`; Outlined `12111:2866`/`8974:24610`; Inline `12111:3347`/`10330:4736`; Radio `12111:3351`/`8974:30479`; Integer `12111:2565`/`10145:10895` (re-verified 2026-08-20). Hexes below are dark-mode fallbacks; tokens resolve per mode (see `colors.md`).
+Spec source: Figma Library — set light `12114:20552` / dark `11180:1982`; Outlined `12114:20561`/`8974:24610`; Inline `12114:20828`/`10330:4736`; Radio `12114:20857`/`8974:30479`; Integer `12114:20914`/`10145:10895` (re-verified 2026-09-29). Hexes below are dark-mode fallbacks; tokens resolve per mode (see `colors.md`).
 
 > **2026-08-20 — field borders use `--border-elevated`.** The border token was split in two: `--border` is the quiet weight for table rows, dividers and cards, and `--border-elevated` is one step stronger for field chrome. Enabled, filled and success borders are `--border-elevated`.
 >
@@ -242,9 +242,9 @@ A borderless editor for a page-level title and optional description — used whe
 | Title | Poppins **Bold 32** (H1), 1.5 | `--text-disabled` ("Add Title") | `--text-primary` |
 | Description (optional) | Poppins Regular 16, 1.5 | `--text-disabled` ("Add a description") | `--text-secondary` |
 
-- Column gap **4px**; reference width 900px.
+- Column gap **4px**; reference width 900px (the description frame is 868px).
 - **States:** Enabled (placeholders) → Active (blinking `--text-primary` caret) → Filled.
-- **Error (Filled):** title turns `--text-error`, a 24px `Danger` (Linear) icon appears at the row end, and an "Error message" line (Regular 14, `--text-error`) renders under the title. The description keeps its normal color.
+- **Error (Filled):** title turns `--text-error` and an "Error message" line (Regular 14, `--text-error`) renders directly under the title, before the description. No icon. The description keeps its normal color.
 - No hover treatment — the inline editor reads as text until clicked.
 
 ```tsx
@@ -271,17 +271,17 @@ A borderless editor for a page-level title and optional description — used whe
 
 A bordered field row with a **21px radio button inside** — the user both selects the option and can type into it (e.g. quiz answer options, "other" choices). Shares the Outlined field chrome.
 
-- Layout: `[radio 21px] [text]`, gap **8px**, padding `8px 12px`, radius 12px, optional label above (Medium 14 `--text-secondary`, gap 8).
+- Layout: `[radio 21px] [text]`, gap **8px**, padding `8px 12px`, radius 12px, optional label above (Semibold 14 `--text-secondary`, gap 8).
 - Text: placeholder `--text-disabled`, value `--text-primary` (Regular 14).
 
 | State | Border | Radio | Notes |
 |---|---|---|---|
 | Enabled | `--border-elevated` | unselected | |
-| Hover | `--border-hover` | unselected | + `--input-background` fill |
+| Hover | `--border-hover` | unselected, with a circular `--page-background-hover` halo | + `--input-background` fill |
 | Active (typing) | `--selected` | unselected | blinking caret |
 | Selected + Filled | `--border-elevated` | **on** (amber dot) | selecting does not keep the amber border |
-| Success validation | `--border-elevated` | on | trailing 20px bold tick-circle |
-| Disabled | `--border` | per state | all text `--text-disabled` |
+| Success validation | `--border-elevated` | on, in `Success-500` (ring and dot) | no icon |
+| Disabled | `--border` | off, `--text-disabled` ring | all text `--text-disabled` (the Figma variant is named `Selected=true` but draws the radio off) |
 
 Radio behavior (halo, amber dot, grouping) follows `selection-controls.md`.
 
@@ -293,7 +293,7 @@ Radio behavior (halo, amber dot, grouping) follows `selection-controls.md`.
 
 The `InputInteger` component is the numeric stepper used for small whole-number settings (e.g. *Maximum course attempts*, *Due days to complete course*). It is a bordered field with a **minus** control, a **centred, typeable value**, and a **plus** control. The value can be both stepped (− / +) and typed directly.
 
-**Figma source:** `Library → Input Field / Integer` — light `12111:2565` / dark `10145:10895`
+**Figma source:** `Library → Input Field / Integer` — light `12114:20914` / dark `10145:10895`
 
 ---
 
@@ -364,10 +364,10 @@ import InputInteger from '@/components/InputInteger/InputInteger';
 | Field padding | `8px 12px`  (`--space-s --space-sm`) |
 | Field border-radius | `12px` (`--radius-sm`) |
 | Gap (− / value / +) | `12px` (`--space-sm`) |
-| Step control icons | Figma draws `21×21px`; the built control uses the DS-standard **20px** Iconsax glyph inside a **24px** circular hover target (`--radius-full`), the one deliberate deviation — 21px would sit under the minimum pointer target |
+| Step control icons | **20×20px** Iconsax `minus` / `add` (Linear), `--text-secondary`, inside a **24px** circular hover target (`--radius-full`) that doesn't grow the 37px field |
 | Value box | `26px` wide, centred |
 | Gap (label → field → helper) | `8px` |
-| Field width | Content-sized (`fit-content`) — ~116px at the default 3-digit value |
+| Field width | Content-sized (`fit-content`) — 114px at the default 3-digit value |
 
 ---
 

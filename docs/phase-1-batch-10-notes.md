@@ -48,7 +48,6 @@ All three share `packages/components/src/InputField/inputTypes.overrides.ts`. Th
 
 **Figma**
 - **Integer:**
-  - The icons are 21px; code uses 20px in a 24px halo, so the field is 114px wide, not 116px.
   - Success looks the same as Filled.
   - No min/max state and no label-at-start variant (the prototype has one, plus a "%" suffix).
 - **Radio button:**
@@ -59,11 +58,16 @@ All three share `packages/components/src/InputField/inputTypes.overrides.ts`. Th
   - The description is 868px next to a 900px title.
   - There's no disabled variant.
 
-**Prototype docs (`input.md`)**
-- Radio success: the doc says a tick icon; Figma has only the green radio.
-- Radio label: the doc says Medium 14; Figma uses Semibold 14.
-- Inline error: the doc says a Danger icon; Figma has none.
+**Prototype**
 - The prototype Integer has no spinbutton role or arrow keys, and there's no Radio button or Inline component at all.
+
+## Follow-up, 2026-09-29 (Bruno)
+- **Figma:** the Integer − and + icons are now 20px in both sets (88 instances rescaled, so the strokes scale too). The field hugs to 114×37, matching code. The Compare frames are re-exported.
+- **`playground/docs/design-system/input.md`** now follows Figma:
+  - The node IDs are the current light copies (`12114:*`).
+  - Radio: Semibold label, a Success-500 radio with no tick icon, a hover halo on the radio, and disabled drawn off.
+  - Inline: no Danger icon on error; the message sits under the title.
+  - Integer: 20px icons and a 114px field.
 
 ## Not built
 - The Integer label-at-start layout and unit suffix. They're prototype only, not in Figma.

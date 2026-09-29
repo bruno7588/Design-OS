@@ -38,7 +38,7 @@ test('the field matches Figma: 37px, hugs its content, 12px gaps, state colours'
       }),
     )
     // Rows: Enabled, Hover, Active, Filled, Success, Error, Disabled; 3 layouts each.
-    for (const b of boxes) expect(b).toMatchObject({ h: 37, w: 114, input: 26, gap: 10 }) // Figma 116: its icons are 21px
+    for (const b of boxes) expect(b).toMatchObject({ h: 37, w: 114, input: 26, gap: 10 })
     expect(boxes[0].border).toBe('rgb(223, 225, 230)') // Border-elevated
     expect(boxes[0].helper).toBeNull()
     expect(boxes[2].helper).toBe('rgb(69, 76, 94)') // Text-secondary

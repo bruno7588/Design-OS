@@ -10,7 +10,7 @@ const compare: Compare = {
   live: (mode) => <InputIntegerMatrix mode={mode} />,
   differences: [
     { property: 'Field', figma: '37px: padding 8/12, radius 12, 1px Border-elevated inside; hugs its content', reference: 'Same', status: 'Matches' },
-    { property: '− and +', figma: 'Iconsax minus and add, 21px, Text-secondary, 12px from the value', reference: '20px icons in a 24px halo that doesn’t grow the field', status: 'Design to update', note: 'Figma draws the icons at 21px. The reference uses the 20px icon size, as the prototype does.' },
+    { property: '− and +', figma: 'Iconsax minus and add, 20px, Text-secondary, 12px from the value', reference: '20px icons in a 24px halo that doesn’t grow the field', status: 'Matches', note: 'Figma drew them at 21px until 2026-09-29; now 20px, the standard icon size. The field is 114px.' },
     { property: 'Value', figma: 'Regular 14, centred in 26px; empty "0" in Text-disabled', reference: 'Same (value null shows the placeholder)', status: 'Matches' },
     { property: 'Hover', figma: 'Border-hover, no fill; Page-background-hover halo on the button, radius 40', reference: 'Same (the halo follows the pointer)', status: 'Matches' },
     { property: 'Active', figma: 'Selected border', reference: 'Same', status: 'Matches' },
