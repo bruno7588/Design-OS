@@ -28,7 +28,7 @@ Checked 2026-09-29.
   - **Detail page:** back, a centred title and a 32px action slot.
   - **Skill:** back, the skill icon with a Bold 14 title, and more options.
   - **Lesson feed:** transparent, back on a dark 50% fill, and the points with the Points illustration.
-  - **Sizes:** heights follow Figma per page (65 / 64 / 56). The Border is drawn inside.
+  - **Sizes:** 64px on the top-level pages and 56 on the rest. The Border is drawn inside.
   - **Status bar:** `statusBar` adds an aria-hidden iOS stand-in for prototypes. It's off by default, because the phone draws the real one.
 - **New icons:**
   - `FeedIcon` and `MoreVerticalIcon` (the Remix RiMore2Line), copied from Figma.
@@ -41,17 +41,19 @@ Checked 2026-09-29.
   - The light copy has lost the back button's dark fill, and the arrow and points use Text-primary, so they turn dark over the video.
   - Code follows the dark set in both modes: Neutral-900 at 50% behind a Neutral-25 arrow.
   - The dark set's fill is a raw `#0F1014` at 50%; it could be bound to Neutral-900.
-- **Heights:**
-  - The top-level bars are 65px, which is off the 2/4px grid.
-  - Profile is 64, 1px shorter than the others.
 - **Chip gaps:** Home spaces its chips 8px apart and Progress 16. It's the same group, so it's worth settling on one.
 - **Detail page:** the title sits 4px right of centre, because the sides are 40 (back) and 32 (the slot).
-- **Settings badge:**
-  - Figma fills it with Input-background at 100%. Our token has the fields' 16% built in, so code uses the solid colour behind it (Neutral-200 light, Neutral-500 dark).
-  - At 18px it's a small touch target. The Guidelines suggest the avatar opens settings too.
+- **Settings badge:** at 18px it's a small touch target. The Guidelines suggest the avatar opens settings too.
 - **Focus:** Figma has no focus state for tabs or icon buttons. Code adds the 2px Primary ring used elsewhere.
 - **Mobile web:** not built. It's the browser's own chrome, for mockups.
 - **Skill icon:** the skill illustrations come with the Illustrations batch. The docs use an Iconsax stand-in until then.
+
+## Follow-up (Bruno, 2026-09-29)
+- **Top-level bars are 64px:** Home, Search, Progress and Feed went from 65 to 64 in both Figma sets (the variants are now 89 tall with the status bar), and in code. Profile was already 64.
+- **The settings badge uses Input-background:**
+  - In Figma it was bound to a deleted Input-background variable (`7625:28470`: solid Neutral-50 light, Neutral-700 dark).
+  - It's now bound to the current Input-background (`10830:146`: Neutral-200 / Neutral-500 at 16%) in both sets.
+  - Code uses the `inputBackground` token.
 
 ## Prototype differences
 - **navigation.md** is fixed to match Figma:

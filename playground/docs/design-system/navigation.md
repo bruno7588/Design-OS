@@ -211,7 +211,7 @@ The learner **mobile app** chrome (phone-frame prototype): a top header and a bo
 
 ### Top header (375 wide, per-page variants)
 
-The Figma component includes the iOS status bar (clock "9:41" + signal/wifi/battery, 16px/4px padding) above the header row; the prototype component renders a lightweight equivalent. Header row: `--page-background`, 1px bottom border `--border` on every page except Lesson feed (re-checked 2026-09-29: Home has the divider too); **Lesson feed is fully transparent** (floats over content). Heights: 65px on Home, Search, Progress and Feed, 64 on Profile, 56 on Detail page, Skill and Lesson feed.
+The Figma component includes the iOS status bar (clock "9:41" + signal/wifi/battery, 16px/4px padding) above the header row; the prototype component renders a lightweight equivalent. Header row: `--page-background`, 1px bottom border `--border` on every page except Lesson feed (re-checked 2026-09-29: Home has the divider too); **Lesson feed is fully transparent** (floats over content). Heights: 64px on the top-level pages (Home, Search, Progress, Feed, Profile; set 2026-09-29, were 65), 56 on Detail page, Skill and Lesson feed.
 
 | Page variant | Node | Height | Contents |
 |---|---|---|---|
@@ -219,7 +219,7 @@ The Figma component includes the iOS status bar (clock "9:41" + signal/wifi/batt
 | Search | `7632:8029` | 65px | Full-width search field: `--input-background` fill, 1px `--border`, radius 12px, 12px/8px padding, 18px magnifier, placeholder Poppins Regular 14 `--text-disabled` |
 | Progress | `7632:8164` | 65px | Chips "My Team" / "My Progress" |
 | Feed | `7632:8202` | 65px | Centered title Poppins Bold 16/1.5 `--text-primary` |
-| Profile | `7632:8270` | auto, 16px/12px pad | 40px avatar with an 18px settings badge (top-right, solid Input-background: `--neutral-200` light / `--neutral-500` dark, 12px `setting-2` Linear icon), name Bold 14 + role Regular 12 `--text-secondary` (2px gap); right 40px `--primary-500` circular add button (`add` Linear, `--neutral-800`) |
+| Profile | `7632:8270` | auto, 16px/12px pad | 40px avatar with an 18px settings badge (top-right, `--input-background`, 12px `setting-2` Linear icon), name Bold 14 + role Regular 12 `--text-secondary` (2px gap); right 40px `--primary-500` circular add button (`add` Linear, `--neutral-800`) |
 | Detail page | `6162:9788` | auto, 16px/8px pad | Back button left, centered title Bold 16, empty 32px right spacer to keep the title centered |
 | Skill | `8377:1056` | auto, 16px/8px pad | Back button, 24px skill illustration + title Bold **14**, right 24px vertical kebab |
 | Lesson feed | `7645:4829` | auto, 16px/8px pad | Transparent; back button on a fixed `rgba(15,16,20,0.5)` legibility fill; right "45 Pt" Bold 12 + small trophy |

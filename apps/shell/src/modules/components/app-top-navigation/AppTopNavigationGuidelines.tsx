@@ -12,7 +12,7 @@ const g: Guidelines = {
   anatomy: {
     example: <Phone><Sample page="home" statusBar={false} /></Phone>,
     parts: [
-      { name: 'Bar', description: '375 wide, Page-background, a 1px Border underneath. 65px on top-level pages (padding 12/16), 56px on detail pages (padding 8/16).' },
+      { name: 'Bar', description: '375 wide, Page-background, a 1px Border underneath. 64px on top-level pages (padding 12/16), 56px on detail pages (padding 8/16).' },
       { name: 'Chips', description: 'The 5Mins Chip: Home 8px apart, Progress 16px apart.' },
       { name: 'Icon actions', description: 'Home: flash-circle and notification-bing, Bold 28 in Text-primary, 16px apart. An 8px Text-error dot marks new notifications.' },
       { name: 'Back', description: '40px round, Input-background, arrow-left Linear 24.' },

@@ -69,10 +69,10 @@ export interface AppTopNavProps {
 
 // Header heights per page, from Figma (the 1px Border is drawn inside).
 const HEIGHT: Record<AppTopNavPage, number> = {
-  home: 65,
-  search: 65,
-  progress: 65,
-  feed: 65,
+  home: 64,
+  search: 64,
+  progress: 64,
+  feed: 64,
   profile: 64,
   detail: 56,
   skill: 56,
@@ -245,9 +245,7 @@ export function AppTopNav({
                   width: 18,
                   height: 18,
                   borderRadius: theme.tokens.radius.full,
-                  // Figma: Input-background at 100%. Our token carries the fields' 16%, so this
-                  // uses the colour behind it (Neutral-200 light, Neutral-500 dark).
-                  backgroundColor: theme.tokens.palette.neutral[theme.tokens.mode === 'dark' ? 500 : 200],
+                  backgroundColor: theme.tokens.semantic.inputBackground,
                   color: theme.tokens.semantic.textPrimary,
                   '&.Mui-focusVisible': { outline: `2px solid ${theme.tokens.semantic.primaryButtonBackground}` },
                 })}

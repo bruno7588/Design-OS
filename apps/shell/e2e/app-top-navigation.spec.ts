@@ -36,7 +36,7 @@ test('bar heights, padding and border per page match Figma', async ({ page }) =>
         }),
       ),
     )
-    const heights = { home: 65, search: 65, progress: 65, feed: 65, profile: 64, detail: 56, skill: 56, 'lesson-feed': 56 }
+    const heights = { home: 64, search: 64, progress: 64, feed: 64, profile: 64, detail: 56, skill: 56, 'lesson-feed': 56 }
     for (const [p, h] of Object.entries(heights)) {
       expect(rows[p].h, p).toBe(h)
       expect(rows[p].status, p).toBe(25)
