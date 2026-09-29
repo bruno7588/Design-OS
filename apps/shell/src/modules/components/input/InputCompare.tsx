@@ -9,6 +9,7 @@ const compare: Compare = {
   frames: { light: '/figma/input-light.png', dark: '/figma/input-dark.png' },
   live: (mode) => <InputMatrix mode={mode} />,
   differences: [
+    { property: 'Input field (parent set)', figma: 'Input field 11180:1982 / 12114:20552: Type=Outlined, Radio, Integer, Inline, each an instance of its own set', reference: 'InputField, InputRadio, InputInteger and InputInline', status: 'Matches', note: 'Mapping only (inputFieldSetFigma).' },
     { property: 'Field', figma: '37px: padding 8/12, radius 12, 1px border inside', reference: 'Same', status: 'Matches', note: 'The prototype field is about 39px (border outside); design-system-guidelines.md says 12/16 padding.' },
     { property: 'Layout', figma: 'Label, field, helper, 8px apart', reference: 'Same', status: 'Matches' },
     { property: 'Type', figma: 'Label Semibold 14; value and helper Regular 14', reference: 'Same', status: 'Matches' },

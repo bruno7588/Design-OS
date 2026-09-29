@@ -23,7 +23,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 1, batch 16 (Course, Category, Folder and Skill cards): done. Notes: `docs/phase-1-batch-16-notes.md`.
 - Phase 1, batch 17 (Instructor, External training and Marketplace cards): done. Notes: `docs/phase-1-batch-17-notes.md`. Every Cards-page set is now in code.
 - Phase 1, batch 18 (Full screen modal, Share modal, Bottom sheet): done. Notes: `docs/phase-1-batch-18-notes.md`.
-- Next: finish the remaining components before Phase 1c (Bruno, 2026-09-29): the gaps (mapping-only sets: Input field parent, Listbox, the second Tabs set, Emojies), then Gamification and illustrations.
+- Phase 1, batch 19 (gaps: Input field set, Tabs bar, Listbox mappings; Emoji): done. Notes: `docs/phase-1-batch-19-notes.md`. The Scrim is 50% in both modes.
+- Next: finish the remaining components before Phase 1c (Bruno, 2026-09-29): Gamification and illustrations.
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)

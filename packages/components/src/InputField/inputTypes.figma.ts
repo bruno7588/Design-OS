@@ -44,3 +44,13 @@ export const inputInlineFigma: FigmaMapping = {
     Size: ['L', 'M'],
   },
 }
+
+// The parent set that switches between the four input types; each type is its own component.
+export const inputFieldSetFigma: FigmaMapping = {
+  component: 'InputField, InputRadio, InputInteger, InputInline',
+  mui: 'TextField / OutlinedInput',
+  page: 'Input',
+  set: 'Input field',
+  nodes: { light: '12114:20552', dark: '11180:1982' },
+  variants: { Type: ['Outlined', 'Radio', 'Integer', 'Inline'] },
+}

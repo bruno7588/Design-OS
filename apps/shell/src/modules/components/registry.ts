@@ -195,6 +195,10 @@ import { BottomSheetPreviewTab } from './bottom-sheet/BottomSheetPreview'
 import { BottomSheetCode } from './bottom-sheet/BottomSheetCode'
 import { BottomSheetGuidelines } from './bottom-sheet/BottomSheetGuidelines'
 import { BottomSheetCompare } from './bottom-sheet/BottomSheetCompare'
+import { EmojiPreview } from './emoji/EmojiPreview'
+import { EmojiCode } from './emoji/EmojiCode'
+import { EmojiGuidelines } from './emoji/EmojiGuidelines'
+import { EmojiCompare } from './emoji/EmojiCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -752,6 +756,17 @@ export const components: ComponentDoc[] = [
     Code: BottomSheetCode,
     Guidelines: BottomSheetGuidelines,
     Compare: BottomSheetCompare,
+  },
+  {
+    slug: 'emoji',
+    name: 'Emoji',
+    summary: 'Friendly faces for avatars without a picture and light moments.',
+    figma: { light: `${LIBRARY}12368-97`, dark: `${LIBRARY}10587-2256` },
+    spec: 'playground/docs/design-system/avatars.md',
+    Preview: EmojiPreview,
+    Code: EmojiCode,
+    Guidelines: EmojiGuidelines,
+    Compare: EmojiCompare,
   },
 ]
 

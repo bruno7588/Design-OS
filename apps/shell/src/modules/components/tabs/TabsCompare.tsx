@@ -9,6 +9,7 @@ const compare: Compare = {
   frames: { light: '/figma/tabs-light.png', dark: '/figma/tabs-dark.png' },
   live: (mode) => <TabsMatrix mode={mode} />,
   differences: [
+    { property: 'Tabs (the bar)', figma: 'Tabs 8497:24855: five Tab items, 16px apart (light instance 11975:2581)', reference: 'MUI Tabs with the 5Mins Tab, 16px apart', status: 'Matches', note: 'Mapping only (tabsBarFigma).' },
     { property: 'Type', figma: 'Paragraph M medium 14/500; Selected H5 Bold', reference: 'Same', status: 'Matches' },
     { property: 'Indicator', figma: '2px, 4px under the label row, as wide as the row, Selected colour', reference: 'Same', status: 'Matches' },
     { property: 'Bar', figma: '27px tall, 16px between tabs', reference: 'Same', status: 'Matches', note: 'Prototype pages use 16, 20 or 24px between tabs.' },

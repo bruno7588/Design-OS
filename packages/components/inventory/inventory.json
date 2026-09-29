@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 62,
-    "both": 62,
-    "figmaOnly": 15,
+    "inCode": 66,
+    "both": 66,
+    "figmaOnly": 11,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -156,11 +156,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Emoji",
+        "mui": "Box (svg / img)",
+        "path": "packages/components/src/Avatar"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Badge",
@@ -1069,11 +1073,15 @@
       "variants": {},
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Tabs + Tab",
+        "mui": "Tabs",
+        "path": "packages/components/src/Tabs"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Tab items",
@@ -1935,11 +1943,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "InputField, InputRadio, InputInteger, InputInline",
+        "mui": "TextField / OutlinedInput",
+        "path": "packages/components/src/InputField"
+      },
       "prototype": "InputField",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Input field/Outlined",
@@ -2176,11 +2188,23 @@
         "List-3:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Dropdown (menu)",
+        "mui": "Menu + List (+ Divider)",
+        "path": "packages/components/src/Dropdown"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {
+        "Caret": [
+          "true"
+        ],
+        "Position": [
+          "Bottom",
+          "Top"
+        ]
+      },
+      "missingInFigma": {}
     },
     {
       "name": "List itens",
