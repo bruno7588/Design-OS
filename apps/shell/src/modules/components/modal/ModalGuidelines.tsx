@@ -33,7 +33,7 @@ const g: Guidelines = {
       { name: 'Section header', description: 'Title Bold 20px in Text-primary; supporting text 14px in Text-secondary, 4px below; a Border divider 12px under that.' },
       { name: 'Content', description: 'At least 320px tall, the full width.' },
       { name: 'Button', description: 'One Filled Medium button, centred.' },
-      { name: 'Scrim', description: 'Neutral-900 at 25% (light) or 50% (dark).' },
+      { name: 'Scrim', description: 'Neutral-900 at 50%.' },
     ],
   },
   variants: [

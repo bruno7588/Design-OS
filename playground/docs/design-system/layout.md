@@ -158,14 +158,14 @@ Code-only extra: `--shadow-panel` (`-24px 0 24px 0 rgba(32, 34, 42, 0.04)`) — 
 
 ## 7. Overlay scrim
 
-Full-screen backdrop behind dialogs, modals, and side drawers. The base colour is always Neutral-900 `#0F1014`, exposed as the single token `--scrim`, and only the opacity changes per mode:
+Full-screen backdrop behind dialogs, modals, side drawers and bottom sheets: Neutral-900 `#0F1014` at 50% in both modes (the Figma Overlay component; light mode was 25% until 2026-09-29), exposed as the single token `--scrim`:
 
 | Mode | Value |
 |---|---|
-| Light mode | Neutral-900 @ **25%** — `rgba(15, 16, 20, 0.25)` |
+| Light mode | Neutral-900 @ **50%** — `rgba(15, 16, 20, 0.5)` |
 | Dark mode | Neutral-900 @ **50%** — `rgba(15, 16, 20, 0.5)` |
 
-**Usage rule:** every overlay backdrop - dialog, modal, side drawer, lightbox, popover blocker - uses `background: var(--scrim)`. Never hardcode the rgba value, and never derive a one-off alpha: the token is the only thing that flips between modes.
+**Usage rule:** every overlay backdrop - dialog, modal, side drawer, lightbox, popover blocker - uses `background: var(--scrim)`. Never hardcode the rgba value, and never derive a one-off alpha: use the token.
 
 ```css
 .overlay-backdrop {

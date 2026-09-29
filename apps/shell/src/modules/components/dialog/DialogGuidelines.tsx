@@ -41,7 +41,7 @@ const g: Guidelines = {
     { name: 'Success', description: 'Acknowledging a result. Primary button.', example: <ConfirmDialogPreview type="success" title="Course published" actionLabel="View Course" /> },
   ],
   states: [
-    { name: 'Open', description: 'The scrim covers the page (25% in light mode, 50% in dark). Focus moves to Cancel and stays inside the dialog.' },
+    { name: 'Open', description: 'The scrim (Neutral-900 at 50%) covers the page. Focus moves to Cancel and stays inside the dialog.' },
     { name: 'Closing', description: 'Only Cancel or the action closes it. Escape and a click on the scrim do nothing, so a decision is never made by accident.' },
     { name: 'After closing', description: 'Focus returns to the control that opened it.' },
   ],

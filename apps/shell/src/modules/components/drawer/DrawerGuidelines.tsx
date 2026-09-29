@@ -33,7 +33,7 @@ const g: Guidelines = {
       { name: 'Section header', description: 'As the modal’s: title, supporting text and a divider.' },
       { name: 'Content', description: 'Fills the space and scrolls on its own.' },
       { name: 'Footer', description: 'A Border divider, then a Filled and an Outlined button, 16px apart. Always in view.' },
-      { name: 'Scrim', description: 'Neutral-900 at 25% (light) or 50% (dark), over the rest of the page.' },
+      { name: 'Scrim', description: 'Neutral-900 at 50%, over the rest of the page.' },
     ],
   },
   variants: [

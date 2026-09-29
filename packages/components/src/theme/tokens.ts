@@ -70,7 +70,8 @@ const light = {
   // and 24%, the same in both modes. The prototype uses the #EDA30D amber instead.
   rowSelected: 'rgba(255, 187, 56, 0.16)',
   rowSelectedHover: 'rgba(255, 187, 56, 0.24)',
-  scrim: 'rgba(15, 16, 20, 0.25)',
+  // Neutral-900 at 50% in both modes, as Figma's Overlay component (Bruno, 2026-09-29).
+  scrim: 'rgba(15, 16, 20, 0.5)',
 }
 
 export type SemanticTokens = { [K in keyof typeof light]: string }

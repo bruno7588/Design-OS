@@ -15,7 +15,7 @@ const compare: Compare = {
     { property: 'Footer', figma: 'Divider, then Filled and Outlined Medium buttons, 16px apart', reference: 'Same', status: 'Matches' },
     { property: 'Footer width', figma: '656px, narrower than the 672px content', reference: 'The full content width', status: 'Design to update', note: 'overlays.md explains 656 as 8px internal padding; nothing else in the frame has it.' },
     { property: 'Close button', figma: 'In the section header row: a 32px frame, 24px from the right, level with the title', reference: 'Same (SectionHeader action)', status: 'Matches', note: 'The Modal’s sits in the corner instead, 10px from the edges.' },
-    { property: 'Scrim', figma: 'Neutral-900 at 50%', reference: 'Scrim token: 50% dark, 25% light', status: 'Matches', note: 'overlays.md’s diagram says 64%.' },
+    { property: 'Scrim', figma: 'Neutral-900 at 50%', reference: 'Scrim token: 50% in both modes', status: 'Matches', note: 'overlays.md’s diagram says 64%.' },
     { property: 'Light mode', figma: 'An instance in the Light mode frame (10871:13180), set to the Light variable modes', reference: 'Tokens resolve per mode', status: 'Matches' },
     { property: 'Semantics', figma: 'Not shown', reference: 'The panel is a dialog, named by its title; Escape closes; focus returns', status: 'Matches', note: 'MUI Drawer gives the panel no role: the wrapper adds it.' },
   ],

@@ -14,7 +14,7 @@ const compare: Compare = {
     { property: 'Section header', figma: 'Bold 20 title, 14 supporting text 4px below, Border divider 12px under', reference: 'Same', status: 'Matches', note: 'overlays.md says 16px above the divider.' },
     { property: 'Content slot', figma: '672×320, radius 12', reference: 'At least 320px tall', status: 'Matches' },
     { property: 'Button', figma: 'Filled Medium, centred', reference: 'Same', status: 'Matches' },
-    { property: 'Scrim', figma: 'Neutral-900 at 50%', reference: 'Scrim token: 50% dark, 25% light', status: 'Matches' },
+    { property: 'Scrim', figma: 'Neutral-900 at 50%', reference: 'Scrim token: 50% in both modes', status: 'Matches' },
     { property: 'Light mode', figma: 'An instance in the Light mode frame (7861:25549), set to the Light variable modes', reference: 'Tokens resolve per mode', status: 'Matches' },
     { property: 'Closing', figma: 'Not shown', reference: 'Close button, Escape and a click on the scrim; focus returns', status: 'Matches', note: 'As overlays.md. The confirmation Dialog closes only on its buttons.' },
   ],

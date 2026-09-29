@@ -18,7 +18,7 @@ const compare: Compare = {
     { property: 'Shadow', figma: 'Shadow L: -4, 0, 24 at 12%', reference: 'Same (shadow.l updated)', status: 'Matches', note: "The prototype's --shadow-l token is 4, 4, 24." },
     { property: 'Error action label', figma: 'The filled button says "Cancel"', reference: '"Cancel" in the matrix, to match; a real verb in use', status: 'Design to update', note: 'Both buttons say Cancel in every Error variant.' },
     { property: 'Closing', figma: 'Not shown', reference: 'Only Cancel or the action; Escape and scrim ignored', status: 'Matches', note: 'Bruno, 2026-09-28, as overlays.md says. The prototype ConfirmModal closes on both (ConfirmModal.tsx:17 and 26; checked in the running prototype on 2026-09-29, Roles > Delete role): code to update there.' },
-    { property: 'Scrim', figma: 'Not shown', reference: 'Scrim token: 25% light, 50% dark', status: 'Design to update' },
+    { property: 'Scrim', figma: 'Not shown', reference: 'Scrim token: Neutral-900 at 50%', status: 'Design to update' },
   ],
   engineering: {
     mui: 'Dialog',
