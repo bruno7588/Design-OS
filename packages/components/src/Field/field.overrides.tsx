@@ -2,6 +2,7 @@ import type { CSSObject } from '@emotion/react'
 import type { Components, Theme } from '@mui/material/styles'
 import { ArrowDown2 } from 'iconsax-react'
 import { inputTypeStyles, integerHelperStyles } from '../InputField/inputTypes.overrides'
+import { dateFieldStyles } from '../Calendar/dateField.styles'
 
 // Theme overrides shared by the text fields: Input field, Search and Dropdown.
 // Figma Library: Input field/Outlined (8974:24610, 12114:20561), Search (697:33529,
@@ -30,6 +31,7 @@ export const MuiTextField: Components<Theme>['MuiTextField'] = {
         '& > .MuiInputBase-root': { flex: 1, minWidth: 0 },
       },
       ...integerHelperStyles(theme),
+      ...dateFieldStyles(theme),
     }),
   },
 }

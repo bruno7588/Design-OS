@@ -125,6 +125,9 @@ export const shadow = {
   l: '-4px 0 24px 0 rgba(32, 34, 42, 0.12)',
   xl: '0 4px 32px 0 rgba(32, 34, 42, 0.24)',
   panel: '-24px 0px 24px 0px rgba(32, 34, 42, 0.04)',
+  // Figma <Slider> thumb: 1px 1px 4px, Secondary-800 at 24% (Neutral-800 at 24% when disabled).
+  sliderThumb: '1px 1px 4px 0 rgba(51, 37, 11, 0.24)',
+  sliderThumbDisabled: '1px 1px 4px 0 rgba(32, 34, 42, 0.24)',
 } as const
 
 export const fontFamily = "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"

@@ -22,6 +22,17 @@ import {
   MuiTextField,
 } from '../Field/field.overrides'
 import { MuiInputBase } from '../InputField/inputTypes.overrides'
+import { MuiSlider } from '../Slider/slider.overrides'
+import {
+  MuiDateCalendar,
+  MuiDayCalendar,
+  MuiDesktopDatePicker,
+  MuiPickersArrowSwitcher,
+  MuiPickersCalendarHeader,
+  MuiPickersDay,
+  MuiPickersLayout,
+  MuiPickersPopper,
+} from '../Calendar/calendar.overrides'
 import { MuiStep, MuiStepConnector, MuiStepLabel, MuiStepper } from '../Stepper/stepper.overrides'
 import { MuiDrawer } from '../Overlay/overlay.overrides'
 import { MuiAvatar, MuiAvatarGroup } from '../Avatar/avatar.overrides'
@@ -93,6 +104,15 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiStep,
       MuiStepLabel,
       MuiStepConnector,
+      MuiSlider,
+      MuiDesktopDatePicker,
+      MuiDateCalendar,
+      MuiPickersPopper,
+      MuiPickersLayout,
+      MuiPickersCalendarHeader,
+      MuiPickersArrowSwitcher,
+      MuiDayCalendar,
+      MuiPickersDay,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })

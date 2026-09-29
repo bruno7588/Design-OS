@@ -16,7 +16,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 1, batch 9 (Progress bar, Empty state): done. Notes: `docs/phase-1-batch-9-notes.md`.
 - Phase 1, batch 10 (Integer, Radio button and Inline inputs): done. Notes: `docs/phase-1-batch-10-notes.md`. Shared rules in `packages/components/src/InputField/inputTypes.overrides.ts`.
 - Phase 1, batch 11 (File uploader, Stepper): done. Notes: `docs/phase-1-batch-11-notes.md`.
-- Next: Phase 1, next batch (Navigation; or Tags, Slider and Calendar), or Phase 1c (share with engineering).
+- Phase 1, batch 12 (Tag, Slider, Calendar): done. Notes: `docs/phase-1-batch-12-notes.md`. The Calendar is MUI X Date Pickers 7 with dayjs (a new dependency).
+- Next: Phase 1, next batch (Navigation; or Cards), or Phase 1c (share with engineering).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)

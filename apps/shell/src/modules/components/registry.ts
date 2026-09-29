@@ -111,6 +111,18 @@ import { StepperPreview } from './stepper/StepperPreview'
 import { StepperCode } from './stepper/StepperCode'
 import { StepperGuidelines } from './stepper/StepperGuidelines'
 import { StepperCompare } from './stepper/StepperCompare'
+import { TagPreview } from './tag/TagPreview'
+import { TagCode } from './tag/TagCode'
+import { TagGuidelines } from './tag/TagGuidelines'
+import { TagCompare } from './tag/TagCompare'
+import { SliderPreview } from './slider/SliderPreview'
+import { SliderCode } from './slider/SliderCode'
+import { SliderGuidelines } from './slider/SliderGuidelines'
+import { SliderCompare } from './slider/SliderCompare'
+import { CalendarPreview } from './calendar/CalendarPreview'
+import { CalendarCode } from './calendar/CalendarCode'
+import { CalendarGuidelines } from './calendar/CalendarGuidelines'
+import { CalendarCompare } from './calendar/CalendarCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -437,6 +449,39 @@ export const components: ComponentDoc[] = [
     Code: StepperCode,
     Guidelines: StepperGuidelines,
     Compare: StepperCompare,
+  },
+  {
+    slug: 'tag',
+    name: 'Tag',
+    summary: 'Shows the media type in the corner of a thumbnail: video, PDF, link, SCORM, flashcard or audio.',
+    figma: { light: `${LIBRARY}11337-14129`, dark: `${LIBRARY}4603-27712` },
+    spec: 'Figma Library, Badges / Tags page',
+    Preview: TagPreview,
+    Code: TagCode,
+    Guidelines: TagGuidelines,
+    Compare: TagCompare,
+  },
+  {
+    slug: 'slider',
+    name: 'Slider',
+    summary: 'Picks a value from a range by dragging, such as a pass mark.',
+    figma: { light: `${LIBRARY}11045-9459`, dark: `${LIBRARY}10662-14039` },
+    spec: 'Figma Library, Slider page',
+    Preview: SliderPreview,
+    Code: SliderCode,
+    Guidelines: SliderGuidelines,
+    Compare: SliderCompare,
+  },
+  {
+    slug: 'calendar',
+    name: 'Calendar',
+    summary: 'A date field that opens a month calendar: type the date or pick it.',
+    figma: { light: `${LIBRARY}12204-5743`, dark: `${LIBRARY}11529-406` },
+    spec: 'playground/docs/design-system/calendar.md',
+    Preview: CalendarPreview,
+    Code: CalendarCode,
+    Guidelines: CalendarGuidelines,
+    Compare: CalendarCompare,
   },
 ]
 

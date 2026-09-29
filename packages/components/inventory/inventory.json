@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 37,
-    "both": 37,
-    "figmaOnly": 40,
+    "inCode": 41,
+    "both": 41,
+    "figmaOnly": 36,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -233,11 +233,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Tag",
+        "mui": "Box (MUI has no equivalent)",
+        "path": "packages/components/src/Tag"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Buttons",
@@ -329,11 +333,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "DateField",
+        "mui": "DesktopDatePicker (MUI X Date Pickers 7)",
+        "path": "packages/components/src/Calendar"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Day item",
@@ -367,11 +375,19 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "DateField",
+        "mui": "PickersDay",
+        "path": "packages/components/src/Calendar"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {
+        "State": [
+          "Illustration"
+        ]
+      },
+      "missingInFigma": {}
     },
     {
       "name": "Card/Lessons",
@@ -2611,11 +2627,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Slider (MUI)",
+        "mui": "Slider",
+        "path": "packages/components/src/Slider"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Table",
