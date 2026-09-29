@@ -26,6 +26,7 @@ export {
   CheckboxIndeterminateIcon,
   RadioIcon,
   RadioCheckedIcon,
+  AvatarFallbackIcon,
 } from './icons/FigmaIcons'
 export { Badge, type BadgeProps, type BadgeType } from './Badge/Badge'
 export { badgeFigma } from './Badge/badge.figma'
@@ -53,3 +54,9 @@ export { SideDrawer, SideDrawerContent, SideDrawerPreview, type SideDrawerProps,
 export { CloseButton } from './Overlay/CloseButton'
 export { SectionHeader, type SectionHeaderProps } from './Overlay/SectionHeader'
 export { modalFigma, sideDrawerFigma } from './Overlay/overlay.figma'
+export { Avatar, AvatarGroup, type AvatarProps, type AvatarGroupProps, type AvatarSize, type AvatarGroupSize } from './Avatar/Avatar'
+export { avatarFigma, avatarGroupFigma } from './Avatar/avatar.figma'
+export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem } from './Breadcrumb/Breadcrumb'
+export { breadcrumbFigma, breadcrumbItemFigma } from './Breadcrumb/breadcrumb.figma'
+export { ContentSwitcher, type ContentSwitcherProps, type ContentSwitcherItem } from './ContentSwitcher/ContentSwitcher'
+export { contentSwitcherFigma, contentSwitcherItemFigma } from './ContentSwitcher/contentSwitcher.figma'

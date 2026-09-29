@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 17,
-    "both": 17,
-    "figmaOnly": 60,
+    "inCode": 23,
+    "both": 23,
+    "figmaOnly": 54,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -85,11 +85,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Avatar",
+        "mui": "Avatar",
+        "path": "packages/components/src/Avatar"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Avatar group",
@@ -112,11 +116,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "AvatarGroup",
+        "mui": "AvatarGroup",
+        "path": "packages/components/src/Avatar"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Emojies",
@@ -924,11 +932,15 @@
       "variants": {},
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ContentSwitcher",
+        "mui": "ToggleButtonGroup (exclusive)",
+        "path": "packages/components/src/ContentSwitcher"
+      },
       "prototype": "ContentSwitcher",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Content switcher item",
@@ -966,11 +978,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ContentSwitcher",
+        "mui": "ToggleButtonGroup (exclusive)",
+        "path": "packages/components/src/ContentSwitcher"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Tabs",
@@ -2364,11 +2380,15 @@
       "variants": {},
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Breadcrumb",
+        "mui": "Breadcrumbs",
+        "path": "packages/components/src/Breadcrumb"
+      },
       "prototype": "Breadcrumb",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Breadcrumb item",
@@ -2399,11 +2419,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Breadcrumb",
+        "mui": "Breadcrumbs",
+        "path": "packages/components/src/Breadcrumb"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Search",

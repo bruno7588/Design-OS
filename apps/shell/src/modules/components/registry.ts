@@ -63,6 +63,22 @@ import { DrawerPreview } from './drawer/DrawerPreview'
 import { DrawerCode } from './drawer/DrawerCode'
 import { DrawerGuidelines } from './drawer/DrawerGuidelines'
 import { DrawerCompare } from './drawer/DrawerCompare'
+import { AvatarPreview } from './avatar/AvatarPreview'
+import { AvatarCode } from './avatar/AvatarCode'
+import { AvatarGuidelines } from './avatar/AvatarGuidelines'
+import { AvatarCompare } from './avatar/AvatarCompare'
+import { AvatarGroupPreview } from './avatar-group/AvatarGroupPreview'
+import { AvatarGroupCode } from './avatar-group/AvatarGroupCode'
+import { AvatarGroupGuidelines } from './avatar-group/AvatarGroupGuidelines'
+import { AvatarGroupCompare } from './avatar-group/AvatarGroupCompare'
+import { BreadcrumbPreview } from './breadcrumb/BreadcrumbPreview'
+import { BreadcrumbCode } from './breadcrumb/BreadcrumbCode'
+import { BreadcrumbGuidelines } from './breadcrumb/BreadcrumbGuidelines'
+import { BreadcrumbCompare } from './breadcrumb/BreadcrumbCompare'
+import { ContentSwitcherPreview } from './content-switcher/ContentSwitcherPreview'
+import { ContentSwitcherCode } from './content-switcher/ContentSwitcherCode'
+import { ContentSwitcherGuidelines } from './content-switcher/ContentSwitcherGuidelines'
+import { ContentSwitcherCompare } from './content-switcher/ContentSwitcherCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -257,6 +273,50 @@ export const components: ComponentDoc[] = [
     Code: DrawerCode,
     Guidelines: DrawerGuidelines,
     Compare: DrawerCompare,
+  },
+  {
+    slug: 'avatar',
+    name: 'Avatar',
+    summary: 'A person’s photo, or a friendly face when there is none. From 24 to 72px.',
+    figma: { light: `${LIBRARY}11914-2605`, dark: `${LIBRARY}5097-5884` },
+    spec: 'playground/docs/design-system/avatars.md',
+    Preview: AvatarPreview,
+    Code: AvatarCode,
+    Guidelines: AvatarGuidelines,
+    Compare: AvatarCompare,
+  },
+  {
+    slug: 'avatar-group',
+    name: 'Avatar group',
+    summary: 'A few overlapping avatars and a count of the rest.',
+    figma: { light: `${LIBRARY}11915-3296`, dark: `${LIBRARY}5097-5584` },
+    spec: 'playground/docs/design-system/avatars.md',
+    Preview: AvatarGroupPreview,
+    Code: AvatarGroupCode,
+    Guidelines: AvatarGroupGuidelines,
+    Compare: AvatarGroupCompare,
+  },
+  {
+    slug: 'breadcrumb',
+    name: 'Breadcrumb',
+    summary: 'Where a page sits in the hierarchy, and the way back up.',
+    figma: { light: `${LIBRARY}11935-2383`, dark: `${LIBRARY}8497-1494` },
+    spec: 'playground/docs/design-system/navigation.md',
+    Preview: BreadcrumbPreview,
+    Code: BreadcrumbCode,
+    Guidelines: BreadcrumbGuidelines,
+    Compare: BreadcrumbCompare,
+  },
+  {
+    slug: 'content-switcher',
+    name: 'Content switcher',
+    summary: 'Switches between views of the same content, such as grid and list.',
+    figma: { light: `${LIBRARY}11908-5278`, dark: `${LIBRARY}8497-24186` },
+    spec: 'playground/docs/design-system/chips-switcher-tabs.md',
+    Preview: ContentSwitcherPreview,
+    Code: ContentSwitcherCode,
+    Guidelines: ContentSwitcherGuidelines,
+    Compare: ContentSwitcherCompare,
   },
 ]
 

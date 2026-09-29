@@ -22,6 +22,9 @@ import {
   MuiTextField,
 } from '../Field/field.overrides'
 import { MuiDrawer } from '../Overlay/overlay.overrides'
+import { MuiAvatar, MuiAvatarGroup } from '../Avatar/avatar.overrides'
+import { MuiBreadcrumbs } from '../Breadcrumb/breadcrumb.overrides'
+import { MuiToggleButton, MuiToggleButtonGroup } from '../ContentSwitcher/contentSwitcher.overrides'
 import { MuiCheckbox, MuiFormControlLabel, MuiFormLabel, MuiRadio, MuiSwitch } from '../Selection/selection.overrides'
 
 export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
@@ -70,6 +73,11 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiFormControlLabel,
       MuiFormLabel,
       MuiDrawer,
+      MuiAvatar,
+      MuiAvatarGroup,
+      MuiBreadcrumbs,
+      MuiToggleButtonGroup,
+      MuiToggleButton,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })
