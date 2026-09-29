@@ -1,4 +1,5 @@
 import type { CSSObject } from '@emotion/react'
+import type { ChipProps } from '@mui/material/Chip'
 import type { Components, Theme } from '@mui/material/styles'
 
 // MuiChip theme overrides. Implements playground/docs/design-system/chips-switcher-tabs.md,
@@ -10,8 +11,8 @@ import type { Components, Theme } from '@mui/material/styles'
 //   disabled    → Disabled
 //   Mui-selected class (the Chip wrapper's `selected` prop) → Selected
 //
-// Only color="default" is styled. Coloured chips are left to MUI so the shell's status
-// labels keep working until Badge is built.
+// variant="badge" is the Figma Badge: a status pill (see badgeStyles below).
+// Other coloured chips are left to MUI.
 // Forced-state classes (ds-hover, ds-focus) are for docs and visual tests.
 
 // Figma has no selected-hover state, so a selected chip keeps its fill.
@@ -82,8 +83,58 @@ function chipStyles(theme: Theme): CSSObject {
   }
 }
 
+// The Figma Badge set (dark 5799:479, light 12186:1609): a status label, not an option.
+//   color success / warning / error / progress (In progress) / default (Informative) / new
+//   icon     → Icon left (16px)
+//   onDelete → Icon right: the remove icon takes the leading icon's place, and the gap grows to 8px
+function badgeStyles(theme: Theme, color: ChipProps['color']): CSSObject {
+  const t = theme.tokens
+  const s = t.semantic
+  const look = {
+    success: [s.badgeSuccessBackground, s.textSuccess],
+    warning: [s.badgeWarningBackground, s.textWarning],
+    error: [s.badgeErrorBackground, s.textError],
+    progress: [s.badgeProgressBackground, s.textProgress],
+    new: [t.palette.danger[400], t.palette.neutral[25]],
+  }[color as string] ?? [s.inputBackground, s.textSecondary]
+
+  return {
+    height: 'auto',
+    gap: t.space.xs,
+    padding: `${t.space.xss}px ${t.space.sm}px`,
+    border: 'none',
+    borderRadius: t.radius.full,
+    backgroundColor: look[0],
+    color: look[1],
+    fontFamily: theme.typography.fontFamily,
+    fontSize: 14,
+    fontWeight: 500,
+    lineHeight: 1.2,
+    '& .MuiChip-label': { padding: 0 },
+    '& .MuiChip-icon, & .MuiChip-deleteIcon': {
+      margin: 0,
+      width: t.iconSize.sm,
+      height: t.iconSize.sm,
+      fontSize: t.iconSize.sm,
+      color: 'currentColor',
+      flexShrink: 0,
+    },
+    '&.MuiChip-deletable': { gap: t.space.s },
+    '& .MuiChip-deleteIcon:hover': { color: 'currentColor' },
+    '&.MuiChip-clickable:hover, &.MuiChip-deletable:hover': { backgroundColor: look[0] },
+    '&.Mui-focusVisible': {
+      backgroundColor: look[0],
+      outline: `2px solid ${s.primaryButtonBackground}`,
+      outlineOffset: 2,
+    },
+  }
+}
+
 export const MuiChip: Components<Theme>['MuiChip'] = {
   styleOverrides: {
-    root: ({ ownerState, theme }) => (ownerState.color && ownerState.color !== 'default' ? {} : chipStyles(theme)),
+    root: ({ ownerState, theme }) => {
+      if (ownerState.variant === 'badge') return badgeStyles(theme, ownerState.color)
+      return ownerState.color && ownerState.color !== 'default' ? {} : chipStyles(theme)
+    },
   },
 }

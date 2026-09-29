@@ -36,6 +36,12 @@ const light = {
   textWarning: p.warning[600],
   textError: p.danger[500],
   textSelected: p.secondary[600],
+  textProgress: p.primary[700],
+  // Badge fills: 16% tints, the same in both modes (Figma Badge set).
+  badgeSuccessBackground: 'rgba(24, 169, 87, 0.16)', // Success-500 @ 16%
+  badgeWarningBackground: 'rgba(255, 165, 56, 0.16)', // Warning-500 @ 16%
+  badgeErrorBackground: 'rgba(223, 22, 66, 0.16)', // Danger-500 @ 16%
+  badgeProgressBackground: 'rgba(0, 206, 230, 0.16)', // Primary-500 @ 16%
   primaryButtonBackground: p.primary[700],
   primaryButtonBackgroundHover: p.primary[800],
   primaryButtonBackgroundPressed: p.primary[900],
@@ -81,6 +87,7 @@ const dark: SemanticTokens = {
   textWarning: p.warning[500],
   textError: p.danger[400],
   textSelected: p.secondary[500],
+  textProgress: p.primary[500],
   primaryButtonBackground: p.primary[500],
   primaryButtonBackgroundHover: p.primary[400],
   // Figma's dark Primary-button-background-pressed is #00AFC4 (Primary-600).

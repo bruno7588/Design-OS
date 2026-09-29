@@ -1,17 +1,18 @@
+import type { SVGProps } from 'react'
 import { palette } from '../theme/tokens'
 
-// The two Dialog icons that aren't Iconsax, copied from the Figma Library Dialog set
-// (7789:24651). Error and Warning use Iconsax Danger and InfoCircle.
+// Icons the Figma Library uses that aren't Iconsax (Ionicons and the Dialog tick badge),
+// copied from their sets: Dialog 7789:24651, Badge 5799:479, Toast 5045:14119, Tooltip 2683:29027.
 
-interface IconProps {
+// Extra props (className, onClick…) pass through, because MUI clones icons with its own handlers.
+interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'ref'> {
   size?: number
-  className?: string
 }
 
 /** Info: Ionicons IoInformationCircleOutline, as in Figma. Takes the text colour. */
-export function InfoOutlineIcon({ size = 56, className }: IconProps) {
+export function InfoOutlineIcon({ size = 56, ...props }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 56 56" fill="none" className={className} aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 56 56" fill="none" aria-hidden="true" {...props}>
       <path
         d="M27.125 7C16.0114 7 7 16.0114 7 27.125C7 38.2386 16.0114 47.25 27.125 47.25C38.2386 47.25 47.25 38.2386 47.25 27.125C47.25 16.0114 38.2386 7 27.125 7Z"
         stroke="currentColor"
@@ -29,9 +30,9 @@ export function InfoOutlineIcon({ size = 56, className }: IconProps) {
 }
 
 /** Success: the green tick badge from Figma. Fixed colours in both modes. */
-export function SuccessBadgeIcon({ size = 56, className }: IconProps) {
+export function SuccessBadgeIcon({ size = 56, ...props }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 56 56" fill="none" className={className} aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 56 56" fill="none" aria-hidden="true" {...props}>
       <path
         d="M27.9678 54.2306C42.4652 54.2306 54.2178 42.4781 54.2178 27.9806C54.2178 13.4831 42.4652 1.73058 27.9678 1.73058C13.4703 1.73058 1.71777 13.4831 1.71777 27.9806C1.71777 42.4781 13.4703 54.2306 27.9678 54.2306Z"
         fill={palette.success[600]}
@@ -51,6 +52,15 @@ export function SuccessBadgeIcon({ size = 56, className }: IconProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  )
+}
+
+/** Badge remove: Ionicons IoCloseOutline, as in the Figma Badge set. Takes the text colour. */
+export function CloseOutlineIcon({ size = 16, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+      <path d="M11.5 11.5L4.5 4.5M11.5 4.5L4.5 11.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }

@@ -19,7 +19,7 @@ test('each inventory filter shows the right rows', async ({ page }) => {
     await expect(page.getByTestId('inventory-row')).toHaveCount(count)
   }
   await page.getByTestId('inventory-filter-Both').click()
-  await expect(page.getByTestId('inventory-row').first()).toContainText('Buttons')
+  await expect(page.getByTestId('inventory-row').filter({ hasText: 'Buttons' })).toHaveCount(1)
   await page.getByTestId('inventory-filter-All').click()
   await page.evaluate(() => document.fonts.ready)
   await page.screenshot({ path: 'e2e/screenshots/inventory.png' })

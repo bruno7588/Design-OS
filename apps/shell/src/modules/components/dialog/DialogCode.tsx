@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material'
 import dialogSource from '@design-os/components/src/Dialog/ConfirmDialog.tsx?raw'
 import overridesSource from '@design-os/components/src/Dialog/dialog.overrides.ts?raw'
-import iconsSource from '@design-os/components/src/icons/DialogIcons.tsx?raw'
+import iconsSource from '@design-os/components/src/icons/FigmaIcons.tsx?raw'
 import { CodeBlock } from '../shared/CodeBlock'
 
 const examples = `import { ConfirmDialog } from '@design-os/components'
@@ -30,7 +30,7 @@ export function DialogCode() {
       <CodeBlock title="Usage" code={examples} />
       <CodeBlock title="ConfirmDialog.tsx" caption="packages/components/src/Dialog" code={dialogSource} />
       <CodeBlock title="dialog.overrides.ts" caption="MuiDialog theme overrides: surface and scrim" code={overridesSource} />
-      <CodeBlock title="DialogIcons.tsx" caption="The Info and Success icons from the Figma set" code={iconsSource} />
+      <CodeBlock title="FigmaIcons.tsx" caption="The Info and Success icons from the Figma set" code={iconsSource} />
     </Stack>
   )
 }

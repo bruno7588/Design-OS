@@ -17,4 +17,10 @@ export {
   type DialogType,
 } from './Dialog/ConfirmDialog'
 export { dialogFigma } from './Dialog/dialog.figma'
-export { InfoOutlineIcon, SuccessBadgeIcon } from './icons/DialogIcons'
+export { InfoOutlineIcon, SuccessBadgeIcon, CloseOutlineIcon } from './icons/FigmaIcons'
+export { Badge, type BadgeProps, type BadgeType } from './Badge/Badge'
+export { badgeFigma } from './Badge/badge.figma'
+export { InfoTooltip, type InfoTooltipProps } from './Tooltip/InfoTooltip'
+export { tooltipFigma } from './Tooltip/tooltip.figma'
+export { ToastProvider, ToastBody, useToast, type ToastOptions, type ToastType } from './Toast/Toast'
+export { toastFigma } from './Toast/toast.figma'

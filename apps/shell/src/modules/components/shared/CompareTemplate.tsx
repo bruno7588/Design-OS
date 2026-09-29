@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
-import { Box, Chip, Link, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
-import type { Mode } from '@design-os/components'
+import { Box, Link, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
+import { Badge, type Mode } from '@design-os/components'
 import { useThemeMode } from '../../../theme-mode'
 import { figmaNodeUrl, findInventoryRow } from '../inventory'
 import { Bullets, Section } from './GuidelinesTemplate'
@@ -27,10 +27,10 @@ export interface Compare {
   }
 }
 
-const STATUS_COLOUR = { Matches: 'success', 'Design to update': 'warning', 'Code to update': 'error' } as const
+const STATUS_TYPE = { Matches: 'success', 'Design to update': 'warning', 'Code to update': 'error' } as const
 
-export function StatusChip({ status }: { status: DiffStatus }) {
-  return <Chip size="small" variant="outlined" color={STATUS_COLOUR[status]} label={status} />
+export function StatusBadge({ status }: { status: DiffStatus }) {
+  return <Badge type={STATUS_TYPE[status]} label={status} />
 }
 
 export function CompareTemplate({ c }: { c: Compare }) {
@@ -113,7 +113,7 @@ export function CompareTemplate({ c }: { c: Compare }) {
               )}
             </Box>,
             <Box key={`${d.property}-s`} className="row-cell">
-              <StatusChip status={d.status} />
+              <StatusBadge status={d.status} />
             </Box>,
           ])}
         </Box>

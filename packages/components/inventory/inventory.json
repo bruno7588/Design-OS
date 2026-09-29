@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-28",
   "summary": {
     "inFigma": 77,
-    "inCode": 4,
-    "both": 4,
-    "figmaOnly": 73,
+    "inCode": 7,
+    "both": 7,
+    "figmaOnly": 70,
     "codeOnly": 0
   },
   "rows": [
@@ -171,11 +171,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Badge",
+        "mui": "Chip (variant=\"badge\")",
+        "path": "packages/components/src/Badge"
+      },
       "prototype": "Badge",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Tags",
@@ -2561,11 +2565,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Toast",
+        "mui": "Alert (variant=\"filled\")",
+        "path": "packages/components/src/Toast"
+      },
       "prototype": "Toast",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Tooltip",
@@ -2596,11 +2604,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Tooltip",
+        "mui": "Tooltip",
+        "path": "packages/components/src/Tooltip"
+      },
       "prototype": "Tooltip",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     }
   ]
 }

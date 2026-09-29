@@ -4,7 +4,7 @@ import MuiDialog from '@mui/material/Dialog'
 import Typography from '@mui/material/Typography'
 import { Danger, InfoCircle } from 'iconsax-react'
 import { Button } from '../Button/Button'
-import { InfoOutlineIcon, SuccessBadgeIcon } from '../icons/DialogIcons'
+import { InfoOutlineIcon, SuccessBadgeIcon } from '../icons/FigmaIcons'
 import { dialogPaperStyles } from './dialog.overrides'
 
 // 5Mins confirmation Dialog on MUI Dialog. The surface and scrim come from the theme

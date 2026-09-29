@@ -7,7 +7,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 1a (theme and Button): done. Light and dark MUI theme from the Figma tokens, Button on MUI Button, Components module with Preview, Code and Guidelines tabs (Compare is empty). Figma and prototype mismatches: `docs/phase-1a-button-notes.md`.
 - Phase 1b (inventory and Compare): done. `component-inventory` skill plus `pnpm inventory`; overview with filters on `/components`; Button's Compare tab (Figma frame at 1:1 next to the live reference, differences, inventory status, notes for engineering).
 - Phase 1, batch 2 (Chip, Tabs, Dialog): done. Notes and open decisions: `docs/phase-1-batch-2-notes.md` (the dark Border token needs a decision).
-- Next: Phase 1, next batch (most used first), or Phase 1c (share with engineering).
+- Phase 1, batch 3 (Badge, Tooltip, Toast): done. Notes: `docs/phase-1-batch-3-notes.md`.
+- Next: Phase 1, next batch (most used first: Search, Dropdown, Checkbox, Input field), or Phase 1c (share with engineering).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)

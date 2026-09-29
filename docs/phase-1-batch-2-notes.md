@@ -35,7 +35,7 @@ Checked 2026-09-29.
 - Escape and scrim clicks do nothing; Cancel closes it and returns focus to the trigger.
 
 ## Decided
-- **Dialog closing** (Bruno, 2026-09-28): only Cancel or the action closes it. Escape and a click on the scrim do nothing, as `overlays.md` says. The prototype's ConfirmModal closes on both, so its code needs updating.
+- **Dialog closing** (Bruno, 2026-09-28): only Cancel or the action closes it. Escape and a click on the scrim do nothing, as `overlays.md` says. The prototype's ConfirmModal closes on both, so its code needs updating. Checked 2026-09-29 in the running prototype (Roles > Company Roles > Delete role): Escape and a click on the scrim both close it (`ConfirmModal.tsx:17` and `:26`).
 
 ## To decide
 - **Dark `Border` token:**

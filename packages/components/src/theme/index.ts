@@ -10,6 +10,8 @@ import { MuiButton } from '../Button/button.overrides'
 import { MuiChip } from '../Chip/chip.overrides'
 import { MuiTab, MuiTabs } from '../Tabs/tabs.overrides'
 import { MuiDialog } from '../Dialog/dialog.overrides'
+import { MuiTooltip } from '../Tooltip/tooltip.overrides'
+import { MuiAlert } from '../Toast/toast.overrides'
 
 export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
   const t = tokensFor(mode)
@@ -26,6 +28,8 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       warning: { main: s.buttonWarningBackground, contrastText: p.neutral[25] },
       success: { main: s.buttonSuccessBackground, contrastText: p.neutral[25] },
       ai: { main: p.gamification.blazeQuiz, contrastText: p.neutral[25] },
+      progress: { main: s.textProgress, contrastText: p.neutral[25] },
+      new: { main: p.danger[400], contrastText: p.neutral[25] },
       grey: { 50: p.neutral[50], 100: p.neutral[100], 200: p.neutral[200], 300: p.neutral[300], 400: p.neutral[400], 500: p.neutral[500], 600: p.neutral[600], 700: p.neutral[700], 800: p.neutral[800], 900: p.neutral[900] },
       text: { primary: s.textPrimary, secondary: s.textSecondary, disabled: s.textDisabled },
       background: { default: s.pageBackground, paper: s.cardsBackground },
@@ -40,6 +44,8 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiTabs,
       MuiTab,
       MuiDialog,
+      MuiTooltip,
+      MuiAlert,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })
