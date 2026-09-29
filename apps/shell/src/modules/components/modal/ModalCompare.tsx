@@ -2,7 +2,7 @@ import { modalFigma } from '@design-os/components'
 import { CompareTemplate, type Compare } from '../shared/CompareTemplate'
 import { ModalMatrix } from './ModalMatrix'
 
-// Figma = the Modal component (7479:4350, dark only), checked 2026-09-29.
+// Figma = the Modal component (7479:4350) and its light instance (11919:4717), checked 2026-09-29.
 const compare: Compare = {
   page: modalFigma.page,
   set: modalFigma.set,
@@ -15,7 +15,7 @@ const compare: Compare = {
     { property: 'Content slot', figma: '672×320, radius 12', reference: 'At least 320px tall', status: 'Matches' },
     { property: 'Button', figma: 'Filled Medium, centred', reference: 'Same', status: 'Matches' },
     { property: 'Scrim', figma: 'Neutral-900 at 50%', reference: 'Scrim token: 50% dark, 25% light', status: 'Matches' },
-    { property: 'Light mode', figma: 'Only a dark copy', reference: 'Tokens resolve per mode', status: 'Design to update', note: 'Add a light copy, or confirm the tokens are enough.' },
+    { property: 'Light mode', figma: 'An instance in the Light mode frame (7861:25549), set to the Light variable modes', reference: 'Tokens resolve per mode', status: 'Matches' },
     { property: 'Closing', figma: 'Not shown', reference: 'Close button, Escape and a click on the scrim; focus returns', status: 'Matches', note: 'As overlays.md. The confirmation Dialog closes only on its buttons.' },
   ],
   engineering: {

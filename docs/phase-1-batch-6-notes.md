@@ -8,8 +8,8 @@ Checked 2026-09-29.
 | Component | MUI | Figma |
 |---|---|---|
 | Alert and Callout | `Alert` variant standard + an `Alert` wrapper | Alert set `3658:32304` dark, `12060:2785` light |
-| Modal | `Dialog maxWidth="md"` + a `Modal` wrapper | Modal `7479:4350` (dark only) |
-| Side drawer | `Drawer anchor="right"` + a `SideDrawer` wrapper | Side Drawer `10871:12768` (dark only) |
+| Modal | `Dialog maxWidth="md"` + a `Modal` wrapper | Modal `7479:4350` dark, light instance `11919:4717` |
+| Side drawer | `Drawer anchor="right"` + a `SideDrawer` wrapper | Side Drawer `10871:12768` dark, light instance `11919:4738` |
 
 **Shared by Modal and Side drawer** (`packages/components/src/Overlay`):
 - `CloseButton` (the default variant of the prototype's CloseButton).
@@ -54,10 +54,7 @@ Checked 2026-09-29.
   - All three Alert variants show the button, including those named `Button=false`.
   - The Outlined-2 button under supporting text has its padding overridden to 37px.
   - Icon rows with supporting text show an arrow-up with no collapsed variant: do Callouts collapse?
-- **Modal and Side Drawer:** only a dark copy.
-- **Side Drawer:**
-  - No close button (the spec and the prototype have one).
-  - The footer is 656px against the 672px content.
+- **Side Drawer:** the footer is 656px against the 672px content.
 
 **Prototype**
 - **alerts-toast.md:**
@@ -74,3 +71,14 @@ Checked 2026-09-29.
 ## Not built yet
 - Modal/Full screen, Modal/Send, Bottom sheet, and the full-screen close button.
 - The collapsible Callout.
+
+## Follow-up, 2026-09-29 (Bruno)
+- **Collapsible Callout.** A Callout with more than 3 lines of supporting text collapses and expands. The chevron (ArrowUp2, 20px) sits at the end of the title row. It starts expanded; collapsing hides the body and its button. It's a button with aria-expanded, named "Hide details" or "Show details". In Figma the chevron shows on 3-line bodies, only on Icon rows, and there's no collapsed variant: design to update.
+- **Side drawer close.** It was always in Figma, in the section header row: 32px, level with the title, 24px from the right. My first read stopped too shallow. The reference now puts it there too (SectionHeader `action`). A duplicate I added to the Figma component was removed.
+- **Light and dark for every component.** Modal and Side Drawer already had light versions, as instances on a Light mode board; the first inventory only counted copies. A scan of all 23 pages found four without a light version, now added in Figma:
+  - **Toast:** a Light mode board with instances. The Information fill is rebound from Border to Neutral-700, so it stays dark in light mode, as in code.
+  - **Bottom sheet:** a Light mode board with an instance.
+  - **Illustrations/ Functions:** a Light mode board with instances.
+  - **Modal/Send:** drawn light, so it got a board set to Dark mode with instances. 18 of its colours aren't bound to variables (the cyan buttons, a purple and some greys), so they don't change with the mode: design to update.
+- **Card/Folder:** the dark copy is "Card/Folder" and the light one "Card/folder". The inventory pairs them; rename one to match.
+- **Inventory:** `figma.json` records how each item's light version exists (`light`: copy, instance, none). `pnpm inventory` reports `lightVersion`, `namesDiffer` and a `noLightVersion` count (0 now), and the overview flags gaps. CLAUDE.md has the rule.

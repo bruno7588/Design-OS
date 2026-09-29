@@ -52,6 +52,18 @@ export function inlineAlertStyles(theme: Theme, severity: AlertProps['severity']
       overflow: 'visible',
     },
     '& .MuiAlertTitle-root': { margin: 0, font: 'inherit', fontWeight: 600, color: 'inherit' },
+    // The title row: the title fills it, the collapse chevron (20px) sits at the end, 8px away.
+    '& .ds-alert-headline': { display: 'flex', alignItems: 'center', gap: t.space.s, '& > span': { flex: 1, minWidth: 0 } },
+    '& .ds-alert-toggle': {
+      padding: 0,
+      color: 'inherit',
+      borderRadius: t.radius.xs,
+      '& svg': { width: t.iconSize.md, height: t.iconSize.md, transition: 'transform 150ms' },
+      '&[aria-expanded="false"] svg': { transform: 'rotate(180deg)' },
+      '&:hover': { backgroundColor: 'transparent', color: s.textPrimary },
+      '&.Mui-focusVisible': { outline: `2px solid ${s.primaryButtonBackground}`, outlineOffset: 2 },
+    },
+    '& .ds-alert-body[hidden]': { display: 'none' },
     '& .MuiAlert-message ul': { margin: 0, paddingLeft: t.space.ml },
     // The Outlined-2 button under supporting text: 16px below the body.
     '& .MuiAlert-message > .MuiButton-root': { alignSelf: 'flex-start', marginTop: t.space.s },

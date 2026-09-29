@@ -43,3 +43,9 @@ test('Compare tab shows the Figma frame, the live reference and the differences'
   await page.evaluate(() => document.fonts.ready)
   await page.screenshot({ path: 'e2e/screenshots/button-compare.png', fullPage: true })
 })
+
+test('every Figma component has a light version', async ({ page }) => {
+  await page.goto('/components')
+  await expect(page.getByTestId('inventory-row').first()).toBeVisible()
+  await expect(page.getByTestId('no-light-version')).toHaveCount(0)
+})

@@ -27,6 +27,20 @@ The Figma MCP's `get_metadata` only lists the Cover page, but `use_figma` can se
    const PAGE_ID = '<page id>';
    const page = await figma.getNodeByIdAsync(PAGE_ID);
    await figma.setCurrentPageAsync(page);
+   // Light version: a board set to the Surface colours Light mode holds either a copy of the
+   // set or an instance of it. No explicit mode means Dark mode, the collection's default.
+   const surface = (await figma.variables.getLocalVariableCollectionsAsync()).find(c => c.name === 'Surface colours');
+   const lightId = surface.modes.find(m => m.name === 'Light mode').modeId;
+   const isLight = (n) => { for (let p = n; p && p.type !== 'PAGE'; p = p.parent) { const m = p.explicitVariableModes?.[surface.id]; if (m) return m === lightId; } return false; };
+   const lightBoards = [];
+   const walk = (n, d) => { if (d > 5 || !('children' in n)) return; for (const c of n.children) { if (c.explicitVariableModes?.[surface.id] === lightId) lightBoards.push(c); else walk(c, d + 1); } };
+   walk(page, 0);
+   const lightMains = new Set();
+   for (const b of lightBoards) {
+     const insts = []; const coll = (n, d) => { if (d > 3 || !('children' in n)) return; for (const c of n.children) { if (c.type === 'INSTANCE') insts.push(c); else coll(c, d + 1); } };
+     coll(b, 0);
+     for (const i of insts.slice(0, 200)) { const m = await i.getMainComponentAsync(); if (m) { lightMains.add(m.id); if (m.parent?.type === 'COMPONENT_SET') lightMains.add(m.parent.id); } }
+   }
    const out = [];
    for (const n of page.findAllWithCriteria({ types: ['COMPONENT_SET', 'COMPONENT'] })) {
      if (n.type === 'COMPONENT' && n.parent && n.parent.type === 'COMPONENT_SET') continue;
@@ -37,13 +51,27 @@ The Figma MCP's `get_metadata` only lists the Cover page, but `use_figma` can se
      }
      if (Object.keys(variants).length) row.variants = variants;
      if (props.length) row.props = props;
+     row.board = isLight(n) ? 'light' : 'dark';
+     row.light = lightMains.has(n.id) ? 'instance' : undefined;
      out.push(row);
+   }
+   // Copies: two items with the same name, one on each board.
+   const byName = {};
+   for (const r of out) (byName[r.name.trim().toLowerCase()] ||= []).push(r);
+   for (const r of out) {
+     const group = byName[r.name.trim().toLowerCase()];
+     if (!r.light) r.light = group.length > 1 && group.some(g => g.board === 'light') && group.some(g => g.board === 'dark') ? 'copy' : r.board === 'light' ? 'light only' : 'none';
+     delete r.board;
    }
    return { page: page.name.trim(), count: out.length, items: out };
    ```
 4. Write every result to `figma.json` exactly as returned: `{ fileKey, fetchedAt, source, pages: [{ page, pageId, items }] }`. Don't merge or rename anything; the script does that.
 
 Most sets exist twice, once on the light board and once on the dark board, as separate copies with the same name. Keep both; `pnpm inventory` merges them and flags copies whose variants differ.
+
+Some components have one copy, with the light version as an instance on a board set to the Light variable modes (Modal, Side Drawer, Toast). The script records either as `light: 'copy' | 'instance'`.
+
+Every component must have a dark and a light version (Bruno, 2026-09-29). `light: 'none'` or `'light only'` is a gap to report, and `pnpm inventory` counts them as `noLightVersion`.
 
 ## 2. Merge with code
 
@@ -52,7 +80,7 @@ Run `pnpm inventory`. It:
 - matches each set to a `packages/components/src/<Name>/<name>.figma.ts` mapping (`FigmaMapping`: page, set name, node IDs, and the variant values the reference covers)
 - lists variant values missing in code, or missing in Figma
 - notes whether `playground/src/components` has a folder with a similar name, as a hint only
-- prints a summary: in Figma, in code, both, Figma only, code only
+- prints a summary: in Figma, in code, both, Figma only, code only, and components with no light version
 
 When a new reference component is added to `packages/components`, give it a `.figma.ts` mapping. Otherwise it won't show as "in code".
 
@@ -60,7 +88,8 @@ When a new reference component is added to `packages/components`, give it a `.fi
 
 Keep it short and in Figma terms:
 - the summary counts, and what changed since the last run (`git diff packages/components/inventory/inventory.json`)
-- sets whose light and dark copies differ (`copiesDiffer`)
+- sets whose light and dark copies differ (`copiesDiffer`), or are named differently (`namesDiffer`)
+- components with no light version (`lightVersion` none or light only)
 - for components in code: any missing variants, and whether Figma or code should change
 
 The inventory compares variant values, not combinations. For a component in code, also check each board for missing combinations with a read-only script over `set.children` (`variantProperties`). Buttons, for example, has every value but 13 Configuration × Size gaps. Record them in that component's Compare tab.

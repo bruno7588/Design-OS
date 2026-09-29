@@ -26,7 +26,13 @@ const compare: Compare = {
     { property: 'Buttons', figma: 'Link at the end of the row; Outlined-2 with an icon under supporting text', reference: 'Same', status: 'Matches' },
     { property: 'Button under supporting text', figma: 'Outlined-2 Medium with its padding overridden to 8px: 37px tall', reference: 'The Library’s Medium Outlined-2: 41px', status: 'Design to update', note: 'Reset the instance, or use a size that is 37px.' },
     { property: 'Alert, Button=false', figma: 'All three Alert variants show the button, including those named Button=false', reference: 'The button only when there is an action', status: 'Design to update' },
-    { property: 'Collapsible Callout', figma: 'Icon and supporting text rows show an arrow-up icon next to the title', reference: 'Not built', status: 'Design to update', note: 'It looks like a collapse toggle, but there is no collapsed variant. Confirm whether Callouts collapse.' },
+    {
+      property: 'Collapsible Callout',
+      figma: 'An arrow-up next to the title on the Icon and supporting text rows; no collapsed variant',
+      reference: 'Any Callout with more than 3 lines of supporting text gets the chevron; it collapses the body and button',
+      status: 'Design to update',
+      note: 'Rule from Bruno, 2026-09-29. Figma shows the chevron on 3-line bodies and only on Icon rows. Add a collapsed variant, and show the chevron only past 3 lines.',
+    },
     { property: 'Role', figma: 'Not shown', reference: 'Callout role note, Alert role status', status: 'Matches', note: 'MUI defaults to role alert, which interrupts screen readers on page load.' },
   ],
   engineering: {

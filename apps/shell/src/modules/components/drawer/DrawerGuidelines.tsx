@@ -29,7 +29,7 @@ const g: Guidelines = {
     ),
     parts: [
       { name: 'Panel', description: '720px wide, the full height, against the right edge. Page-background, padding 20px by 24px, no radius or shadow. Sections 20px apart.' },
-      { name: 'Close button', description: 'As the modal’s: 32px, 10px from the top right.' },
+      { name: 'Close button', description: 'At the end of the header row, level with the title: 32px, IoCloseOutline 24px in Text-secondary.' },
       { name: 'Section header', description: 'As the modal’s: title, supporting text and a divider.' },
       { name: 'Content', description: 'Fills the space and scrolls on its own.' },
       { name: 'Footer', description: 'A Border divider, then a Filled and an Outlined button, 16px apart. Always in view.' },
@@ -65,7 +65,10 @@ const g: Guidelines = {
     'Escape closes it. The close button is labelled "Close".',
     'The footer stays in view, so the actions are always reachable.',
   ],
-  figma: [{ label: 'Side Drawer (Figma Library, dark)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=10871-12768' }],
+  figma: [
+    { label: 'Side Drawer, dark mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=10871-12768' },
+    { label: 'Side Drawer, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=11919-4738' },
+  ],
   spec: 'playground/docs/design-system/overlays.md',
 }
 

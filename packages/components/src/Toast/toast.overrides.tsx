@@ -12,9 +12,8 @@ import { inlineAlertStyles } from '../Alert/alert.overrides'
 //   severity info / success / warning / error → Type Information / Success / Warning / Error
 //   icon={false}                              → Icon=False
 //
-// The fills don't change with the mode. Figma binds Information to the Border
-// variable, which would put white text on pale grey in light mode, so the reference
-// fixes it at Neutral-700, Figma's resolved value.
+// The fills don't change with the mode. Information is Neutral-700 (Figma bound it to the
+// mode-aware Border variable until 2026-09-29; now Neutral-700 there too).
 
 function fill(theme: Theme, severity: AlertProps['severity']) {
   const p = theme.tokens.palette

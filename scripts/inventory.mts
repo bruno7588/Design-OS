@@ -14,7 +14,10 @@ const src = join(root, 'packages/components/src')
 const prototypeDir = join(root, 'playground/src/components')
 
 type Variants = Record<string, string[]>
-interface FigmaItem { name: string; id: string; type: 'set' | 'component'; variants?: Variants; props?: string[] }
+// light: how the item's light version exists. 'copy' (a second set, on a Light-mode board),
+// 'instance' (an instance on a board set to the Light variable modes), or 'none'.
+type Light = 'copy' | 'instance' | 'none' | 'light only'
+interface FigmaItem { name: string; id: string; type: 'set' | 'component'; variants?: Variants; props?: string[]; light?: Light }
 interface FigmaFile { fileKey: string; fetchedAt: string; pages: { page: string; pageId: string; items: FigmaItem[] }[] }
 
 const figma: FigmaFile = JSON.parse(readFileSync(join(dir, 'figma.json'), 'utf8'))
@@ -87,6 +90,9 @@ for (const { page, pageId, items } of figma.pages) {
       type: first.type,
       nodes: copies.map((c) => c.id),
       copiesDiffer: copies.some((c) => !sameVariants(c.variants, first.variants)),
+      // Every component needs a dark and a light version (Bruno, 2026-09-29).
+      lightVersion: (copies.length > 1 ? 'copy' : (first.light ?? 'unknown')) as Light | 'unknown',
+      namesDiffer: new Set(copies.map((c) => c.name.trim())).size > 1,
       variants,
       slots: first.props ?? [],
       inFigma: true,
@@ -104,6 +110,7 @@ for (const { mapping, path } of mappings) {
   if (matched.has(mapping)) continue
   rows.push({
     name: mapping.set, page: mapping.page, pageId: null, type: 'set', nodes: [], copiesDiffer: false,
+    lightVersion: 'unknown', namesDiffer: false,
     variants: {}, slots: [], inFigma: false, inCode: true,
     code: { component: mapping.component, mui: mapping.mui, path }, prototype: prototypeFor(mapping.set),
     missingInCode: null, missingInFigma: { ...mapping.variants },
@@ -116,6 +123,7 @@ const summary = {
   both: rows.filter((r) => r.inFigma && r.inCode).length,
   figmaOnly: rows.filter((r) => r.inFigma && !r.inCode).length,
   codeOnly: rows.filter((r) => !r.inFigma && r.inCode).length,
+  noLightVersion: rows.filter((r) => r.inFigma && !['copy', 'instance'].includes(r.lightVersion)).length,
 }
 
 const out = { fileKey: figma.fileKey, figmaFetchedAt: figma.fetchedAt, summary, rows }

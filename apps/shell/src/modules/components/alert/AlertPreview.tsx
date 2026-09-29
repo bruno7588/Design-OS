@@ -12,6 +12,7 @@ export function AlertPreview() {
   const [lead, setLead] = useState<'illustration' | 'icon' | 'none'>('illustration')
   const [button, setButton] = useState(true)
   const [supporting, setSupporting] = useState(false)
+  const [long, setLong] = useState(false)
   const [clicks, setClicks] = useState(0)
 
   const callout = type === 'callout'
@@ -28,11 +29,24 @@ export function AlertPreview() {
             title={callout && supporting ? 'Collections are shared with your teams' : undefined}
             action={button ? { label: callout ? 'Learn more' : 'Renew', onClick: () => setClicks((c) => c + 1) } : undefined}
           >
-            {callout
-              ? supporting
-                ? 'Learners see them on their home page, in the order you set.'
-                : 'You can add your content and 5Mins content to a collection.'
-              : 'Your licence ends in 7 days'}
+            {callout ? (
+              supporting ? (
+                long ? (
+                  <ul>
+                    <li>Collections group courses, lessons and resources.</li>
+                    <li>Learners see them on their home page.</li>
+                    <li>They appear in the order you set.</li>
+                    <li>You can share a collection with teams or the whole company.</li>
+                  </ul>
+                ) : (
+                  'Learners see them on their home page, in the order you set.'
+                )
+              ) : (
+                'You can add your content and 5Mins content to a collection.'
+              )
+            ) : (
+              'Your licence ends in 7 days'
+            )}
           </Alert>
           {clicks > 0 && <span aria-live="polite">Button clicked {clicks} times</span>}
         </Stack>
@@ -67,9 +81,13 @@ export function AlertPreview() {
             control={<Switch checked={supporting && callout} disabled={!callout} onChange={(e) => setSupporting(e.target.checked)} />}
             label="Supporting text"
           />
+          <FormControlLabel
+            control={<Switch checked={long && supporting && callout} disabled={!callout || !supporting} onChange={(e) => setLong(e.target.checked)} />}
+            label="More than 3 lines"
+          />
         </>
       }
-      hint="Callouts guide; Alerts warn. Supporting text is for Callouts only: with it, the button moves under the text."
+      hint="Callouts guide; Alerts warn. Supporting text is for Callouts only: with it, the button moves under the text. Past 3 lines, the chevron collapses and expands it."
       matrix={<AlertMatrix mode={mode} />}
     />
   )

@@ -36,6 +36,15 @@ export const ALERTS: { name: string; props: AlertProps }[] = [
   { name: 'Neither', props: { type: 'alert', illustration: false, children: 'Warning title', action } },
 ]
 
+const LONG = (
+  <ul>
+    <li>Collections group courses, lessons and resources.</li>
+    <li>Learners see them on their home page.</li>
+    <li>They appear in the order you set.</li>
+    <li>You can share a collection with teams or the whole company.</li>
+  </ul>
+)
+
 export function AlertMatrix({ mode }: { mode: Mode }) {
   return (
     <Canvas mode={mode} sx={{ overflowX: 'auto' }}>
@@ -46,6 +55,17 @@ export function AlertMatrix({ mode }: { mode: Mode }) {
         {CALLOUTS.map((c) => (
           <Alert key={c.name} {...c.props} />
         ))}
+        <Typography variant="h6" color="text.secondary" sx={{ mt: 4 }}>
+          Callout, more than 3 lines: expanded and collapsed
+        </Typography>
+        <Stack sx={{ gap: 6 }} data-testid={`alert-collapsible-${mode}`}>
+          <Alert icon title={TEXT} action={below}>
+            {LONG}
+          </Alert>
+          <Alert icon title={TEXT} action={below} defaultCollapsed>
+            {LONG}
+          </Alert>
+        </Stack>
         <Typography variant="h6" color="text.secondary" sx={{ mt: 4 }}>
           Alert
         </Typography>

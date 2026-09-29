@@ -51,7 +51,7 @@ Checked 2026-09-29. Picked by use in the prototype: Toast 20 files, Tooltip 15, 
   - "In Progress" is Title Case.
 - **Tooltip:** Right is 8px from its trigger; every other variant is 4px.
 - **Toast:**
-  - Information is bound to the mode-aware Border variable, which would put white text on pale grey in light mode. The reference fixes it at Neutral-700.
+  - Done 2026-09-29: Information was bound to the mode-aware Border variable (white text on pale grey in light mode). It is now bound to Neutral-700, as the reference, and the Toast has a light board.
   - The sample text uses "!".
   - Undo isn't in the set.
 

@@ -58,3 +58,13 @@ test('Cancel and the scrim close it', async ({ page }) => {
   await page.mouse.click(20, 20)
   await expect(dialog).toBeHidden()
 })
+
+test('the close button sits at the end of the header row, as in Figma', async ({ page }) => {
+  const m = await page.getByTestId('drawer-matrix-light').evaluate((el) => {
+    const panel = el.firstElementChild!.getBoundingClientRect()
+    const close = el.querySelector('button[aria-label="Close"]')!.getBoundingClientRect()
+    const title = el.querySelector('h2')!.getBoundingClientRect()
+    return { size: Math.round(close.width), right: Math.round(panel.right - close.right), top: Math.round(close.top - title.top), gap: Math.round(close.left - title.right) >= 16 }
+  })
+  expect(m).toEqual({ size: 32, right: 24, top: 0, gap: true })
+})

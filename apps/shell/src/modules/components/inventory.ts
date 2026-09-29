@@ -10,6 +10,10 @@ export interface InventoryRow {
   type: 'set' | 'component'
   nodes: string[]
   copiesDiffer: boolean
+  /** How the light version exists in Figma: a second copy, or an instance set to the Light modes. */
+  lightVersion: 'copy' | 'instance' | 'none' | 'light only' | 'unknown'
+  /** The light and dark copies have different names (for example a different case). */
+  namesDiffer: boolean
   variants: Variants
   slots: string[]
   inFigma: boolean
@@ -23,7 +27,7 @@ export interface InventoryRow {
 export interface Inventory {
   fileKey: string
   figmaFetchedAt: string
-  summary: { inFigma: number; inCode: number; both: number; figmaOnly: number; codeOnly: number }
+  summary: { inFigma: number; inCode: number; both: number; figmaOnly: number; codeOnly: number; noLightVersion: number }
   rows: InventoryRow[]
 }
 

@@ -52,7 +52,7 @@ test('Callouts match Figma in light mode', async ({ page }) => {
 })
 
 test('Alerts match Figma: fill, SemiBold warning text, 12 / 8 / 24px gaps', async ({ page }) => {
-  const a = (await page.getByTestId('alert-matrix-light').evaluate(read)).slice(12)
+  const a = (await page.getByTestId('alert-matrix-light').evaluate(read)).slice(14)
   for (const x of a) expect(x).toMatchObject({ h: 37, bg: 'rgba(255, 187, 56, 0.12)', color: 'rgb(232, 130, 6)', weight: '600', role: 'status', textToButton: 24, buttonColor: 'rgb(232, 130, 6)' })
   expect(a[0].iconToText).toBe(12) // bell
   expect(a[1].iconToText).toBe(8) // Danger Bold
@@ -63,7 +63,7 @@ test('dark mode: the Callout fill and text follow the tokens; the Alert fill sta
   await expect(async () => {
     const a = await page.getByTestId('alert-matrix-dark').evaluate(read)
     expect(a[0]).toMatchObject({ bg: 'rgba(69, 76, 94, 0.16)', color: 'rgb(191, 194, 204)' })
-    expect(a[12]).toMatchObject({ bg: 'rgba(255, 187, 56, 0.12)', color: 'rgb(255, 165, 56)' })
+    expect(a[14]).toMatchObject({ bg: 'rgba(255, 187, 56, 0.12)', color: 'rgb(255, 165, 56)' })
   }).toPass()
 })
 
@@ -91,4 +91,36 @@ test('the preview button works from the keyboard', async ({ page }) => {
   await btn.focus()
   await page.keyboard.press('Enter')
   await expect(page.getByText('Button clicked 1 times')).toBeVisible()
+})
+
+test('a Callout with more than 3 lines of supporting text collapses and expands', async ({ page }) => {
+  // The Figma rows have 3 lines: no chevron.
+  await expect(page.getByTestId('alert-matrix-light').locator('.MuiAlert-root').nth(2).getByRole('button', { name: /details/ })).toHaveCount(0)
+
+  const box = page.getByTestId('alert-collapsible-light')
+  const [open, closed] = [box.locator('.MuiAlert-root').nth(0), box.locator('.MuiAlert-root').nth(1)]
+  const toggle = open.getByRole('button', { name: 'Hide details' })
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+  await expect(open.getByText('They appear in the order you set.')).toBeVisible()
+  await expect(open.getByRole('button', { name: 'Button' })).toBeVisible()
+
+  // Starts collapsed: the title row only.
+  await expect(closed.getByRole('button', { name: 'Show details' })).toHaveAttribute('aria-expanded', 'false')
+  await expect(closed.getByText('They appear in the order you set.')).toBeHidden()
+  await expect(closed.getByRole('button', { name: 'Button' })).toHaveCount(0)
+  expect(await closed.evaluate((a) => Math.round(a.getBoundingClientRect().height))).toBe(37)
+
+  await toggle.click()
+  await expect(open.getByRole('button', { name: 'Show details' })).toHaveAttribute('aria-expanded', 'false')
+  await expect(open.getByText('They appear in the order you set.')).toBeHidden()
+  await open.getByRole('button', { name: 'Show details' }).press('Enter')
+  await expect(open.getByText('They appear in the order you set.')).toBeVisible()
+
+  // The chevron: 20px, at the end of the title row, 8px from the title.
+  const m = await open.evaluate((a) => {
+    const btn = a.querySelector('.ds-alert-toggle')!.getBoundingClientRect()
+    const row = a.querySelector('.MuiAlert-message')!.getBoundingClientRect()
+    return { size: Math.round(btn.width), end: Math.round(row.right - btn.right) }
+  })
+  expect(m).toEqual({ size: 20, end: 0 })
 })

@@ -73,6 +73,16 @@ export function InventoryTable() {
                       Light and dark copies differ
                     </Typography>
                   )}
+                  {r.inFigma && !['copy', 'instance'].includes(r.lightVersion) && (
+                    <Typography variant="caption" color="error" component="div" data-testid="no-light-version">
+                      No light version in Figma
+                    </Typography>
+                  )}
+                  {r.namesDiffer && (
+                    <Typography variant="caption" color="text.secondary" component="div">
+                      Light and dark copies are named differently
+                    </Typography>
+                  )}
                 </TableCell>
                 <TableCell>
                   <Typography variant="body2">{r.page}</Typography>

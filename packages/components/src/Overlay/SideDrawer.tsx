@@ -10,8 +10,8 @@ import { SectionHeader } from './SectionHeader'
 // the theme (overlay.overrides.ts); this lays out the Figma frame: the section header, the
 // scrolling content slot, and the footer (a divider, then Filled and Outlined buttons).
 //
-// It closes on the close button, a click on the scrim and Escape (overlays.md). Figma has
-// no close button on the drawer; the spec and the prototype do, so the reference keeps it.
+// It closes on the close button, a click on the scrim and Escape (overlays.md). The close
+// button sits at the end of the header row, as in Figma (the Modal's is in the corner).
 
 export interface DrawerAction {
   label: string
@@ -67,8 +67,13 @@ export function SideDrawerContent({
 }: Pick<SideDrawerProps, 'title' | 'supportingText' | 'children' | 'onClose' | 'primaryAction' | 'secondaryAction' | 'closeLabel'> & { ids?: string }) {
   return (
     <>
-      <CloseButton aria-label={closeLabel} onClick={onClose} sx={(theme) => ({ position: 'absolute', top: `${theme.tokens.space.ssm}px`, right: `${theme.tokens.space.ssm}px` })} />
-      <SectionHeader title={title} supportingText={supportingText} titleId={ids && `${ids}-title`} supportingTextId={ids && `${ids}-text`} />
+      <SectionHeader
+        title={title}
+        supportingText={supportingText}
+        titleId={ids && `${ids}-title`}
+        supportingTextId={ids && `${ids}-text`}
+        action={<CloseButton aria-label={closeLabel} onClick={onClose} />}
+      />
       <Box sx={(theme) => ({ flex: '1 0 0', minHeight: 0, overflowY: 'auto', borderRadius: `${theme.tokens.radius.sm}px` })}>{children}</Box>
       {(primaryAction || secondaryAction) && (
         <Box sx={(theme) => ({ display: 'flex', flexDirection: 'column', gap: `${theme.tokens.space.m}px` })}>

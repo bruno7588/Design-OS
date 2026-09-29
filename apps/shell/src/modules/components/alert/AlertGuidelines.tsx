@@ -24,6 +24,7 @@ const g: Guidelines = {
       { name: 'Illustration or icon', description: '20px. Callout: the pin, or the info outline icon. Alert: the bell, or Danger Bold. One or the other, never both.' },
       { name: 'Text', description: 'Callout: Regular 14px in Text-secondary. Alert: SemiBold 14px in Text-warning.' },
       { name: 'Supporting text', description: 'Callout only: a SemiBold title, then the body 8px below.' },
+      { name: 'Collapse chevron', description: 'When the supporting text runs past 3 lines: ArrowUp2 20px at the end of the title row, 8px from the title. It points down when collapsed.' },
       { name: 'Button', description: 'A link at the end of the row (Text-primary, or Text-warning in an Alert). Under supporting text: an Outlined-2 button, 16px below.' },
     ],
   },
@@ -38,6 +39,7 @@ const g: Guidelines = {
   ],
   states: [
     { name: 'Default', description: 'Alerts and Callouts have no hover or pressed state. Only their button does.' },
+    { name: 'Expanded and collapsed', description: 'Callouts with more than 3 lines of supporting text. They start expanded; collapsed shows only the title row, and hides the button too.' },
     { name: 'Dismissible', description: 'Optional: onClose adds a close button at the end of the row. Keep important warnings until they’re resolved.' },
   ],
   dos: [
@@ -58,13 +60,14 @@ const g: Guidelines = {
     'Sentence case, no exclamation marks.',
     'Alert text is the warning itself: "Your licence ends in 7 days", not "Warning".',
     'Button labels are one or two words: "Renew", "Learn more".',
-    'Supporting text: a short title, then a sentence or a short list.',
+    'Supporting text: a short title, then a sentence or a short list. Past 3 lines it collapses, so put what matters in the title.',
   ],
   accessibility: [
     'Callouts are role note and Alerts role status: part of the page, so they don’t interrupt a screen reader when it loads. Use role alert only for a warning that appears after an action.',
     'The illustration and icon are decorative; the text carries the message.',
     'Text-warning on the Alert fill meets AA for 14px SemiBold text.',
     'The button is a real button, reached with Tab.',
+    'The collapse chevron is a button with aria-expanded, linked to the body it hides; its name says what it does ("Hide details", "Show details").',
   ],
   figma: [
     { label: 'Alert, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12060-2785' },

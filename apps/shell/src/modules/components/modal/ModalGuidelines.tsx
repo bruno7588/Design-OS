@@ -65,7 +65,10 @@ const g: Guidelines = {
     'Escape closes it. The close button is labelled "Close".',
     'Everything behind the scrim is hidden from screen readers while it is open.',
   ],
-  figma: [{ label: 'Modal (Figma Library, dark)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=7479-4350' }],
+  figma: [
+    { label: 'Modal, dark mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=7479-4350' },
+    { label: 'Modal, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=11919-4717' },
+  ],
   spec: 'playground/docs/design-system/overlays.md',
 }
 
