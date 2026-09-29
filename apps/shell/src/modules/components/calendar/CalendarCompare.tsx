@@ -11,13 +11,12 @@ const compare: Compare = {
   differences: [
     { property: 'Field', figma: '37px, padding 8/12, radius 12, Border-elevated; hugs "dd/mm/yyyy" and the icon, 8px apart', reference: 'Same', status: 'Matches', note: 'calendar.md says Border and a 16px gap.' },
     { property: 'Placeholder', figma: '"dd/mm/yyyy" in Text-secondary', reference: 'Same', status: 'Matches', note: 'Other fields use Text-disabled for placeholders.' },
-    { property: 'Active border', figma: 'Secondary-500 (a primitive) in light mode', reference: 'Selected, as every field', status: 'Design to update', note: 'calendar.md already treats this binding as stale.' },
+    { property: 'Active border', figma: 'Selected (rebound from Secondary-500, 2026-09-29)', reference: 'Same, as every field', status: 'Matches' },
     { property: 'Error', figma: 'Text-error border and label; Linear danger icon before the calendar icon; message below', reference: 'Same', status: 'Matches', note: 'The Input field uses the Bold Danger icon at the end.' },
     { property: 'Popover', figma: '352 × 344, Cards-background, Border-elevated, radius 12, Shadow L, 8px below', reference: 'Same', status: 'Matches' },
     { property: 'Header', figma: '"July 2024" Semibold 16; chevrons 20px with 12px glyphs, 4px apart', reference: 'Same', status: 'Matches' },
     { property: 'Weekdays', figma: 'Mon to Sun, Regular 14, Text-secondary', reference: 'Same (weeks start on Monday)', status: 'Matches' },
     { property: 'Day items', figma: 'Enabled, Hover, Focus, Current day, Selected, Disabled', reference: 'Same', status: 'Matches' },
-    { property: 'Illustration day', figma: 'A Warning-500 streak mark in place of the number', reference: 'Not built', status: 'Design to update', note: 'Where is it used? It isn’t in the date field.' },
     { property: 'Built component', figma: '–', reference: 'DateField on MUI X DesktopDatePicker', status: 'Code to update', note: 'The prototype’s DatePickerField uses its own MiniCalendar with no grid keyboard support.' },
   ],
   engineering: {

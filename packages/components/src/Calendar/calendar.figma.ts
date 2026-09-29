@@ -18,7 +18,7 @@ export const dayItemFigma: FigmaMapping = {
   page: 'Calendar',
   set: 'Day item',
   nodes: { light: '11916:6094', dark: '5279:26511' },
-  // Illustration (the streak mark on a day) isn't built.
+  // State=Illustration (the streak mark) is out of scope for the date field (Bruno, 2026-09-29).
   variants: {
     Disabled: ['false', 'true'],
     Selected: ['false', 'true'],

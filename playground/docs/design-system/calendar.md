@@ -52,7 +52,7 @@ Label:    Poppins Semibold 14, var(--text-secondary)   (Paragraph M semibold)
 | Error | `--text-error` | transparent | `--text-primary` | warning-triangle icon (20px) before the calendar icon; label turns `--text-error`; helper text below |
 
 - **Error helper:** Poppins Regular 14, `var(--text-error)` (e.g. "Date is required!").
-- Token rule: **form-field active borders use the mode-aware `--selected` token** (`#EDA30D` light / `#FFBB38` dark — date field, dropdown, inputs, search), the same token as selection fills (day cells, tab indicator). The Figma light node shows a raw `Secondary-500` binding on this field — treat that as a stale binding; `--selected` is the rule.
+- Token rule: **form-field active borders use the mode-aware `--selected` token** (`#EDA30D` light / `#FFBB38` dark — date field, dropdown, inputs, search), the same token as selection fills (day cells, tab indicator). The Figma Calendar sets bind the Active border to `Selected` (rebound from Secondary-500 on 2026-09-29).
 
 ---
 

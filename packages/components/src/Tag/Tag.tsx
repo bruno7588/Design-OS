@@ -5,13 +5,13 @@ import { DirectboxNotif, DocumentText, PlayCircle, VolumeHigh } from 'iconsax-re
 import { FlashcardIcon, LinkChainIcon } from '../icons/FigmaIcons'
 
 // 5Mins Tag (Figma Badges / Tags page, set Tags): the media type in the top-left corner
-// of a thumbnail. A Border square with a Bold Iconsax icon in Text-secondary, rounded
-// only at the bottom right, where it meets the image. MUI has no equivalent, so this
+// of a thumbnail. A Border square with a Bold icon in Text-secondary, rounded only at
+// the bottom right, where it meets the image. MUI has no equivalent, so this
 // is a Box styled from the tokens.
 //
 // Figma → props
 //   Media Type → type "video" | "pdf" | "link" | "scorm" | "flashcard" | "audio"
-//   Size       → size "L" (40, icon 32) | "M" (28, icon 20) | "S" (24, icon 16)
+//   Size       → size "L" (40, icon 32, corner 12) | "M" (28, icon 20, corner 8) | "S" (24, icon 16, corner 8)
 
 export type TagType = 'video' | 'pdf' | 'link' | 'scorm' | 'flashcard' | 'audio'
 
@@ -30,7 +30,7 @@ export const TAG_TYPES: Record<TagType, { label: string; Icon: IconComponent }> 
   audio: { label: 'Audio', Icon: bold(VolumeHigh) },
 }
 
-const SIZES = { L: { box: 40, icon: 32 }, M: { box: 28, icon: 20 }, S: { box: 24, icon: 16 } } as const
+const SIZES = { L: { box: 40, icon: 32, corner: 'sm' }, M: { box: 28, icon: 20, corner: 's' }, S: { box: 24, icon: 16, corner: 's' } } as const
 
 export interface TagProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
   sx?: SxProps<Theme>
@@ -40,7 +40,7 @@ export interface TagProps extends Omit<ComponentPropsWithoutRef<'div'>, 'childre
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag({ type, size = 'M', sx, ...props }, ref) {
   const { label, Icon } = TAG_TYPES[type]
-  const { box, icon } = SIZES[size]
+  const { box, icon, corner } = SIZES[size]
   return (
     <Box
       ref={ref}
@@ -59,7 +59,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag({ type, siz
           padding: `${theme.tokens.space.xs}px`,
           backgroundColor: theme.tokens.semantic.border,
           color: theme.tokens.semantic.textSecondary,
-          borderRadius: `0 0 ${theme.tokens.radius.s}px 0`,
+          borderRadius: `0 0 ${theme.tokens.radius[corner]}px 0`,
           '& svg': { display: 'block', flexShrink: 0 },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),

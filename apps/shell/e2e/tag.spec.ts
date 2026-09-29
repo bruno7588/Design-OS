@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-// Tag checks against Figma Tags (dark 4603:27712, light 11337:14129).
+// Tag checks against Figma Tags (dark 4603:27712, light 12319:7504).
 
 test.use({ viewport: { width: 1600, height: 1200 } })
 
@@ -32,7 +32,7 @@ test('sizes, corner, fill and icons match Figma', async ({ page }) => {
     )
     expect(tags).toHaveLength(18)
     const common = { fill: 'rgb(223, 225, 230)', colour: 'rgb(69, 76, 94)', corners: '0px 0px 8px 0px' } // Border, Text-secondary
-    expect(tags[0]).toEqual({ w: 40, icon: 32, ...common })
+    expect(tags[0]).toEqual({ w: 40, icon: 32, ...common, corners: '0px 0px 12px 0px' })
     expect(tags[6]).toEqual({ w: 28, icon: 20, ...common })
     expect(tags[12]).toEqual({ w: 24, icon: 16, ...common })
   }).toPass()

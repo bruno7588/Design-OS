@@ -26,8 +26,8 @@ const g: Guidelines = {
   anatomy: {
     example: <OnThumbnail type="video" size="L" />,
     parts: [
-      { name: 'Tag', description: 'A Border square in the top-left corner, rounded 8px at the bottom right only. L 40px, M 28px, S 24px, with 4px padding.' },
-      { name: 'Icon', description: 'Iconsax Bold in Text-secondary: 32px in L, 20px in M, 16px in S.' },
+      { name: 'Tag', description: 'A Border square in the top-left corner, rounded at the bottom right only: 12px in L, 8px in M and S. L 40px, M 28px, S 24px, with 4px padding.' },
+      { name: 'Icon', description: 'Bold, in Text-secondary: 32px in L, 20px in M, 16px in S.' },
     ],
   },
   variants: [
@@ -48,7 +48,7 @@ const g: Guidelines = {
     'If the card already says the type in text, hide the tag from screen readers with aria-hidden.',
   ],
   figma: [
-    { label: 'Tags, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=11337-14129' },
+    { label: 'Tags, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12319-7504' },
     { label: 'Tags, dark mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=4603-27712' },
   ],
   spec: 'Figma Library, Badges / Tags page',

@@ -10,7 +10,7 @@ Checked 2026-09-29.
 
 | Component | MUI | Figma |
 |---|---|---|
-| Tag | Box (MUI has no equivalent) + `Tag` | Tags `4603:27712` dark, `11337:14129` light |
+| Tag | Box (MUI has no equivalent) + `Tag` | Tags `4603:27712` dark, `12319:7504` light |
 | Slider | plain `Slider`, theme only | <Slider> `10662:14039` dark, `11045:9459` light |
 | Calendar | MUI X `DesktopDatePicker` + `DateField` wrapper | Calendar `11529:406` / `12204:5743`; Day item `5279:26511` / `11916:6094` |
 
@@ -40,18 +40,18 @@ Checked 2026-09-29.
   - **Day items:** Hover (Cards-background-hover), Focus (a Selected ring), Current day (a Border-elevated ring), Selected (Secondary-500, Bold Neutral-800) and Disabled (Text-disabled).
   - **Keyboard and screen readers:** MUI X handles these, with a grid, arrow keys, Page Up and Down, Enter and Escape.
 
+## Follow-up, 2026-09-29 (Bruno)
+- **Calendar Active:** now uses Selected. I rebound the Active field border from Secondary-500 to the Selected variable in both Calendar sets (4 frames), and updated calendar.md.
+- **Streak day:** the Day item Illustration variant is out of scope for the date field and isn't built.
+- **Tag:** Bruno updated the set. L's corner is now 12 (radius sm), M and S stay 8, and the light copy is replaced (new set `12319:7504`). Code, the mapping and the frames follow.
+
 ## Mismatches recorded
 
 **Figma**
-- **Tag:**
-  - L's corner is 9.14 (M and S are 8).
-  - The Card sets don't use the Tags component.
+- **Tag:** the Card sets don't use the Tags component.
 - **Slider:**
   - There's no focus state.
   - The light copy sits on a board named "Dark mode", with only Surface colours set to Light.
-- **Calendar:**
-  - Light Active is bound to Secondary-500, not Selected. calendar.md already calls this stale, and code uses Selected.
-  - The Illustration day item (a streak mark) isn't built, and its use is unclear.
 
 **Prototype**
 - **calendar.md:** it says Border for Enabled (Figma uses Border-elevated) and a 16px gap between the value and the icon (Figma uses 8).

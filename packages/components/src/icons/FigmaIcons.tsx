@@ -135,7 +135,7 @@ export function AvatarFallbackIcon({ size = 24, fill = 'currentColor', ...props 
 }
 
 /** Tags, Media Type=Flashcard: the vuesax Bold note-2 (two stacked notes). Iconsax React
- *  has no match, so it's copied from the Tags set (11337:14129). Takes the text colour. */
+ *  has no match, so it's copied from the Tags set (12319:7504). Takes the text colour. */
 export function FlashcardIcon({ size = 24, ...props }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true" {...props}>
@@ -152,7 +152,7 @@ export function FlashcardIcon({ size = 24, ...props }: IconProps) {
 }
 
 /** Tags, Media Type=Link: the vuesax Bold link-2 (a diagonal chain), copied from the Tags
- *  set (11337:14129); Iconsax React's Link2 is drawn differently. Takes the text colour. */
+ *  set (12319:7504); Iconsax React's Link2 is drawn differently. Takes the text colour. */
 export function LinkChainIcon({ size = 24, ...props }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true" {...props}>

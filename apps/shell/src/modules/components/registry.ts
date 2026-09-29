@@ -454,7 +454,7 @@ export const components: ComponentDoc[] = [
     slug: 'tag',
     name: 'Tag',
     summary: 'Shows the media type in the corner of a thumbnail: video, PDF, link, SCORM, flashcard or audio.',
-    figma: { light: `${LIBRARY}11337-14129`, dark: `${LIBRARY}4603-27712` },
+    figma: { light: `${LIBRARY}12319-7504`, dark: `${LIBRARY}4603-27712` },
     spec: 'Figma Library, Badges / Tags page',
     Preview: TagPreview,
     Code: TagCode,
