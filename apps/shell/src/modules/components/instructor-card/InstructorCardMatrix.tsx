@@ -14,13 +14,14 @@ export const INSTRUCTOR: InstructorCardProps = {
   ],
 }
 
-// The Figma Card/Instructor set: Mobile, Desktop, Desktop Hover.
+// The Figma Card/Instructor set: Mobile, Mobile Hover, Desktop, Desktop Hover.
 export function InstructorCardMatrix({ mode }: { mode: Mode }) {
   return (
     <Canvas mode={mode}>
       <Box data-testid={`instructor-card-matrix-${mode}`}>
-        <CardGroup label="Mobile, desktop and desktop hover">
+        <CardGroup label="Mobile and desktop, each Enabled then Hover">
           <InstructorCard {...INSTRUCTOR} device="mobile" />
+          <InstructorCard {...INSTRUCTOR} device="mobile" className="ds-hover" />
           <InstructorCard {...INSTRUCTOR} />
           <InstructorCard {...INSTRUCTOR} className="ds-hover" />
         </CardGroup>

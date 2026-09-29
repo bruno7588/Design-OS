@@ -32,11 +32,17 @@ export function LessonCardMatrix({ mode }: { mode: Mode }) {
         </Group>
         <Group label="List, mobile" width={343}>
           {card({ ...LIST, device: 'mobile' }, 'm1')}
+          {card({ ...LIST, device: 'mobile' , className: 'ds-hover' }, 'm1h')}
           {card({ ...LIST, device: 'mobile', completed: true }, 'm2')}
+          {card({ ...LIST, device: 'mobile', completed: true , className: 'ds-hover' }, 'm2h')}
           {card({ ...LIST, device: 'mobile', quiz: 'pending', progress: 87 }, 'm3')}
+          {card({ ...LIST, device: 'mobile', quiz: 'pending', progress: 87 , className: 'ds-hover' }, 'm3h')}
           {card({ ...LIST, device: 'mobile', quiz: 'pending', completed: true }, 'm4')}
+          {card({ ...LIST, device: 'mobile', quiz: 'pending', completed: true , className: 'ds-hover' }, 'm4h')}
           {card({ ...LIST, device: 'mobile', quiz: 'passed', completed: true }, 'm5')}
+          {card({ ...LIST, device: 'mobile', quiz: 'passed', completed: true , className: 'ds-hover' }, 'm5h')}
           {card({ ...LIST, device: 'mobile', disabled: true }, 'm6')}
+          {card({ ...LIST, device: 'mobile', disabled: true , className: 'ds-hover' }, 'm6h')}
         </Group>
         <Group label="List, Admin" width={900}>
           {card({ ...LIST, device: 'admin' }, 'a1')}

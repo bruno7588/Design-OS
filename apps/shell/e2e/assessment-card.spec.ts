@@ -34,14 +34,14 @@ test('sizes, padding, illustration and states match Figma', async ({ page }) => 
       }),
     )
     expect(cards[0]).toMatchObject({ size: [344, 84], pad: '12px', art: 56, title: ['14px', 'rgb(32, 34, 42)'] })
-    expect(cards[1]).toMatchObject({ size: [344, 84], title: ['14px', 'rgb(158, 164, 179)'] })
-    expect(cards[2]).toMatchObject({ size: [344, 131], button: 33 })
-    expect(cards[3]).toMatchObject({ size: [900, 73], pad: '12px', art: 48, title: ['16px', 'rgb(32, 34, 42)'] })
-    expect(cards[4].fill).toBe('rgb(239, 240, 242)')
-    expect(cards[5]).toMatchObject({ size: [900, 112], pad: '16px', art: 80 })
-    expect(cards[6].title[1]).toBe('rgb(32, 34, 42)') // hover keeps Text-primary
-    expect(cards[7]).toMatchObject({ pad: '16px 24px 16px 16px', title: ['16px', 'rgb(158, 164, 179)'] })
-    expect(cards[9]).toMatchObject({ size: [900, 112], button: 41 }) // the current Medium; Figma’s older instance is 37
+    expect(cards[2]).toMatchObject({ size: [344, 84], title: ['14px', 'rgb(158, 164, 179)'] })
+    expect(cards[4]).toMatchObject({ size: [344, 131], button: 33 })
+    expect(cards[6]).toMatchObject({ size: [900, 73], pad: '12px', art: 48, title: ['16px', 'rgb(32, 34, 42)'] })
+    expect(cards[7].fill).toBe('rgb(239, 240, 242)')
+    expect(cards[8]).toMatchObject({ size: [900, 112], pad: '16px', art: 80 })
+    expect(cards[9].title[1]).toBe('rgb(32, 34, 42)') // hover keeps Text-primary
+    expect(cards[10]).toMatchObject({ pad: '16px 24px 16px 16px', title: ['16px', 'rgb(158, 164, 179)'] })
+    expect(cards[12]).toMatchObject({ size: [900, 112], button: 41 }) // the current Medium; Figma’s older instance is 37
   }).toPass()
 })
 

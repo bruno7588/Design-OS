@@ -17,8 +17,8 @@ const g: Guidelines = {
       { name: 'Card', description: 'Cards-background, radius 12, info padding 24 (16 on mobile), gap 16, Shadow S in light mode.' },
     ],
   },
-  variants: [{ name: 'Mobile', description: '272 wide, padding 16. No hover.', example: <ExternalTrainingCard {...TRAINING} device="mobile" /> }],
-  states: [{ name: 'Hover', description: 'Cards-background-hover (desktop).' }],
+  variants: [{ name: 'Mobile', description: '272 wide, padding 16.', example: <ExternalTrainingCard {...TRAINING} device="mobile" /> }],
+  states: [{ name: 'Hover', description: 'Cards-background-hover, on every device.' }],
   dos: [
     {
       do: { example: <ExternalTrainingCard {...TRAINING} />, text: 'Show the full price with its currency.' },

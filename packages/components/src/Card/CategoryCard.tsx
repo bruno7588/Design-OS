@@ -13,7 +13,7 @@ import { CardRoot, CardTitle, clamp } from './CardBase'
 //   Device=Desktop / Mobile → device "desktop" (300 wide) | "mobile" (272 wide)
 //   New=true                → isNew: the New Badge ("New Courses") over the top edge
 //   Disabled=true           → disabled: greyscale, a 40px lock, Text-disabled; desktop shows a Tooltip
-//   State=Hover             → :hover (desktop): both images grow, the glow gets stronger
+//   State=Hover             → :hover: both images grow, the glow gets stronger
 
 export interface CategoryCardProps {
   device?: 'desktop' | 'mobile'
@@ -72,11 +72,9 @@ export function CategoryCard({
           overflow: 'visible',
           backgroundColor: 'transparent',
           boxShadow: 'none',
-          ...(!mobile && {
-            // Figma Hover: the glow grows to 348 × 237 at 48%, the image to 281 × 164.
-            '&:hover .ds-category-glow, &.ds-hover .ds-category-glow': { transform: 'scale(1.16)', opacity: 0.48 },
-            '&:hover .ds-category-image, &.ds-hover .ds-category-image': { transform: 'scale(1.17)' },
-          }),
+          // Figma Hover: the glow grows to 348 × 237 at 48%, the image to 281 × 164.
+          '&:hover .ds-category-glow, &.ds-hover .ds-category-glow': { transform: 'scale(1.16)', opacity: 0.48 },
+          '&:hover .ds-category-image, &.ds-hover .ds-category-image': { transform: 'scale(1.17)' },
           '& .ds-category-glow, & .ds-category-image': { transition: 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms' },
           '@media (prefers-reduced-motion: reduce)': { '& .ds-category-glow, & .ds-category-image': { transition: 'none' } },
         }),

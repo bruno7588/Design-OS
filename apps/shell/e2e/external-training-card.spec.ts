@@ -28,8 +28,8 @@ test('sizes match Figma', async ({ page }) => {
       }),
     )
     expect(cards[0]).toMatchObject({ size: [272, 300], radius: '12px', shadow: true })
-    expect(cards[1]).toMatchObject({ size: [300, 325], radius: '12px' })
-    expect(cards[2].fill).toBe('rgb(239, 240, 242)')
+    expect(cards[2]).toMatchObject({ size: [300, 325], radius: '12px' })
+    expect(cards[3].fill).toBe('rgb(239, 240, 242)')
   }).toPass()
   const preview = page.getByTestId('external-training-card-preview')
   await preview.getByRole('button', { name: /Technical Product Manager/ }).click()

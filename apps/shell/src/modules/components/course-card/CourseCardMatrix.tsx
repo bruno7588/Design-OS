@@ -20,6 +20,9 @@ export function CourseCardMatrix({ mode }: { mode: Mode }) {
         <CardGroup label="Mobile">
           {combos.map((c, i) => <CourseCard key={i} {...COURSE} {...c} device="mobile" />)}
         </CardGroup>
+        <CardGroup label="Mobile, hover">
+          {combos.map((c, i) => <CourseCard key={i} {...COURSE} {...c} device="mobile" className="ds-hover" />)}
+        </CardGroup>
         <CardGroup label="Desktop">
           {[{}, { dueDate: 'Due on Aug 20' }, { isNew: true }, { isNew: true, dueDate: 'Due on Aug 20' }].map((c, i) => <CourseCard key={i} {...COURSE} {...c} />)}
         </CardGroup>

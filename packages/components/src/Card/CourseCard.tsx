@@ -12,7 +12,7 @@ import { CardRoot, CardTitle, clamp } from './CardBase'
 //   Device=Desktop / Mobile → device "desktop" (300 wide) | "mobile" (272 wide)
 //   New=true                → isNew: the New pill, top left of the image
 //   Due date=true           → dueDate: the Warning Badge on Cards-background, top right
-//   State=Hover             → :hover (desktop): Cards-background-hover, the picture zooms 1.12×
+//   State=Hover             → :hover: Cards-background-hover, the picture zooms 1.12×
 
 export interface CourseCardProps {
   device?: 'desktop' | 'mobile'
@@ -39,15 +39,12 @@ export function CourseCard({ device = 'desktop', title, image, lessons, duration
   return (
     <CardRoot
       className={['ds-course-card', className].filter(Boolean).join(' ')}
-      hover={!mobile}
       sx={[
         (theme) => ({
           display: 'flex',
           flexDirection: 'column',
           width: mobile ? 272 : 300,
-          ...(!mobile && {
-            '&:hover .ds-course-picture, &.ds-hover .ds-course-picture': { transform: 'scale(1.12)' },
-          }),
+          '&:hover .ds-course-picture, &.ds-hover .ds-course-picture': { transform: 'scale(1.12)' },
           '@media (prefers-reduced-motion: reduce)': { '& .ds-course-picture': { transition: 'none' } },
           '& .MuiLinearProgress-bar': { backgroundColor: theme.tokens.semantic.selected },
         }),

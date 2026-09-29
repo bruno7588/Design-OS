@@ -689,6 +689,10 @@
         "Device": [
           "Mobile",
           "Desktop"
+        ],
+        "State": [
+          "Enabled",
+          "Hover"
         ]
       },
       "slots": [],

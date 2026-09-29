@@ -23,6 +23,9 @@ export function ResourceCardMatrix({ mode }: { mode: Mode }) {
           <Box sx={{ width: 344 }}>
             <ResourceCard device="mobile" type="pdf" title={TITLE} size="1.1 MB" />
           </Box>
+          <Box sx={{ width: 344 }}>
+            <ResourceCard device="mobile" type="pdf" title={TITLE} size="1.1 MB" className="ds-hover" />
+          </Box>
           <Box sx={{ width: 900 }}>
             <ResourceCard type="pdf" title={TITLE} size="1.1 MB" />
           </Box>

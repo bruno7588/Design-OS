@@ -157,7 +157,7 @@ export function LessonCard({
 
   if (device === 'mobile') {
     return (
-      <CardRoot className={['ds-lesson-card', className].filter(Boolean).join(' ')} radius="s" hover={false} sx={[(theme) => ({ display: 'flex', flexDirection: 'column', color: disabled ? theme.tokens.semantic.textDisabled : undefined }), ...(Array.isArray(sx) ? sx : [sx])]}>
+      <CardRoot className={['ds-lesson-card', className].filter(Boolean).join(' ')} sx={[(theme) => ({ '--ds-title-hover': disabled ? theme.tokens.semantic.textDisabled : theme.tokens.semantic.textButtonHover, display: 'flex', flexDirection: 'column', color: disabled ? theme.tokens.semantic.textDisabled : undefined, ...titleHover }), ...(Array.isArray(sx) ? sx : [sx])]}>
         <Box sx={(theme) => ({ display: 'flex', alignItems: 'flex-start', gap: `${theme.tokens.space.sm}px`, padding: `${theme.tokens.space.sm}px` })}>
           <Thumb image={image} size={56} radius={4} disabled={disabled}>
             <Tag type={mediaType} size="S" sx={[{ position: 'absolute', top: 0, left: 0 }, TAG_MOBILE]} />

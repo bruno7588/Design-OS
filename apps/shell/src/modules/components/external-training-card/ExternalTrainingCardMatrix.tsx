@@ -10,13 +10,14 @@ export const TRAINING: ExternalTrainingCardProps = {
   image: '/samples/thumbnail.png',
 }
 
-// The Figma Card/External training set: Mobile, Desktop, Desktop Hover.
+// The Figma Card/External training set: Mobile, Mobile Hover, Desktop, Desktop Hover.
 export function ExternalTrainingCardMatrix({ mode }: { mode: Mode }) {
   return (
     <Canvas mode={mode}>
       <Box data-testid={`external-training-card-matrix-${mode}`}>
-        <CardGroup label="Mobile, desktop and desktop hover">
+        <CardGroup label="Mobile and desktop, each Enabled then Hover">
           <ExternalTrainingCard {...TRAINING} device="mobile" />
+          <ExternalTrainingCard {...TRAINING} device="mobile" className="ds-hover" />
           <ExternalTrainingCard {...TRAINING} />
           <ExternalTrainingCard {...TRAINING} className="ds-hover" />
         </CardGroup>

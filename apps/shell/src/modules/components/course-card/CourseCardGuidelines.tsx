@@ -18,7 +18,7 @@ const g: Guidelines = {
       { name: 'Meta', description: 'play-circle and clock, 16px (14 on mobile): "17 lessons", "20 min", Regular 14 (12) in Text-secondary.' },
     ],
   },
-  variants: [{ name: 'Mobile', description: '272 wide for carousels; body padding 16, gap 12. No hover.', example: <CourseCard {...COURSE} device="mobile" dueDate="Due on Aug 20" /> }],
+  variants: [{ name: 'Mobile', description: '272 wide for carousels; body padding 16, gap 12.', example: <CourseCard {...COURSE} device="mobile" dueDate="Due on Aug 20" /> }],
   states: [{ name: 'Hover', description: 'Cards-background-hover, and the picture zooms 1.12× (300ms). No zoom with reduced motion.' }],
   dos: [
     {

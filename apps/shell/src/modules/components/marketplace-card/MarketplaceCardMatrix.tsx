@@ -10,13 +10,18 @@ export const SAMPLES: MarketplaceCardProps[] = [
   { type: 'reward', title: '3 months Subscription Spotify Premium', subtitle: 'Spotify', price: '2000', image },
 ]
 
-// The Figma Card/Marketplace set: Subscription, Coaching and Reward, each Mobile then Desktop.
+// The Figma Card/Marketplace set: Subscription, Coaching and Reward, each Mobile then Desktop, Enabled then Hover.
 export function MarketplaceCardMatrix({ mode }: { mode: Mode }) {
   return (
     <Canvas mode={mode}>
       <Box data-testid={`marketplace-card-matrix-${mode}`}>
         <CardGroup label="Subscription, Coaching and Reward">
-          {SAMPLES.flatMap((s) => [<MarketplaceCard key={s.type + 'm'} {...s} device="mobile" />, <MarketplaceCard key={s.type + 'd'} {...s} />])}
+          {SAMPLES.flatMap((s) => [
+            <MarketplaceCard key={s.type + 'm'} {...s} device="mobile" />,
+            <MarketplaceCard key={s.type + 'mh'} {...s} device="mobile" className="ds-hover" />,
+            <MarketplaceCard key={s.type + 'd'} {...s} />,
+            <MarketplaceCard key={s.type + 'dh'} {...s} className="ds-hover" />,
+          ])}
         </CardGroup>
       </Box>
     </Canvas>

@@ -21,7 +21,7 @@ const g: Guidelines = {
     ],
   },
   variants: [
-    { name: 'Mobile app', description: 'Smaller tile and type, 8px gaps. No hover.', example: <Row width={344}><ResourceCard device="mobile" type="excel" title={TITLE} size="240 KB" /></Row> },
+    { name: 'Mobile app', description: 'Smaller tile and type, 8px gaps.', example: <Row width={344}><ResourceCard device="mobile" type="excel" title={TITLE} size="240 KB" /></Row> },
     { name: 'Link', description: 'External link in the meta line; the action opens it.', example: <Row><ResourceCard type="link" title="Our careers page" /></Row> },
     {
       name: 'Type thumbnails',

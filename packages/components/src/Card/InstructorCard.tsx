@@ -8,7 +8,7 @@ import { CardRoot, CardTitle, clamp } from './CardBase'
 //
 // Figma → props
 //   Device=Desktop / Mobile → device "desktop" (404 × 160) | "mobile" (340 × 137)
-//   State=Hover             → :hover (desktop): Cards-background-hover
+//   State=Hover             → :hover: Cards-background-hover
 
 export interface InstructorSkill {
   label: string
@@ -33,7 +33,6 @@ export function InstructorCard({ device = 'desktop', name, bio, image, skills = 
   return (
     <CardRoot
       className={['ds-instructor-card', className].filter(Boolean).join(' ')}
-      hover={!mobile}
       sx={[{ display: 'flex', width: mobile ? 340 : 404, height: mobile ? 137 : 160 }, ...(Array.isArray(sx) ? sx : [sx])]}
     >
       <Box

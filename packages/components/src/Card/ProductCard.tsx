@@ -35,8 +35,6 @@ interface ProductCardProps extends BaseProps {
 function ProductCard({ kind, device = 'desktop', title, subtitle, image, price, onClick, className, sx }: ProductCardProps) {
   const mobile = device === 'mobile'
   const marketplace = kind !== 'training'
-  // Figma: the mobile Marketplace card is the only one with a radius of 8.
-  const radius = mobile && marketplace ? 's' : 'sm'
   // The subtitle is Regular 14/1.5, except the mobile Coaching and Reward cards (Regular 12/1.2).
   const smallSub = mobile && (kind === 'coaching' || kind === 'reward')
   const imageH = mobile && marketplace ? 140 : 160
@@ -46,8 +44,6 @@ function ProductCard({ kind, device = 'desktop', title, subtitle, image, price, 
   return (
     <CardRoot
       className={['ds-product-card', `ds-product-${kind}`, className].filter(Boolean).join(' ')}
-      radius={radius}
-      hover={!mobile}
       sx={[{ display: 'flex', flexDirection: 'column', width: mobile ? 272 : 300 }, ...(Array.isArray(sx) ? sx : [sx])]}
     >
       <Box

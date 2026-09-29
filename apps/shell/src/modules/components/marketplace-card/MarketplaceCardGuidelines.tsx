@@ -14,14 +14,14 @@ const g: Guidelines = {
       { name: 'Title', description: 'Bold 16/1.5 (14 on mobile), up to two lines.' },
       { name: 'Subtitle', description: 'Subscription: the description, Regular 14/1.5, up to three lines. Coaching and Reward: the coach or brand, one line (Regular 12/1.2 on mobile).' },
       { name: 'Price', description: 'Bold 16/1.5 (14 on mobile). Rewards show points after the Jewels illustration.' },
-      { name: 'Card', description: 'Cards-background, radius 12 (8 on mobile), Shadow S in light mode.' },
+      { name: 'Card', description: 'Cards-background, radius 12, Shadow S in light mode.' },
     ],
   },
   variants: [
     { name: 'Coaching', description: 'The coach under the title.', example: <MarketplaceCard {...SAMPLES[1]} /> },
     { name: 'Reward', description: 'Priced in points.', example: <MarketplaceCard {...SAMPLES[2]} /> },
   ],
-  states: [{ name: 'Hover', description: 'Cards-background-hover (desktop), like the other cards.' }],
+  states: [{ name: 'Hover', description: 'Cards-background-hover, like the other cards.' }],
   dos: [
     {
       do: { example: <MarketplaceCard {...SAMPLES[0]} />, text: 'Show what the price covers: "£59.99 / month".' },

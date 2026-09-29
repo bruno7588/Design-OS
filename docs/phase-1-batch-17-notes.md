@@ -34,9 +34,18 @@ Checked 2026-09-29.
 - **Tests:** `e2e/{instructor,external-training,marketplace}-card.spec.ts` (9 checks).
 - **Inventory:** 59 components in code, 18 Figma-only. Every Cards-page set is now in code.
 
+## Follow-up (Bruno, 2026-09-29)
+- **Radius 12 on every card:** in Figma, the mobile Marketplace (6 variants) and mobile Lesson (12 variants) went from 8 to 12. Code has no 8 left.
+- **Every card has a hover state.** In Figma, 48 Hover variants were added, 24 per mode:
+  - **Mobile Lessons:** Cards-background-hover, and the title turns Text-button-hover (not when disabled).
+  - **Mobile Assessments, Resources, Instructor and External training:** Cards-background-hover.
+  - **Mobile Courses:** Cards-background-hover, and the picture zooms 1.12×.
+  - **Mobile Category:** the images zoom and the glow goes to 48%, as on desktop.
+  - **Marketplace:** gains a State property (Enabled, Hover) on all six variants.
+  - **Skipped:** the disabled mobile Category card, whose desktop hover only adds the tooltip.
+  - **Code:** every card now hovers on every device, and the matrices show the new variants.
+
 ## Mismatches recorded (Design to update)
-- **Marketplace mobile radius:** 8. Every other card, including mobile External training, is 12.
-- **Marketplace hover:** there's no Hover variant. Code hovers like External training.
 - **Reward icon layer:** the Jewels illustration sits in a layer named "Illustrations/Certificate".
 - **Truncation:** the Instructor bio and the Subscription description are cut by hand ("…") in Figma. Code clamps them at 2 and 3 lines.
 - **Docs:** `cards.md` doesn't cover External training or Marketplace yet.

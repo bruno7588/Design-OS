@@ -19,7 +19,9 @@ export function CategoryCardMatrix({ mode }: { mode: Mode }) {
         </CardGroup>
         <CardGroup label="Mobile" gap={8}>
           <CategoryCard {...CATEGORY} device="mobile" />
+          <CategoryCard {...CATEGORY} device="mobile" className="ds-hover" />
           <CategoryCard {...CATEGORY} device="mobile" isNew />
+          <CategoryCard {...CATEGORY} device="mobile" isNew className="ds-hover" />
           <CategoryCard {...CATEGORY} device="mobile" disabled />
         </CardGroup>
       </Box>

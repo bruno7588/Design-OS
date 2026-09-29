@@ -22,10 +22,10 @@ const g: Guidelines = {
   },
   variants: [
     { name: 'Admin', description: 'Adds the edit button and an Assessment badge.', example: <Row><AssessmentCard {...SAMPLE} device="admin" onEdit={() => undefined} /></Row> },
-    { name: 'Mobile', description: 'Completed stacks Review under the type. No hover.', example: <Row width={344}><AssessmentCard {...SAMPLE} device="mobile" type="lesson-quiz" completed /></Row> },
+    { name: 'Mobile', description: 'Completed stacks Review under the type.', example: <Row width={344}><AssessmentCard {...SAMPLE} device="mobile" type="lesson-quiz" completed /></Row> },
   ],
   states: [
-    { name: 'Hover', description: 'Cards-background-hover (web app and Admin). The title keeps its colour.' },
+    { name: 'Hover', description: 'Cards-background-hover, on every device. The title keeps its colour.' },
     { name: 'Completed', description: 'A Success tick after the type and a Review button.' },
     { name: 'Disabled', description: 'The illustration goes grey, text is Text-disabled and a Bold lock sits on the right (24px web, 20 mobile).' },
   ],

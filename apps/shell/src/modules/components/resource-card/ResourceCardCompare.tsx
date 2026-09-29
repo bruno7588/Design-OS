@@ -11,7 +11,7 @@ const compare: Compare = {
   live: (mode) => <ResourceCardMatrix mode={mode} />,
   differences: [
     { property: 'Web/Admin', figma: 'Padding 12/16/12/12, gap 12, centred; tile 48; title Bold 16 one line; meta Regular 14 Text-tertiary', reference: 'Same', status: 'Matches' },
-    { property: 'Mobile app', figma: 'Padding 12, gap 8; tile 40; title Bold 14; meta Regular 12/1.2', reference: 'Same (no hover)', status: 'Matches' },
+    { property: 'Mobile app', figma: 'Padding 12, gap 8; tile 40; title Bold 14; meta Regular 12/1.2', reference: 'Same; Hover added 2026-09-29', status: 'Matches' },
     { property: 'Action', figma: 'import-curve Linear 20 in a 28px button; hover fills Input-background-hover with a Tooltip (Top, End)', reference: 'Same; the Tooltip is centred on the button', status: 'Matches' },
     { property: 'Link action', figma: 'Not drawn', reference: 'export-square, "Open link"', status: 'Design to update', note: 'From resource-card.md; add it to the set.' },
     { property: 'Type thumbnail', figma: 'PDF, Excel, Word, PowerPoint, Image (dark only) and External link (Certificate quiz tile, Bold link-2 in Neutral-25)', reference: 'All six', status: 'Design to update', note: 'The light set has no Image variant.' },

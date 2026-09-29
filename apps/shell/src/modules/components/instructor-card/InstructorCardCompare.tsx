@@ -13,7 +13,7 @@ const compare: Compare = {
     { property: 'Mobile', figma: '340 × 137; info padding 12, gap 16; name Bold 14; bio Regular 12/1.2', reference: 'Same', status: 'Matches' },
     { property: 'Skills', figma: 'Rows 8 apart; Icons/Skill Icon 16 + Regular 12/1.2 Text-tertiary, cut at one line', reference: 'Same; the icon is a slot per skill', status: 'Matches' },
     { property: 'Bio', figma: 'The sample text is cut by hand ("…"); no truncation set', reference: 'Clamped at two lines', status: 'Matches' },
-    { property: 'Hover', figma: 'Cards-background-hover (desktop)', reference: 'Same', status: 'Matches' },
+    { property: 'Hover', figma: 'Cards-background-hover; mobile Hover added 2026-09-29', reference: 'Same', status: 'Matches' },
     { property: 'Shadow', figma: 'Shadow S in the light set', reference: 'Same', status: 'Matches' },
     { property: 'Built component', figma: '–', reference: 'InstructorCard', status: 'Code to update', note: 'The prototype has mobile/InstructorCard.' },
   ],

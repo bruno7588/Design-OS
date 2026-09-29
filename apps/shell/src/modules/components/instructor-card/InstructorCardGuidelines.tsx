@@ -17,8 +17,8 @@ const g: Guidelines = {
       { name: 'Card', description: '404 × 160 (340 × 137 on mobile), Cards-background, Shadow S in light mode.' },
     ],
   },
-  variants: [{ name: 'Mobile', description: 'Padding 12, gap 16. No hover.', example: <InstructorCard {...INSTRUCTOR} device="mobile" /> }],
-  states: [{ name: 'Hover', description: 'Cards-background-hover (desktop).' }],
+  variants: [{ name: 'Mobile', description: 'Padding 12, gap 16.', example: <InstructorCard {...INSTRUCTOR} device="mobile" /> }],
+  states: [{ name: 'Hover', description: 'Cards-background-hover, on every device.' }],
   dos: [
     {
       do: { example: <InstructorCard {...INSTRUCTOR} bio="Leadership coach and former Head of People at Monzo." />, text: 'Keep the bio to one or two short sentences.' },

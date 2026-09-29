@@ -38,7 +38,6 @@ export function ResourceCard({ device = 'web', type, title, size, onOpen, classN
   return (
     <CardRoot
       className={['ds-resource-card', className].filter(Boolean).join(' ')}
-      hover={!mobile}
       sx={[
         (theme) => {
           const t = theme.tokens

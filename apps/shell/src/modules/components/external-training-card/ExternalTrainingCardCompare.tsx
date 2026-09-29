@@ -12,7 +12,7 @@ const compare: Compare = {
     { property: 'Desktop', figma: '300 × 325; image 160; info padding 24, gap 16; title Bold 16 (2 lines), provider Regular 14, 8 apart; price Bold 16', reference: 'Same', status: 'Matches' },
     { property: 'Mobile', figma: '272 × 300; image 160; padding 16, gap 16; title and price Bold 14; provider Regular 14', reference: 'Same', status: 'Matches' },
     { property: 'Title', figma: 'No truncation set', reference: 'Clamped at two lines', status: 'Matches' },
-    { property: 'Hover', figma: 'Cards-background-hover (desktop)', reference: 'Same', status: 'Matches' },
+    { property: 'Hover', figma: 'Cards-background-hover; mobile Hover added 2026-09-29', reference: 'Same', status: 'Matches' },
     { property: 'Shadow', figma: 'Shadow S in the light set', reference: 'Same', status: 'Matches' },
     { property: 'Docs', figma: '–', reference: '–', status: 'Code to update', note: 'cards.md doesn’t cover this card yet.' },
   ],

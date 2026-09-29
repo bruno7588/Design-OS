@@ -611,6 +611,10 @@
             "Device": [
               "Mobile",
               "Desktop"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
             ]
           },
           "light": "copy"
@@ -843,6 +847,10 @@
             "Device": [
               "Mobile",
               "Desktop"
+            ],
+            "State": [
+              "Enabled",
+              "Hover"
             ]
           },
           "light": "copy"

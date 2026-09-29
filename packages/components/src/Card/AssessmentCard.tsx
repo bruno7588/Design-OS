@@ -100,7 +100,6 @@ export function AssessmentCard({
     return (
       <CardRoot
         className={cls}
-        hover={false}
         sx={[
           (theme) => ({
             display: 'flex',

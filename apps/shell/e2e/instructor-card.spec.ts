@@ -28,8 +28,8 @@ test('sizes and skills match Figma', async ({ page }) => {
       }),
     )
     expect(cards[0]).toMatchObject({ size: [340, 137], radius: '12px', shadow: true })
-    expect(cards[1]).toMatchObject({ size: [404, 160], fill: 'rgb(255, 255, 255)' })
-    expect(cards[2].fill).toBe('rgb(239, 240, 242)')
+    expect(cards[2]).toMatchObject({ size: [404, 160], fill: 'rgb(255, 255, 255)' })
+    expect(cards[3].fill).toBe('rgb(239, 240, 242)')
   }).toPass()
   const preview = page.getByTestId('instructor-card-preview')
   await expect(preview.getByRole('list', { name: 'Skills' }).getByRole('listitem')).toHaveCount(2)

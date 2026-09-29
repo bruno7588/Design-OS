@@ -27,11 +27,12 @@ test('sizes, radius and the reward price match Figma', async ({ page }) => {
         return { size: [Math.round(r.width), Math.round(r.height)], radius: cs.borderRadius, shadow: cs.boxShadow !== 'none', fill: cs.backgroundColor }
       }),
     )
-    expect(cards.map((c) => c.size)).toEqual([[272, 314], [300, 367], [272, 265], [300, 325], [272, 265], [300, 325]])
-    expect(cards[0].radius).toBe('8px') // mobile
-    expect(cards[1].radius).toBe('12px')
+    expect(cards.map((c) => c.size)).toEqual([[272, 314], [272, 314], [300, 367], [300, 367], [272, 265], [272, 265], [300, 325], [300, 325], [272, 265], [272, 265], [300, 325], [300, 325]])
+    expect(cards[1].fill).toBe('rgb(239, 240, 242)') // mobile hover
+    expect(cards[0].radius).toBe('12px') // mobile, 12 since 2026-09-29
+    expect(cards[2].radius).toBe('12px')
   }).toPass()
-  const reward = page.getByTestId('marketplace-card-matrix-light').locator('.ds-product-reward').nth(1)
+  const reward = page.getByTestId('marketplace-card-matrix-light').locator('.ds-product-reward').nth(2)
   await expect(reward.getByLabel('2000 points')).toBeVisible()
   await expect(reward.locator('.ds-product-price img')).toHaveCSS('width', '24px')
 })

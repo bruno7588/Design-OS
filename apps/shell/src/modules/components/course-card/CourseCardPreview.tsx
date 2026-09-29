@@ -39,7 +39,7 @@ export function CourseCardPreview() {
           <FormControlLabel control={<Switch checked={due} onChange={(e) => setDue(e.target.checked)} />} label="Due date" />
         </>
       }
-      hint="Hover the desktop card: the picture zooms. Mobile has no hover."
+      hint="Hover the card: the picture zooms."
       matrix={<CourseCardMatrix mode={mode} />}
     />
   )

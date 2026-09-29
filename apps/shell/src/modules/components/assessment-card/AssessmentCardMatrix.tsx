@@ -22,8 +22,11 @@ export function AssessmentCardMatrix({ mode }: { mode: Mode }) {
       <Box data-testid={`assessment-card-matrix-${mode}`} sx={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 1900 }}>
         <Group label="Mobile app" width={344}>
           {card({ device: 'mobile', type: 'lesson-quiz' }, 'm1')}
+          {card({ device: 'mobile', type: 'lesson-quiz', className: 'ds-hover' }, 'm1h')}
           {card({ device: 'mobile', type: 'lesson-quiz', disabled: true }, 'm2')}
+          {card({ device: 'mobile', type: 'lesson-quiz', disabled: true, className: 'ds-hover' }, 'm2h')}
           {card({ device: 'mobile', type: 'lesson-quiz', completed: true }, 'm3')}
+          {card({ device: 'mobile', type: 'lesson-quiz', completed: true, className: 'ds-hover' }, 'm3h')}
         </Group>
         <Group label="Admin" width={900}>
           {card({ device: 'admin', onEdit: () => undefined }, 'a1')}

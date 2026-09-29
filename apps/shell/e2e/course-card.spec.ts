@@ -36,7 +36,7 @@ test('sizes, image, progress and badges match Figma', async ({ page }) => {
     )
     expect(cards[0]).toMatchObject({ size: [272, 248], image: 120, title: ['14px', 63], bar: 'rgb(237, 163, 13)' }) // Selected
     expect(cards[2].badges).toEqual(expect.arrayContaining(['New', 'Due on Aug 20']))
-    expect(cards[4]).toMatchObject({ size: [300, 297], image: 140, title: ['16px', 72], shadow: true })
+    expect(cards[8]).toMatchObject({ size: [300, 297], image: 140, title: ['16px', 72], shadow: true })
   }).toPass()
 })
 

@@ -38,18 +38,18 @@ test('sizes, padding and type match Figma', async ({ page }) => {
     // Grid tile
     expect(cards[0]).toMatchObject({ size: [170, 230], radius: '12px', fill: 'rgb(255, 255, 255)', shadow: true, thumb: 170, title: ['14px', '700', 'rgb(32, 34, 42)'] })
     expect(cards[1].fill).toBe('rgb(239, 240, 242)') // hover: Cards-background-hover
-    // Mobile: 343 × 86 (84 + the 2px bar), radius 8, thumb 56
-    expect(cards[6]).toMatchObject({ size: [343, 86], radius: '8px', thumb: 56, title: ['14px', '700', 'rgb(32, 34, 42)'] })
-    expect(cards[8].size).toEqual([343, 131]) // with Take Quiz
-    expect(cards[11].size).toEqual([343, 84]) // disabled: no bar
+    // Mobile: 343 × 86 (84 + the 2px bar), radius 12, thumb 56
+    expect(cards[6]).toMatchObject({ size: [343, 86], radius: '12px', thumb: 56, title: ['14px', '700', 'rgb(32, 34, 42)'] })
+    expect(cards[10].size).toEqual([343, 131]) // with Take Quiz
+    expect(cards[16].size).toEqual([343, 84]) // disabled: no bar
     // Admin: 900 × 73 (Figma draws 74; its contents add up to 73), padding 12, thumb 48
-    expect(cards[12]).toMatchObject({ size: [900, 73], pad: '12px', thumb: 48, title: ['16px', '700', 'rgb(32, 34, 42)'] })
-    expect(cards[13].title[2]).toBe('rgb(0, 131, 147)') // hover: Text-button-hover
+    expect(cards[18]).toMatchObject({ size: [900, 73], pad: '12px', thumb: 48, title: ['16px', '700', 'rgb(32, 34, 42)'] })
+    expect(cards[19].title[2]).toBe('rgb(0, 131, 147)') // hover: Text-button-hover
     // Web app: 900 × 112, padding 16, thumb 80; 24 on the right with a button or lock
-    expect(cards[14]).toMatchObject({ size: [900, 112], pad: '16px', thumb: 80 })
-    expect(cards[15].title[2]).toBe('rgb(0, 131, 147)')
-    expect(cards[16]).toMatchObject({ size: [900, 112], pad: '16px 24px 16px 16px' })
-    expect(cards[22].title[2]).toBe('rgb(158, 164, 179)') // disabled: Text-disabled
+    expect(cards[20]).toMatchObject({ size: [900, 112], pad: '16px', thumb: 80 })
+    expect(cards[21].title[2]).toBe('rgb(0, 131, 147)')
+    expect(cards[22]).toMatchObject({ size: [900, 112], pad: '16px 24px 16px 16px' })
+    expect(cards[28].title[2]).toBe('rgb(158, 164, 179)') // disabled: Text-disabled
   }).toPass()
 })
 
@@ -64,9 +64,9 @@ test('progress, quiz buttons and completed states', async ({ page }) => {
   expect(bars[0]).toEqual([170, 2, 'rgb(0, 175, 196)']) // Primary-600
   expect(bars[2]).toEqual([170, 2, 'rgb(24, 169, 87)']) // completed: Success-500
   expect(bars[6]).toEqual([343, 2, 'rgb(0, 175, 196)'])
-  expect(bars[11]).toBeNull() // disabled mobile: no bar
-  expect(bars[14]).toEqual([96, 4, 'rgb(0, 175, 196)'])
-  expect(bars[16]).toBeNull() // quiz pending: no bar
+  expect(bars[16]).toBeNull() // disabled mobile: no bar
+  expect(bars[20]).toEqual([96, 4, 'rgb(0, 175, 196)'])
+  expect(bars[22]).toBeNull() // quiz pending: no bar
 
   // Media Tag sizes follow Figma: 28 / icon 20 (grid, web), 22 / 14 (mobile), 20 / 16 (Admin)
   const tags = await m.evaluate((el) =>
@@ -75,15 +75,15 @@ test('progress, quiz buttons and completed states', async ({ page }) => {
       return [Math.round(t.getBoundingClientRect().width), Math.round(t.querySelector('svg')!.getBoundingClientRect().width)]
     }),
   )
-  expect([tags[0], tags[6], tags[12], tags[14]]).toEqual([[28, 20], [22, 14], [20, 16], [28, 20]])
+  expect([tags[0], tags[6], tags[18], tags[20]]).toEqual([[28, 20], [22, 14], [20, 16], [28, 20]])
 
   const cards = m.locator('.ds-lesson-card')
-  await expect(cards.nth(8).getByRole('button', { name: 'Take Quiz' })).toBeVisible()
-  await expect(cards.nth(9).getByRole('button', { name: 'Retake Quiz' })).toBeEnabled()
-  await expect(cards.nth(10).getByRole('button', { name: 'Retake Quiz' })).toBeDisabled()
-  await expect(cards.nth(18).getByLabel('Completed')).toBeVisible()
-  await expect(cards.nth(22).getByLabel('Locked')).toBeVisible()
-  await expect(cards.nth(12).getByText('Lesson', { exact: true })).toBeVisible() // Admin badge
+  await expect(cards.nth(10).getByRole('button', { name: 'Take Quiz' })).toBeVisible()
+  await expect(cards.nth(12).getByRole('button', { name: 'Retake Quiz' })).toBeEnabled()
+  await expect(cards.nth(14).getByRole('button', { name: 'Retake Quiz' })).toBeDisabled()
+  await expect(cards.nth(24).getByLabel('Completed')).toBeVisible()
+  await expect(cards.nth(28).getByLabel('Locked')).toBeVisible()
+  await expect(cards.nth(18).getByText('Lesson', { exact: true })).toBeVisible() // Admin badge
 })
 
 test('the title opens the card; the quiz button stays separate', async ({ page }) => {

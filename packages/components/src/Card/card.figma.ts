@@ -104,5 +104,5 @@ export const marketplaceCardFigma: FigmaMapping = {
   page: 'Cards',
   set: 'Card/Marketplace',
   nodes: { light: '9577:3648', dark: '5213:4524' },
-  variants: { Type: ['Subscription', 'Coaching', 'Reward'], Device: ['Mobile', 'Desktop'] },
+  variants: { Type: ['Subscription', 'Coaching', 'Reward'], Device: ['Mobile', 'Desktop'], State: ['Enabled', 'Hover'] },
 }

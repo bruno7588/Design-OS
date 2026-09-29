@@ -21,7 +21,7 @@ const g: Guidelines = {
     ],
   },
   variants: [
-    { name: 'Mobile', description: '272 wide, gaps 12 and 4. No hover.', example: <Pad><CategoryCard {...CATEGORY} device="mobile" /></Pad> },
+    { name: 'Mobile', description: '272 wide, gaps 12 and 4.', example: <Pad><CategoryCard {...CATEGORY} device="mobile" /></Pad> },
     { name: 'Disabled', description: 'Greyscale, a 40px lock, Text-disabled. On desktop, a tooltip says why.', example: <Pad><CategoryCard {...CATEGORY} disabled /></Pad> },
   ],
   states: [{ name: 'Hover', description: 'The image grows to 281 × 164 and the glow to 348 × 237 at 48%. No motion with reduced motion.' }],
