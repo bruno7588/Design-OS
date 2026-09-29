@@ -122,7 +122,7 @@ export function RadioCheckedIcon({ size = 24, ...props }: IconProps) {
 }
 
 /** Avatar fallback: the Figma Emojies Type=Angel face (Avatar set, Picture=false).
- *  The face takes `fill` (Input-background), the features `color` (Neutral-600). */
+ *  The face takes `fill` (Border), the features `color` (Text-tertiary). */
 export function AvatarFallbackIcon({ size = 24, fill = 'currentColor', ...props }: IconProps & { fill?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 240 240" fill="none" aria-hidden="true" {...props}>

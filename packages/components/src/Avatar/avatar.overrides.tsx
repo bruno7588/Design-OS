@@ -7,7 +7,8 @@ import { AvatarFallbackIcon } from '../icons/FigmaIcons'
 //
 // Plain MUI renders the 5Mins avatar:
 //   Picture=true  → <Avatar src> (cover, fully round)
-//   Picture=false → <Avatar /> shows the Figma fallback face (Emojies Type=Angel)
+//   Picture=false → <Avatar /> shows the Figma fallback face (Emojies Type=Angel): an opaque
+//                   Border face with Text-tertiary features (Figma, updated 2026-09-29)
 //   Size          → width and height (24, 32, 40, 48, 56, 64, 72); the Avatar wrapper takes `size`
 // In a group each avatar gets a 1px Page-background ring, and the "+N" counter is
 // Page-background-hover with Text-tertiary text. As in Figma, each avatar sits on top of the
@@ -22,8 +23,8 @@ export const MuiAvatar: Components<Theme>['MuiAvatar'] = {
       '& img': { objectFit: 'cover' },
     }),
     colorDefault: ({ theme }) => ({
-      backgroundColor: theme.tokens.semantic.inputBackground,
-      color: theme.tokens.palette.neutral[600],
+      backgroundColor: theme.tokens.semantic.border,
+      color: theme.tokens.semantic.textTertiary,
     }),
   },
 }
@@ -36,12 +37,6 @@ export const MuiAvatarGroup: Components<Theme>['MuiAvatarGroup'] = {
         '& .MuiAvatar-root': { border: `1px solid ${s.pageBackground}`, boxSizing: 'border-box', position: 'relative' },
         // MUI renders the avatars in reverse (row-reverse), so the later the avatar, the earlier in the DOM.
         ...Object.fromEntries(Array.from({ length: 12 }, (_, i) => [`& .MuiAvatar-root:nth-last-of-type(${i + 1})`, { zIndex: i + 1 }])),
-        // The fallback face is translucent (Input-background): back it with Page-background so
-        // the avatar underneath doesn't show through.
-        '& .MuiAvatar-colorDefault': {
-          backgroundImage: `linear-gradient(${s.inputBackground}, ${s.inputBackground})`,
-          backgroundColor: s.pageBackground,
-        },
         // The "+N" counter: the only avatar with neither a photo nor the fallback face.
         '& .MuiAvatar-root:not(:has(img, svg))': {
           backgroundColor: s.pageBackgroundHover,

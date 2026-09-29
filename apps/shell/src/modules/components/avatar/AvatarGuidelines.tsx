@@ -16,7 +16,7 @@ const g: Guidelines = {
     parts: [
       { name: 'Shape', description: 'Fully round, from 24 to 72px on the 8px grid. No border when it stands alone.' },
       { name: 'Picture', description: 'The photo fills the circle (cover).' },
-      { name: 'Fallback', description: 'The Figma face (Emojies Type=Angel): Neutral-600 features on Input-background.' },
+      { name: 'Fallback', description: 'The Figma face (Emojies Type=Angel): Text-tertiary features on an opaque Border circle.' },
     ],
   },
   variants: [

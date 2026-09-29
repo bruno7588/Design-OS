@@ -12,9 +12,9 @@ const compare: Compare = {
     { property: 'Overlap', figma: '−8, −12, −16px', reference: 'Same (spacing)', status: 'Matches' },
     { property: 'Ring', figma: '1px Page-background, centred on the edge', reference: '1px Page-background inside the edge', status: 'Matches', note: 'Inside keeps each avatar at its size; the difference is half a pixel.' },
     { property: 'Counter', figma: 'Page-background-hover; Regular Text-tertiary 8/10/12px', reference: 'Same', status: 'Matches' },
-    { property: 'Counter ring at 24px', figma: '0.5px, the others 1px', reference: '1px', status: 'Design to update' },
+    { property: 'Counter ring', figma: '1px at every size (24px updated from 0.5px, 2026-09-29)', reference: '1px', status: 'Matches' },
     { property: 'Stacking', figma: 'Each avatar on top of the one before; the counter on top', reference: 'Same (z-index in the theme; MUI puts the first on top)', status: 'Matches', note: 'avatars.md says the first is frontmost: out of date.' },
-    { property: 'Fallback in a group', figma: 'The face is translucent (Input-background), so the avatar beneath shows through', reference: 'Backed with Page-background', status: 'Design to update', note: 'Add a Page-background fill under the face, or make the face opaque.' },
+    { property: 'Fallback in a group', figma: 'An opaque Border face (updated 2026-09-29), so nothing shows through', reference: 'Same', status: 'Matches' },
     { property: 'Shown avatars', figma: 'Three, then +N', reference: 'max 4 (three and the counter)', status: 'Matches' },
   ],
   engineering: {

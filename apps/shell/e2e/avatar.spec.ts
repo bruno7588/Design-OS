@@ -19,13 +19,13 @@ test('avatars are round, at the seven Figma sizes, with the fallback face', asyn
   const a = await page.getByTestId('avatar-matrix-light').evaluate((el) =>
     [...el.querySelectorAll('.MuiAvatar-root')].map((x) => {
       const cs = getComputedStyle(x)
-      return { w: Math.round(x.getBoundingClientRect().width), round: cs.borderTopLeftRadius === '50%', img: !!x.querySelector('img'), face: !!x.querySelector('svg'), bg: cs.backgroundColor }
+      return { w: Math.round(x.getBoundingClientRect().width), round: cs.borderTopLeftRadius === '50%', img: !!x.querySelector('img'), face: !!x.querySelector('svg'), bg: cs.backgroundColor, color: cs.color }
     }),
   )
   expect(a.map((x) => x.w)).toEqual([72, 64, 56, 48, 40, 32, 24, 72, 64, 56, 48, 40, 32, 24])
   for (const x of a) expect(x.round).toBe(true)
   for (const x of a.slice(0, 7)) expect(x.img).toBe(true)
-  for (const x of a.slice(7)) expect(x).toMatchObject({ face: true, bg: 'rgba(191, 194, 204, 0.16)' }) // Input-background
+  for (const x of a.slice(7)) expect(x).toMatchObject({ face: true, bg: 'rgb(223, 225, 230)', color: 'rgb(101, 107, 124)' }) // Border, Text-tertiary
 })
 
 test('a broken photo falls back to the face', async ({ page }) => {

@@ -20,7 +20,7 @@ Plain MUI renders each one through the theme overrides:
 ## Verified (Playwright: `avatar.spec.ts`, `breadcrumb.spec.ts`, `content-switcher.spec.ts`)
 - **Avatar:**
   - Seven sizes, all round. The photo fills the circle.
-  - The fallback face is on Input-background, and a broken photo falls back to it.
+  - The fallback face is an opaque Border circle with Text-tertiary features, and a broken photo falls back to it.
 - **Avatar group:**
   - Overlaps of 8, 12 and 16px, with a 1px Page-background ring.
   - The "+3" counter is Page-background-hover, with Text-tertiary text at 8, 10 or 12px.
@@ -44,10 +44,7 @@ Plain MUI renders each one through the theme overrides:
 
 ## Out of date, to update
 **Figma**
-- **Avatar:**
-  - The 64px fallback has a purple frame fill behind the face.
-  - In a group, the fallback face is translucent, so the avatar beneath shows through (the reference backs it with Page-background).
-  - The 24px counter ring is 0.5px; the others are 1px.
+- **Avatar:** done 2026-09-29 (Bruno). In both sets the fallback face is an opaque Border circle with Text-tertiary features. The purple frame fill on the 64px fallback is removed, and the 24px counter ring is 1px, as at the other sizes. The reference matches.
 - **Breadcrumb:** the Current page item has a stray 8px gap, and there's no focus state.
 - **Content switcher:** no focus state.
 
