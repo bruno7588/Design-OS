@@ -31,7 +31,7 @@ export function ToastPreview() {
         <Stack sx={{ gap: 8, alignItems: 'center' }}>
           <ToastBody {...options} />
           <Button variant="outlined" onClick={() => toast(options)}>
-            Show toast
+            Show Toast
           </Button>
         </Stack>
       }
@@ -59,7 +59,7 @@ export function ToastPreview() {
           <TextField size="small" label="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
         </>
       }
-      hint="Show toast places it at the bottom of the window for 5 seconds. Hover over it or focus it to keep it open; press it a few times to see the stack."
+      hint="Show Toast places it at the bottom of the window for 5 seconds. Hover over it or focus it to keep it open; press it a few times to see the stack."
       matrix={<ToastMatrix mode={mode} />}
     />
   )

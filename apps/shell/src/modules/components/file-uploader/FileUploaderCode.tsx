@@ -12,7 +12,6 @@ const examples = `import { FileUploader } from '@design-os/components'
   progress={progress}          // uploading: 0 to 100
   errors={errors}              // error: one message per problem
   fileName={file?.name}        // filled
-  onPreview={() => openPreview(file)}
 />
 
 // S, 180px wide, such as a thumbnail or a certificate logo

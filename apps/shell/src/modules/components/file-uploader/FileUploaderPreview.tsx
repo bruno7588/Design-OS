@@ -37,7 +37,6 @@ export function FileUploaderPreview() {
             fileName={fileName}
             progress={progress}
             errors={['The file is over 20 MB', 'Upload a CSV or PDF file']}
-            onPreview={() => {}}
             onFileSelect={(file) => {
               setFileName(file.name)
               if (tooBig) {

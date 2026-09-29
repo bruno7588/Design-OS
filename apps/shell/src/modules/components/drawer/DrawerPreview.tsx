@@ -25,7 +25,7 @@ export function DrawerPreview() {
       onModeChange={setMode}
       canvas={
         <Stack sx={{ alignItems: 'center' }} data-testid="drawer-preview">
-          <Button onClick={() => setOpen(true)}>Edit learner</Button>
+          <Button onClick={() => setOpen(true)}>Edit Learner</Button>
           <SideDrawer
             open={open}
             onClose={() => setOpen(false)}

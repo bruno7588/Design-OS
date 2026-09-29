@@ -11,7 +11,7 @@ const examples = `import { ConfirmDialog } from '@design-os/components'
   type="error"
   title="Delete this course?"
   secondaryText="Learners lose access straight away. This cannot be undone."
-  actionLabel="Delete course"
+  actionLabel="Delete Course"
   onCancel={() => setConfirming(false)}
   onConfirm={deleteCourse}
 />

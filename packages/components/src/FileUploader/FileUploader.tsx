@@ -13,10 +13,10 @@ import { Button } from '../Button/Button'
 //   State=Hover         → pointer over the zone, or a file dragged over it
 //   State=Error         → state "error" with errors: the first 3, then "+N errors"
 //   State=Uploading     → state "uploading" with progress (0 to 100)
-//   State=Filled        → state "filled" with fileName; onPreview shows the Preview button
+//   State=Filled        → state "filled" with fileName
 //   Info slot           → icon (replaces the upload icon) and description
 //
-// People pick a file with the Select file button (keyboard and pointer) or drop one on
+// People pick a file with the Select File button (keyboard and pointer) or drop one on
 // the zone. Clicking anywhere on an empty zone opens the picker too.
 
 export type FileUploaderState = 'enabled' | 'error' | 'uploading' | 'filled'
@@ -32,7 +32,6 @@ export interface FileUploaderProps {
   progress?: number
   /** Filled: the file's name. */
   fileName?: string
-  onPreview?: () => void
   /** Replaces the upload icon, such as a video icon for a media upload. */
   icon?: ReactNode
   description?: ReactNode
@@ -58,10 +57,9 @@ export const FileUploader = forwardRef<HTMLDivElement, FileUploaderProps>(functi
     errors = [],
     progress = 0,
     fileName,
-    onPreview,
     icon,
     description = 'Drag and drop file here or click to upload',
-    buttonLabel = 'Select file',
+    buttonLabel = 'Select File',
     className,
   },
   ref,
@@ -98,18 +96,6 @@ export const FileUploader = forwardRef<HTMLDivElement, FileUploaderProps>(functi
       {buttonLabel}
     </Button>
   )
-  const preview = onPreview && (
-    <Button
-      variant="text"
-      size={L ? 'medium' : 'small'}
-      onClick={(e) => {
-        e.stopPropagation()
-        onPreview()
-      }}
-    >
-      Preview
-    </Button>
-  )
 
   let body: ReactNode
   if (state === 'error') {
@@ -124,12 +110,12 @@ export const FileUploader = forwardRef<HTMLDivElement, FileUploaderProps>(functi
           sx={{ m: 0, p: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: `${L ? t.space.xs : t.space.xxs}px` }}
         >
           {shown.map((message, i) => (
-            <Box component="li" key={i} sx={{ fontSize: L ? 16 : 12, fontWeight: 600, lineHeight: L ? 1.5 : 1.2, color: s.textError, listStyle: 'disc inside' }}>
+            <Box component="li" key={i} sx={{ fontSize: L ? 14 : 12, lineHeight: L ? 1.5 : 1.2, color: s.textError, listStyle: 'disc inside' }}>
               {message}
             </Box>
           ))}
           {more > 0 && (
-            <Box component="li" sx={{ fontSize: 12, fontWeight: 600, lineHeight: 1.2, color: s.textError, listStyle: 'none', pl: 2 }}>
+            <Box component="li" sx={{ fontSize: 12, lineHeight: 1.2, color: s.textError, listStyle: 'none', pl: 2 }}>
               +{more} {more === 1 ? 'error' : 'errors'}
             </Box>
           )}
@@ -152,25 +138,13 @@ export const FileUploader = forwardRef<HTMLDivElement, FileUploaderProps>(functi
   } else if (state === 'filled') {
     body = (
       <>
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: `${t.space.s}px`, maxWidth: '100%' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: `${L ? t.space.m : t.space.s}px`, maxWidth: '100%' }}>
           <DocumentText size={iconSize} color={s.textSecondary} variant="Bold" aria-hidden />
           <Box component="p" sx={{ ...text, overflowWrap: 'anywhere' }}>
             {breakable(fileName)}
           </Box>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: L ? 'row' : 'column', alignItems: 'center', gap: `${L ? t.space.l : t.space.m}px` }}>
-          {L ? (
-            <>
-              {preview}
-              {select}
-            </>
-          ) : (
-            <>
-              {select}
-              {preview}
-            </>
-          )}
-        </Box>
+        {select}
       </>
     )
   } else {

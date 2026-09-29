@@ -29,7 +29,7 @@ test('each variant matches the Figma heights at 345px wide', async ({ page }) =>
 })
 
 test('opens as an alertdialog named by its title, with focus on Cancel', async ({ page }) => {
-  await page.getByRole('button', { name: 'Open the dialog' }).click()
+  await page.getByRole('button', { name: 'Open Dialog' }).click()
   const dialog = page.getByRole('alertdialog', { name: 'Delete this course?' })
   await expect(dialog).toBeVisible()
   await expect(dialog).toHaveAccessibleDescription('Learners lose access straight away. This cannot be undone.')
@@ -38,7 +38,7 @@ test('opens as an alertdialog named by its title, with focus on Cancel', async (
 })
 
 test('Escape and a click on the scrim do not close it; Cancel does', async ({ page }) => {
-  await page.getByRole('button', { name: 'Open the dialog' }).click()
+  await page.getByRole('button', { name: 'Open Dialog' }).click()
   const dialog = page.getByRole('alertdialog')
   await page.keyboard.press('Escape')
   await expect(dialog).toBeVisible()
@@ -46,5 +46,5 @@ test('Escape and a click on the scrim do not close it; Cancel does', async ({ pa
   await expect(dialog).toBeVisible()
   await dialog.getByRole('button', { name: 'Cancel' }).click()
   await expect(dialog).toBeHidden()
-  await expect(page.getByRole('button', { name: 'Open the dialog' })).toBeFocused()
+  await expect(page.getByRole('button', { name: 'Open Dialog' })).toBeFocused()
 })

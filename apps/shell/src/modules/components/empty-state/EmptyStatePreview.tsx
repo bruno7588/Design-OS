@@ -28,8 +28,8 @@ export function EmptyStatePreview() {
             illustration={illustration}
             title="Add resources to your course"
             description="Upload PDF, Word, Excel, PowerPoint or image files, or add links, so learners have everything in one place."
-            secondaryAction={secondary ? { label: 'Add link', onClick: () => setClicked('Add link') } : undefined}
-            primaryAction={primary ? { label: 'Upload files', icon: <Add color="currentColor" />, onClick: () => setClicked('Upload files') } : undefined}
+            secondaryAction={secondary ? { label: 'Add Link', onClick: () => setClicked('Add Link') } : undefined}
+            primaryAction={primary ? { label: 'Upload Files', icon: <Add color="currentColor" />, onClick: () => setClicked('Upload Files') } : undefined}
           />
           {clicked && <span aria-live="polite">Clicked “{clicked}”</span>}
         </Stack>

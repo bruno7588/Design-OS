@@ -51,7 +51,7 @@ test('the panel matches the Figma Modal', async ({ page }) => {
 })
 
 test('it opens as a named dialog, and closes on the close button, Escape and the scrim', async ({ page }) => {
-  const opener = page.getByRole('button', { name: 'Edit collection' })
+  const opener = page.getByRole('button', { name: 'Edit Collection' })
   await opener.click()
   const dialog = page.getByRole('dialog', { name: 'Edit collection' })
   await expect(dialog).toBeVisible()

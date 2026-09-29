@@ -31,13 +31,13 @@ test('success is announced politely and errors interrupt', async ({ page }) => {
   await expect(matrix.getByRole('alert')).toHaveCount(4)
 })
 
-test('Show toast stacks new toasts above, and each one leaves after 5 seconds', async ({ page }) => {
+test('Show Toast stacks new toasts above, and each one leaves after 5 seconds', async ({ page }) => {
   await page.clock.install()
   await page.goto('/components/toast')
   const stack = page.getByTestId('toast-stack')
-  await page.getByRole('button', { name: 'Show toast' }).click()
+  await page.getByRole('button', { name: 'Show Toast' }).click()
   await page.clock.runFor(1000)
-  await page.getByRole('button', { name: 'Show toast' }).click()
+  await page.getByRole('button', { name: 'Show Toast' }).click()
   const toasts = stack.locator('.MuiAlert-root')
   await expect(toasts).toHaveCount(2)
   const [first, second] = await toasts.evaluateAll((els) => els.map((el) => el.getBoundingClientRect().top))
@@ -52,7 +52,7 @@ test('Show toast stacks new toasts above, and each one leaves after 5 seconds', 
 test('hovering a toast pauses its timer', async ({ page }) => {
   await page.clock.install()
   await page.goto('/components/toast')
-  await page.getByRole('button', { name: 'Show toast' }).click()
+  await page.getByRole('button', { name: 'Show Toast' }).click()
   const toast = page.getByTestId('toast-stack').locator('.MuiAlert-root')
   await toast.hover()
   await page.clock.runFor(8000)

@@ -9,7 +9,7 @@ Checked 2026-09-29.
 
 | Component | MUI | Figma |
 |---|---|---|
-| File uploader | Box + the 5Mins Button (MUI has no drop zone) | File uploader `11546:1560` dark, `12113:20254` light |
+| File uploader | Box + the 5Mins Button (MUI has no drop zone) | File uploader `11546:1560` dark, `12308:6617` light |
 | Stepper | `Stepper`, `Step`, `StepLabel`, `StepConnector` + `Stepper` wrapper | stepper `8108:5464` dark, light instance `11249:244`; Step/Instances `8108:5472` / `11249:219`; Step/line `8108:5482` / `11248:125` |
 
 ## Verified (Playwright: `file-uploader.spec.ts`, `stepper.spec.ts`)
@@ -36,14 +36,19 @@ Checked 2026-09-29.
 - Lines: 0.5px Text-tertiary. Solid before a completed step, dotted (2, 4) otherwise.
 - The steps are a named ordered list. The current step has aria-current="step", and each step says its state to screen readers.
 
+## Follow-up, 2026-09-29 (Bruno)
+- **Figma:** Bruno updated the File uploader and replaced the light copy (new set `12308:6617`).
+  - Error messages are Regular: 14 in L, 12 in S (were SemiBold 16 / 12).
+  - Filled has only Select File; Preview is gone.
+  - Both sets are 948 × 2782 and match variant for variant.
+- **Rule:** button labels are always Title Case. Now in CLAUDE.md, and applied across the shell: the Button and Empty state guidelines (which said sentence case), Dialog action labels, Alert and Empty state actions, the Preview opener buttons, the File uploader's "Select File", and the checks that find buttons by name.
+
 ## Mismatches recorded
 
 **Figma**
 - **File uploader:**
   - The error fill is a raw colour, not a variable.
   - The ring's arc starts at 9 o'clock; code starts it at the top.
-  - Preview is an old Text button instance with a Text-primary label; code uses the Library Text button.
-  - "Select File" isn't sentence case; code uses "Select file".
 - **Stepper:**
   - Nothing marks the current step apart from the Linear icon.
   - The light instance sits on a board named "Dark mode", although the board is set to the Light modes.

@@ -31,7 +31,7 @@ export function DialogPreview() {
         <Stack sx={{ gap: 8, alignItems: 'center', py: 4 }}>
           <ConfirmDialogPreview {...content} />
           <Button variant="outlined" onClick={() => setOpen(true)}>
-            Open the dialog
+            Open Dialog
           </Button>
           <ConfirmDialog {...content} open={open} onCancel={() => setOpen(false)} onConfirm={() => setOpen(false)} />
         </Stack>
@@ -51,7 +51,7 @@ export function DialogPreview() {
           <TextField size="small" label="Action" value={action} onChange={(e) => setAction(e.target.value)} />
         </>
       }
-      hint="Open the dialog to try it for real: focus starts on Cancel, Tab stays inside, and Escape or a click on the scrim does nothing."
+      hint="Open Dialog to try it for real: focus starts on Cancel, Tab stays inside, and Escape or a click on the scrim does nothing."
       matrix={<DialogMatrix mode={mode} />}
     />
   )

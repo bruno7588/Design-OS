@@ -33,13 +33,13 @@ const g: Guidelines = {
     ],
   },
   variants: [
-    { name: 'Filled', description: 'The main action in a view. Use one per view.', example: <Button>Save changes</Button> },
+    { name: 'Filled', description: 'The main action in a view. Use one per view.', example: <Button>Save Changes</Button> },
     { name: 'Outlined', description: 'Secondary actions, such as Cancel next to a filled button.', example: <Button variant="outlined">Cancel</Button> },
     { name: 'Outlined-2', description: 'Neutral, tertiary actions that should not look branded until someone interacts with them.', example: <Button variant="outlined2">Export</Button> },
-    { name: 'Text and link', description: 'Low-emphasis actions inside content. Link is for navigation-like actions: a Medium-weight, underlined label in the primary button colour.', example: <Stack direction="row" sx={{ gap: 4 }}><Button variant="text">View all</Button><Button variant="link">Learn more</Button></Stack> },
-    { name: 'Danger', description: 'Destructive actions such as delete or remove. Filled, outlined and text.', example: <Button color="error">Delete course</Button> },
-    { name: 'Warning', description: 'Actions with consequences that need a second thought. Filled, outlined and text.', example: <Button color="warning">Reset progress</Button> },
-    { name: 'Success', description: 'Positive confirmations, such as marking something complete. Filled, outlined and text.', example: <Button color="success">Mark as complete</Button> },
+    { name: 'Text and link', description: 'Low-emphasis actions inside content. Link is for navigation-like actions: a Medium-weight, underlined label in the primary button colour.', example: <Stack direction="row" sx={{ gap: 4 }}><Button variant="text">View All</Button><Button variant="link">Learn More</Button></Stack> },
+    { name: 'Danger', description: 'Destructive actions such as delete or remove. Filled, outlined and text.', example: <Button color="error">Delete Course</Button> },
+    { name: 'Warning', description: 'Actions with consequences that need a second thought. Filled, outlined and text.', example: <Button color="warning">Reset Progress</Button> },
+    { name: 'Success', description: 'Positive confirmations, such as marking something complete. Filled, outlined and text.', example: <Button color="success">Mark as Complete</Button> },
     { name: 'AI', description: 'Hugo and AI-powered features only. Cyan to purple gradient, always with the sparkle icon. Filled and outlined.', example: <Button color="ai" icon={<SparkleIcon />}>Generate</Button> },
   ],
   states: [
@@ -52,16 +52,16 @@ const g: Guidelines = {
   ],
   dos: [
     {
-      do: { example: <><Button variant="outlined">Cancel</Button><Button>Save changes</Button></>, text: 'Pair one filled button with outlined buttons for the other actions.' },
-      dont: { example: <><Button>Cancel</Button><Button>Save changes</Button></>, text: 'Put two filled buttons side by side. People cannot tell which one matters.' },
+      do: { example: <><Button variant="outlined">Cancel</Button><Button>Save Changes</Button></>, text: 'Pair one filled button with outlined buttons for the other actions.' },
+      dont: { example: <><Button>Cancel</Button><Button>Save Changes</Button></>, text: 'Put two filled buttons side by side. People cannot tell which one matters.' },
     },
     {
-      do: { example: <Button>Add learner</Button>, text: 'Start with a verb and use sentence case.' },
-      dont: { example: <><Button>Submit</Button><Button>Add Learner</Button></>, text: 'Use vague labels or Title Case.' },
+      do: { example: <Button>Add Learner</Button>, text: 'Start with a verb and use Title Case.' },
+      dont: { example: <><Button>Submit</Button><Button>Add learner</Button></>, text: 'Use vague labels or sentence case.' },
     },
     {
       do: { example: <><Button variant="outlined">Cancel</Button><Button color="error" icon={<Trash color="currentColor" />}>Delete course</Button></>, text: 'Use danger for actions that remove or destroy something.' },
-      dont: { example: <Button color="error">Save changes</Button>, text: 'Use danger for emphasis on a safe action.' },
+      dont: { example: <Button color="error">Save Changes</Button>, text: 'Use danger for emphasis on a safe action.' },
     },
     {
       do: { example: <Button color="ai" icon={<SparkleIcon />}>Generate questions</Button>, text: 'Keep the AI gradient for actions Hugo performs.' },
@@ -69,8 +69,8 @@ const g: Guidelines = {
     },
   ],
   content: [
-    'Sentence case: capitalise the first word and proper nouns only. "Save changes", not "Save Changes".',
-    'Start with a verb that names the action: "Add learner", "Create automation", "Mark as complete".',
+    'Title Case: capitalise every word except short joining words (a, an, the, and, or, as, of, to, in, on, for). "Save Changes", "Mark as Complete".',
+    'Start with a verb that names the action: "Add Learner", "Create Automation", "Mark as Complete".',
     'Avoid vague labels such as "Submit", "OK" or "Click here".',
     'Keep labels short, ideally one to three words. Labels do not wrap.',
     'Match the wording of the thing that triggered the action. A dialog titled "Delete course?" confirms with "Delete course".',

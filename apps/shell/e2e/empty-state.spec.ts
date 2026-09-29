@@ -53,6 +53,6 @@ test('the dropzone: Input-background, dashed Border-elevated outline 8/8, paddin
 test('the actions work and the title is a heading', async ({ page }) => {
   const preview = page.getByTestId('empty-state-preview')
   await expect(preview.getByRole('heading', { name: 'Add resources to your course' })).toBeVisible()
-  await preview.getByRole('button', { name: 'Upload files' }).click()
-  await expect(preview.getByText('Clicked “Upload files”')).toBeVisible()
+  await preview.getByRole('button', { name: 'Upload Files' }).click()
+  await expect(preview.getByText('Clicked “Upload Files”')).toBeVisible()
 })

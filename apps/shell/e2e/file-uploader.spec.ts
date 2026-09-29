@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-// File uploader checks against Figma File uploader (dark 11546:1560, light 12113:20254).
+// File uploader checks against Figma File uploader (dark 11546:1560, light 12308:6617).
 
 test.use({ viewport: { width: 1600, height: 1200 } })
 
@@ -46,10 +46,10 @@ test('sizes, outlines and fills match Figma', async ({ page }) => {
 test('hover shows the button hover; errors cap at 3; uploading is a named progressbar', async ({ page }) => {
   const matrix = page.getByTestId('file-uploader-matrix-light')
   const zones = matrix.locator('.ds-file-uploader')
-  await expect(zones.nth(2).getByRole('button', { name: 'Select file' })).toHaveClass(/ds-hover/)
-  await expect(zones.nth(0).getByRole('button', { name: 'Select file' })).not.toHaveClass(/ds-hover/)
+  await expect(zones.nth(2).getByRole('button', { name: 'Select File' })).toHaveClass(/ds-hover/)
+  await expect(zones.nth(0).getByRole('button', { name: 'Select File' })).not.toHaveClass(/ds-hover/)
   await zones.nth(0).hover()
-  await expect(zones.nth(0).getByRole('button', { name: 'Select file' })).toHaveClass(/ds-hover/)
+  await expect(zones.nth(0).getByRole('button', { name: 'Select File' })).toHaveClass(/ds-hover/)
 
   const errors = zones.nth(4).getByRole('alert').getByRole('listitem')
   await expect(errors).toHaveCount(4)
@@ -59,12 +59,12 @@ test('hover shows the button hover; errors cap at 3; uploading is a named progre
   await expect(ring).toHaveAttribute('aria-valuenow', '72')
 })
 
-test('Select file opens the picker; a picked file uploads, then shows as filled', async ({ page }) => {
+test('Select File opens the picker; a picked file uploads, then shows as filled', async ({ page }) => {
   const preview = page.getByTestId('file-uploader-preview')
   const chooser = page.waitForEvent('filechooser')
-  await preview.getByRole('button', { name: 'Select file' }).click()
+  await preview.getByRole('button', { name: 'Select File' }).click()
   await (await chooser).setFiles({ name: 'learners.csv', mimeType: 'text/csv', buffer: Buffer.from('name\nAda') })
   await expect(preview.getByRole('progressbar', { name: 'Uploading learners.csv' })).toBeVisible()
   await expect(preview.getByText('learners.csv')).toBeVisible()
-  await expect(preview.getByRole('button', { name: 'Preview' })).toBeVisible()
+  await expect(preview.getByRole('button', { name: 'Select File' })).toBeVisible()
 })

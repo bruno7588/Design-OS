@@ -420,7 +420,7 @@ export const components: ComponentDoc[] = [
     slug: 'file-uploader',
     name: 'File uploader',
     summary: 'Adds one file by dropping it or picking it, with progress, errors and the file once it’s in.',
-    figma: { light: `${LIBRARY}12113-20254`, dark: `${LIBRARY}11546-1560` },
+    figma: { light: `${LIBRARY}12308-6617`, dark: `${LIBRARY}11546-1560` },
     spec: 'playground/docs/design-system/file-uploader.md',
     Preview: FileUploaderPreview,
     Code: FileUploaderCode,

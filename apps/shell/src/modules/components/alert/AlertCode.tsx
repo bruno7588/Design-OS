@@ -7,7 +7,7 @@ const examples = `import { Alert } from '@design-os/components'
 
 // Callout: guidance, with the pin illustration by default
 <Alert>You can add your content and 5Mins content to a collection.</Alert>
-<Alert icon action={{ label: 'Learn more', onClick: openHelp }}>You can add your content to a collection.</Alert>
+<Alert icon action={{ label: 'Learn More', onClick: openHelp }}>You can add your content to a collection.</Alert>
 
 // Callout with supporting text: the button moves under it
 <Alert title="Collections are shared with your teams" action={{ label: 'Create', onClick: create, icon: <Add /> }}>

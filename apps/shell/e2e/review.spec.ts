@@ -20,7 +20,7 @@ for (const slug of ['button', 'chip', 'tabs', 'dialog', 'badge', 'tooltip', 'toa
 test('review dialog open', async ({ page }) => {
   await page.goto('/components/dialog')
   await page.evaluate(() => document.fonts.ready)
-  await page.getByRole('button', { name: 'Open the dialog' }).click()
+  await page.getByRole('button', { name: 'Open Dialog' }).click()
   await page.getByRole('alertdialog').waitFor()
   await page.waitForTimeout(300)
   await page.screenshot({ path: 'e2e/screenshots/review-dialog-open.png' })

@@ -27,7 +27,7 @@ const g: Guidelines = {
       { name: 'Zone', description: 'A dashed Border-elevated outline (8px dashes, 4px gaps), radius 12. L fills the width, at least 240px tall; S is 180px wide, at least 260px.' },
       { name: 'Icon', description: 'Iconsax DocumentUpload, 40px in L, 32px in S, in Text-secondary.' },
       { name: 'Description', description: 'Regular 14px in L, 12px in S, in Text-secondary.' },
-      { name: 'Select file', description: 'An Outlined-2 button, Medium in L, Small in S. It shows its hover state while the zone is hovered or a file is dragged over it.' },
+      { name: 'Select File', description: 'An Outlined-2 button, Medium in L, Small in S. It shows its hover state while the zone is hovered or a file is dragged over it.' },
     ],
   },
   variants: [
@@ -37,9 +37,9 @@ const g: Guidelines = {
   states: [
     { name: 'Enabled', description: 'No fill, the dashed Border-elevated outline.' },
     { name: 'Hover', description: 'Pointer over the zone or a file dragged over it: Input-background fill, Border-hover outline, and the button’s hover state.' },
-    { name: 'Error', description: 'Danger-500 outline, a 16% Danger-500 fill, the icon and messages in Text-error. The first 3 messages show, then "+N errors".' },
+    { name: 'Error', description: 'Danger-500 outline, a 16% Danger-500 fill, the icon and messages (Regular 14px in L, 12px in S) in Text-error. The first 3 messages show, then "+N errors".' },
     { name: 'Uploading', description: 'Input-background fill, a 64px ring (Border track, Primary-600 progress) with the percentage, and "Uploading file…".' },
-    { name: 'Filled', description: 'A solid outline, Input-background fill, the Bold DocumentText icon and the file name, with Preview and Select file.' },
+    { name: 'Filled', description: 'A solid outline, Input-background fill, the Bold DocumentText icon and the file name, with Select File to replace it.' },
   ],
   dos: [
     {
@@ -47,23 +47,23 @@ const g: Guidelines = {
       dont: { example: <Example state="error" errors={['Something went wrong']} />, text: 'Show a vague error people can’t act on.' },
     },
     {
-      do: { example: <Example />, text: 'Keep the Select file button, so keyboard users can add a file.' },
+      do: { example: <Example />, text: 'Keep the Select File button, so keyboard users can add a file.' },
       dont: { example: <Button variant="outlined2">Upload</Button>, text: 'Rely on dropping alone.' },
     },
   ],
   content: [
-    'Button: "Select file". Sentence case.',
+    'Button: "Select File". Buttons are in Title Case.',
     'Say the accepted types and the size limit near the zone or in the description: "CSV or PDF, up to 20 MB".',
     'Errors: one short sentence per problem, with the fix: "The file is over 20 MB".',
   ],
   accessibility: [
-    'Select file is a real button: keyboard users pick a file with it. Dropping and clicking the zone are pointer shortcuts.',
+    'Select File is a real button: keyboard users pick a file with it. Dropping and clicking the zone are pointer shortcuts.',
     'Errors are in a list with role="alert", so they are read out when they appear.',
     'The upload ring is a progressbar with aria-valuenow, named "Uploading" and the file name.',
     'Icons are decorative; the text says the state.',
   ],
   figma: [
-    { label: 'File uploader, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12113-20254' },
+    { label: 'File uploader, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12308-6617' },
     { label: 'File uploader, dark mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=11546-1560' },
   ],
   spec: 'playground/docs/design-system/file-uploader.md',

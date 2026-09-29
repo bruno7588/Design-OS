@@ -23,7 +23,7 @@ const g: Guidelines = {
         type="error"
         title="Delete this course?"
         secondaryText="Learners lose access straight away."
-        actionLabel="Delete course"
+        actionLabel="Delete Course"
       />
     ),
     parts: [
@@ -35,10 +35,10 @@ const g: Guidelines = {
     ],
   },
   variants: [
-    { name: 'Error', description: 'Destructive actions. Danger button.', example: <ConfirmDialogPreview type="error" title="Delete this course?" actionLabel="Delete course" /> },
-    { name: 'Warning', description: 'Actions with consequences. Warning button.', example: <ConfirmDialogPreview type="warning" title="Reset progress?" actionLabel="Reset progress" /> },
+    { name: 'Error', description: 'Destructive actions. Danger button.', example: <ConfirmDialogPreview type="error" title="Delete this course?" actionLabel="Delete Course" /> },
+    { name: 'Warning', description: 'Actions with consequences. Warning button.', example: <ConfirmDialogPreview type="warning" title="Reset progress?" actionLabel="Reset Progress" /> },
     { name: 'Info', description: 'Neutral decisions. Primary button.', example: <ConfirmDialogPreview type="info" title="Leave without saving?" actionLabel="Leave" /> },
-    { name: 'Success', description: 'Acknowledging a result. Primary button.', example: <ConfirmDialogPreview type="success" title="Course published" actionLabel="View course" /> },
+    { name: 'Success', description: 'Acknowledging a result. Primary button.', example: <ConfirmDialogPreview type="success" title="Course published" actionLabel="View Course" /> },
   ],
   states: [
     { name: 'Open', description: 'The scrim covers the page (25% in light mode, 50% in dark). Focus moves to Cancel and stays inside the dialog.' },
@@ -47,12 +47,12 @@ const g: Guidelines = {
   ],
   dos: [
     {
-      do: { example: <ConfirmDialogPreview type="error" title="Delete this course?" actionLabel="Delete course" />, text: 'Name the action in the title and repeat it on the button.' },
+      do: { example: <ConfirmDialogPreview type="error" title="Delete this course?" actionLabel="Delete Course" />, text: 'Name the action in the title and repeat it on the button.' },
       dont: { example: <ConfirmDialogPreview type="error" title="Are you sure?" actionLabel="OK" />, text: 'Use vague titles and buttons such as "Are you sure?" and "OK".' },
     },
     {
-      do: { example: <ConfirmDialogPreview type="error" title="Remove 3 learners?" actionLabel="Remove learners" />, text: 'Match the type to the action: Error for destructive ones.' },
-      dont: { example: <ConfirmDialogPreview type="success" title="Remove 3 learners?" actionLabel="Remove learners" />, text: 'Use a friendly type for a destructive action.' },
+      do: { example: <ConfirmDialogPreview type="error" title="Remove 3 learners?" actionLabel="Remove Learners" />, text: 'Match the type to the action: Error for destructive ones.' },
+      dont: { example: <ConfirmDialogPreview type="success" title="Remove 3 learners?" actionLabel="Remove Learners" />, text: 'Use a friendly type for a destructive action.' },
     },
   ],
   content: [

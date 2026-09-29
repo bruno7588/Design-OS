@@ -11,16 +11,16 @@ const examples = [
   usageSnippet({ config: 'Filled', size: 'medium', icon: false, state: 'Enabled', label: 'Save changes' }),
   `// Primary and secondary pair
 <Button variant="outlined">Cancel</Button>
-<Button>Save changes</Button>`,
+<Button>Save Changes</Button>`,
   `// Destructive confirmation
 <Button variant="outlined">Cancel</Button>
-<Button color="error">Delete course</Button>`,
+<Button color="error">Delete Course</Button>`,
   `// AI action
 import { Button, SparkleIcon } from '@design-os/components'
 
 <Button color="ai" icon={<SparkleIcon />}>Generate</Button>`,
   `// Loading keeps the width and the accessible name
-<Button loading={saving}>Save changes</Button>`,
+<Button loading={saving}>Save Changes</Button>`,
   `// Plain MUI renders the same, because every rule is in the theme
 import MuiButton from '@mui/material/Button'
 

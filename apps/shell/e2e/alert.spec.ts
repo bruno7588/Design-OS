@@ -87,7 +87,7 @@ test('with supporting text the button moves under it, 16px below the body (8px g
 })
 
 test('the preview button works from the keyboard', async ({ page }) => {
-  const btn = page.getByTestId('alert-preview').getByRole('button', { name: 'Learn more' })
+  const btn = page.getByTestId('alert-preview').getByRole('button', { name: 'Learn More' })
   await btn.focus()
   await page.keyboard.press('Enter')
   await expect(page.getByText('Button clicked 1 times')).toBeVisible()

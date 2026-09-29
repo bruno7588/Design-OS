@@ -49,7 +49,7 @@ React 19.2, TypeScript 6, Vite 7, React Router 6, MUI 5.18 with Emotion, Iconsax
 - Code Connect isn't active. Don't use it.
 
 ## Rules
-- British English. Sentence case in UI copy. No em dashes.
+- British English. Sentence case in UI copy, except button labels, which are always Title Case ("Select File", "Mark as Complete"). No em dashes.
 - Spacing in multiples of 2px or 4px. 5Mins design tokens only, never raw values.
 - Every component has a dark and a light version, in Figma and in code. In Figma that's a copy on the light board or an instance on a board set to the Light variable modes; `pnpm inventory` flags any without one.
 - Talk to Bruno in Figma terms: auto layout not flexbox, hug and fill not fit-content, frames not divs, constraints not positioning.

@@ -33,7 +33,7 @@ The live list is Button's Compare tab (`apps/shell/src/modules/components/button
 - `playground/docs/design-system/buttons.md` and `tokens.css`: dark pressed, Link, Text ladders (table above).
 - `playground/docs/design-system/design-system-guidelines.md` quick reference says buttons use `--radius-s` (8px). Figma and `buttons.md` say 12px.
 - Done: the old `skills/buttons`, `skills/5mins-brand-colors`, `skills/5mins-typography`, `skills/5mins-surface-colors` and `skills/5mins-iconography` copies were removed from Design OS. `5mins-prototype-builder` now points to the prototype docs.
-- `buttons.md` shows Title Case labels. The copy-review skill says sentence case; the Guidelines tab uses sentence case.
+- `buttons.md` shows Title Case labels. Settled 2026-09-29 (Bruno): button labels are always Title Case. The Guidelines tab follows that; the copy-review skill's sentence case applies to other UI copy.
 
 ## Shell notes
 - The shell chrome uses stock MUI Tabs, Select, Switch, ToggleButton, List and Card with the 5Mins theme. Their 5Mins reference versions arrive in later batches (Tabs is in the next one).

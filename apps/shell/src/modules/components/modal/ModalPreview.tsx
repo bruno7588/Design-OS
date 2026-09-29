@@ -20,7 +20,7 @@ export function ModalPreviewTab() {
       onModeChange={setMode}
       canvas={
         <Stack sx={{ alignItems: 'center', gap: 3 }} data-testid="modal-preview">
-          <Button onClick={() => setOpen(true)}>Edit collection</Button>
+          <Button onClick={() => setOpen(true)}>Edit Collection</Button>
           {saved && <span aria-live="polite">Saved “{saved}”</span>}
           <Modal
             open={open}

@@ -18,7 +18,7 @@ const g: Guidelines = {
     'For errors in a form field. Use the field’s error state.',
   ],
   anatomy: {
-    example: <Alert action={{ label: 'Learn more', onClick: noop }}>You can add your content and 5Mins content to a collection.</Alert>,
+    example: <Alert action={{ label: 'Learn More', onClick: noop }}>You can add your content and 5Mins content to a collection.</Alert>,
     parts: [
       { name: 'Container', description: 'Fills the width. Radius 12, padding 8px by 12px. Callout: Input-background. Alert: Secondary-500 at 12%.' },
       { name: 'Illustration or icon', description: '20px. Callout: the pin, or the info outline icon. Alert: the bell, or Danger Bold. One or the other, never both.' },

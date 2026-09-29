@@ -9,7 +9,7 @@ const g: Guidelines = {
   whenToUse: ['When a content area has no items yet.', 'When a search or filter finds nothing.', 'To prompt a first action: upload content, create a course, invite people.'],
   whenNotToUse: ['For errors. Use an alert.', 'While content is loading. Use a skeleton or spinner.', 'For a single missing field. Use helper text.'],
   anatomy: {
-    example: <EmptyState illustration="empty-box" title="No courses yet" description="Create a course to start sharing it with your teams." primaryAction={{ label: 'Create course', onClick: noop }} />,
+    example: <EmptyState illustration="empty-box" title="No courses yet" description="Create a course to start sharing it with your teams." primaryAction={{ label: 'Create Course', onClick: noop }} />,
     parts: [
       { name: 'Illustration', description: '72px, from the Figma Illustrations Empty state set, chosen for the context.' },
       { name: 'Title', description: 'Bold 20px in Text-primary (Bold 16px on mobile).' },
@@ -23,21 +23,21 @@ const g: Guidelines = {
     {
       name: 'Dropzone',
       description: 'For an area the admin fills themselves, such as a course’s content or resources: Input-background inside a dashed outline, the full width.',
-      example: <EmptyState surface="dropzone" illustration="resources" title="Add resources" primaryAction={{ label: 'Upload files', onClick: noop }} />,
+      example: <EmptyState surface="dropzone" illustration="resources" title="Add resources" primaryAction={{ label: 'Upload Files', onClick: noop }} />,
     },
     { name: 'Mobile', description: 'In the mobile app: tighter spacing, a smaller title.', example: <EmptyState device="mobile" illustration="no-activity" title="No activity yet" /> },
   ],
   states: [{ name: 'Default', description: 'Only the buttons have states.' }],
   dos: [
     {
-      do: { example: <EmptyState illustration="resources" title="Add resources" description="Give learners everything in one place." primaryAction={{ label: 'Upload files', onClick: noop }} />, text: 'Say what to do next, and offer the action.' },
+      do: { example: <EmptyState illustration="resources" title="Add resources" description="Give learners everything in one place." primaryAction={{ label: 'Upload Files', onClick: noop }} />, text: 'Say what to do next, and offer the action.' },
       dont: { example: <EmptyState illustration="resources" title="Oops! Nothing here :(" />, text: 'Apologise or leave people without a next step.' },
     },
   ],
   content: [
     'Title: short and factual: "No courses yet", "Nothing assigned".',
     'Description: the benefit of acting, in one or two lines.',
-    'Buttons: verbs, in sentence case: "Upload files".',
+    'Buttons: verbs, in Title Case: "Upload Files".',
   ],
   accessibility: ['The illustration is decorative (empty alt).', 'The title is a heading at the right level for the page.', 'Keep the table header or page title so people know where they are.'],
   figma: [

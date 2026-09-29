@@ -27,7 +27,7 @@ export function AlertPreview() {
             icon={lead === 'icon'}
             illustration={lead === 'illustration'}
             title={callout && supporting ? 'Collections are shared with your teams' : undefined}
-            action={button ? { label: callout ? 'Learn more' : 'Renew', onClick: () => setClicks((c) => c + 1) } : undefined}
+            action={button ? { label: callout ? 'Learn More' : 'Renew', onClick: () => setClicks((c) => c + 1) } : undefined}
           >
             {callout ? (
               supporting ? (

@@ -20,7 +20,7 @@ const compare: Compare = {
     mui: 'Typography + Button (no MUI equivalent)',
     usage: `import { EmptyState } from '@design-os/components'
 
-<EmptyState illustration="empty-box" title="No courses yet" primaryAction={{ label: 'Create course', onClick: create }} />`,
+<EmptyState illustration="empty-box" title="No courses yet" primaryAction={{ label: 'Create Course', onClick: create }} />`,
     props: [
       { figma: 'Device', code: 'device (desktop, mobile)' },
       { figma: 'Surface', code: 'surface (plain, dropzone)' },

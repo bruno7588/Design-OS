@@ -17,7 +17,7 @@ for (const mode of ['light', 'dark'] as const) {
 }
 
 test('it opens against the right edge: 720px, full height, the Figma padding and footer', async ({ page }) => {
-  await page.getByRole('button', { name: 'Edit learner' }).click()
+  await page.getByRole('button', { name: 'Edit Learner' }).click()
   const dialog = page.getByRole('dialog', { name: 'Edit learner' })
   await expect(dialog).toBeVisible()
   await expect(dialog).toHaveAccessibleDescription('Changes apply the next time they sign in.')
@@ -44,11 +44,11 @@ test('it opens against the right edge: 720px, full height, the Figma padding and
   await expect(dialog.getByRole('button', { name: 'Close' })).toBeVisible()
   await page.keyboard.press('Escape')
   await expect(dialog).toBeHidden()
-  await expect(page.getByRole('button', { name: 'Edit learner' })).toBeFocused()
+  await expect(page.getByRole('button', { name: 'Edit Learner' })).toBeFocused()
 })
 
 test('Cancel and the scrim close it', async ({ page }) => {
-  const opener = page.getByRole('button', { name: 'Edit learner' })
+  const opener = page.getByRole('button', { name: 'Edit Learner' })
   await opener.click()
   const dialog = page.getByRole('dialog', { name: 'Edit learner' })
   await dialog.getByRole('button', { name: 'Cancel' }).click()

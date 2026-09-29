@@ -8,7 +8,7 @@ const STATES: { name: string; props: Partial<FileUploaderProps> }[] = [
   { name: 'Hover', props: { className: 'ds-hover' } },
   { name: 'Error', props: { state: 'error', errors: ['Error message here!', 'Error message here!', 'Error message here!', 'a', 'b', 'c', 'd'] } },
   { name: 'Uploading', props: { state: 'uploading', progress: 72, fileName: 'nameofthedocument.csv' } },
-  { name: 'Filled', props: { state: 'filled', fileName: 'nameofthedocument.csv', onPreview: () => {} } },
+  { name: 'Filled', props: { state: 'filled', fileName: 'nameofthedocument.csv' } },
 ]
 
 const noop = () => {}
