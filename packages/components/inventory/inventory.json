@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 59,
-    "both": 59,
-    "figmaOnly": 18,
+    "inCode": 62,
+    "both": 62,
+    "figmaOnly": 15,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -1230,11 +1230,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "FullScreenModal",
+        "mui": "Dialog (fullScreen) + CloseButton (fullscreen)",
+        "path": "packages/components/src/Overlay"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Modal/Send",
@@ -1255,11 +1259,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ShareModal",
+        "mui": "Dialog + Search + ContentSwitcher + Avatar + Checkbox + Button",
+        "path": "packages/components/src/Overlay"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Bottom sheet",
@@ -1277,11 +1285,15 @@
         "Sheet content:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "BottomSheet",
+        "mui": "Drawer (anchor bottom)",
+        "path": "packages/components/src/Overlay"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Dropdown",

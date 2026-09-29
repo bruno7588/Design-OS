@@ -19,3 +19,32 @@ export const sideDrawerFigma: FigmaMapping = {
   nodes: { light: '11919:4738', dark: '10871:12768' },
   variants: {},
 }
+
+export const fullScreenModalFigma: FigmaMapping = {
+  component: 'FullScreenModal',
+  mui: 'Dialog (fullScreen) + CloseButton (fullscreen)',
+  page: 'Dialog / Modal / Sheet',
+  set: 'Modal/Full screen',
+  nodes: { light: '11498:1694', dark: '3223:31934' },
+  variants: { State: ['Default'], Device: ['Desktop', 'Mobile'] },
+}
+
+export const shareModalFigma: FigmaMapping = {
+  component: 'ShareModal',
+  mui: 'Dialog + Search + ContentSwitcher + Avatar + Checkbox + Button',
+  page: 'Dialog / Modal / Sheet',
+  set: 'Modal/Send',
+  // The light board (12358:472) holds instances of both variants.
+  nodes: { light: '12358:472', dark: '5399:12437' },
+  variants: { Type: ['Team', 'Company'] },
+}
+
+export const bottomSheetFigma: FigmaMapping = {
+  component: 'BottomSheet',
+  mui: 'Drawer (anchor bottom)',
+  page: 'Dialog / Modal / Sheet',
+  set: 'Bottom sheet',
+  // The light board has an instance (12279:281).
+  nodes: { light: '12279:281', dark: '7479:106' },
+  variants: {},
+}

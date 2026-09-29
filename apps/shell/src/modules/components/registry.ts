@@ -183,6 +183,18 @@ import { MarketplaceCardPreview } from './marketplace-card/MarketplaceCardPrevie
 import { MarketplaceCardCode } from './marketplace-card/MarketplaceCardCode'
 import { MarketplaceCardGuidelines } from './marketplace-card/MarketplaceCardGuidelines'
 import { MarketplaceCardCompare } from './marketplace-card/MarketplaceCardCompare'
+import { FullScreenModalPreview } from './full-screen-modal/FullScreenModalPreview'
+import { FullScreenModalCode } from './full-screen-modal/FullScreenModalCode'
+import { FullScreenModalGuidelines } from './full-screen-modal/FullScreenModalGuidelines'
+import { FullScreenModalCompare } from './full-screen-modal/FullScreenModalCompare'
+import { ShareModalPreviewTab } from './share-modal/ShareModalPreview'
+import { ShareModalCode } from './share-modal/ShareModalCode'
+import { ShareModalGuidelines } from './share-modal/ShareModalGuidelines'
+import { ShareModalCompare } from './share-modal/ShareModalCompare'
+import { BottomSheetPreviewTab } from './bottom-sheet/BottomSheetPreview'
+import { BottomSheetCode } from './bottom-sheet/BottomSheetCode'
+import { BottomSheetGuidelines } from './bottom-sheet/BottomSheetGuidelines'
+import { BottomSheetCompare } from './bottom-sheet/BottomSheetCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -707,6 +719,39 @@ export const components: ComponentDoc[] = [
     Code: MarketplaceCardCode,
     Guidelines: MarketplaceCardGuidelines,
     Compare: MarketplaceCardCompare,
+  },
+  {
+    slug: 'full-screen-modal',
+    name: 'Full screen modal',
+    summary: 'Replaces the whole page for a focused task, such as a lesson editor.',
+    figma: { light: `${LIBRARY}11498-1694`, dark: `${LIBRARY}3223-31934` },
+    spec: 'playground/docs/design-system/overlays.md',
+    Preview: FullScreenModalPreview,
+    Code: FullScreenModalCode,
+    Guidelines: FullScreenModalGuidelines,
+    Compare: FullScreenModalCompare,
+  },
+  {
+    slug: 'share-modal',
+    name: 'Share modal',
+    summary: 'Shares a lesson or course with people or teams, or copies its link.',
+    figma: { light: `${LIBRARY}12358-472`, dark: `${LIBRARY}5399-12437` },
+    spec: 'playground/docs/design-system/overlays.md',
+    Preview: ShareModalPreviewTab,
+    Code: ShareModalCode,
+    Guidelines: ShareModalGuidelines,
+    Compare: ShareModalCompare,
+  },
+  {
+    slug: 'bottom-sheet',
+    name: 'Bottom sheet',
+    summary: 'Options or a short form that rise from the bottom of the mobile app.',
+    figma: { light: `${LIBRARY}12279-281`, dark: `${LIBRARY}7479-106` },
+    spec: 'playground/docs/design-system/overlays.md',
+    Preview: BottomSheetPreviewTab,
+    Code: BottomSheetCode,
+    Guidelines: BottomSheetGuidelines,
+    Compare: BottomSheetCompare,
   },
 ]
 
