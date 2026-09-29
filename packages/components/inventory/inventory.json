@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 14,
-    "both": 14,
-    "figmaOnly": 63,
+    "inCode": 17,
+    "both": 17,
+    "figmaOnly": 60,
     "codeOnly": 0
   },
   "rows": [
@@ -43,11 +43,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Alert",
+        "mui": "Alert (variant=\"standard\")",
+        "path": "packages/components/src/Alert"
+      },
       "prototype": "Alert",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Avatar",
@@ -1023,11 +1027,15 @@
         "Placeholder:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Modal",
+        "mui": "Dialog (maxWidth=\"md\")",
+        "path": "packages/components/src/Overlay"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Side Drawer",
@@ -1043,11 +1051,15 @@
         "Form:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "SideDrawer",
+        "mui": "Drawer (anchor=\"right\")",
+        "path": "packages/components/src/Overlay"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Modal/Full screen",

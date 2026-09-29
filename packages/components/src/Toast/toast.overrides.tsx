@@ -2,11 +2,12 @@ import type { Components, Theme } from '@mui/material/styles'
 import type { AlertProps } from '@mui/material/Alert'
 import { Danger, TickCircle } from 'iconsax-react'
 import { InfoOutlineIcon } from '../icons/FigmaIcons'
+import { inlineAlertStyles } from '../Alert/alert.overrides'
 
 // MuiAlert theme overrides for variant="filled": the Figma Toast set (5045:14119).
 // A plain <Alert variant="filled" severity="success"> renders the 5Mins toast body;
-// ToastProvider places, stacks and times it. The standard and outlined variants are
-// left free for the inline Alert.
+// ToastProvider places, stacks and times it. variant="standard" is the inline Alert
+// and Callout (Alert/alert.overrides.ts).
 //
 //   severity info / success / warning / error → Type Information / Success / Warning / Error
 //   icon={false}                              → Icon=False
@@ -31,6 +32,7 @@ export const MuiAlert: Components<Theme>['MuiAlert'] = {
   },
   styleOverrides: {
     root: ({ ownerState, theme }) => {
+      if (ownerState.variant === 'standard') return inlineAlertStyles(theme, ownerState.severity)
       if (ownerState.variant !== 'filled') return {}
       const t = theme.tokens
       return {

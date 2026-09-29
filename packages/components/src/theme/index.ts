@@ -21,6 +21,7 @@ import {
   MuiSelect,
   MuiTextField,
 } from '../Field/field.overrides'
+import { MuiDrawer } from '../Overlay/overlay.overrides'
 import { MuiCheckbox, MuiFormControlLabel, MuiFormLabel, MuiRadio, MuiSwitch } from '../Selection/selection.overrides'
 
 export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
@@ -68,6 +69,7 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiSwitch,
       MuiFormControlLabel,
       MuiFormLabel,
+      MuiDrawer,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })

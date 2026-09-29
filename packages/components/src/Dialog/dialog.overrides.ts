@@ -26,6 +26,17 @@ export const MuiDialog: Components<Theme>['MuiDialog'] = {
     root: ({ theme }) => ({
       '& .MuiBackdrop-root': { backgroundColor: theme.tokens.semantic.scrim },
     }),
-    paper: ({ theme }) => dialogPaperStyles(theme),
+    paper: ({ theme, ownerState }) => ({
+      ...dialogPaperStyles(theme),
+      // maxWidth="md" is the Figma Modal (7479:4350): 720px, sections 20px apart, centred.
+      ...(ownerState.maxWidth === 'md' && {
+        maxWidth: 720,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: `${theme.tokens.space.ml}px`,
+        '&.MuiDialog-paperFullWidth': { width: `calc(100% - ${theme.tokens.space.l * 2}px)` },
+      }),
+    }),
   },
 }

@@ -51,6 +51,18 @@ import { TogglePreview } from './toggle/TogglePreview'
 import { ToggleCode } from './toggle/ToggleCode'
 import { ToggleGuidelines } from './toggle/ToggleGuidelines'
 import { ToggleCompare } from './toggle/ToggleCompare'
+import { AlertPreview } from './alert/AlertPreview'
+import { AlertCode } from './alert/AlertCode'
+import { AlertGuidelines } from './alert/AlertGuidelines'
+import { AlertCompare } from './alert/AlertCompare'
+import { ModalPreviewTab } from './modal/ModalPreview'
+import { ModalCode } from './modal/ModalCode'
+import { ModalGuidelines } from './modal/ModalGuidelines'
+import { ModalCompare } from './modal/ModalCompare'
+import { DrawerPreview } from './drawer/DrawerPreview'
+import { DrawerCode } from './drawer/DrawerCode'
+import { DrawerGuidelines } from './drawer/DrawerGuidelines'
+import { DrawerCompare } from './drawer/DrawerCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -212,6 +224,39 @@ export const components: ComponentDoc[] = [
     Code: ToggleCode,
     Guidelines: ToggleGuidelines,
     Compare: ToggleCompare,
+  },
+  {
+    slug: 'alert',
+    name: 'Alert',
+    summary: 'A message in the page: a Callout guides, an Alert warns.',
+    figma: { light: `${LIBRARY}12060-2785`, dark: `${LIBRARY}3658-32304` },
+    spec: 'playground/docs/design-system/alerts-toast.md',
+    Preview: AlertPreview,
+    Code: AlertCode,
+    Guidelines: AlertGuidelines,
+    Compare: AlertCompare,
+  },
+  {
+    slug: 'modal',
+    name: 'Modal',
+    summary: 'A focused task in front of the page, with one main action.',
+    figma: { light: `${LIBRARY}7479-4350`, dark: `${LIBRARY}7479-4350` },
+    spec: 'playground/docs/design-system/overlays.md',
+    Preview: ModalPreviewTab,
+    Code: ModalCode,
+    Guidelines: ModalGuidelines,
+    Compare: ModalCompare,
+  },
+  {
+    slug: 'side-drawer',
+    name: 'Side drawer',
+    summary: 'A panel from the right for longer tasks, with its buttons always in view.',
+    figma: { light: `${LIBRARY}10871-12768`, dark: `${LIBRARY}10871-12768` },
+    spec: 'playground/docs/design-system/overlays.md',
+    Preview: DrawerPreview,
+    Code: DrawerCode,
+    Guidelines: DrawerGuidelines,
+    Compare: DrawerCompare,
   },
 ]
 

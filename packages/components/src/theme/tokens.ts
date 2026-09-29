@@ -63,6 +63,9 @@ const light = {
   // Selected chip fill: Secondary-500 in both modes (Figma Chips), unlike `selected`.
   chipSelectedBackground: p.secondary[500],
   textOnSelected: p.neutral[800],
+  // Figma Alert (Type=Alert) fill: Secondary-500 @ 12% in both modes, not bound to a variable.
+  // alerts-toast.md says Warning-500 @ 16% in one place and this value in another.
+  alertBackground: 'rgba(255, 187, 56, 0.12)',
   scrim: 'rgba(15, 16, 20, 0.25)',
 }
 
