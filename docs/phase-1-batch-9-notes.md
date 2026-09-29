@@ -38,9 +38,14 @@ Figma draws the fill in eighths; the reference shows the exact value.
 ## Out of date, to update
 - **Figma:**
   - The Empty state set shows the null placeholder (a #5E6780 square) instead of an illustration.
-  - The prototype's dashed dropzone version isn't in Figma.
 - **Prototype:** progress bars are hand-rolled in about 20 files (RatioBar and page CSS).
 
 ## Not built yet
 - The other 30 empty-state illustrations: export them when a page needs one.
 - The Table's illustration cells: they need the Gamification illustrations.
+
+## Follow-up, 2026-09-29 (Bruno)
+- **Dropzone added to Figma.** Both Empty state sets (dark `5452:37234`, light `11921:5779`) have a new `Surface` property: Plain and Dropzone, for Desktop and Mobile.
+  - Dropzone: Input-background, a dashed Border-elevated outline (8px dashes, 8px gaps, 1px inside) and radius 20, as the prototype's course builder draws it. Desktop padding is 32; Mobile keeps 16.
+  - The sets wrap two per row: Plain above, Dropzone below.
+- **Code:** `EmptyState surface="dropzone"`. The outline is an SVG, since a CSS dashed border can't set the dash length. In code it fills the width of its area.

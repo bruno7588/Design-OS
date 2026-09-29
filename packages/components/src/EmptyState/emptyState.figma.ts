@@ -6,5 +6,5 @@ export const emptyStateFigma: FigmaMapping = {
   page: 'Empty state',
   set: 'Empty state',
   nodes: { light: '11921:5779', dark: '5452:37234' },
-  variants: { Device: ['Desktop', 'Mobile'] },
+  variants: { Device: ['Desktop', 'Mobile'], Surface: ['Plain', 'Dropzone'] },
 }

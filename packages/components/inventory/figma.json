@@ -1418,6 +1418,10 @@
             "Device": [
               "Desktop",
               "Mobile"
+            ],
+            "Surface": [
+              "Plain",
+              "Dropzone"
             ]
           },
           "light": "copy"
@@ -1430,6 +1434,10 @@
             "Device": [
               "Desktop",
               "Mobile"
+            ],
+            "Surface": [
+              "Plain",
+              "Dropzone"
             ]
           },
           "light": "copy"

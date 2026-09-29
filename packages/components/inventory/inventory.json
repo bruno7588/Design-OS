@@ -1285,6 +1285,10 @@
         "Device": [
           "Desktop",
           "Mobile"
+        ],
+        "Surface": [
+          "Plain",
+          "Dropzone"
         ]
       },
       "slots": [],

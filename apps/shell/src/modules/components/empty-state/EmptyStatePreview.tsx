@@ -10,6 +10,7 @@ export function EmptyStatePreview() {
   const { mode: appMode } = useThemeMode()
   const [mode, setMode] = useState<Mode>(appMode)
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop')
+  const [surface, setSurface] = useState<'plain' | 'dropzone'>('plain')
   const [illustration, setIllustration] = useState<IllustrationName>('resources')
   const [secondary, setSecondary] = useState(true)
   const [primary, setPrimary] = useState(true)
@@ -20,9 +21,10 @@ export function EmptyStatePreview() {
       mode={mode}
       onModeChange={setMode}
       canvas={
-        <Stack sx={{ width: device === 'mobile' ? 375 : 'auto', maxWidth: '100%', alignItems: 'center' }} data-testid="empty-state-preview">
+        <Stack sx={{ width: device === 'mobile' ? 375 : surface === 'dropzone' ? 720 : 'auto', maxWidth: '100%', alignItems: 'center' }} data-testid="empty-state-preview">
           <EmptyState
             device={device}
+            surface={surface}
             illustration={illustration}
             title="Add resources to your course"
             description="Upload PDF, Word, Excel, PowerPoint or image files, or add links, so learners have everything in one place."
@@ -41,6 +43,16 @@ export function EmptyStatePreview() {
               </ToggleButton>
               <ToggleButton value="mobile" disableRipple>
                 Mobile
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Control>
+          <Control label="Surface">
+            <ToggleButtonGroup exclusive size="small" value={surface} onChange={(_, v) => v && setSurface(v)} fullWidth>
+              <ToggleButton value="plain" disableRipple>
+                Plain
+              </ToggleButton>
+              <ToggleButton value="dropzone" disableRipple>
+                Dropzone
               </ToggleButton>
             </ToggleButtonGroup>
           </Control>

@@ -40,6 +40,16 @@ test('desktop and mobile match Figma', async ({ page }) => {
   expect(m[1]).toMatchObject({ padding: '16px', gap: '16px', title: ['16px', '700', 'rgb(32, 34, 42)'], desc: ['rgb(69, 76, 94)', 'none', 'center'] })
 })
 
+test('the dropzone: Input-background, dashed Border-elevated outline 8/8, padding 32, radius 20', async ({ page }) => {
+  const m = await page.getByTestId('empty-state-dropzone-light').evaluate((el) => {
+    const zone = el.querySelector('.ds-dropzone-outline')!.parentElement!
+    const rect = zone.querySelector('.ds-dropzone-outline rect')!
+    const cs = getComputedStyle(zone)
+    return { bg: cs.backgroundColor, padding: cs.padding, radius: cs.borderTopLeftRadius, stroke: getComputedStyle(rect).stroke, dash: rect.getAttribute('stroke-dasharray'), rx: rect.getAttribute('rx') }
+  })
+  expect(m).toEqual({ bg: 'rgba(191, 194, 204, 0.16)', padding: '32px', radius: '20px', stroke: 'rgb(223, 225, 230)', dash: '8 8', rx: '20' })
+})
+
 test('the actions work and the title is a heading', async ({ page }) => {
   const preview = page.getByTestId('empty-state-preview')
   await expect(preview.getByRole('heading', { name: 'Add resources to your course' })).toBeVisible()

@@ -13,9 +13,13 @@ import search from './illustrations/search.svg'
 //   Desktop: padding 24, gap 20, title Bold 20, description up to 600px
 //   Mobile:  padding 16, gap 16, title Bold 16, description full width
 //   Both:    72px illustration, info gap 8, Outlined + Filled Medium buttons 16px apart, radius 20
+//   Surface=Dropzone (added to Figma 2026-09-29, from the prototype): an area the admin fills
+//            themselves. Input-background, a dashed Border-elevated outline (8px dashes, 8px gaps,
+//            1px inside), padding 32 on desktop, the full width of its area.
 //
 // Figma → props
 //   Device=Desktop / Mobile      → device
+//   Surface=Plain / Dropzone     → surface
 //   Illustrations Empty state    → illustration (a name from ILLUSTRATIONS, or any node)
 //   CTA (Outlined, Filled)       → secondaryAction, primaryAction
 
@@ -36,15 +40,17 @@ export interface EmptyStateProps {
   primaryAction?: EmptyStateAction
   secondaryAction?: EmptyStateAction
   device?: 'desktop' | 'mobile'
+  surface?: 'plain' | 'dropzone'
   /** The heading level of the title. */
   titleComponent?: 'h2' | 'h3' | 'h4'
 }
 
 export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(function EmptyState(
-  { title, description, illustration = 'empty-box', primaryAction, secondaryAction, device = 'desktop', titleComponent = 'h2' },
+  { title, description, illustration = 'empty-box', primaryAction, secondaryAction, device = 'desktop', surface = 'plain', titleComponent = 'h2' },
   ref,
 ) {
   const mobile = device === 'mobile'
+  const dropzone = surface === 'dropzone'
   const art =
     typeof illustration === 'string' && illustration in ILLUSTRATIONS ? (
       <Box component="img" src={ILLUSTRATIONS[illustration as IllustrationName]} alt="" sx={{ width: 72, height: 72, display: 'block' }} />
@@ -57,17 +63,44 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(function E
       sx={(theme) => {
         const t = theme.tokens
         return {
+          position: 'relative',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          padding: `${mobile ? t.space.m : t.space.l}px`,
+          padding: `${mobile ? t.space.m : dropzone ? t.space.xl : t.space.l}px`,
           gap: `${mobile ? t.space.m : t.space.ml}px`,
           borderRadius: `${t.radius.ml}px`,
-          width: mobile ? '100%' : 'auto',
+          width: mobile || dropzone ? '100%' : 'auto',
+          boxSizing: 'border-box',
+          ...(dropzone && { backgroundColor: t.semantic.inputBackground }),
         }
       }}
     >
+      {dropzone && (
+        // A CSS dashed border can't set the dash length or gap: an SVG outline can.
+        // A 2px stroke centred on the edge, clipped by the SVG, shows 1px inside.
+        <Box
+          component="svg"
+          aria-hidden
+          className="ds-dropzone-outline"
+          sx={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none' }}
+        >
+          <Box
+            component="rect"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            rx="20"
+            ry="20"
+            fill="none"
+            strokeWidth={2}
+            strokeDasharray="8 8"
+            sx={(theme) => ({ stroke: theme.tokens.semantic.borderElevated })}
+          />
+        </Box>
+      )}
       <Box sx={{ width: 72, height: 72, flexShrink: 0, display: 'grid', placeItems: 'center' }}>{art}</Box>
       <Box sx={(theme) => ({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: `${theme.tokens.space.s}px` })}>
         <Typography component={titleComponent} sx={(theme) => ({ m: 0, fontSize: mobile ? 16 : 20, fontWeight: 700, lineHeight: 1.5, color: theme.tokens.semantic.textPrimary })}>

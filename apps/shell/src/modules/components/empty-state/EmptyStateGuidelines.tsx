@@ -15,11 +15,16 @@ const g: Guidelines = {
       { name: 'Title', description: 'Bold 20px in Text-primary (Bold 16px on mobile).' },
       { name: 'Description', description: 'Regular 14px in Text-secondary, centred, up to 600px wide.' },
       { name: 'Buttons', description: 'Optional: Outlined then Filled, Medium, 16px apart.' },
-      { name: 'Frame', description: 'Padding 24, gap 20, radius 20 (mobile: 16 and 16).' },
+      { name: 'Frame', description: 'Padding 24, gap 20, radius 20 (mobile: 16 and 16). Dropzone: Input-background, a dashed Border-elevated outline (8px dashes and gaps), padding 32.' },
     ],
   },
   variants: [
     { name: 'Desktop', description: 'The default.', example: <EmptyState illustration="search" title="No results" description="Try a different word, or clear the filters." /> },
+    {
+      name: 'Dropzone',
+      description: 'For an area the admin fills themselves, such as a course’s content or resources: Input-background inside a dashed outline, the full width.',
+      example: <EmptyState surface="dropzone" illustration="resources" title="Add resources" primaryAction={{ label: 'Upload files', onClick: noop }} />,
+    },
     { name: 'Mobile', description: 'In the mobile app: tighter spacing, a smaller title.', example: <EmptyState device="mobile" illustration="no-activity" title="No activity yet" /> },
   ],
   states: [{ name: 'Default', description: 'Only the buttons have states.' }],

@@ -12,6 +12,9 @@ const examples = `import { EmptyState } from '@design-os/components'
   primaryAction={{ label: 'Upload files', icon: <Add />, onClick: upload }}
 />
 
+// An area the admin fills themselves: the dashed dropzone
+<EmptyState surface="dropzone" illustration="resources" title="Add resources" primaryAction={{ label: 'Upload files', onClick: upload }} />
+
 // Mobile app frames
 <EmptyState device="mobile" title="No courses yet" />`
 
