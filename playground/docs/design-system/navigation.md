@@ -227,7 +227,7 @@ The Figma component includes the iOS status bar (clock "9:41" + signal/wifi/batt
 
 Shared elements:
 
-- **Back button**: 40px circle — 8px padding around a 24px `ArrowLeft` Linear icon, radius full, `--input-background` fill (`rgba(15,16,20,0.5)` on Lesson feed, a fixed legibility fill over video — not the `--scrim` overlay token, which is mode-aware; see `layout.md` §7).
+- **Back button**: 40px circle — 8px padding around a 24px `ArrowLeft` Linear icon, radius full, `--input-background` fill. On Lesson feed (over the video) it's `--neutral-900` at 50% with a `--neutral-25` arrow in both modes (Bruno, 2026-09-29): a fixed legibility fill, not the mode-aware `--scrim` token (see `layout.md` §7).
 - **Header chips** (Home/Progress): the DS Chip (`chips-switcher-tabs.md`). Selected = `--secondary-500` fill, Poppins Bold 14, `--neutral-800` text (always-dark text on amber, both modes); unselected = transparent, 1px `--border-elevated`, Regular 14 `--text-secondary`. Both: 6px/12px padding (33px tall), **radius 24px**; 8px apart on Home, 16px on Progress.
 - Title is Bold 16 when alone, Bold 14 when paired with a leading icon (Skill).
 

@@ -37,10 +37,7 @@ Checked 2026-09-29.
 - **Tests:** `e2e/tab-navigation.spec.ts` and `e2e/app-top-navigation.spec.ts` (9 checks).
 
 ## Mismatches recorded
-- **Lesson feed, light (Design to update):**
-  - The light copy has lost the back button's dark fill, and the arrow and points use Text-primary, so they turn dark over the video.
-  - Code follows the dark set in both modes: Neutral-900 at 50% behind a Neutral-25 arrow.
-  - The dark set's fill is a raw `#0F1014` at 50%; it could be bound to Neutral-900.
+- **Lesson feed points (Design to update):** "45 Pt" uses Text-primary, so it turns dark over the video in the light set. Code keeps it Neutral-25, like the arrow.
 - **Chip gaps:** Home spaces its chips 8px apart and Progress 16. It's the same group, so it's worth settling on one.
 - **Detail page:** the title sits 4px right of centre, because the sides are 40 (back) and 32 (the slot).
 - **Settings badge:** at 18px it's a small touch target. The Guidelines suggest the avatar opens settings too.
@@ -54,6 +51,8 @@ Checked 2026-09-29.
   - In Figma it was bound to a deleted Input-background variable (`7625:28470`: solid Neutral-50 light, Neutral-700 dark).
   - It's now bound to the current Input-background (`10830:146`: Neutral-200 / Neutral-500 at 16%) in both sets.
   - Code uses the `inputBackground` token.
+
+- **Lesson feed back (Bruno):** over the video the back button is Neutral-900 at 50% with a Neutral-25 arrow, in both modes. Both Figma sets are now bound to those variables (the dark set had a raw `#0F1014`, the light set had lost the fill). Code already did this.
 
 ## Prototype differences
 - **navigation.md** is fixed to match Figma:
