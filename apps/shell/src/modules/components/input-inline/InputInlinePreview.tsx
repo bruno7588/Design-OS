@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FormControlLabel, Stack, Switch } from '@mui/material'
+import { FormControlLabel, MenuItem, Stack, Switch, TextField } from '@mui/material'
 import { InputInline, type Mode } from '@design-os/components'
 import { useThemeMode } from '../../../theme-mode'
 import { PreviewLayout } from '../shared/PreviewLayout'
@@ -12,6 +12,7 @@ export function InputInlinePreview() {
   const [description, setDescription] = useState('')
   const [showDescription, setShowDescription] = useState(true)
   const [error, setError] = useState(false)
+  const [size, setSize] = useState<'L' | 'M'>('L')
 
   return (
     <PreviewLayout
@@ -27,11 +28,16 @@ export function InputInlinePreview() {
             titleLabel="Course title"
             descriptionLabel="Course description"
             error={error ? 'Add a title of 3 characters or more' : undefined}
+            size={size}
           />
         </Stack>
       }
       controls={
         <>
+          <TextField select size="small" label="Size" value={size} onChange={(e) => setSize(e.target.value as 'L' | 'M')}>
+            <MenuItem value="L">L</MenuItem>
+            <MenuItem value="M">M</MenuItem>
+          </TextField>
           <FormControlLabel control={<Switch checked={showDescription} onChange={(e) => setShowDescription(e.target.checked)} />} label="Description" />
           <FormControlLabel control={<Switch checked={error} onChange={(e) => setError(e.target.checked)} />} label="Error" />
         </>

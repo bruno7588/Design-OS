@@ -14,7 +14,7 @@ description: Input field system for 5Mins.ai — four types. Outlined (standard 
 | **Radio** | Bordered field row with a 21px radio inside — pick an option AND type its value | not built yet |
 | **Integer** | Compact numeric stepper (− / value / +) | `src/components/InputInteger` |
 
-Spec source: Figma Library — set light `12114:20552` / dark `11180:1982`; Outlined `12114:20561`/`8974:24610`; Inline `12114:20828`/`10330:4736`; Radio `12114:20857`/`8974:30479`; Integer `12114:20914`/`10145:10895` (re-verified 2026-09-29). Hexes below are dark-mode fallbacks; tokens resolve per mode (see `colors.md`).
+Spec source: Figma Library — set light `12114:20552` / dark `11180:1982`; Outlined `12114:20561`/`8974:24610`; Inline `12300:6403`/`10330:4736`; Radio `12114:20857`/`8974:30479`; Integer `12114:20914`/`10145:10895` (re-verified 2026-09-29). Hexes below are dark-mode fallbacks; tokens resolve per mode (see `colors.md`).
 
 > **2026-08-20 — field borders use `--border-elevated`.** The border token was split in two: `--border` is the quiet weight for table rows, dividers and cards, and `--border-elevated` is one step stronger for field chrome. Enabled, filled and success borders are `--border-elevated`.
 >
@@ -239,12 +239,13 @@ A borderless editor for a page-level title and optional description — used whe
 
 | Element | Style | Placeholder | Filled |
 |---|---|---|---|
-| Title | Poppins **Bold 32** (H1), 1.5 | `--text-disabled` ("Add Title") | `--text-primary` |
-| Description (optional) | Poppins Regular 16, 1.5 | `--text-disabled` ("Add a description") | `--text-secondary` |
+| Title | Poppins **Bold 32** (Size L) or **Bold 20** (Size M), 1.5 | `--text-disabled` ("Add Title") | `--text-primary` |
+| Description (optional) | Poppins Regular 16 (L) or Regular 14 (M), 1.5 | `--text-disabled` ("Add a description") | `--text-secondary` |
 
+- **Sizes:** L for the page's own heading (course title); M for something inside the page, such as a lesson or section.
 - Column gap **4px**; reference width 900px (the description frame is 868px).
 - **States:** Enabled (placeholders) → Active (blinking `--text-primary` caret) → Filled.
-- **Error (Filled):** title turns `--text-error` and an "Error message" line (Regular 14, `--text-error`) renders directly under the title, before the description. No icon. The description keeps its normal color.
+- **Error (Filled):** title turns `--text-error` and an "Error message" line (Regular 14, `--text-error`) renders **4px** under the title, before the description. No icon. The description keeps its normal color.
 - No hover treatment — the inline editor reads as text until clicked.
 
 ```tsx

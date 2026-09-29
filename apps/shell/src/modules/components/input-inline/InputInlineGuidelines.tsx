@@ -25,13 +25,14 @@ const g: Guidelines = {
   anatomy: {
     example: <Example title="Leadership essentials" description="Lead a team through change, one conversation at a time." />,
     parts: [
-      { name: 'Title', description: 'Bold 32px (H1) in Text-primary. The placeholder is Text-disabled.' },
-      { name: 'Error message', description: 'Regular 14px in Text-error, right under the title.' },
-      { name: 'Description', description: 'Optional. Regular 16px in Text-secondary, 4px below. Grows onto more lines.' },
+      { name: 'Title', description: 'Bold 32px in L, Bold 20px in M, in Text-primary. The placeholder is Text-disabled.' },
+      { name: 'Error message', description: 'Regular 14px in Text-error, 4px under the title.' },
+      { name: 'Description', description: 'Optional. Regular 16px in L, 14px in M, in Text-secondary, 4px below. Grows onto more lines.' },
     ],
   },
   variants: [
-    { name: 'Title and description', description: 'The default in builders.', example: <Example description="" /> },
+    { name: 'Title and description', description: 'Size L, the default: the page’s own heading in builders.', example: <Example description="" /> },
+    { name: 'Size M', description: 'For something inside the page, such as a lesson or a section in the course builder.', example: <Example size="M" description="" /> },
     { name: 'Title only', description: 'Where a description isn’t needed, such as a card name.', example: <Example /> },
     { name: 'Error', description: 'The title is missing or too long. The title and the message turn Text-error.', example: <Example title="Leadership essentials" description="" error="Keep the title under 80 characters" /> },
   ],
@@ -56,7 +57,7 @@ const g: Guidelines = {
     'The page should still have a real heading for screen readers, such as a visually hidden h1 with the title.',
   ],
   figma: [
-    { label: 'Input field/Inline, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12114-20828' },
+    { label: 'Input field/Inline, light mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=12300-6403' },
     { label: 'Input field/Inline, dark mode (Figma Library)', url: 'https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library?node-id=10330-4736' },
   ],
   spec: 'playground/docs/design-system/input.md',

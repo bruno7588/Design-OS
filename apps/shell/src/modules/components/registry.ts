@@ -236,7 +236,7 @@ export const components: ComponentDoc[] = [
     slug: 'input-inline',
     name: 'Inline input',
     summary: 'A title and description edited in place, as in the course builder.',
-    figma: { light: `${LIBRARY}12114-20828`, dark: `${LIBRARY}10330-4736` },
+    figma: { light: `${LIBRARY}12300-6403`, dark: `${LIBRARY}10330-4736` },
     spec: 'playground/docs/design-system/input.md',
     Preview: InputInlinePreview,
     Code: InputInlineCode,

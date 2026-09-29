@@ -69,5 +69,14 @@ All three share `packages/components/src/InputField/inputTypes.overrides.ts`. Th
   - Inline: no Danger icon on error; the message sits under the title.
   - Integer: 20px icons and a 114px field.
 
+## Follow-up, 2026-09-29: Inline Size (Bruno)
+- **Figma:** Bruno added `Size` (L, M) to Input field/Inline and replaced the light copy (new set `12300:6403`; the old `12114:20828` is gone).
+  - M: title Bold 20, description Regular 14.
+  - Error: the message now sits 4px under the title (was 0).
+  - Added the missing M `State=Filled, Description=false` variant to both sets, so each has 16.
+- **Code:** `InputInline` takes `size="L" | "M"`. M is MUI `size="small"` on the InputBase, as Search uses small for M. The error message is 4px under the title.
+- **Shell:** the matrix shows L then M, and the Preview has a Size control. The Compare frames are re-exported, and the spec checks the M sizes and both 4px gaps.
+- **`input.md`:** updated with the sizes and the 4px error gap.
+
 ## Not built
 - The Integer label-at-start layout and unit suffix. They're prototype only, not in Figma.

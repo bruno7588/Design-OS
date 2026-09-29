@@ -35,11 +35,12 @@ export const inputInlineFigma: FigmaMapping = {
   mui: 'InputBase',
   page: 'Input',
   set: 'Input field/Inline',
-  nodes: { light: '12114:20828', dark: '10330:4736' },
+  nodes: { light: '12300:6403', dark: '10330:4736' },
   variants: {
     Disabled: ['false'],
     Validation: ['none', 'error'],
     State: ['Enabled', 'Active', 'Filled'],
     Description: ['true', 'false'],
+    Size: ['L', 'M'],
   },
 }

@@ -4,14 +4,14 @@ import type { Components, Theme } from '@mui/material/styles'
 // The Integer, Radio button and Inline inputs. Figma Library, Input page:
 // Input field/Integer (dark 10145:10895, light 12114:20914),
 // Input field/Radio button (dark 8974:30479, light 12114:20857),
-// Input field/Inline (dark 10330:4736, light 12114:20828).
+// Input field/Inline (dark 10330:4736, light 12300:6403).
 //
 // Integer and Radio button are the Input field box (field.overrides.tsx) with a class:
 //   <OutlinedInput className="ds-integer">      the − value + stepper
 //   <OutlinedInput className="ds-radio-input">  a 21px radio before the text
 // Inline is a borderless InputBase:
-//   <InputBase className="ds-inline-title">       Bold 32
-//   <InputBase className="ds-inline-description"> Regular 16
+//   <InputBase className="ds-inline-title">       Bold 32 (Size=L), size="small" Bold 20 (Size=M)
+//   <InputBase className="ds-inline-description"> Regular 16 (L), size="small" Regular 14 (M)
 // Forced-state classes (ds-hover, ds-focus) are for docs and visual tests.
 
 const OUTLINE = '& .MuiOutlinedInput-notchedOutline'
@@ -97,6 +97,9 @@ export const MuiInputBase: Components<Theme>['MuiInputBase'] = {
           '&.Mui-error': { color: s.textError },
         },
         '&.ds-inline-description': { fontSize: 16, fontWeight: 400, color: s.textSecondary },
+        // Size=M
+        '&.ds-inline-title.MuiInputBase-sizeSmall': { fontSize: 20 },
+        '&.ds-inline-description.MuiInputBase-sizeSmall': { fontSize: 14 },
       }
     },
   },

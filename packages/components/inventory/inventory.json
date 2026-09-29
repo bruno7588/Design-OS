@@ -1918,7 +1918,7 @@
       "type": "set",
       "nodes": [
         "10330:4736",
-        "12114:20828"
+        "12300:6403"
       ],
       "copiesDiffer": false,
       "lightVersion": "copy",
@@ -1939,6 +1939,10 @@
         "Description": [
           "true",
           "false"
+        ],
+        "Size": [
+          "L",
+          "M"
         ]
       },
       "slots": [],

@@ -13,7 +13,8 @@ import Typography from '@mui/material/Typography'
 //   Description=true  → description (a string, even empty, shows the field)
 //   State=Enabled     → empty: the placeholders in Text-disabled
 //   State=Filled      → title and description
-//   Validation=error  → error: the title and the message under it in Text-error
+//   Validation=error  → error: the title and the message 4px under it in Text-error
+//   Size=L / M        → size "L" (Bold 32, Regular 16) / "M" (Bold 20, Regular 14)
 
 export interface InputInlineProps extends Omit<ComponentPropsWithoutRef<'div'>, 'title' | 'onChange'> {
   sx?: SxProps<Theme>
@@ -30,6 +31,7 @@ export interface InputInlineProps extends Omit<ComponentPropsWithoutRef<'div'>, 
   /** The error message. Shown under the title. */
   error?: string
   disabled?: boolean
+  size?: 'L' | 'M'
 }
 
 export const InputInline = forwardRef<HTMLDivElement, InputInlineProps>(function InputInline(
@@ -44,17 +46,20 @@ export const InputInline = forwardRef<HTMLDivElement, InputInlineProps>(function
     descriptionLabel = 'Description',
     error,
     disabled,
+    size = 'L',
     sx,
     ...props
   },
   ref,
 ) {
   const errorId = useId()
+  const muiSize = size === 'M' ? 'small' : 'medium'
   return (
     <Box ref={ref} {...props} sx={[{ display: 'flex', flexDirection: 'column', gap: 1 }, ...(Array.isArray(sx) ? sx : [sx])]}>
-      <div>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
         <InputBase
           className="ds-inline-title"
+          size={muiSize}
           fullWidth
           value={title}
           onChange={(e) => onTitleChange(e.target.value)}
@@ -68,10 +73,11 @@ export const InputInline = forwardRef<HTMLDivElement, InputInlineProps>(function
             {error}
           </Typography>
         )}
-      </div>
+      </Box>
       {description !== undefined && (
         <InputBase
           className="ds-inline-description"
+          size={muiSize}
           fullWidth
           multiline
           value={description}

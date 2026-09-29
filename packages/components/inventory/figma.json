@@ -2119,6 +2119,10 @@
             "Description": [
               "true",
               "false"
+            ],
+            "Size": [
+              "L",
+              "M"
             ]
           },
           "light": "copy"
@@ -2241,7 +2245,7 @@
         },
         {
           "name": "Input field/Inline",
-          "id": "12114:20828",
+          "id": "12300:6403",
           "type": "set",
           "variants": {
             "Disabled": [
@@ -2259,6 +2263,10 @@
             "Description": [
               "true",
               "false"
+            ],
+            "Size": [
+              "L",
+              "M"
             ]
           },
           "light": "copy"
