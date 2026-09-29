@@ -1,0 +1,67 @@
+# Phase 1, batch 14: Mobile navigation (Tab nav, Top nav/App)
+
+Checked 2026-09-29.
+- **Why this batch:** the learner app's chrome. Bruno asked to finish the remaining components before Phase 1c; Cards come next.
+- **Sources:**
+  - The Figma Library: the Navigation page.
+  - `playground/docs/design-system/navigation.md` (Mobile App Navigation).
+  - `src/components/mobile/{TabNav,TopNav}`.
+- **Per-property detail:** each component's Compare tab.
+
+| Component | MUI | Figma |
+|---|---|---|
+| TabNav | BottomNavigation + BottomNavigationAction (theme) | Tab nav `1324:35285` / `9897:18192` |
+| AppTopNav | Box (header) + Chip + Search + Avatar + IconButton | Top nav/ App `1910:18375` / `11235:11758` |
+
+## Built
+- **Tab bar:** `MuiBottomNavigation` and `MuiBottomNavigationAction` theme overrides, so a plain `<BottomNavigation showLabels>` renders the 5Mins bar.
+  - The bar is 375 × 66: Page-background, a 1px Border on top (drawn inside), padding 8/16.
+  - Each tab takes an equal share (69px), with padding 4 and a 4px gap: a 24px icon over a Regular 10/1.4 label.
+  - Selected turns the icon and label Selected. MUI's label growth and ripple are off.
+- **TabNav wrapper:** the five learner tabs (Home, SearchNormal1, Award, UserSquare Bold, and a custom Feed glyph), a nav landmark named "Main", and aria-current on the current page. `value={null}` is Page=Enabled.
+- **AppTopNav:** one component with a `page` prop for the eight Figma pages:
+  - **Home:** Chips 8px apart, then Streak (FlashCircle) and Notifications (NotificationBing), Bold 28, 16px apart, with an 8px Text-error Nudge dot.
+  - **Search:** the 5Mins Search (M).
+  - **Progress:** Chips 16px apart.
+  - **Feed:** a centred Bold 16 title.
+  - **Profile:** Avatar 40, an 18px settings badge, name Bold 14 (the h1), role Regular 12/1.2, and a 40px Primary-500 add button.
+  - **Detail page:** back, a centred title and a 32px action slot.
+  - **Skill:** back, the skill icon with a Bold 14 title, and more options.
+  - **Lesson feed:** transparent, back on a dark 50% fill, and the points with the Points illustration.
+  - **Sizes:** heights follow Figma per page (65 / 64 / 56). The Border is drawn inside.
+  - **Status bar:** `statusBar` adds an aria-hidden iOS stand-in for prototypes. It's off by default, because the phone draws the real one.
+- **New icons:**
+  - `FeedIcon` and `MoreVerticalIcon` (the Remix RiMore2Line), copied from Figma.
+  - `PointsIllustration` (Illustrations/ Progress, Type=Points).
+- **Shell:** Tab navigation and App top navigation pages with Preview, Code, Guidelines and Compare. Their frames are at 1:1 in `apps/shell/public/figma/`.
+- **Tests:** `e2e/tab-navigation.spec.ts` and `e2e/app-top-navigation.spec.ts` (9 checks).
+
+## Mismatches recorded
+- **Lesson feed, light (Design to update):**
+  - The light copy has lost the back button's dark fill, and the arrow and points use Text-primary, so they turn dark over the video.
+  - Code follows the dark set in both modes: Neutral-900 at 50% behind a Neutral-25 arrow.
+  - The dark set's fill is a raw `#0F1014` at 50%; it could be bound to Neutral-900.
+- **Heights:**
+  - The top-level bars are 65px, which is off the 2/4px grid.
+  - Profile is 64, 1px shorter than the others.
+- **Chip gaps:** Home spaces its chips 8px apart and Progress 16. It's the same group, so it's worth settling on one.
+- **Detail page:** the title sits 4px right of centre, because the sides are 40 (back) and 32 (the slot).
+- **Settings badge:**
+  - Figma fills it with Input-background at 100%. Our token has the fields' 16% built in, so code uses the solid colour behind it (Neutral-200 light, Neutral-500 dark).
+  - At 18px it's a small touch target. The Guidelines suggest the avatar opens settings too.
+- **Focus:** Figma has no focus state for tabs or icon buttons. Code adds the 2px Primary ring used elsewhere.
+- **Mobile web:** not built. It's the browser's own chrome, for mockups.
+- **Skill icon:** the skill illustrations come with the Illustrations batch. The docs use an Iconsax stand-in until then.
+
+## Prototype differences
+- **navigation.md** is fixed to match Figma:
+  - Home has a divider.
+  - The header chips are the DS Chip: 6/12 padding, Border-elevated.
+  - The bell is `notification-bing`.
+  - The settings badge is 18px with a 12px icon.
+  - It now lists the header heights.
+- **`mobile/TopNav`:**
+  - It uses the plain `Notification` bell.
+  - It hand-builds the chips (with 12/8 padding) and the search.
+  - It shows no divider on Home.
+- **`mobile/TabNav`:** matches, and already sets aria-current.

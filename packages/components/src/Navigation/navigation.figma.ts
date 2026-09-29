@@ -50,3 +50,22 @@ export const pageHeaderFigma: FigmaMapping = {
   nodes: { light: '11921:13215', dark: '7902:1019' },
   variants: { Type: ['Page', 'Section'] },
 }
+
+export const tabNavFigma: FigmaMapping = {
+  component: 'TabNav',
+  mui: 'BottomNavigation + BottomNavigationAction',
+  page: 'Navigation',
+  set: 'Tab nav',
+  nodes: { light: '9897:18192', dark: '1324:35285' },
+  variants: { Page: ['Enabled', 'Home', 'Search', 'Progress', 'Feed', 'Profile'] },
+}
+
+export const appTopNavFigma: FigmaMapping = {
+  component: 'AppTopNav',
+  mui: 'Box (header) + Chip + Search + Avatar + IconButton',
+  page: 'Navigation',
+  set: 'Top nav/ App',
+  nodes: { light: '11235:11758', dark: '1910:18375' },
+  // Mobile web is the browser's chrome, so it isn't built.
+  variants: { Page: ['Home', 'Detail page', 'Search', 'Progress', 'Feed', 'Profile', 'Lesson feed', 'Skill'] },
+}

@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 46,
-    "both": 46,
-    "figmaOnly": 31,
+    "inCode": 48,
+    "both": 48,
+    "figmaOnly": 29,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -2243,11 +2243,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "TabNav",
+        "mui": "BottomNavigation + BottomNavigationAction",
+        "path": "packages/components/src/Navigation"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Top nav/ App",
@@ -2276,11 +2280,19 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "AppTopNav",
+        "mui": "Box (header) + Chip + Search + Avatar + IconButton",
+        "path": "packages/components/src/Navigation"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {
+        "Page": [
+          "Mobile web"
+        ]
+      },
+      "missingInFigma": {}
     },
     {
       "name": "Top Nav/Admin",

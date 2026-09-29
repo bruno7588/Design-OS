@@ -211,15 +211,15 @@ The learner **mobile app** chrome (phone-frame prototype): a top header and a bo
 
 ### Top header (375 wide, per-page variants)
 
-The Figma component includes the iOS status bar (clock "9:41" + signal/wifi/battery, 16px/4px padding) above the header row; the prototype component renders a lightweight equivalent. Header row: `--page-background`, 1px bottom border `--border` — **no divider on Home and Lesson feed**; **Lesson feed is fully transparent** (floats over content).
+The Figma component includes the iOS status bar (clock "9:41" + signal/wifi/battery, 16px/4px padding) above the header row; the prototype component renders a lightweight equivalent. Header row: `--page-background`, 1px bottom border `--border` on every page except Lesson feed (re-checked 2026-09-29: Home has the divider too); **Lesson feed is fully transparent** (floats over content). Heights: 65px on Home, Search, Progress and Feed, 64 on Profile, 56 on Detail page, Skill and Lesson feed.
 
 | Page variant | Node | Height | Contents |
 |---|---|---|---|
-| Home | `1092:34690` | 65px, 16px/12px pad | Chips left ("For You" selected / "Your Workspace"); right cluster 16px gap: 28px flash-circle + 28px bell with red Nudge dot |
+| Home | `1092:34690` | 65px, 16px/12px pad | Chips left ("For You" selected / "Your Workspace"); right cluster 16px gap: 28px `flash-circle` + 28px `notification-bing` (Iconsax `NotificationBing`, not `Notification`), both Bold `--text-primary`, with an 8px `--text-error` Nudge dot |
 | Search | `7632:8029` | 65px | Full-width search field: `--input-background` fill, 1px `--border`, radius 12px, 12px/8px padding, 18px magnifier, placeholder Poppins Regular 14 `--text-disabled` |
 | Progress | `7632:8164` | 65px | Chips "My Team" / "My Progress" |
 | Feed | `7632:8202` | 65px | Centered title Poppins Bold 16/1.5 `--text-primary` |
-| Profile | `7632:8270` | auto, 16px/12px pad | 40px avatar with settings mini-badge (top-right, `--input-background`, 9px `setting-2` icon), name Bold 14 + role Regular 12 `--text-secondary` (2px gap); right 40px `--primary-500` circular add button |
+| Profile | `7632:8270` | auto, 16px/12px pad | 40px avatar with an 18px settings badge (top-right, solid Input-background: `--neutral-200` light / `--neutral-500` dark, 12px `setting-2` Linear icon), name Bold 14 + role Regular 12 `--text-secondary` (2px gap); right 40px `--primary-500` circular add button (`add` Linear, `--neutral-800`) |
 | Detail page | `6162:9788` | auto, 16px/8px pad | Back button left, centered title Bold 16, empty 32px right spacer to keep the title centered |
 | Skill | `8377:1056` | auto, 16px/8px pad | Back button, 24px skill illustration + title Bold **14**, right 24px vertical kebab |
 | Lesson feed | `7645:4829` | auto, 16px/8px pad | Transparent; back button on a fixed `rgba(15,16,20,0.5)` legibility fill; right "45 Pt" Bold 12 + small trophy |
@@ -228,7 +228,7 @@ The Figma component includes the iOS status bar (clock "9:41" + signal/wifi/batt
 Shared elements:
 
 - **Back button**: 40px circle — 8px padding around a 24px `ArrowLeft` Linear icon, radius full, `--input-background` fill (`rgba(15,16,20,0.5)` on Lesson feed, a fixed legibility fill over video — not the `--scrim` overlay token, which is mode-aware; see `layout.md` §7).
-- **Header chips** (Home/Progress): selected = `--secondary-500` fill, Poppins Bold 14, `--neutral-800` text (always-dark text on amber, both modes); unselected = transparent, 1px `--border`, Regular 14 `--text-secondary`. Both: 12px/8px padding, **radius 24px**, 8px gap (16px between chip group items on Progress).
+- **Header chips** (Home/Progress): the DS Chip (`chips-switcher-tabs.md`). Selected = `--secondary-500` fill, Poppins Bold 14, `--neutral-800` text (always-dark text on amber, both modes); unselected = transparent, 1px `--border-elevated`, Regular 14 `--text-secondary`. Both: 6px/12px padding (33px tall), **radius 24px**; 8px apart on Home, 16px on Progress.
 - Title is Bold 16 when alone, Bold 14 when paired with a leading icon (Skill).
 
 ---

@@ -135,6 +135,14 @@ import { PageHeaderPreview } from './page-header/PageHeaderPreview'
 import { PageHeaderCode } from './page-header/PageHeaderCode'
 import { PageHeaderGuidelines } from './page-header/PageHeaderGuidelines'
 import { PageHeaderCompare } from './page-header/PageHeaderCompare'
+import { TabNavigationPreview } from './tab-navigation/TabNavigationPreview'
+import { TabNavigationCode } from './tab-navigation/TabNavigationCode'
+import { TabNavigationGuidelines } from './tab-navigation/TabNavigationGuidelines'
+import { TabNavigationCompare } from './tab-navigation/TabNavigationCompare'
+import { AppTopNavigationPreview } from './app-top-navigation/AppTopNavigationPreview'
+import { AppTopNavigationCode } from './app-top-navigation/AppTopNavigationCode'
+import { AppTopNavigationGuidelines } from './app-top-navigation/AppTopNavigationGuidelines'
+import { AppTopNavigationCompare } from './app-top-navigation/AppTopNavigationCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -527,6 +535,28 @@ export const components: ComponentDoc[] = [
     Code: PageHeaderCode,
     Guidelines: PageHeaderGuidelines,
     Compare: PageHeaderCompare,
+  },
+  {
+    slug: 'tab-navigation',
+    name: 'Tab navigation',
+    summary: 'The bar at the bottom of the learner app: five tabs for its main pages.',
+    figma: { light: `${LIBRARY}9897-18192`, dark: `${LIBRARY}1324-35285` },
+    spec: 'playground/docs/design-system/navigation.md',
+    Preview: TabNavigationPreview,
+    Code: TabNavigationCode,
+    Guidelines: TabNavigationGuidelines,
+    Compare: TabNavigationCompare,
+  },
+  {
+    slug: 'app-top-navigation',
+    name: 'App top navigation',
+    summary: 'The top bar of the learner app, with a layout for each page.',
+    figma: { light: `${LIBRARY}11235-11758`, dark: `${LIBRARY}1910-18375` },
+    spec: 'playground/docs/design-system/navigation.md',
+    Preview: AppTopNavigationPreview,
+    Code: AppTopNavigationCode,
+    Guidelines: AppTopNavigationGuidelines,
+    Compare: AppTopNavigationCompare,
   },
 ]
 
