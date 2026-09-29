@@ -22,6 +22,7 @@ import {
   MuiTextField,
 } from '../Field/field.overrides'
 import { MuiInputBase } from '../InputField/inputTypes.overrides'
+import { MuiListItemButton } from '../Navigation/navigation.overrides'
 import { MuiSlider } from '../Slider/slider.overrides'
 import {
   MuiDateCalendar,
@@ -105,6 +106,7 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiStepLabel,
       MuiStepConnector,
       MuiSlider,
+      MuiListItemButton,
       MuiDesktopDatePicker,
       MuiDateCalendar,
       MuiPickersPopper,

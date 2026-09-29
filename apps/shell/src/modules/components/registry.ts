@@ -123,6 +123,18 @@ import { CalendarPreview } from './calendar/CalendarPreview'
 import { CalendarCode } from './calendar/CalendarCode'
 import { CalendarGuidelines } from './calendar/CalendarGuidelines'
 import { CalendarCompare } from './calendar/CalendarCompare'
+import { SideNavigationPreview } from './side-navigation/SideNavigationPreview'
+import { SideNavigationCode } from './side-navigation/SideNavigationCode'
+import { SideNavigationGuidelines } from './side-navigation/SideNavigationGuidelines'
+import { SideNavigationCompare } from './side-navigation/SideNavigationCompare'
+import { TopNavigationPreview } from './top-navigation/TopNavigationPreview'
+import { TopNavigationCode } from './top-navigation/TopNavigationCode'
+import { TopNavigationGuidelines } from './top-navigation/TopNavigationGuidelines'
+import { TopNavigationCompare } from './top-navigation/TopNavigationCompare'
+import { PageHeaderPreview } from './page-header/PageHeaderPreview'
+import { PageHeaderCode } from './page-header/PageHeaderCode'
+import { PageHeaderGuidelines } from './page-header/PageHeaderGuidelines'
+import { PageHeaderCompare } from './page-header/PageHeaderCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -482,6 +494,39 @@ export const components: ComponentDoc[] = [
     Code: CalendarCode,
     Guidelines: CalendarGuidelines,
     Compare: CalendarCompare,
+  },
+  {
+    slug: 'side-navigation',
+    name: 'Side navigation',
+    summary: 'The main navigation of the web app and Admin, expanded or collapsed to icons.',
+    figma: { light: `${LIBRARY}12048-2302`, dark: `${LIBRARY}4697-13314` },
+    spec: 'playground/docs/design-system/navigation.md',
+    Preview: SideNavigationPreview,
+    Code: SideNavigationCode,
+    Guidelines: SideNavigationGuidelines,
+    Compare: SideNavigationCompare,
+  },
+  {
+    slug: 'top-navigation',
+    name: 'Top navigation',
+    summary: 'The bar across the top of every page: the logo and a few global actions.',
+    figma: { light: `${LIBRARY}11982-3602`, dark: `${LIBRARY}5385-20137` },
+    spec: 'playground/docs/design-system/navigation.md',
+    Preview: TopNavigationPreview,
+    Code: TopNavigationCode,
+    Guidelines: TopNavigationGuidelines,
+    Compare: TopNavigationCompare,
+  },
+  {
+    slug: 'page-header',
+    name: 'Page header',
+    summary: 'Names a page or section and holds its main actions and tabs.',
+    figma: { light: `${LIBRARY}11921-13215`, dark: `${LIBRARY}7902-1019` },
+    spec: 'playground/docs/design-system/headers.md',
+    Preview: PageHeaderPreview,
+    Code: PageHeaderCode,
+    Guidelines: PageHeaderGuidelines,
+    Compare: PageHeaderCompare,
   },
 ]
 

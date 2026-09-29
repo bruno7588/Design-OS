@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 41,
-    "both": 41,
-    "figmaOnly": 36,
+    "inCode": 46,
+    "both": 46,
+    "figmaOnly": 31,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -1840,11 +1840,15 @@
         "Header:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "PageHeader",
+        "mui": "Box + Typography + Divider",
+        "path": "packages/components/src/Navigation"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Input field",
@@ -2302,11 +2306,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "TopNav",
+        "mui": "Box (header) + Button + IconButton",
+        "path": "packages/components/src/Navigation"
+      },
       "prototype": "TopNav",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Side navigation",
@@ -2332,11 +2340,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "SideNav",
+        "mui": "List + ListItemButton",
+        "path": "packages/components/src/Navigation"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Menu/Itens/WebApp",
@@ -2366,11 +2378,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "SideNav",
+        "mui": "ListItemButton (className ds-nav-web)",
+        "path": "packages/components/src/Navigation"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Menu/Itens/Admin",
@@ -2408,11 +2424,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "SideNav",
+        "mui": "ListItemButton (className ds-nav-admin, ds-nav-sub)",
+        "path": "packages/components/src/Navigation"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Breadcrumb",
