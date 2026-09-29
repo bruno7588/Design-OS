@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 48,
-    "both": 48,
-    "figmaOnly": 29,
+    "inCode": 52,
+    "both": 52,
+    "figmaOnly": 25,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -432,11 +432,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "LessonCard",
+        "mui": "Box (article) + Tag + Badge + Button + LinearProgress",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/Assessments",
@@ -471,11 +475,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "AssessmentCard",
+        "mui": "Box (article) + Badge + Button + IconButton",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Card/Resources",
@@ -501,11 +509,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ResourceCard",
+        "mui": "Box (article) + IconButton + Tooltip",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Type thumbnail",
@@ -532,11 +544,19 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "TypeThumbnail",
+        "mui": "Box (img)",
+        "path": "packages/components/src/Card"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {
+        "Type": [
+          "External Link"
+        ]
+      },
+      "missingInFigma": {}
     },
     {
       "name": "Card/Courses",

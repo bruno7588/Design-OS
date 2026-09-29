@@ -5,7 +5,7 @@ import { test } from '@playwright/test'
 
 test.use({ viewport: { width: 1600, height: 1000 } })
 
-for (const slug of ['button', 'chip', 'tabs', 'dialog', 'badge', 'tooltip', 'toast', 'input', 'input-integer', 'input-radio', 'input-inline', 'search', 'dropdown', 'checkbox', 'radio', 'toggle', 'alert', 'modal', 'side-drawer', 'avatar', 'avatar-group', 'breadcrumb', 'content-switcher', 'table', 'progress-bar', 'empty-state', 'file-uploader', 'stepper', 'tag', 'slider', 'calendar', 'side-navigation', 'top-navigation', 'page-header', 'tab-navigation', 'app-top-navigation']) {
+for (const slug of ['button', 'chip', 'tabs', 'dialog', 'badge', 'tooltip', 'toast', 'input', 'input-integer', 'input-radio', 'input-inline', 'search', 'dropdown', 'checkbox', 'radio', 'toggle', 'alert', 'modal', 'side-drawer', 'avatar', 'avatar-group', 'breadcrumb', 'content-switcher', 'table', 'progress-bar', 'empty-state', 'file-uploader', 'stepper', 'tag', 'slider', 'calendar', 'side-navigation', 'top-navigation', 'page-header', 'tab-navigation', 'app-top-navigation', 'lesson-card', 'assessment-card', 'resource-card']) {
   test(`review ${slug}`, async ({ page }) => {
     await page.goto(`/components/${slug}`)
     await page.evaluate(() => document.fonts.ready)

@@ -143,6 +143,18 @@ import { AppTopNavigationPreview } from './app-top-navigation/AppTopNavigationPr
 import { AppTopNavigationCode } from './app-top-navigation/AppTopNavigationCode'
 import { AppTopNavigationGuidelines } from './app-top-navigation/AppTopNavigationGuidelines'
 import { AppTopNavigationCompare } from './app-top-navigation/AppTopNavigationCompare'
+import { LessonCardPreview } from './lesson-card/LessonCardPreview'
+import { LessonCardCode } from './lesson-card/LessonCardCode'
+import { LessonCardGuidelines } from './lesson-card/LessonCardGuidelines'
+import { LessonCardCompare } from './lesson-card/LessonCardCompare'
+import { AssessmentCardPreview } from './assessment-card/AssessmentCardPreview'
+import { AssessmentCardCode } from './assessment-card/AssessmentCardCode'
+import { AssessmentCardGuidelines } from './assessment-card/AssessmentCardGuidelines'
+import { AssessmentCardCompare } from './assessment-card/AssessmentCardCompare'
+import { ResourceCardPreview } from './resource-card/ResourceCardPreview'
+import { ResourceCardCode } from './resource-card/ResourceCardCode'
+import { ResourceCardGuidelines } from './resource-card/ResourceCardGuidelines'
+import { ResourceCardCompare } from './resource-card/ResourceCardCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -557,6 +569,39 @@ export const components: ComponentDoc[] = [
     Code: AppTopNavigationCode,
     Guidelines: AppTopNavigationGuidelines,
     Compare: AppTopNavigationCompare,
+  },
+  {
+    slug: 'lesson-card',
+    name: 'Lesson card',
+    summary: 'One video micro-lesson: thumbnail, title, instructor and progress.',
+    figma: { light: `${LIBRARY}11916-9353`, dark: `${LIBRARY}5144-14181` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: LessonCardPreview,
+    Code: LessonCardCode,
+    Guidelines: LessonCardGuidelines,
+    Compare: LessonCardCompare,
+  },
+  {
+    slug: 'assessment-card',
+    name: 'Assessment card',
+    summary: 'A quiz or assessment, with its illustration, type and completion.',
+    figma: { light: `${LIBRARY}12104-3647`, dark: `${LIBRARY}10242-2782` },
+    spec: 'playground/docs/design-system/cards.md',
+    Preview: AssessmentCardPreview,
+    Code: AssessmentCardCode,
+    Guidelines: AssessmentCardGuidelines,
+    Compare: AssessmentCardCompare,
+  },
+  {
+    slug: 'resource-card',
+    name: 'Resource card',
+    summary: 'A file or link attached to a course or lesson, with one action.',
+    figma: { light: `${LIBRARY}12228-2749`, dark: `${LIBRARY}12213-3040` },
+    spec: 'playground/docs/design-system/resource-card.md',
+    Preview: ResourceCardPreview,
+    Code: ResourceCardCode,
+    Guidelines: ResourceCardGuidelines,
+    Compare: ResourceCardCompare,
   },
 ]
 
