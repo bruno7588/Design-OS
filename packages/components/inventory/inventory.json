@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 33,
-    "both": 33,
-    "figmaOnly": 44,
+    "inCode": 37,
+    "both": 37,
+    "figmaOnly": 40,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -1390,11 +1390,15 @@
         "Info2:SLOT"
       ],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "FileUploader",
+        "mui": "Box + Button (MUI has no drop zone)",
+        "path": "packages/components/src/FileUploader"
+      },
       "prototype": "FileUploader",
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Learning path",
@@ -2510,11 +2514,15 @@
       "variants": {},
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Stepper",
+        "mui": "Stepper",
+        "path": "packages/components/src/Stepper"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Step/Instances",
@@ -2537,11 +2545,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Stepper",
+        "mui": "Step + StepLabel",
+        "path": "packages/components/src/Stepper"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Step/line",
@@ -2563,11 +2575,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "Stepper",
+        "mui": "StepConnector",
+        "path": "packages/components/src/Stepper"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "<Slider>",

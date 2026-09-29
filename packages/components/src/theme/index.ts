@@ -22,6 +22,7 @@ import {
   MuiTextField,
 } from '../Field/field.overrides'
 import { MuiInputBase } from '../InputField/inputTypes.overrides'
+import { MuiStep, MuiStepConnector, MuiStepLabel, MuiStepper } from '../Stepper/stepper.overrides'
 import { MuiDrawer } from '../Overlay/overlay.overrides'
 import { MuiAvatar, MuiAvatarGroup } from '../Avatar/avatar.overrides'
 import { MuiBreadcrumbs } from '../Breadcrumb/breadcrumb.overrides'
@@ -88,6 +89,10 @@ export function createFiveMinsTheme(mode: Mode = 'light'): Theme {
       MuiTableSortLabel,
       MuiTablePagination,
       MuiLinearProgress,
+      MuiStepper,
+      MuiStep,
+      MuiStepLabel,
+      MuiStepConnector,
       MuiCssBaseline: { styleOverrides: { body: { color: s.textPrimary } } },
     },
   })

@@ -103,6 +103,14 @@ import { EmptyStatePreview } from './empty-state/EmptyStatePreview'
 import { EmptyStateCode } from './empty-state/EmptyStateCode'
 import { EmptyStateGuidelines } from './empty-state/EmptyStateGuidelines'
 import { EmptyStateCompare } from './empty-state/EmptyStateCompare'
+import { FileUploaderPreview } from './file-uploader/FileUploaderPreview'
+import { FileUploaderCode } from './file-uploader/FileUploaderCode'
+import { FileUploaderGuidelines } from './file-uploader/FileUploaderGuidelines'
+import { FileUploaderCompare } from './file-uploader/FileUploaderCompare'
+import { StepperPreview } from './stepper/StepperPreview'
+import { StepperCode } from './stepper/StepperCode'
+import { StepperGuidelines } from './stepper/StepperGuidelines'
+import { StepperCompare } from './stepper/StepperCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -407,6 +415,28 @@ export const components: ComponentDoc[] = [
     Code: EmptyStateCode,
     Guidelines: EmptyStateGuidelines,
     Compare: EmptyStateCompare,
+  },
+  {
+    slug: 'file-uploader',
+    name: 'File uploader',
+    summary: 'Adds one file by dropping it or picking it, with progress, errors and the file once it’s in.',
+    figma: { light: `${LIBRARY}12113-20254`, dark: `${LIBRARY}11546-1560` },
+    spec: 'playground/docs/design-system/file-uploader.md',
+    Preview: FileUploaderPreview,
+    Code: FileUploaderCode,
+    Guidelines: FileUploaderGuidelines,
+    Compare: FileUploaderCompare,
+  },
+  {
+    slug: 'stepper',
+    name: 'Stepper',
+    summary: 'Shows where people are in a task with a few steps in order.',
+    figma: { light: `${LIBRARY}11249-244`, dark: `${LIBRARY}8108-5464` },
+    spec: 'Figma Library, Stepper page',
+    Preview: StepperPreview,
+    Code: StepperCode,
+    Guidelines: StepperGuidelines,
+    Compare: StepperCompare,
   },
 ]
 
