@@ -11,7 +11,7 @@ const compare: Compare = {
   differences: [
     { property: "Artwork", figma: "33 illustrations, 72px tall", reference: "The same 33 SVGs (from the prototype; empty box, search, resources and no activity exported from Figma in batch 9)", status: "Matches" },
     { property: "Prototype files", figma: "Share is 120 wide, so every variant after it sits 48px further along the set", reference: "The prototype cropped 28 files 48px short and Share to 72 wide, cutting the art. Fixed here and in the prototype (viewBoxes from the Figma positions; Share re-exported)", status: "Matches" },
-    { property: "Unnamed variant", figma: "A 34th variant called “null”", reference: "Left out", status: "Design to update", note: "Name it or delete it." },
+    { property: "Unnamed variant", figma: "The “null” placeholder variant was deleted on 2026-09-30; the 8 Empty state variants that used it now default to Empty box", reference: "Empty box is the default", status: "Matches" },
     { property: "Light version", figma: "One copy, used as an instance on the light board", reference: "One set of files: the Neutral colours don't change with the mode", status: "Matches" },
   ],
   engineering: {

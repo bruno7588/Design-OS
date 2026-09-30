@@ -1416,7 +1416,6 @@
           "Search",
           "Share",
           "UFO",
-          "null",
           "No results",
           "Buble",
           "Cloud",
@@ -1444,11 +1443,7 @@
         "path": "packages/components/src/Illustrations"
       },
       "prototype": null,
-      "missingInCode": {
-        "Illustration": [
-          "null"
-        ]
-      },
+      "missingInCode": {},
       "missingInFigma": {}
     },
     {
@@ -1819,7 +1814,7 @@
           "Exercise",
           "Fill in the blank",
           "Sequence",
-          "Categorize",
+          "Categorise",
           "Match the pairs",
           "Lesson quiz"
         ],

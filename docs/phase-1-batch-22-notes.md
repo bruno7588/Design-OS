@@ -34,6 +34,10 @@ Checked 2026-09-30.
 ## Changed in Figma
 - **Assessments light set:** it was missing "Lesson quiz, Desktop". I added a copy of the dark variant (`12393:2`) and laid the light set out to mirror the dark one, 2784 wide.
 
+## Follow-up (Bruno, 2026-09-30)
+- **"null" variant deleted:** it was the default illustration in all 8 Empty state variants (light and dark). Those were swapped to Empty box first, which is also the default in code, then the variant was deleted. The set is now 33 variants, 3144 wide.
+- **Categorise:** Assessments Type=Categorize is renamed Categorise in both sets. Instances keep their link.
+
 ## Fixed in the prototype
 - **Empty state illustrations:** Share is 120 wide, so every variant after it sits 48px further along the set. The prototype's files assumed 72:
   - 28 files had viewBoxes 48px short, which cut the art. They now use the Figma positions.
@@ -41,7 +45,5 @@ Checked 2026-09-30.
   - The same fixes are in `packages/components`.
 
 ## Mismatches recorded (Design to update)
-- **Unnamed variant:** the Empty state set has a 34th variant called "null". Name it or delete it.
-- **Spelling:** Assessments "Categorize" is "Categorise" in UI copy (British English).
 - **Raw colours:** Functions uses raw colours with no variables. They don't change by mode, so nothing breaks.
 - **Page:** the Empty state illustrations live on the Empty state page, the others on Gamification.

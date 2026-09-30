@@ -65,7 +65,7 @@ Source: Figma `Illustrations/ Assessments`, frame `9120:8850` (classic six downl
 | `poll` | Poll | `9120:9290` / `10978:12427` | amber lightning bolt |
 | `fill-blank` | Fill in the blank | `12086:6607` / `12086:7219` | red lines with blue gaps |
 | `sequence` | Sequence | `12087:8357` / `12090:7286` | stacked purple bars |
-| `categorize` | Categorize | `12090:6607` / `12090:7313` | blue shapes in two groups |
+| `categorize` | Categorise | `12090:6607` / `12090:7313` | blue shapes in two groups |
 | `match-pairs` | Match the pairs | `12092:8499` / `12092:8573` | green and red arrows |
 
 Mobile and Desktop are **different artwork**, not scaled copies — pick by device, never resize one into the other. The one sanctioned exception is the 48px admin outline row, which draws the desktop variant down.

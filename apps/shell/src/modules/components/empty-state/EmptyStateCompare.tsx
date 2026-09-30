@@ -13,7 +13,7 @@ const compare: Compare = {
     { property: 'Mobile', figma: '375px; padding 16, gap 16; title Bold 16', reference: 'Same; fills its parent', status: 'Matches' },
     { property: 'Info', figma: 'Title and description 8px apart, centred', reference: 'Same', status: 'Matches' },
     { property: 'Buttons', figma: 'Outlined and Filled Medium, 16px apart', reference: 'Same', status: 'Matches' },
-    { property: 'Illustration', figma: 'The null placeholder (a #5E6780 square) in the set', reference: 'A real illustration from the set; four exported', status: 'Matches', note: 'The other 30 illustrations can be exported when a page needs them.' },
+    { property: 'Illustration', figma: 'Empty box by default (the null placeholder was deleted on 2026-09-30)', reference: 'Empty box by default; any of the 33 illustrations', status: 'Matches' },
     { property: 'Dropzone surface', figma: 'Surface=Dropzone (added 2026-09-29): Input-background, dashed Border-elevated 8/8 inside, radius 20, desktop padding 32', reference: 'Same (surface="dropzone"; the outline is an SVG so the dashes can be set)', status: 'Matches', note: 'From the prototype’s course builder. It fills the width of its area in code; Figma hugs.' },
   ],
   engineering: {

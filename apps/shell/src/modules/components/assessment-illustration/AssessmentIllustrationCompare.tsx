@@ -12,7 +12,7 @@ const compare: Compare = {
     { property: "Artwork", figma: "Eleven types, Mobile 56 and Desktop 80", reference: "The same 22 SVGs (from the prototype), used by the Assessment card since batch 15", status: "Matches" },
     { property: "Light set", figma: "Lesson quiz, Desktop was missing from the light set", reference: "Added on 2026-09-30 (a copy of the dark variant); the light set now mirrors the dark one", status: "Matches" },
     { property: "Colours", figma: "Bound to the assessment type colours (Blaze quiz, Flash Poll…)", reference: "The same values, baked into the files", status: "Matches" },
-    { property: "Spelling", figma: "“Categorize”", reference: "“Categorise” in the UI copy (British English)", status: "Design to update" },
+    { property: "Spelling", figma: "“Categorise” (renamed from Categorize on 2026-09-30, both sets)", reference: "“Categorise”", status: "Matches" },
   ],
   engineering: {
     mui: 'img',

@@ -45,7 +45,7 @@ export const assessmentIllustrationFigma: FigmaMapping = {
   set: 'Illustrations/ Assessments',
   nodes: { light: '12154:10371', dark: '9120:8850' },
   variants: {
-    Type: ['Lesson quiz', 'Multiple choice', 'Short text', 'Exercise', 'Situational test', 'Fast Track', 'Poll', 'Fill in the blank', 'Sequence', 'Categorize', 'Match the pairs'],
+    Type: ['Lesson quiz', 'Multiple choice', 'Short text', 'Exercise', 'Situational test', 'Fast Track', 'Poll', 'Fill in the blank', 'Sequence', 'Categorise', 'Match the pairs'],
     Device: ['Mobile', 'Desktop'],
   },
 }
