@@ -44,3 +44,12 @@ test('a radio group named by the question; checking reveals the answer', async (
   await expect(preview.getByText(', the correct answer')).toBeAttached()
   await expect(preview.getByRole('status')).toContainText('Not quite!')
 })
+
+test('plain rows keep their hover after checking', async ({ page }) => {
+  const preview = page.getByTestId('quiz-options-preview')
+  await preview.getByRole('radio', { name: /Always/ }).check()
+  await preview.getByRole('button', { name: 'Check Answer' }).click()
+  const other = preview.locator('.ds-quiz-option').nth(2) // "Never": not picked, not the answer
+  await other.hover()
+  await expect(other).toHaveCSS('background-color', 'rgb(239, 240, 242)')
+})

@@ -35,7 +35,10 @@ Checked 2026-09-30.
 - **Tests:** `e2e/{quiz-options,ranking-badge}.spec.ts` (7 checks).
 - **Inventory:** 67 components in code, 10 Figma-only.
 
+## Follow-up (Bruno, 2026-09-30)
+- **Quiz hover after checking:** plain rows (the ones you didn't pick) keep their hover after checking, as in Figma.
+- **Quiz radio:** in Figma, the four disabled variants' old radio glyph is swapped for the radio-button set (Disabled=true, 20px).
+- **Ranking property:** in Figma, "Property 1" is renamed Rank in both sets, and the code mapping follows.
+
 ## Mismatches recorded
-- **Quiz, rows after checking (Code to update):** Figma draws hover on the rows you didn't pick once answers are shown. In code, the rows are read-only once revealed.
-- **Quiz, disabled (Design to update):** the disabled rows use an older radio glyph with a raw `#18A957` layer.
-- **Ranking (Design to update):** the numbers are raw `#FFFFFF`, and the variant property is called "Property 1".
+- **Ranking (Design to update):** the numbers are raw `#FFFFFF`.

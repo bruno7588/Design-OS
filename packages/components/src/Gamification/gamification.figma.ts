@@ -22,5 +22,5 @@ export const rankingBadgeFigma: FigmaMapping = {
   page: 'Gamification',
   set: 'Ranking, leaderboard',
   nodes: { light: '8442:6198', dark: '2613:26421' },
-  variants: { 'Property 1': ['1', '2', '3', '4'] },
+  variants: { Rank: ['1', '2', '3', '4'] },
 }

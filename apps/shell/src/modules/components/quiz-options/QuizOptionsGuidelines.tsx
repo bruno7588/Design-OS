@@ -26,7 +26,7 @@ const g: Guidelines = {
     { name: 'Explanation', description: '"Well done!" or "Not quite!" (Bold 16, Success-500 or Text-error, with an emoji) and the reason in Text-secondary.', example: <W><QuizExplanation result="correct">{EXPLANATION}</QuizExplanation></W> },
   ],
   states: [
-    { name: 'Hover', description: 'Cards-background-hover with an Input-background edge, while answering.' },
+    { name: 'Hover', description: 'Cards-background-hover with an Input-background edge, on plain rows, before and after checking.' },
     { name: 'Disabled', description: 'Text-disabled, no hover.' },
   ],
   dos: [

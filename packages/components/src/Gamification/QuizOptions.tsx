@@ -14,7 +14,7 @@ import smile from './art/emoji-smile.svg'
 //   State=Read only, Validation=Success → answer + revealed: the picked right answer turns Success-500 with a tick
 //   State=Read only, Validation=Error   → the picked wrong answer turns Danger-500 with a cross
 //   Selected=false, Validation=…        → the others show a tick (the right answer) or a cross, in Text-primary
-//   State=Hover (Desktop)               → :hover, Cards-background-hover (while answering)
+//   State=Hover (Desktop)               → :hover, Cards-background-hover (plain rows, before and after checking)
 //   Disabled=true                       → disabled: Text-disabled
 //   Device=Mobile / Desktop             → the same row; the text wraps on narrow screens
 //   Explanation=true                   → <QuizExplanation> under the options
@@ -85,7 +85,8 @@ export function QuizOptions({ label, options, value, onChange, answer, revealed 
                 lineHeight: 1.5,
                 cursor: locked ? 'default' : 'pointer',
                 transition: 'background-color 150ms, box-shadow 150ms',
-                ...(!locked && tone === 'plain' && { '&:hover, &.ds-hover': { backgroundColor: s.cardsBackgroundHover, boxShadow: `inset 0 -3px 0 ${s.inputBackground}` } }),
+                // Plain rows hover while answering and after checking (Figma Validation rows, State=Hover).
+                ...(!disabled && tone === 'plain' && { '&:hover, &.ds-hover': { backgroundColor: s.cardsBackgroundHover, boxShadow: `inset 0 -3px 0 ${s.inputBackground}` } }),
                 '&:has(.Mui-focusVisible)': { outline: `2px solid ${s.primaryButtonBackground}`, outlineOffset: 2 },
                 '& .ds-quiz-mark': { display: 'flex', flexShrink: 0, color: disabled ? s.textDisabled : 'inherit' },
                 // Figma: the quiz radio is 20px; on the selected row it's Neutral-800.
