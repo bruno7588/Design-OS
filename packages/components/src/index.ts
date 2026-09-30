@@ -114,3 +114,6 @@ export {
   externalTrainingCardFigma,
   marketplaceCardFigma,
 } from './Card/card.figma'
+export { QuizOptions, QuizExplanation, type QuizOption, type QuizOptionsProps, type QuizExplanationProps } from './Gamification/QuizOptions'
+export { RankingBadge, type RankingBadgeProps } from './Gamification/RankingBadge'
+export { quizOptionsFigma, rankingBadgeFigma } from './Gamification/gamification.figma'

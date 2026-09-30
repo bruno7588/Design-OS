@@ -195,6 +195,14 @@ import { BottomSheetPreviewTab } from './bottom-sheet/BottomSheetPreview'
 import { BottomSheetCode } from './bottom-sheet/BottomSheetCode'
 import { BottomSheetGuidelines } from './bottom-sheet/BottomSheetGuidelines'
 import { BottomSheetCompare } from './bottom-sheet/BottomSheetCompare'
+import { QuizOptionsPreview } from './quiz-options/QuizOptionsPreview'
+import { QuizOptionsCode } from './quiz-options/QuizOptionsCode'
+import { QuizOptionsGuidelines } from './quiz-options/QuizOptionsGuidelines'
+import { QuizOptionsCompare } from './quiz-options/QuizOptionsCompare'
+import { RankingBadgePreview } from './ranking-badge/RankingBadgePreview'
+import { RankingBadgeCode } from './ranking-badge/RankingBadgeCode'
+import { RankingBadgeGuidelines } from './ranking-badge/RankingBadgeGuidelines'
+import { RankingBadgeCompare } from './ranking-badge/RankingBadgeCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -752,6 +760,28 @@ export const components: ComponentDoc[] = [
     Code: BottomSheetCode,
     Guidelines: BottomSheetGuidelines,
     Compare: BottomSheetCompare,
+  },
+  {
+    slug: 'quiz-options',
+    name: 'Quiz options',
+    summary: 'The answers to a quiz question, then which one was right.',
+    figma: { light: `${LIBRARY}12112-10047`, dark: `${LIBRARY}5504-24966` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: QuizOptionsPreview,
+    Code: QuizOptionsCode,
+    Guidelines: QuizOptionsGuidelines,
+    Compare: QuizOptionsCompare,
+  },
+  {
+    slug: 'ranking-badge',
+    name: 'Ranking badge',
+    summary: 'A place on a leaderboard: medals for the top three.',
+    figma: { light: `${LIBRARY}8442-6198`, dark: `${LIBRARY}2613-26421` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: RankingBadgePreview,
+    Code: RankingBadgeCode,
+    Guidelines: RankingBadgeGuidelines,
+    Compare: RankingBadgeCompare,
   },
 ]
 
