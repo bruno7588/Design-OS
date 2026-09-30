@@ -2,10 +2,39 @@ import { forwardRef, type ReactNode } from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { Button } from '../Button/Button'
-import emptyBox from './illustrations/empty-box.svg'
-import noActivity from './illustrations/no-activity.svg'
-import resources from './illustrations/resources.svg'
-import search from './illustrations/search.svg'
+import es_add from './illustrations/add.svg'
+import es_addUsers from './illustrations/add-users.svg'
+import es_buble from './illustrations/buble.svg'
+import es_calendar from './illustrations/calendar.svg'
+import es_category from './illustrations/category.svg'
+import es_certificates from './illustrations/certificates.svg'
+import es_cloud from './illustrations/cloud.svg'
+import es_computerScreen from './illustrations/computer-screen.svg'
+import es_connectBrain from './illustrations/connect-brain.svg'
+import es_customFields from './illustrations/custom-fields.svg'
+import es_deactivated from './illustrations/deactivated.svg'
+import es_emptyBox from './illustrations/empty-box.svg'
+import es_flashcards from './illustrations/flashcards.svg'
+import es_hrisMapping from './illustrations/hris-mapping.svg'
+import es_message from './illustrations/message.svg'
+import es_noActivity from './illustrations/no-activity.svg'
+import es_noAutomations from './illustrations/no-automations.svg'
+import es_noBookmarks from './illustrations/no-bookmarks.svg'
+import es_noInternet from './illustrations/no-internet.svg'
+import es_noLikes from './illustrations/no-likes.svg'
+import es_noPlaylists from './illustrations/no-playlists.svg'
+import es_noResults from './illustrations/no-results.svg'
+import es_notFollowing from './illustrations/not-following.svg'
+import es_party from './illustrations/party.svg'
+import es_pieChart from './illustrations/pie-chart.svg'
+import es_programs from './illustrations/programs.svg'
+import es_quiz from './illustrations/quiz.svg'
+import es_resources from './illustrations/resources.svg'
+import es_rocket from './illustrations/rocket.svg'
+import es_search from './illustrations/search.svg'
+import es_share from './illustrations/share.svg'
+import es_skillLevel from './illustrations/skill-level.svg'
+import es_ufo from './illustrations/ufo.svg'
 
 // 5Mins Empty state (Figma: dark 5452:37234, light 11921:5779). Implements
 // playground/docs/design-system/empty-state.md. MUI has no empty state, so this is a small
@@ -24,8 +53,47 @@ import search from './illustrations/search.svg'
 //   CTA (Outlined, Filled)       → secondaryAction, primaryAction
 
 /** Illustrations exported from the Figma set (9120:8372). Neutral palette: the same in both modes. */
-export const ILLUSTRATIONS = { 'empty-box': emptyBox, search, resources, 'no-activity': noActivity } as const
+export const ILLUSTRATIONS = {
+  'add': es_add,
+  'add-users': es_addUsers,
+  'buble': es_buble,
+  'calendar': es_calendar,
+  'category': es_category,
+  'certificates': es_certificates,
+  'cloud': es_cloud,
+  'computer-screen': es_computerScreen,
+  'connect-brain': es_connectBrain,
+  'custom-fields': es_customFields,
+  'deactivated': es_deactivated,
+  'empty-box': es_emptyBox,
+  'flashcards': es_flashcards,
+  'hris-mapping': es_hrisMapping,
+  'message': es_message,
+  'no-activity': es_noActivity,
+  'no-automations': es_noAutomations,
+  'no-bookmarks': es_noBookmarks,
+  'no-internet': es_noInternet,
+  'no-likes': es_noLikes,
+  'no-playlists': es_noPlaylists,
+  'no-results': es_noResults,
+  'not-following': es_notFollowing,
+  'party': es_party,
+  'pie-chart': es_pieChart,
+  'programs': es_programs,
+  'quiz': es_quiz,
+  'resources': es_resources,
+  'rocket': es_rocket,
+  'search': es_search,
+  'share': es_share,
+  'skill-level': es_skillLevel,
+  'ufo': es_ufo,
+} as const
 export type IllustrationName = keyof typeof ILLUSTRATIONS
+
+/** One illustration from the Figma "Illustrations Empty state" set: 72px tall (Share is 120 wide). Decorative by default. */
+export function EmptyStateIllustration({ name, label }: { name: IllustrationName; label?: string }) {
+  return <Box component="img" className="ds-empty-state-illustration" src={ILLUSTRATIONS[name]} alt={label ?? ''} sx={{ width: 'auto', height: 72, display: 'block' }} />
+}
 
 export interface EmptyStateAction {
   label: string
@@ -53,7 +121,7 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(function E
   const dropzone = surface === 'dropzone'
   const art =
     typeof illustration === 'string' && illustration in ILLUSTRATIONS ? (
-      <Box component="img" src={ILLUSTRATIONS[illustration as IllustrationName]} alt="" sx={{ width: 72, height: 72, display: 'block' }} />
+      <EmptyStateIllustration name={illustration as IllustrationName} />
     ) : (
       illustration
     )
@@ -101,7 +169,7 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(function E
           />
         </Box>
       )}
-      <Box sx={{ width: 72, height: 72, flexShrink: 0, display: 'grid', placeItems: 'center' }}>{art}</Box>
+      <Box sx={{ minWidth: 72, height: 72, flexShrink: 0, display: 'grid', placeItems: 'center' }}>{art}</Box>
       <Box sx={(theme) => ({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: `${theme.tokens.space.s}px` })}>
         <Typography component={titleComponent} sx={(theme) => ({ m: 0, fontSize: mobile ? 16 : 20, fontWeight: 700, lineHeight: 1.5, color: theme.tokens.semantic.textPrimary })}>
           {title}

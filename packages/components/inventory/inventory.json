@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 70,
-    "both": 70,
-    "figmaOnly": 7,
+    "inCode": 76,
+    "both": 76,
+    "figmaOnly": 1,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -1437,11 +1437,19 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "EmptyStateIllustration",
+        "mui": "img",
+        "path": "packages/components/src/Illustrations"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {
+        "Illustration": [
+          "null"
+        ]
+      },
+      "missingInFigma": {}
     },
     {
       "name": "File uploader",
@@ -1712,11 +1720,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "CertificateIllustration",
+        "mui": "img",
+        "path": "packages/components/src/Illustrations"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Illustrations/Gamification",
@@ -1740,11 +1752,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "GamificationIllustration",
+        "mui": "img",
+        "path": "packages/components/src/Illustrations"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Illustrations/ Progress",
@@ -1771,11 +1787,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "ProgressIllustration",
+        "mui": "img",
+        "path": "packages/components/src/Illustrations"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Illustrations/ Assessments",
@@ -1810,11 +1830,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "AssessmentIllustration",
+        "mui": "img",
+        "path": "packages/components/src/Illustrations"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Illustrations/ Learning path",
@@ -1897,11 +1921,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "FunctionIllustration",
+        "mui": "img",
+        "path": "packages/components/src/Illustrations"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Header",

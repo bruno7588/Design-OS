@@ -215,6 +215,30 @@ import { LevelIllustrationPreview } from './level-illustration/LevelIllustration
 import { LevelIllustrationCode } from './level-illustration/LevelIllustrationCode'
 import { LevelIllustrationGuidelines } from './level-illustration/LevelIllustrationGuidelines'
 import { LevelIllustrationCompare } from './level-illustration/LevelIllustrationCompare'
+import { CertificateIllustrationPreview } from './certificate-illustration/CertificateIllustrationPreview'
+import { CertificateIllustrationCode } from './certificate-illustration/CertificateIllustrationCode'
+import { CertificateIllustrationGuidelines } from './certificate-illustration/CertificateIllustrationGuidelines'
+import { CertificateIllustrationCompare } from './certificate-illustration/CertificateIllustrationCompare'
+import { GamificationIllustrationPreview } from './gamification-illustration/GamificationIllustrationPreview'
+import { GamificationIllustrationCode } from './gamification-illustration/GamificationIllustrationCode'
+import { GamificationIllustrationGuidelines } from './gamification-illustration/GamificationIllustrationGuidelines'
+import { GamificationIllustrationCompare } from './gamification-illustration/GamificationIllustrationCompare'
+import { ProgressIllustrationPreview } from './progress-illustration/ProgressIllustrationPreview'
+import { ProgressIllustrationCode } from './progress-illustration/ProgressIllustrationCode'
+import { ProgressIllustrationGuidelines } from './progress-illustration/ProgressIllustrationGuidelines'
+import { ProgressIllustrationCompare } from './progress-illustration/ProgressIllustrationCompare'
+import { AssessmentIllustrationPreview } from './assessment-illustration/AssessmentIllustrationPreview'
+import { AssessmentIllustrationCode } from './assessment-illustration/AssessmentIllustrationCode'
+import { AssessmentIllustrationGuidelines } from './assessment-illustration/AssessmentIllustrationGuidelines'
+import { AssessmentIllustrationCompare } from './assessment-illustration/AssessmentIllustrationCompare'
+import { EmptyStateIllustrationPreview } from './empty-state-illustration/EmptyStateIllustrationPreview'
+import { EmptyStateIllustrationCode } from './empty-state-illustration/EmptyStateIllustrationCode'
+import { EmptyStateIllustrationGuidelines } from './empty-state-illustration/EmptyStateIllustrationGuidelines'
+import { EmptyStateIllustrationCompare } from './empty-state-illustration/EmptyStateIllustrationCompare'
+import { FunctionIllustrationPreview } from './function-illustration/FunctionIllustrationPreview'
+import { FunctionIllustrationCode } from './function-illustration/FunctionIllustrationCode'
+import { FunctionIllustrationGuidelines } from './function-illustration/FunctionIllustrationGuidelines'
+import { FunctionIllustrationCompare } from './function-illustration/FunctionIllustrationCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -827,6 +851,72 @@ export const components: ComponentDoc[] = [
     Code: LevelIllustrationCode,
     Guidelines: LevelIllustrationGuidelines,
     Compare: LevelIllustrationCompare,
+  },
+  {
+    slug: 'certificate-illustration',
+    name: 'Certificate illustration',
+    summary: 'The certificate seal, drawn at four sizes.',
+    figma: { light: `${LIBRARY}11196-7670`, dark: `${LIBRARY}9120-9301` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: CertificateIllustrationPreview,
+    Code: CertificateIllustrationCode,
+    Guidelines: CertificateIllustrationGuidelines,
+    Compare: CertificateIllustrationCompare,
+  },
+  {
+    slug: 'gamification-illustration',
+    name: 'Gamification illustration',
+    summary: 'Four 96px illustrations for the gamification features.',
+    figma: { light: `${LIBRARY}11196-7707`, dark: `${LIBRARY}11196-7607` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: GamificationIllustrationPreview,
+    Code: GamificationIllustrationCode,
+    Guidelines: GamificationIllustrationGuidelines,
+    Compare: GamificationIllustrationCompare,
+  },
+  {
+    slug: 'progress-illustration',
+    name: 'Progress illustration',
+    summary: '40px icons for learner progress stats and quiz results.',
+    figma: { light: `${LIBRARY}11196-7723`, dark: `${LIBRARY}10157-9081` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: ProgressIllustrationPreview,
+    Code: ProgressIllustrationCode,
+    Guidelines: ProgressIllustrationGuidelines,
+    Compare: ProgressIllustrationCompare,
+  },
+  {
+    slug: 'assessment-illustration',
+    name: 'Assessment illustration',
+    summary: 'One illustration per assessment type, for mobile and desktop.',
+    figma: { light: `${LIBRARY}12154-10371`, dark: `${LIBRARY}9120-8850` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: AssessmentIllustrationPreview,
+    Code: AssessmentIllustrationCode,
+    Guidelines: AssessmentIllustrationGuidelines,
+    Compare: AssessmentIllustrationCompare,
+  },
+  {
+    slug: 'empty-state-illustration',
+    name: 'Empty state illustration',
+    summary: '33 grey illustrations for empty states.',
+    figma: { light: `${LIBRARY}9120-8372`, dark: `${LIBRARY}9120-8372` },
+    spec: 'playground/docs/design-system/empty-state.md',
+    Preview: EmptyStateIllustrationPreview,
+    Code: EmptyStateIllustrationCode,
+    Guidelines: EmptyStateIllustrationGuidelines,
+    Compare: EmptyStateIllustrationCompare,
+  },
+  {
+    slug: 'function-illustration',
+    name: 'Function illustration',
+    summary: '20 illustrations for team functions (Engineering, Sales…).',
+    figma: { light: `${LIBRARY}9120-9874`, dark: `${LIBRARY}9120-9874` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: FunctionIllustrationPreview,
+    Code: FunctionIllustrationCode,
+    Guidelines: FunctionIllustrationGuidelines,
+    Compare: FunctionIllustrationCompare,
   },
 ]
 

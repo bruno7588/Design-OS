@@ -72,7 +72,7 @@ export { CellContent, CellDate, TableThumbnail, type CellContentProps, type Thum
 export { tableFigma, tableRowFigma, tableHeaderFigma, tableDataFigma, thumbnailTypeFigma } from './Table/table.figma'
 export { ProgressBar, type ProgressBarProps } from './ProgressBar/ProgressBar'
 export { progressBarFigma } from './ProgressBar/progressBar.figma'
-export { EmptyState, ILLUSTRATIONS, type EmptyStateProps, type EmptyStateAction, type IllustrationName } from './EmptyState/EmptyState'
+export { EmptyState, EmptyStateIllustration, ILLUSTRATIONS, type EmptyStateProps, type EmptyStateAction, type IllustrationName } from './EmptyState/EmptyState'
 export { emptyStateFigma } from './EmptyState/emptyState.figma'
 export { Stepper, type StepperProps } from './Stepper/Stepper'
 export { StepTickIcon } from './Stepper/stepper.overrides'
@@ -120,3 +120,24 @@ export { LevelIllustration, levelIllustrationUrl, type LevelIllustrationProps, t
 export { CertificateCard, type CertificateCardProps, type CertificateTier } from './Gamification/CertificateCard'
 export { LearningPathCard, type LearningPathCardProps, type LearningPathState } from './Gamification/LearningPathCard'
 export { quizOptionsFigma, rankingBadgeFigma, learningPathFigma, certificateCardFigma, levelIllustrationFigma } from './Gamification/gamification.figma'
+export {
+  CertificateIllustration,
+  GamificationIllustration,
+  ProgressIllustration,
+  FunctionIllustration,
+  GAMIFICATION_ILLUSTRATIONS,
+  PROGRESS_ILLUSTRATIONS,
+  FUNCTION_ILLUSTRATIONS,
+  type CertificateIllustrationSize,
+  type GamificationIllustrationType,
+  type ProgressIllustrationType,
+  type FunctionIllustrationName,
+} from './Illustrations/Illustrations'
+export {
+  certificateIllustrationFigma,
+  gamificationIllustrationFigma,
+  progressIllustrationFigma,
+  functionIllustrationFigma,
+  assessmentIllustrationFigma,
+  emptyStateIllustrationFigma,
+} from './Illustrations/illustrations.figma'
