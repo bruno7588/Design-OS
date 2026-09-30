@@ -43,8 +43,8 @@ const PRESSED = '&:active, &.ds-pressed'
 const DISABLED = '&.Mui-disabled'
 
 // Height comes from padding + line height: S 8+16.8+8 = 33, M 10+21+10 = 41, L 12+24+12 = 48.
-// With a leading icon the icon side is one step tighter.
-function sizeStyles(size: Size, t: FiveMinsTokens, hasIcon: boolean, borderWidth: number): CSSObject {
+// With a leading or trailing icon the icon side is one step tighter.
+function sizeStyles(size: Size, t: FiveMinsTokens, hasIcon: boolean, borderWidth: number, hasEndIcon = false): CSSObject {
   const { space, iconSize } = t
   const spec = {
     small: { y: space.s, x: space.m, xIcon: space.sm, fontSize: 12, lineHeight: 1.4, gap: space.xs, icon: iconSize.sm },
@@ -53,11 +53,11 @@ function sizeStyles(size: Size, t: FiveMinsTokens, hasIcon: boolean, borderWidth
   }[size]
   const bw = borderWidth
   return {
-    padding: `${spec.y - bw}px ${spec.x - bw}px ${spec.y - bw}px ${(hasIcon ? spec.xIcon : spec.x) - bw}px`,
+    padding: `${spec.y - bw}px ${(hasEndIcon ? spec.xIcon : spec.x) - bw}px ${spec.y - bw}px ${(hasIcon ? spec.xIcon : spec.x) - bw}px`,
     fontSize: spec.fontSize,
     lineHeight: spec.lineHeight,
     gap: spec.gap,
-    '& .MuiButton-startIcon svg': { display: 'block', width: spec.icon, height: spec.icon },
+    '& .MuiButton-startIcon svg, & .MuiButton-endIcon svg': { display: 'block', width: spec.icon, height: spec.icon },
   }
 }
 
@@ -255,8 +255,8 @@ export function buttonStyles(ownerState: ButtonProps, t: FiveMinsTokens): CSSObj
     whiteSpace: 'nowrap',
     boxShadow: 'none',
     transition: 'background-color 150ms ease, border-color 150ms ease, color 150ms ease',
-    '& .MuiButton-startIcon': { margin: 0, display: 'inline-flex' },
-    ...sizeStyles(size, t, Boolean(ownerState.startIcon), bordered ? 1 : 0),
+    '& .MuiButton-startIcon, & .MuiButton-endIcon': { margin: 0, display: 'inline-flex' },
+    ...sizeStyles(size, t, Boolean(ownerState.startIcon), bordered ? 1 : 0, Boolean(ownerState.endIcon)),
     ...(bare && { padding: 0, backgroundColor: 'transparent' }),
     ...appearance(family, shape, t),
     // Link Small is Paragraph S medium: 12px at 1.2, not Button S's 1.4.

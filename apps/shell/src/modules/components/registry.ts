@@ -203,6 +203,18 @@ import { RankingBadgePreview } from './ranking-badge/RankingBadgePreview'
 import { RankingBadgeCode } from './ranking-badge/RankingBadgeCode'
 import { RankingBadgeGuidelines } from './ranking-badge/RankingBadgeGuidelines'
 import { RankingBadgeCompare } from './ranking-badge/RankingBadgeCompare'
+import { LearningPathPreview } from './learning-path/LearningPathPreview'
+import { LearningPathCode } from './learning-path/LearningPathCode'
+import { LearningPathGuidelines } from './learning-path/LearningPathGuidelines'
+import { LearningPathCompare } from './learning-path/LearningPathCompare'
+import { CertificateCardPreview } from './certificate-card/CertificateCardPreview'
+import { CertificateCardCode } from './certificate-card/CertificateCardCode'
+import { CertificateCardGuidelines } from './certificate-card/CertificateCardGuidelines'
+import { CertificateCardCompare } from './certificate-card/CertificateCardCompare'
+import { LevelIllustrationPreview } from './level-illustration/LevelIllustrationPreview'
+import { LevelIllustrationCode } from './level-illustration/LevelIllustrationCode'
+import { LevelIllustrationGuidelines } from './level-illustration/LevelIllustrationGuidelines'
+import { LevelIllustrationCompare } from './level-illustration/LevelIllustrationCompare'
 
 // One entry per component. Adding Chip later means one entry and one folder.
 export interface ComponentDoc {
@@ -782,6 +794,39 @@ export const components: ComponentDoc[] = [
     Code: RankingBadgeCode,
     Guidelines: RankingBadgeGuidelines,
     Compare: RankingBadgeCompare,
+  },
+  {
+    slug: 'learning-path',
+    name: 'Learning path',
+    summary: 'One step of a learning path: a level or the certificate.',
+    figma: { light: `${LIBRARY}11984-7015`, dark: `${LIBRARY}5514-8463` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: LearningPathPreview,
+    Code: LearningPathCode,
+    Guidelines: LearningPathGuidelines,
+    Compare: LearningPathCompare,
+  },
+  {
+    slug: 'certificate-card',
+    name: 'Certificate card',
+    summary: 'An earned certificate on its tier artwork, with Download.',
+    figma: { light: `${LIBRARY}8442-6119`, dark: `${LIBRARY}5514-2390` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: CertificateCardPreview,
+    Code: CertificateCardCode,
+    Guidelines: CertificateCardGuidelines,
+    Compare: CertificateCardCompare,
+  },
+  {
+    slug: 'level-illustration',
+    name: 'Level illustration',
+    summary: 'The shields and medals for each skill level.',
+    figma: { light: `${LIBRARY}11196-8794`, dark: `${LIBRARY}9120-9437` },
+    spec: 'playground/docs/design-system/gamification.md',
+    Preview: LevelIllustrationPreview,
+    Code: LevelIllustrationCode,
+    Guidelines: LevelIllustrationGuidelines,
+    Compare: LevelIllustrationCompare,
   },
 ]
 

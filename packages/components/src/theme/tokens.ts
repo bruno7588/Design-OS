@@ -11,7 +11,7 @@ export const palette = {
   warning: { 100: '#FFEDD7', 200: '#FFDBAF', 300: '#FFC988', 400: '#FFB760', 500: '#FFA538', 600: '#E88206', 700: '#996322', 800: '#664216', 900: '#33210B' },
   danger: { 100: '#FCE8EC', 200: '#F9D0D9', 300: '#F2A2B3', 400: '#E95C7B', 500: '#DF1642', 600: '#9C0F2E', 700: '#59091A', 800: '#2D040D', 900: '#160207' },
   neutral: { 0: '#FFFFFF', 25: '#F9F9FA', 50: '#EFF0F2', 100: '#DFE1E6', 200: '#BFC2CC', 300: '#9EA4B3', 400: '#656B7C', 500: '#454C5E', 600: '#383D4C', 700: '#2D313D', 800: '#20222A', 900: '#0F1014' },
-  gamification: { blazeQuiz: '#8158EC', flashPoll: '#9B55C9', lessonQuiz: '#FA715F', certificateQuiz: '#6368DB', courseAssessments: '#2A90D8' },
+  gamification: { blazeQuiz: '#8158EC', flashPoll: '#9B55C9', lessonQuiz: '#FA715F', certificateQuiz: '#6368DB', courseAssessments: '#2A90D8', certificateMaster: '#FF7B00', certificateExpert: '#822FAF', certificateAdvanced: '#5E60CE' },
 } as const
 
 const p = palette

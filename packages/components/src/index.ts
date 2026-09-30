@@ -116,4 +116,7 @@ export {
 } from './Card/card.figma'
 export { QuizOptions, QuizExplanation, type QuizOption, type QuizOptionsProps, type QuizExplanationProps } from './Gamification/QuizOptions'
 export { RankingBadge, type RankingBadgeProps } from './Gamification/RankingBadge'
-export { quizOptionsFigma, rankingBadgeFigma } from './Gamification/gamification.figma'
+export { LevelIllustration, levelIllustrationUrl, type LevelIllustrationProps, type SkillLevel } from './Gamification/LevelIllustration'
+export { CertificateCard, type CertificateCardProps, type CertificateTier } from './Gamification/CertificateCard'
+export { LearningPathCard, type LearningPathCardProps, type LearningPathState } from './Gamification/LearningPathCard'
+export { quizOptionsFigma, rankingBadgeFigma, learningPathFigma, certificateCardFigma, levelIllustrationFigma } from './Gamification/gamification.figma'

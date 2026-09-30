@@ -3,9 +3,9 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 67,
-    "both": 67,
-    "figmaOnly": 10,
+    "inCode": 70,
+    "both": 70,
+    "figmaOnly": 7,
     "codeOnly": 0,
     "noLightVersion": 0
   },
@@ -1522,11 +1522,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "LearningPathCard",
+        "mui": "Box (CardRoot) + Button + LinearProgress",
+        "path": "packages/components/src/Gamification"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Certificate instances",
@@ -1555,11 +1559,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "CertificateCard",
+        "mui": "Box + Button",
+        "path": "packages/components/src/Gamification"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Ranking, leaderboard",
@@ -1842,11 +1850,15 @@
       },
       "slots": [],
       "inFigma": true,
-      "inCode": false,
-      "code": null,
+      "inCode": true,
+      "code": {
+        "component": "LevelIllustration",
+        "mui": "img",
+        "path": "packages/components/src/Gamification"
+      },
       "prototype": null,
-      "missingInCode": null,
-      "missingInFigma": null
+      "missingInCode": {},
+      "missingInFigma": {}
     },
     {
       "name": "Illustrations/ Functions",

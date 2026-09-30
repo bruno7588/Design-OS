@@ -25,7 +25,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 1, batch 18 (Full screen modal, Share modal, Bottom sheet): done. Notes: `docs/phase-1-batch-18-notes.md`.
 - Phase 1, batch 19 (gaps: Input field set and Tabs bar mappings; Listbox caret and group titles): done. Emojies was discarded. Notes: `docs/phase-1-batch-19-notes.md`. The Scrim is 50% in both modes.
 - Phase 1, batch 20 (Quiz options, Ranking badge): done. Notes: `docs/phase-1-batch-20-notes.md`. Gamification parts in `packages/components/src/Gamification`.
-- Next: finish the remaining components before Phase 1c (Bruno, 2026-09-29): Learning path and Certificate instances, then the illustration sets.
+- Phase 1, batch 21 (Learning path, Certificate card, Level illustration): done. Notes: `docs/phase-1-batch-21-notes.md`. New tier colour tokens in `palette.gamification`; Button end icons now sized.
+- Next: finish the remaining components before Phase 1c (Bruno, 2026-09-29): the remaining illustration sets (Certificate, Gamification, Progress, Assessments, Functions, Empty state).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
