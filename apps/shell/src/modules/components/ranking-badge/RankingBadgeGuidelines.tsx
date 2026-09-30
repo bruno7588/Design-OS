@@ -18,7 +18,7 @@ const g: Guidelines = {
     parts: [
       { name: 'Box', description: '32 × 32.' },
       { name: 'Medal', description: 'Gold, silver or bronze, 24px (artwork).' },
-      { name: 'Number', description: 'Bold 14/1.5: Neutral-25 on a medal, Text-disabled without one.' },
+      { name: 'Number', description: 'Bold 14/1.5: Neutral-25 on a medal, Text-tertiary without one.' },
     ],
   },
   variants: [],

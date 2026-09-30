@@ -10,10 +10,10 @@ const compare: Compare = {
   live: (mode) => <LearningPathMatrix mode={mode} />,
   differences: [
     { property: 'Level s layout', figma: 'Padding 16, gap 16, radius 12; shield 56, Info 8 from it: headline (gap 4), topics, progress, 12 apart', reference: 'Same', status: 'Matches' },
-    { property: 'Level l layout', figma: 'Padding 24, gap 16, radius 16; shield 72; header, topics (wrap, 12 apart) and progress 24 apart', reference: 'Same', status: 'Matches' },
+    { property: 'Level l layout', figma: 'Padding 24, gap 16, radius 12 (SM; 16 until 2026-09-30); shield 72; header, topics (wrap, 12 apart) and progress 24 apart', reference: 'Same', status: 'Matches' },
     { property: 'Topic pills', figma: '1px Border, radius 8, padding 8/12 and Regular 12/1.2 (l: 8/16, Regular 14/1.5), Text-tertiary', reference: 'Same', status: 'Matches' },
     { property: 'Inner edge', figma: '-4, -4 inner shadow in raw #00CEE6 (in progress) and #18A957 (completed)', reference: 'Primary-500 and Success-500 (the same values)', status: 'Design to update', note: 'Bind the two shadows to the variables.' },
-    { property: 'Shadow S', figma: 'No drop shadow in light', reference: 'Shadow S in light, as every card', status: 'Design to update', note: 'Bruno’s card rule (2026-09-29).' },
+    { property: 'Shadow S', figma: 'No drop shadow in light', reference: 'Shadow S in light, as every card', status: 'Design to update', note: 'Bruno confirmed Shadow S stays (2026-09-30). Add it in Figma.' },
     { property: 'Buttons', figma: 'An older Medium: 45px on s, 37px on l', reference: 'The current Medium (41px)', status: 'Design to update' },
     { property: 'Button copy', figma: '“Keep learning” on l', reference: '“Keep Learning” (Title Case, as s)', status: 'Design to update' },
     { property: 'md height', figma: 'A fixed 122px, the body centred', reference: 'Hugs: 88px', status: 'Design to update', note: 'Set it to hug.' },

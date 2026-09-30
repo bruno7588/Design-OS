@@ -24,6 +24,6 @@ test('medals for 1 to 3, the number alone from 4, each named', async ({ page }) 
     [32, true, 'rgb(249, 249, 250)', 'Rank 1'],
     [32, true, 'rgb(249, 249, 250)', 'Rank 2'],
     [32, true, 'rgb(249, 249, 250)', 'Rank 3'],
-    [32, false, 'rgb(158, 164, 179)', 'Rank 4'],
+    [32, false, 'rgb(101, 107, 124)', 'Rank 4'],
   ])
 })

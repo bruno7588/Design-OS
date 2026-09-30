@@ -30,7 +30,7 @@ test('sizes, text colour and tier edge', async ({ page }) => {
   expect(m[2][4]).toContain('rgb(130, 47, 175)')
   expect(m[3][4]).toContain('rgb(94, 96, 206)')
   expect(m[4].slice(0, 3)).toEqual([408, 96, '12px'])
-  expect(m[5].slice(0, 3)).toEqual([900, 120, '16px'])
+  expect(m[5].slice(0, 3)).toEqual([900, 120, '12px'])
 })
 
 test('Download works and the tick is named', async ({ page }) => {

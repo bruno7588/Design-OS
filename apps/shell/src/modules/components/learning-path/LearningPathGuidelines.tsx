@@ -10,7 +10,7 @@ const g: Guidelines = {
   anatomy: {
     example: <LearningPathCard level={3} title="Intermediate" description="Build confidence with everyday tasks" topics={['Negotiation', 'Forecasting']} state="in-progress" progress={{ value: 40, total: 90 }} actionLabel="Keep Learning" onAction={noop} />,
     parts: [
-      { name: 'Surface', description: 'Cards-background, radius 12 (16 on l), Shadow S in light. In progress and Completed add a 4px inner edge on the right and bottom.' },
+      { name: 'Surface', description: 'Cards-background, radius 12, Shadow S in light. In progress and Completed add a 4px inner edge on the right and bottom.' },
       { name: 'Illustration', description: 'The level shield or certificate medal: 56px, 72px on l. Grey when disabled.' },
       { name: 'Headline', description: 'The title (Bold 16, 20 on l) and a description (Regular 12, 16 on l), 4 apart.' },
       { name: 'Topics', description: 'Pills with a 1px Border and radius 8. On s, the first one and a chevron that shows the rest.' },

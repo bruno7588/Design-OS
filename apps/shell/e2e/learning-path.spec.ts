@@ -26,7 +26,7 @@ test('sizes, padding, radius and the inner edge', async ({ page }) => {
   expect(cards[0]).toEqual([343, '16px', '12px', true]) // s, in progress
   expect(cards[2]).toEqual([408, '16px', '12px', true]) // md
   expect(cards[5]).toEqual([343, '16px', '12px', false]) // disabled
-  expect(cards[10]).toEqual([900, '24px', '16px', true]) // l, in progress
+  expect(cards[10]).toEqual([900, '24px', '12px', true]) // l, in progress
   const edge = await page.getByTestId('learning-path-matrix-light').locator('.ds-learning-path-card').nth(3).evaluate((e) => getComputedStyle(e).boxShadow)
   expect(edge).toContain('rgb(24, 169, 87)') // Success-500
 })

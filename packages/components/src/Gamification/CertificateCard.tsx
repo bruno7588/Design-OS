@@ -16,8 +16,8 @@ import advancedBg from './art/certificate/advanced.png'
 //   Size=small / md / large                    → size
 //
 // small (343) and md (408): padding 16, radius 12, a 64px medal with a soft copy behind it, the
-// title and a subtitle or a Download text button, and a tick. large (900): padding 24, radius 16,
-// the 72px medal with its ribbon, and an Outlined Download button. A 4px inner edge on the right
+// title and a subtitle or a Download text button, and a tick. large (900): padding 24,
+// the 72px medal with its ribbon, and an Outlined Download button. Radius 12 on every size. A 4px inner edge on the right
 // and bottom in the tier colour.
 
 export type CertificateTier = 'master' | 'expert' | 'advanced'
@@ -63,7 +63,7 @@ export function CertificateCard({ tier, size = 'small', title, subtitle, onDownl
             maxWidth: '100%',
             minHeight: large ? 120 : 96,
             padding: `${large ? tk.space.l : tk.space.m}px`,
-            borderRadius: `${large ? tk.radius.m : tk.radius.sm}px`,
+            borderRadius: `${tk.radius.sm}px`,
             backgroundImage: `url(${t.bg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',

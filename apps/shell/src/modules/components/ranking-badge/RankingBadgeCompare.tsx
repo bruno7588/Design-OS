@@ -10,9 +10,9 @@ const compare: Compare = {
   live: (mode) => <RankingBadgeMatrix mode={mode} />,
   differences: [
     { property: '1 to 3', figma: '32px, padding 4: a 24px medal (Leaderboard/Ranking first, second, third) with a white Bold 14 number', reference: 'Same (the medals as artwork)', status: 'Matches' },
-    { property: '4', figma: 'The number alone, Bold 14 in Text-disabled', reference: 'Same, for any rank from 4', status: 'Matches' },
+    { property: '4', figma: 'The number alone, Bold 14 in Text-tertiary', reference: 'Same, for any rank from 4', status: 'Matches' },
     { property: 'Number colour', figma: 'Neutral-25 on the medals (bound 2026-09-30; light was raw #FFFFFF, dark raw orange, grey and bronze)', reference: 'Same', status: 'Matches' },
-    { property: 'Rank 4 colour', figma: 'Text-disabled in light, Text-tertiary in dark', reference: 'Text-disabled', status: 'Design to update', note: 'Pick one.' },
+    { property: 'Rank 4 colour', figma: 'Text-tertiary in both (light rebound from Text-disabled on 2026-09-30)', reference: 'Text-tertiary', status: 'Matches' },
     { property: 'Property name', figma: 'Rank (renamed from Property 1 on 2026-09-30)', reference: 'rank', status: 'Matches' },
   ],
   engineering: {

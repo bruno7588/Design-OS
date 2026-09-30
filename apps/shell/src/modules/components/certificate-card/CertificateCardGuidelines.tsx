@@ -10,7 +10,7 @@ const g: Guidelines = {
   anatomy: {
     example: <CertificateCard tier="master" onDownload={noop} />,
     parts: [
-      { name: 'Surface', description: 'The tier artwork, radius 12 (16 on large), with a 4px inner edge on the right and bottom in the tier colour.' },
+      { name: 'Surface', description: 'The tier artwork, radius 12, with a 4px inner edge on the right and bottom in the tier colour.' },
       { name: 'Medal', description: '64px with a soft glow behind it; 72px with its ribbon on large.' },
       { name: 'Title', description: 'Bold 14 (16 on md, 20 on large).' },
       { name: 'Subtitle or Download', description: 'Regular 12 (14 on md and large), or a Download text button.' },

@@ -9,7 +9,7 @@ const compare: Compare = {
   frames: { light: '/figma/certificate-card-light.png', dark: '/figma/certificate-card-dark.png' },
   live: (mode) => <CertificateCardMatrix mode={mode} />,
   differences: [
-    { property: 'Layout', figma: 'small 343 and md 408: padding 16, radius 12, 64px medal with a blur-4 copy at 2,2; large 900: padding 24, radius 16, 72px medal', reference: 'Same', status: 'Matches' },
+    { property: 'Layout', figma: 'small 343 and md 408: padding 16, radius 12, 64px medal with a blur-4 copy at 2,2; large 900: padding 24, radius 12 (SM; 16 until 2026-09-30), 72px medal', reference: 'Same', status: 'Matches' },
     { property: 'Artwork', figma: 'Tier backgrounds (orange, purple, blue)', reference: 'The same backgrounds, exported from Figma', status: 'Matches' },
     { property: 'Tier colours', figma: 'Raw #FF7B00, #822FAF, #5E60CE on the inner edge', reference: 'New tokens gamification.certificateMaster, certificateExpert, certificateAdvanced (same values)', status: 'Design to update', note: 'Make them variables.' },
     { property: 'Text', figma: 'Raw #262933 on Master, raw #FFFFFF on Expert and Advanced', reference: 'Neutral-800 and Neutral-25', status: 'Design to update' },

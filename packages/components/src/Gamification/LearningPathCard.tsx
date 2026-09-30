@@ -20,9 +20,9 @@ import { LevelIllustration, type SkillLevel } from './LevelIllustration'
 //   Expanded=false / true                       → expanded (s: the topic list opens under a chevron; l: always open)
 //   Modules=true / false                        → topics (shown when there are any)
 //
-// Level, s: padding 16, radius 12. The 56px shield, then the title (Bold 16) and description
+// Radius 12 on every size. Level, s: padding 16. The 56px shield, then the title (Bold 16) and description
 // (Regular 12), the topics, the progress and a full-width Medium button. md: the shield, the
-// title and the progress. l: padding 24, radius 16, the 72px shield; the title (Bold 20), blurb
+// title and the progress. l: padding 24, the 72px shield; the title (Bold 20), blurb
 // and button in a row, the topics wrap, then the progress.
 // In progress has a 4px inner edge on the right and bottom in Primary-500, Completed in
 // Success-500 with a tick. Disabled greys the shield and every text.
@@ -246,7 +246,7 @@ export function LearningPathCard({
             width: large ? '100%' : size === 'md' ? 408 : 343,
             maxWidth: '100%',
             padding: `${large ? t.space.l : t.space.m}px`,
-            borderRadius: `${large ? t.radius.m : t.radius.sm}px`,
+            borderRadius: `${t.radius.sm}px`,
             boxShadow: shadows.length ? shadows.join(', ') : 'none',
           }
         },

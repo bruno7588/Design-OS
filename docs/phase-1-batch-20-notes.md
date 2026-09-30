@@ -28,7 +28,7 @@ Checked 2026-09-30.
 - **RankingBadge:**
   - **Size:** 32px.
   - **1 to 3:** a gold, silver or bronze medal (Figma artwork) with a white number.
-  - **From 4:** the number alone in Text-disabled.
+  - **From 4:** the number alone in Text-tertiary.
   - **Name:** "Rank n".
 - **Artwork:** `Gamification/art` holds the three medals and the two explanation emojis.
 - **Shell:** two pages with frames at 1:1.
@@ -42,4 +42,4 @@ Checked 2026-09-30.
 
 ## Mismatches recorded
 - **Ranking number colour (Bruno, 2026-09-30):** Neutral-25 on the medals, bound in both sets. The light set was raw `#FFFFFF`; the dark set was raw orange, grey and bronze.
-- **Ranking (Design to update):** Rank 4 is Text-disabled in light but Text-tertiary in dark.
+- **Ranking (resolved 2026-09-30):** Rank 4 was Text-disabled in light and Text-tertiary in dark. Bruno picked Text-tertiary; the light set is rebound and code follows.

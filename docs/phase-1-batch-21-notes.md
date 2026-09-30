@@ -51,8 +51,12 @@ Checked 2026-09-30.
   - md is a fixed 122px tall. Code hugs (88).
   - The disabled s certificate is padding 12, radius 8. Code uses 16 and 12, like the other s cards.
   - The completed title row stacks two tick icons.
-- **Shadow S:** the Learning path draws no Shadow S in light. Code adds it, following the card rule.
-- **Ranking badge (from batch 20):** rank 4 is Text-tertiary in dark and Text-disabled in light. Still open.
+- **Shadow S:** the Learning path draws no Shadow S in light. Code adds it, following the card rule (Bruno kept it, 2026-09-30).
+
+## Follow-up (Bruno, 2026-09-30)
+- **Radius 12 on every size:** the l Learning path variants (6 per set) and the large certificates (3 per set) went from 16 to 12 in Figma, bound to the SM radius variable. Code uses `radius.sm` for every size.
+- **Shadow S stays** in light mode, as on every card.
+- **Ranking badge rank 4 is Text-tertiary:** the light set's number is rebound from Text-disabled; code follows.
 
 ## Prototype differences
 - The prototype has the level illustrations only; no Learning path or Certificate component.
