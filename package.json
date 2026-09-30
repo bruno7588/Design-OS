@@ -6,7 +6,8 @@
     "dev": "concurrently -n shell,server -c cyan,magenta \"pnpm --filter @design-os/shell dev\" \"pnpm --filter @design-os/server dev\"",
     "build": "pnpm -r build",
     "test": "vitest run",
-    "inventory": "node scripts/inventory.mts"
+    "inventory": "node scripts/inventory.mts",
+    "session-messages": "node scripts/session-messages.mts"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

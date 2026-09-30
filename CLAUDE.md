@@ -27,7 +27,12 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 1, batch 20 (Quiz options, Ranking badge): done. Notes: `docs/phase-1-batch-20-notes.md`. Gamification parts in `packages/components/src/Gamification`.
 - Phase 1, batch 21 (Learning path, Certificate card, Level illustration): done. Notes: `docs/phase-1-batch-21-notes.md`. New tier colour tokens in `palette.gamification`; Button end icons now sized.
 - Phase 1, batch 22 (illustration sets: Certificate, Gamification, Progress, Assessments, Empty state, Functions): done. Notes: `docs/phase-1-batch-22-notes.md`. Artwork in `packages/components/src/Illustrations`. Every Library set except the discarded Emojies is now in code.
-- Next: Phase 1c (Bruno to confirm the scope). Every Figma Library set is in code.
+- Phase 1c (sharing with engineering): waiting on engineering.
+- Phase 2 (Obsidian brain): built 2026-09-30.
+  - The vault is set up with its own `CLAUDE.md`, templates and Git repo.
+  - Skills `granola-sync`, `decision-log` and `learnings`, plus `learnings.md`.
+  - The first Granola sync waits for Bruno to sign in to the project `granola` MCP server (`/mcp`).
+- Next: the first granola-sync and decision-log run, then Phase 3 (shell and dashboard).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
@@ -39,13 +44,16 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - `skills/`: Claude skills, one folder per skill. `.claude/skills` links to `skills/`, `.agents/skills` links to `.claude/skills`
 - `engines/`: background job definitions (Phase 6)
 - `design-os.config.json`: vault path, Figma Library file key, server host and port
-- Obsidian vault: `~/Documents/Projetos/5Mins/Design-OS-vault` (structure set up in Phase 2)
+- Obsidian vault: `~/Documents/Projetos/5Mins/Design-OS-vault`, its own Git repo. Its `CLAUDE.md` has the folders (00 inbox to 50 outputs), naming and frontmatter; read it before writing there.
+- `learnings.md`: rules Bruno stated while working, grouped by topic (written by the `learnings` skill)
+- `.mcp.json`: the project `granola` MCP server (Bruno's Granola, https://mcp.granola.ai/mcp)
 
 ## Commands
 - `pnpm install`
 - `pnpm dev`: starts shell and server together
 - `pnpm build`: type-checks and builds every package
 - `pnpm inventory`: rebuilds `inventory.json` from `figma.json` and the code (no Figma needed)
+- `pnpm session-messages [session] [--since ISO]`: Bruno's messages from a Claude Code session, for the `learnings` skill
 - `cd apps/shell && pnpm exec playwright test`: component, inventory and Compare checks, plus screenshots (`e2e/screenshots`). `e2e/review.spec.ts` captures each component's Preview and Compare tabs for sign-off
 - Playground: `cd playground && npm install && npm run dev`
 
@@ -60,6 +68,8 @@ React 19.2, TypeScript 6, Vite 7, React Router 6, MUI 5.18 with Emotion, Iconsax
 - Code Connect isn't active. Don't use it.
 
 ## Rules
+- Read `learnings.md` before building UI. It holds the rules Bruno gave while working that aren't written anywhere else.
+- Granola means Bruno's account through the project `granola` server. Never use the claude.ai Granola connector (signed in as Divjot) for the vault.
 - British English. Sentence case in UI copy, except button labels, which are always Title Case ("Select File", "Mark as Complete"). No em dashes.
 - Spacing in multiples of 2px or 4px. 5Mins design tokens only, never raw values.
 - Every component has a dark and a light version, in Figma and in code. In Figma that's a copy on the light board or an instance on a board set to the Light variable modes; `pnpm inventory` flags any without one.

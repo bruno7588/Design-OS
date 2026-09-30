@@ -218,6 +218,11 @@ Update CLAUDE.md so every agent reads learnings.md before building UI.
 
 Done when: after a design review, the decision appears in the right `decisions.md` without Bruno writing it.
 
+Built (2026-09-30):
+- **Granola account:** the sync reads Bruno's own Granola through a project MCP server (`granola`, https://mcp.granola.ai/mcp, in `.mcp.json`). The claude.ai Granola connector is signed in as Divjot, so the skill refuses any other account.
+- **Feature matching:** folders need a paid Granola plan, so features are matched from meeting content against `20 features/_index.md`. New features are proposed to Bruno first.
+- **Learnings:** Bruno runs `/learnings` after pushing. A headless run on `git push` belongs to Phase 6.
+
 ## Phase 3: the shell and dashboard UI (1 week)
 
 Goal: the app frame with a sidebar for the six modules and a Home dashboard, built with Bruno's own components from Phase 1. That makes the OS a live test of the design system.
@@ -412,6 +417,8 @@ Done when: Bruno edits a skill in the OS, test-runs it, and the change is live i
 Goal: skills that run by themselves, on a schedule or from a button, and write their results into the vault, where Home picks them up.
 
 An engine is a small file in `engines/`: a name, a trigger (a schedule or manual), the skill it runs, the model, and where the output goes. The server runs it with `claude -p` (headless Claude Code). Schedules use macOS launchd, so they run even when the OS app is closed.
+
+Carried over from Phase 2: a `learnings` engine triggered by `git push` (a pre-push hook that runs the skill headless), and a daily `granola-sync` engine followed by `decision-log all`.
 
 Starter engines:
 
