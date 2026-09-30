@@ -208,7 +208,7 @@ export function menuPaperStyles(theme: Theme): CSSObject {
   }
 }
 
-// Figma Listbox Caret=true: a 16 × 8 Cards-background triangle with a 1px Border edge, 24px
+// Figma Listbox Caret=true: a 16 × 8 Cards-background triangle with a 1px Border edge, 16px
 // from the end, on the side that faces the field. Put ds-menu-caret-bottom (the menu opens
 // below the field) or ds-menu-caret-top on the menu paper. The list scrolls instead of the
 // paper, so the caret isn't clipped.
@@ -223,7 +223,7 @@ export function menuCaretStyles(theme: Theme, side: 'top' | 'bottom'): CSSObject
     '&::before': {
       content: '""',
       position: 'absolute',
-      right: `${t.space.l}px`,
+      right: `${t.space.m}px`,
       [up ? 'top' : 'bottom']: -8,
       width: 16,
       height: 8,

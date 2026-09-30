@@ -148,7 +148,7 @@ test('Listbox: the caret points at the field and groups have titles', async ({ p
     const cs = getComputedStyle(p, '::before')
     return [cs.width, cs.height, cs.top, cs.right, getComputedStyle(p).overflow]
   })
-  expect(caret).toEqual(['16px', '8px', '-8px', '24px', 'visible'])
+  expect(caret).toEqual(['16px', '8px', '-8px', '16px', 'visible'])
   await page.keyboard.press('ArrowDown')
   await page.keyboard.press('Enter')
   await expect(page.getByRole('listbox')).toBeHidden()

@@ -21,11 +21,11 @@ Checked 2026-09-29.
 - **Listbox caret built:**
   - The Dropdown takes `caret` and `menuPosition` (`bottom` or `top`).
   - Any Menu gets it through the `ds-menu-caret-bottom` or `ds-menu-caret-top` class on its paper.
-  - The caret is a 16 × 8 Cards-background triangle with a 1px Border edge, 24px from the end, on the side that faces the field. The list scrolls instead of the surface, so the caret isn't clipped.
+  - The caret is a 16 × 8 Cards-background triangle with a 1px Border edge, 16px from the end, on the side that faces the field. The list scrolls instead of the surface, so the caret isn't clipped.
 - **Listbox group titles built:**
   - Dropdown options take `group`.
   - **Titles:** SemiBold 14/1.5 in Text-tertiary, padding 8/4.
   - **Dividers:** from the second group on, a Border line inset 4px, 4px gaps, then 12 above the title.
   - **Plain MUI menus:** a `ListSubheader` and a `Divider` inside get the same look.
 - **Accessibility:** MUI Select makes every child an option, so a group title could be picked. A small `GroupTitle` wrapper ignores those props, so titles are presentational and can't be picked, and keyboard focus skips them.
-- **Figma detail:** the Top caret sits 16 from the end, while the Bottom one is 24. Code uses 24 for both.
+- **Caret position (Bruno, 2026-09-30):** 16px from the end on both. In Figma, the light Bottom variant moved from 24 to 16.
