@@ -41,4 +41,5 @@ Checked 2026-09-30.
 - **Ranking property:** in Figma, "Property 1" is renamed Rank in both sets, and the code mapping follows.
 
 ## Mismatches recorded
-- **Ranking (Design to update):** the numbers are raw `#FFFFFF`.
+- **Ranking number colour (Bruno, 2026-09-30):** Neutral-25 on the medals, bound in both sets. The light set was raw `#FFFFFF`; the dark set was raw orange, grey and bronze.
+- **Ranking (Design to update):** Rank 4 is Text-disabled in light but Text-tertiary in dark.

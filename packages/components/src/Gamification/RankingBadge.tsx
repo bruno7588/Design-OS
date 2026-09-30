@@ -6,7 +6,7 @@ import third from './art/medal-third.svg'
 
 // 5Mins Ranking badge (Figma "Ranking, leaderboard": dark 2613:26421, light 8442:6198): a
 // leaderboard position in a 32px box. 1 to 3 sit on a gold, silver or bronze medal with the
-// number in white; from 4 on, the number alone in Text-disabled. Bold 14/1.5.
+// number in Neutral-25; from 4 on, the number alone in Text-disabled. Bold 14/1.5.
 
 const MEDALS: Record<number, string> = { 1: first, 2: second, 3: third }
 
@@ -35,7 +35,7 @@ export function RankingBadge({ rank, sx }: RankingBadgeProps) {
           fontSize: 14,
           fontWeight: 700,
           lineHeight: 1.5,
-          color: medal ? theme.tokens.palette.neutral[0] : theme.tokens.semantic.textDisabled,
+          color: medal ? theme.tokens.palette.neutral[25] : theme.tokens.semantic.textDisabled,
           '& img': { position: 'absolute', inset: 4, width: 24, height: 24 },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),

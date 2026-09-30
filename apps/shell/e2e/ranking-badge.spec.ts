@@ -21,9 +21,9 @@ test('medals for 1 to 3, the number alone from 4, each named', async ({ page }) 
     els.map((e) => [Math.round(e.getBoundingClientRect().width), !!e.querySelector('img'), getComputedStyle(e).color, e.getAttribute('aria-label')]),
   )
   expect(m).toEqual([
-    [32, true, 'rgb(255, 255, 255)', 'Rank 1'],
-    [32, true, 'rgb(255, 255, 255)', 'Rank 2'],
-    [32, true, 'rgb(255, 255, 255)', 'Rank 3'],
+    [32, true, 'rgb(249, 249, 250)', 'Rank 1'],
+    [32, true, 'rgb(249, 249, 250)', 'Rank 2'],
+    [32, true, 'rgb(249, 249, 250)', 'Rank 3'],
     [32, false, 'rgb(158, 164, 179)', 'Rank 4'],
   ])
 })
