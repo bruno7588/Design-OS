@@ -2,9 +2,17 @@
   "vaultPath": "~/Documents/Projetos/5Mins/Design-OS-vault",
   "playgroundPath": "playground",
   "prototypeRemote": "https://github.com/bruno7588/5mins-prototype.git",
+  "playground": {
+    "dir": "apps/playground",
+    "url": "http://localhost:5175"
+  },
+  "author": "Bruno Carvalho",
   "figma": {
     "designSystemFileKey": "EC26cSVe9KNTCWXvYovakw",
     "libraryUrl": "https://www.figma.com/design/EC26cSVe9KNTCWXvYovakw/Library"
   },
-  "server": { "host": "127.0.0.1", "port": 4310 }
+  "server": {
+    "host": "127.0.0.1",
+    "port": 4310
+  }
 }

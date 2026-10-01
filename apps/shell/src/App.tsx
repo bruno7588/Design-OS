@@ -7,11 +7,13 @@ import { ComponentsIndex } from './modules/components/ComponentsIndex'
 import { ComponentPage } from './modules/components/ComponentPage'
 import { HomePage } from './modules/home/HomePage'
 import { ModulePlaceholder } from './modules/ModulePlaceholder'
+import { PrototypesGallery } from './modules/prototypes/PrototypesGallery'
+import { DemoViewer } from './modules/prototypes/DemoViewer'
 
 const MODULES = [
   { path: '/home', label: 'Home', icon: Home2 },
   { path: '/components', label: 'Components', icon: Category },
-  { path: '/prototypes', label: 'Prototypes', icon: Mobile, phase: 'Phase 4' },
+  { path: '/prototypes', label: 'Prototypes', icon: Mobile },
   { path: '/skills', label: 'Skills', icon: Magicpen, phase: 'Phase 5' },
   { path: '/engines', label: 'Engines', icon: Cpu, phase: 'Phase 6' },
   { path: '/brain', label: 'Brain', icon: Book1, phase: 'a later phase' },
@@ -51,6 +53,8 @@ export function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/components" element={<ComponentsIndex />} />
           <Route path="/components/:slug" element={<ComponentPage />} />
+          <Route path="/prototypes" element={<PrototypesGallery />} />
+          <Route path="/prototypes/:slug" element={<DemoViewer />} />
           {MODULES.filter((m) => m.phase).map((m) => (
             <Route key={m.path} path={m.path} element={<ModulePlaceholder name={m.label} phase={m.phase!} />} />
           ))}

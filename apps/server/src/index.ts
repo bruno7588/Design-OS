@@ -1,9 +1,12 @@
 import Fastify from 'fastify'
-import { readFileSync } from 'node:fs'
+import { createReadStream, existsSync, readFileSync } from 'node:fs'
 import { readFile, stat } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { basename, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import type { DemoList } from '@design-os/demos'
+import { DemoError, deleteDemo, demoFolder, duplicateDemo, listDemos, readDemo, readFeatures, saveVersion } from './demos'
+import { createThumbnailer } from './thumbnails'
 
 // Local-only server for things the browser can't do (terminal, files, headless Claude).
 const configPath = fileURLToPath(new URL('../../../design-os.config.json', import.meta.url))
@@ -13,6 +16,10 @@ const vaultPath: string = config.vaultPath.replace(/^~(?=\/|$)/, homedir())
 // Home only reads files: skills and engines write them here (see docs/phase-3-notes.md).
 const dashboardDir = join(vaultPath, '50 outputs', 'dashboard')
 const vault = basename(vaultPath)
+// Demos live in the playground app (Phase 4b); see apps/playground/demos/README.md.
+const demosDir = fileURLToPath(new URL(`../../../${config.playground.dir}/demos`, import.meta.url))
+const playgroundUrl: string = config.playground.url
+const author: string = config.author
 
 const app = Fastify({ logger: true })
 
@@ -46,4 +53,51 @@ app.get<{ Params: { file: string } }>('/api/dashboard/:file', async (req, reply)
   return { file, vault, updatedAt, sample, kind: 'markdown', body: frontmatter ? text.slice(frontmatter[0].length) : text }
 })
 
+// Demos: the Prototypes module's gallery, versions and duplicates.
+const thumbnails = createThumbnailer({ dir: demosDir, playgroundUrl, log: app.log })
+
+type SlugParams = { Params: { slug: string }; Querystring: { version?: string } }
+
+app.setErrorHandler((error, _req, reply) => {
+  if (error instanceof DemoError) return reply.code(error.status).send({ error: error.message })
+  app.log.error(error)
+  return reply.code(500).send({ error: 'Something went wrong on the Design OS server.' })
+})
+
+app.get('/api/demos', async (): Promise<DemoList> => ({
+  demos: await listDemos(demosDir),
+  features: await readFeatures(vaultPath),
+  playgroundUrl,
+}))
+
+app.get<SlugParams>('/api/demos/:slug', async (req) => readDemo(demosDir, req.params.slug, req.query.version))
+
+app.get<SlugParams>('/api/demos/:slug/thumbnail', async (req, reply) => {
+  const path = join(demoFolder(demosDir, req.params.slug, req.query.version), 'thumbnail.png')
+  if (!existsSync(path)) return reply.code(404).send({ error: 'No thumbnail yet.' })
+  return reply.type('image/png').header('cache-control', 'no-cache').send(createReadStream(path))
+})
+
+app.post<SlugParams>('/api/demos/:slug/thumbnail', async (req) => ({ written: await thumbnails.shoot(req.params.slug) }))
+
+app.post<SlugParams & { Body: { note?: string } }>('/api/demos/:slug/versions', async (req) =>
+  saveVersion({ dir: demosDir, author }, req.params.slug, req.body?.note ?? ''),
+)
+
+app.post<SlugParams & { Body: { name: string; feature?: string; version?: string } }>('/api/demos/:slug/duplicate', async (req) => {
+  const demo = await duplicateDemo({ dir: demosDir, author }, req.params.slug, req.body ?? { name: '' })
+  thumbnails.schedule(demo.slug, 500)
+  return demo
+})
+
+app.delete<SlugParams>('/api/demos/:slug', async (req) => {
+  thumbnails.cancel(req.params.slug)
+  await deleteDemo(demosDir, req.params.slug)
+  return { deleted: req.params.slug }
+})
+
+app.addHook('onClose', () => thumbnails.close())
+
 await app.listen({ host, port })
+thumbnails.watch()
+void thumbnails.fillMissing()

@@ -5,6 +5,7 @@ import { WebLayout } from './replicas/web/WebLayout'
 import { WebPlaceholder } from './replicas/web/WebPlaceholder'
 import { ReplicasIndex } from './pages/ReplicasIndex'
 import { PeoplePage } from './pages/admin/PeoplePage'
+import { DemoRoute } from './DemoRoute'
 
 export function App() {
   return (
@@ -19,6 +20,8 @@ export function App() {
         <Route index element={<Navigate to="for-you" replace />} />
         <Route path=":page" element={<WebPlaceholder />} />
       </Route>
+      <Route path="/demos/:slug/v/:version/*" element={<DemoRoute />} />
+      <Route path="/demos/:slug/*" element={<DemoRoute />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

@@ -1,10 +1,10 @@
 import { Box, Link, Typography } from '@mui/material'
 import ReactMarkdown, { defaultUrlTransform, type Components } from 'react-markdown'
-import { obsidianUrl } from './useDashboardFile'
+import { obsidianUrl } from '../modules/home/useDashboardFile'
 
-// Markdown from the vault, drawn with the theme's type scale. The card title is the h2,
-// so ## becomes an h3 (Bold 14) and ### an h4 (SemiBold 14). Obsidian [[links]] open the
-// note in Obsidian.
+// Markdown from the vault or a demo's handoff, drawn with the theme's type scale. The card
+// title is the h2, so ## becomes an h3 (Bold 14) and ### an h4 (SemiBold 14). With a vault,
+// Obsidian [[links]] open the note in Obsidian.
 
 const components: Components = {
   h1: ({ children }) => <Typography variant="h5" component="h3">{children}</Typography>,
@@ -18,8 +18,8 @@ const components: Components = {
   a: ({ href, children }) => <Link href={href} underline="hover">{children}</Link>,
 }
 
-export function Markdown({ body, vault }: { body: string; vault: string }) {
-  const withLinks = body.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target: string, alias?: string) => `[${alias ?? target}](${obsidianUrl(vault, target)})`)
+export function Markdown({ body, vault }: { body: string; vault?: string }) {
+  const withLinks = !vault ? body : body.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target: string, alias?: string) => `[${alias ?? target}](${obsidianUrl(vault, target)})`)
   return (
     // Sections 16px apart, lines inside a section 8px apart.
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, '& h3:not(:first-of-type)': { mt: 2 } }}>

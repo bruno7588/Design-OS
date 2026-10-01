@@ -11,7 +11,7 @@ import {
   type BadgeType,
 } from '@design-os/components'
 import { DashboardCard } from './DashboardCard'
-import { Markdown } from './Markdown'
+import { Markdown } from '../../shared/Markdown'
 import { obsidianUrl, useDashboardFile, type DashboardJson, type DashboardMarkdown } from './useDashboardFile'
 
 // Home: a grid of cards, each reading one file from the vault's "50 outputs/dashboard"

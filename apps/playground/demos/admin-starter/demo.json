@@ -1,0 +1,12 @@
+{
+  "name": "Admin starter",
+  "feature": "Template",
+  "platform": "Admin",
+  "author": "Bruno Carvalho",
+  "description": "The Admin replica with the People page and 500 generated people. Duplicate it to start an Admin demo.",
+  "template": true,
+  "handoff": "handoff.md",
+  "createdAt": "2026-10-01T12:00:00.000Z",
+  "updatedAt": "2026-10-01T12:00:00.000Z",
+  "versions": []
+}

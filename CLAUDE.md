@@ -34,12 +34,15 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
   - First granola-sync and decision-log run done 2026-10-01: 158 meetings (back to May 2025), 25 features, 482 decisions.
 - Phase 3 (shell and Home dashboard): done 2026-10-01. Side navigation from the library, dark by default, Home cards read `50 outputs/dashboard` in the vault through `/api/dashboard/:file`. Notes, gaps and the dashboard file formats: `docs/phase-3-notes.md`.
 - Phase 4a (replicas and mock data): done 2026-10-01. `apps/playground` (port 5175) has the Admin replica (People with 500 generated people, plus `?data=empty`) and the web app shell; `@design-os/mock-data` plus the `mock-data` skill. Native is deferred. Notes and gaps: `docs/phase-4a-notes.md`.
-- Next: Phase 4b (demo gallery, versions, handoff).
+- Phase 4b (demo gallery, versions, handoff): done 2026-10-01. Demos are folders in `apps/playground/demos` (rules in its `README.md`); the shell's Prototypes module has the gallery and viewer; the server handles versions, Duplicate and Playwright thumbnails on save. Notes: `docs/phase-4b-notes.md`.
+- Next: Phase 4c (comments on the live prototype, watch mode).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
-- `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude). `GET /api/dashboard/:file` reads one file from the vault's `50 outputs/dashboard`
-- `apps/playground`: Vite + React + MUI app (port 5175) for the replicas (`src/replicas/admin`, `src/replicas/web`: layouts, `AdminPage`, `DataTable`) and, from 4b, the demos. Built only from `packages/components`
+- `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude). `GET /api/dashboard/:file` reads one file from the vault's `50 outputs/dashboard`; `/api/demos` lists demos, saves versions, duplicates and serves thumbnails (`src/demos.ts`, `src/thumbnails.ts`)
+- `apps/playground`: Vite + React + MUI app (port 5175) for the replicas (`src/replicas/admin`, `src/replicas/web`: layouts, `AdminPage`, `DataTable`) and the demos (`demos/<slug>`, run at `/demos/<slug>`; read `demos/README.md` before building one). Built only from `packages/components`
+- `packages/demos`: `@design-os/demos`, the `demo.json` types shared by the server and shell
+- `apps/shell/src/modules/prototypes`: gallery (`/prototypes`) and viewer (`/prototypes/:slug`) with versions, Duplicate and the handoff panel
 - `packages/mock-data`: `@design-os/mock-data`, a seeded org at admin scale (`generateOrg`, `emptyOrg`, `fromCsv`). Use it for every demo's data (see the `mock-data` skill)
 - `packages/components`: 5Mins reference components on MUI 5. Theme in `src/theme` (`tokens.ts` is the only place raw values live; `createFiveMinsTheme('light' | 'dark')`). Visual rules live in each component's `*.overrides.ts`, keyed on MUI props, so plain MUI renders the same. Each component folder has a `<name>.figma.ts` mapping (`FigmaMapping`: Figma page, set, node IDs and the variant values it covers). Exported as `@design-os/components`
 - `packages/components/inventory`: `figma.json` (raw Library read, written by the component-inventory skill) and `inventory.json` (written by `pnpm inventory`, imported by the shell)

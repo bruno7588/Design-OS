@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import { SideNav, TopNav, useThemeMode, type SideNavItem } from '@design-os/components'
+import { useReplicaBase } from '../ReplicaBase'
 import { Book, CalendarTick, Chart, Flash, Home, MessageQuestion, PathTool, Setting2, TaskSquare, Teacher, User } from 'iconsax-react'
 
 // The Admin portal frame: the library's Admin Top navigation across the top and Admin Side
@@ -45,16 +46,16 @@ export const adminLabel = (slug: string) => [...NAV, ...HELP].flatMap((n) => [n.
 
 export function AdminLayout() {
   const navigate = useNavigate()
-  const { pathname } = useLocation()
+  const { to, path } = useReplicaBase()
   const { mode, toggle } = useThemeMode()
   const [collapsed, setCollapsed] = useState(false)
-  const current = pathname.split('/')[2] ?? ''
+  const current = path.split('/')[2] ?? ''
 
   const item = (label: string, icon?: NavEntry['icon']): SideNavItem => ({
     label,
     icon,
     selected: adminSlug(label) === current,
-    onClick: () => navigate(`/admin/${adminSlug(label)}`),
+    onClick: () => navigate(to(`/admin/${adminSlug(label)}`)),
   })
   const items = NAV.map((n) => (n.children ? { ...item(n.label, n.icon), onClick: undefined, children: n.children.map((c) => item(c)) } : item(n.label, n.icon)))
   const help = HELP.map((n) => item(n.label, n.icon))
@@ -65,11 +66,11 @@ export function AdminLayout() {
         system="admin"
         sideNavExpanded={!collapsed}
         onToggleSideNav={() => setCollapsed((c) => !c)}
-        onLogo={() => navigate('/admin/home')}
-        onExitAdmin={() => navigate('/web')}
+        onLogo={() => navigate(to('/admin/home'))}
+        onExitAdmin={() => navigate(to('/web'))}
         onToggleTheme={toggle}
         darkMode={mode === 'dark'}
-        onLogout={() => navigate('/')}
+        onLogout={() => navigate(to('/'))}
       />
       <Box sx={{ display: 'flex', flex: 1, minHeight: 0 }}>
         <SideNav system="admin" items={items} help={help} collapsed={collapsed} aria-label="Admin" />

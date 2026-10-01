@@ -8,3 +8,4 @@ playwright-report
 *.tsbuildinfo
 apps/shell/e2e/screenshots
 apps/playground/e2e/screenshots
+apps/playground/demos/.*.tmp.png

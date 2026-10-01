@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import { SideNav, TopNav, type SideNavItem } from '@design-os/components'
 import { generateOrg } from '@design-os/mock-data'
+import { useReplicaBase } from '../ReplicaBase'
 import { Award, Home, Medal, MonitorMobbile, People, Profile2User, SearchNormal1, ShieldSecurity, UserSquare } from 'iconsax-react'
 
 // The learner web app frame: the library's web Top navigation and web Side navigation (with the
@@ -26,8 +27,8 @@ export const webLabel = (slug: string) => NAV.find((n) => webSlug(n.label) === s
 
 export function WebLayout() {
   const navigate = useNavigate()
-  const { pathname } = useLocation()
-  const current = pathname.split('/')[2] ?? ''
+  const { to, path } = useReplicaBase()
+  const current = path.split('/')[2] ?? ''
   // The signed-in learner: someone from the generated org.
   const me = useMemo(() => generateOrg().employees.find((e) => e.level === 'Staff' && e.status === 'Registered')!, [])
 
@@ -35,12 +36,12 @@ export function WebLayout() {
     label: n.label,
     icon: n.icon,
     selected: webSlug(n.label) === current,
-    onClick: () => navigate(n.label === 'Admin' ? '/admin' : `/web/${webSlug(n.label)}`),
+    onClick: () => navigate(to(n.label === 'Admin' ? '/admin' : `/web/${webSlug(n.label)}`)),
   }))
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      <TopNav system="web" onLogo={() => navigate('/web/for-you')} eventsUnread />
+      <TopNav system="web" onLogo={() => navigate(to('/web/for-you'))} eventsUnread />
       <Box sx={{ display: 'flex', flex: 1, minHeight: 0 }}>
         <SideNav system="web" items={items} profile={{ name: me.name, email: me.email }} aria-label="Web app" />
         <Box component="main" sx={(theme) => ({ flex: 1, minWidth: 0, overflowY: 'auto', padding: `${theme.tokens.space.xl}px` })}>
