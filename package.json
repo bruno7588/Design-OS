@@ -3,10 +3,11 @@
   "private": true,
   "packageManager": "pnpm@10.34.5",
   "scripts": {
-    "dev": "concurrently -n shell,server -c cyan,magenta \"pnpm --filter @design-os/shell dev\" \"pnpm --filter @design-os/server dev\"",
+    "dev": "concurrently -n shell,server,playground -c cyan,magenta,green \"pnpm --filter @design-os/shell dev\" \"pnpm --filter @design-os/server dev\" \"pnpm --filter @design-os/playground dev\"",
     "build": "pnpm -r build",
     "test": "vitest run",
     "inventory": "node scripts/inventory.mts",
+    "mock-data": "node packages/mock-data/bin/cli.mts",
     "session-messages": "node scripts/session-messages.mts"
   },
   "devDependencies": {

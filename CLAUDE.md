@@ -33,16 +33,19 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
   - Skills `granola-sync`, `decision-log` and `learnings`, plus `learnings.md`.
   - First granola-sync and decision-log run done 2026-10-01: 158 meetings (back to May 2025), 25 features, 482 decisions.
 - Phase 3 (shell and Home dashboard): done 2026-10-01. Side navigation from the library, dark by default, Home cards read `50 outputs/dashboard` in the vault through `/api/dashboard/:file`. Notes, gaps and the dashboard file formats: `docs/phase-3-notes.md`.
-- Next: Phase 4 (prototype playground).
+- Phase 4a (replicas and mock data): done 2026-10-01. `apps/playground` (port 5175) has the Admin replica (People with 500 generated people, plus `?data=empty`) and the web app shell; `@design-os/mock-data` plus the `mock-data` skill. Native is deferred. Notes and gaps: `docs/phase-4a-notes.md`.
+- Next: Phase 4b (demo gallery, versions, handoff).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
 - `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude). `GET /api/dashboard/:file` reads one file from the vault's `50 outputs/dashboard`
+- `apps/playground`: Vite + React + MUI app (port 5175) for the replicas (`src/replicas/admin`, `src/replicas/web`: layouts, `AdminPage`, `DataTable`) and, from 4b, the demos. Built only from `packages/components`
+- `packages/mock-data`: `@design-os/mock-data`, a seeded org at admin scale (`generateOrg`, `emptyOrg`, `fromCsv`). Use it for every demo's data (see the `mock-data` skill)
 - `packages/components`: 5Mins reference components on MUI 5. Theme in `src/theme` (`tokens.ts` is the only place raw values live; `createFiveMinsTheme('light' | 'dark')`). Visual rules live in each component's `*.overrides.ts`, keyed on MUI props, so plain MUI renders the same. Each component folder has a `<name>.figma.ts` mapping (`FigmaMapping`: Figma page, set, node IDs and the variant values it covers). Exported as `@design-os/components`
 - `packages/components/inventory`: `figma.json` (raw Library read, written by the component-inventory skill) and `inventory.json` (written by `pnpm inventory`, imported by the shell)
 - `apps/shell/src/modules/home`: Home cards; each reads one dashboard file. Home only reads files, never calls other services
 - `apps/shell/src/modules/components`: one registry entry and one folder per component (Preview, Code, Guidelines, Compare). `shared/GuidelinesTemplate` and `shared/CompareTemplate` are the templates for every component. Figma frames for Compare live in `apps/shell/public/figma/<slug>-<mode>.png`, exported at 1:1
-- `playground/`: the 5mins-prototype repo (git subtree, own npm setup, not part of the pnpm workspace). Replicas and demos live here from Phase 4
+- `playground/`: the 5mins-prototype repo (git subtree, own npm setup and Vercel deploy, not part of the pnpm workspace). Read-only reference; replicas and demos live in `apps/playground`
 - `skills/`: Claude skills, one folder per skill. `.claude/skills` links to `skills/`, `.agents/skills` links to `.claude/skills`
 - `engines/`: background job definitions (Phase 6)
 - `design-os.config.json`: vault path, Figma Library file key, server host and port
@@ -52,12 +55,15 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 
 ## Commands
 - `pnpm install`
-- `pnpm dev`: starts shell and server together
+- `pnpm dev`: starts the shell, server and playground together
 - `pnpm build`: type-checks and builds every package
 - `pnpm inventory`: rebuilds `inventory.json` from `figma.json` and the code (no Figma needed)
+- `pnpm test`: unit tests (Vitest, `src/**/*.test.ts`)
+- `pnpm mock-data [--employees 500] [--seed 1] [--csv file] [--empty] [--out file.json]`: writes a mock org as JSON
 - `pnpm session-messages [session] [--since ISO]`: Bruno's messages from a Claude Code session, for the `learnings` skill
 - `cd apps/shell && pnpm exec playwright test`: component, inventory and Compare checks, plus screenshots (`e2e/screenshots`). `e2e/review.spec.ts` captures each component's Preview and Compare tabs for sign-off
-- Playground: `cd playground && npm install && npm run dev`
+- `cd apps/playground && pnpm exec playwright test`: Admin replica checks and screenshots (`e2e/screenshots`)
+- Old prototype: `cd playground && npm install && npm run dev`
 
 ## Stack (matches engineering, we have no access to production code)
 React 19.2, TypeScript 6, Vite 7, React Router 6, MUI 5.18 with Emotion, Iconsax, Vitest 4, Playwright, pnpm 10. No Nx.
