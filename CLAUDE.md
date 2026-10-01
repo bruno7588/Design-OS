@@ -31,8 +31,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 2 (Obsidian brain): built 2026-09-30.
   - The vault is set up with its own `CLAUDE.md`, templates and Git repo.
   - Skills `granola-sync`, `decision-log` and `learnings`, plus `learnings.md`.
-  - The first Granola sync waits for Bruno to sign in to the project `granola` MCP server (`/mcp`).
-- Next: the first granola-sync and decision-log run, then Phase 3 (shell and dashboard).
+  - First granola-sync and decision-log run done 2026-10-01: 158 meetings (back to May 2025), 25 features, 482 decisions.
+- Next: Phase 3 (shell and dashboard).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)

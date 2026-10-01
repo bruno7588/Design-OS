@@ -20,7 +20,7 @@ Never use the claude.ai Granola connector (`mcp__claude_ai_Granola__*`): it's si
 2. **Read the state.** `_system/granola-sync.json` has `lastSync` (ISO date or null) and `syncedIds`.
 3. **List meetings.** `list_meetings` with `involvement: { captured_by_me: true, listed_as_participant: true }`.
    - Time range: `last_30_days` when `lastSync` is null or older than a week, otherwise `last_week`, then `this_week`.
-   - Granola can't reach further back than 30 days.
+   - For older meetings (a backfill), use `time_range: custom` with `custom_start` and `custom_end`. It reaches back to May 2025. The result can be too large to read inline; it gets saved to a file, so parse the IDs and titles from there.
    - Drop IDs already in `syncedIds`.
 4. **Sort out what doesn't belong.** Skip, and list by title only in the report:
    - Personal meetings (banking, health, family, anything not 5Mins work).
