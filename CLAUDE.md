@@ -32,13 +32,15 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
   - The vault is set up with its own `CLAUDE.md`, templates and Git repo.
   - Skills `granola-sync`, `decision-log` and `learnings`, plus `learnings.md`.
   - First granola-sync and decision-log run done 2026-10-01: 158 meetings (back to May 2025), 25 features, 482 decisions.
-- Next: Phase 3 (shell and dashboard).
+- Phase 3 (shell and Home dashboard): done 2026-10-01. Side navigation from the library, dark by default, Home cards read `50 outputs/dashboard` in the vault through `/api/dashboard/:file`. Notes, gaps and the dashboard file formats: `docs/phase-3-notes.md`.
+- Next: Phase 4 (prototype playground).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
-- `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude)
+- `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude). `GET /api/dashboard/:file` reads one file from the vault's `50 outputs/dashboard`
 - `packages/components`: 5Mins reference components on MUI 5. Theme in `src/theme` (`tokens.ts` is the only place raw values live; `createFiveMinsTheme('light' | 'dark')`). Visual rules live in each component's `*.overrides.ts`, keyed on MUI props, so plain MUI renders the same. Each component folder has a `<name>.figma.ts` mapping (`FigmaMapping`: Figma page, set, node IDs and the variant values it covers). Exported as `@design-os/components`
 - `packages/components/inventory`: `figma.json` (raw Library read, written by the component-inventory skill) and `inventory.json` (written by `pnpm inventory`, imported by the shell)
+- `apps/shell/src/modules/home`: Home cards; each reads one dashboard file. Home only reads files, never calls other services
 - `apps/shell/src/modules/components`: one registry entry and one folder per component (Preview, Code, Guidelines, Compare). `shared/GuidelinesTemplate` and `shared/CompareTemplate` are the templates for every component. Figma frames for Compare live in `apps/shell/public/figma/<slug>-<mode>.png`, exported at 1:1
 - `playground/`: the 5mins-prototype repo (git subtree, own npm setup, not part of the pnpm workspace). Replicas and demos live here from Phase 4
 - `skills/`: Claude skills, one folder per skill. `.claude/skills` links to `skills/`, `.agents/skills` links to `.claude/skills`

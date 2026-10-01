@@ -1,10 +1,10 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
+import { PageHeader } from '@design-os/components'
 
 export function ModulePlaceholder({ name, phase }: { name: string; phase: string }) {
   return (
     <Box sx={{ p: 10 }}>
-      <Typography variant="h1">{name}</Typography>
-      <Typography color="text.secondary">This module arrives in {phase}.</Typography>
+      <PageHeader title={name} supportingText={`This module arrives in ${phase}.`} />
     </Box>
   )
 }

@@ -91,6 +91,7 @@ export { PageHeader, type PageHeaderProps, type PageHeaderMeta } from './Navigat
 export { TabNav, TAB_NAV_ITEMS, type TabNavProps, type TabNavItem, type TabNavPage } from './Navigation/TabNav'
 export { AppTopNav, type AppTopNavProps, type AppTopNavPage, type AppTopNavChip } from './Navigation/AppTopNav'
 export { sideNavFigma, menuItemsWebFigma, menuItemsAdminFigma, topNavFigma, pageHeaderFigma, tabNavFigma, appTopNavFigma } from './Navigation/navigation.figma'
+export { CardRoot, CardTitle, type CardRootProps, type CardTitleProps } from './Card/CardBase'
 export { LessonCard, type LessonCardProps, type LessonCardDevice } from './Card/LessonCard'
 export { AssessmentCard, type AssessmentCardProps } from './Card/AssessmentCard'
 export { ResourceCard, type ResourceCardProps } from './Card/ResourceCard'

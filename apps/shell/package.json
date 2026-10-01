@@ -17,6 +17,7 @@
     "iconsax-react": "^0.0.8",
     "react": "~19.2.0",
     "react-dom": "~19.2.0",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^6.30.0"
   },
   "devDependencies": {

@@ -8,13 +8,13 @@ const ModeContext = createContext<{ mode: Mode; toggle: () => void }>({ mode: 'l
 
 function storedMode(): Mode {
   try {
-    return localStorage.getItem(STORAGE_KEY) === 'dark' ? 'dark' : 'light'
+    return localStorage.getItem(STORAGE_KEY) === 'light' ? 'light' : 'dark'
   } catch {
-    return 'light'
+    return 'dark'
   }
 }
 
-/** Light by default, with a persisted switch. Mirrors the prototype's useTheme. */
+/** Dark by default (the admin look), with a persisted switch. Mirrors the prototype's useTheme. */
 export function ThemeModeProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<Mode>(storedMode)
   const value = useMemo(

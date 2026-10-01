@@ -1,17 +1,18 @@
 import { Link as RouterLink } from 'react-router-dom'
-import { Box, Card, CardActionArea, Stack, Typography } from '@mui/material'
+import { Box, Card, CardActionArea, Typography } from '@mui/material'
+import { PageHeader } from '@design-os/components'
 import { components } from './registry'
 import { InventoryTable } from './InventoryTable'
 
 export function ComponentsIndex() {
   return (
     <Box sx={{ p: 10 }}>
-      <Stack sx={{ gap: 2, mb: 8 }}>
-        <Typography variant="h1">Components</Typography>
-        <Typography color="text.secondary">
-          5Mins reference components on MUI 5, themed with the Figma Library tokens.
-        </Typography>
-      </Stack>
+      <Box sx={{ mb: 8 }}>
+        <PageHeader
+          title="Components"
+          supportingText="5Mins reference components on MUI 5, themed with the Figma Library tokens."
+        />
+      </Box>
       <Typography variant="h2" sx={{ mb: 4 }}>
         Built
       </Typography>
