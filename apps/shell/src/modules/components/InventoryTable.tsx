@@ -116,7 +116,7 @@ export function InventoryTable() {
 function NameLink({ row }: { row: InventoryRow }) {
   // A built page is linked by its Figma node, since code names differ (Tab, ConfirmDialog).
   const doc = components.find((c) =>
-    row.nodes.some((n) => [c.figma.light, c.figma.dark].some((url) => url.endsWith(`node-id=${n.replace(':', '-')}`))),
+    row.nodes.some((n) => (c.figma ? [c.figma.light, c.figma.dark] : []).some((url) => url.endsWith(`node-id=${n.replace(':', '-')}`))),
   )
   if (doc) {
     return (

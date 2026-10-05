@@ -13,5 +13,6 @@ export default defineConfig({
       '@playground': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  server: { port: 5175, strictPort: true },
+  // /api goes to the Design OS server, for comments on demos.
+  server: { port: 5175, strictPort: true, proxy: { '/api': 'http://127.0.0.1:4310' } },
 })

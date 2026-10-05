@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@design-os/components": "workspace:*",
+    "@design-os/demos": "workspace:*",
     "@design-os/mock-data": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",

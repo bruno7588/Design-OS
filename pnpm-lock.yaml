@@ -26,6 +26,9 @@ importers:
       '@design-os/components':
         specifier: workspace:*
         version: link:../../packages/components
+      '@design-os/demos':
+        specifier: workspace:*
+        version: link:../../packages/demos
       '@design-os/mock-data':
         specifier: workspace:*
         version: link:../../packages/mock-data

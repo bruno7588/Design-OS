@@ -35,11 +35,12 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 3 (shell and Home dashboard): done 2026-10-01. Side navigation from the library, dark by default, Home cards read `50 outputs/dashboard` in the vault through `/api/dashboard/:file`. Notes, gaps and the dashboard file formats: `docs/phase-3-notes.md`.
 - Phase 4a (replicas and mock data): done 2026-10-01. `apps/playground` (port 5175) has the Admin replica (People with 500 generated people, plus `?data=empty`) and the web app shell; `@design-os/mock-data` plus the `mock-data` skill. Native is deferred. Notes and gaps: `docs/phase-4a-notes.md`.
 - Phase 4b (demo gallery, versions, handoff): done 2026-10-01. Demos are folders in `apps/playground/demos` (rules in its `README.md`); the shell's Prototypes module has the gallery and viewer; the server handles versions, Duplicate and Playwright thumbnails on save. Notes: `docs/phase-4b-notes.md`.
-- Next: Phase 4c (comments on the live prototype, watch mode).
+- Phase 4c (comments and watch mode): done 2026-10-05. Comment layer in every demo (`apps/playground/src/comments`), new code-first `CommentPin` (not in Figma yet), watch mode runs headless Claude Code with Haiku on pending comments and checks the build (`apps/server/src/watch.ts`, prompt `engines/watch-mode/prompt.md`). Notes: `docs/phase-4c-notes.md`.
+- Next: Phase 4d (terminal beside the demo, private deploy).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
-- `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude). `GET /api/dashboard/:file` reads one file from the vault's `50 outputs/dashboard`; `/api/demos` lists demos, saves versions, duplicates and serves thumbnails (`src/demos.ts`, `src/thumbnails.ts`)
+- `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude). `GET /api/dashboard/:file` reads one file from the vault's `50 outputs/dashboard`; `/api/demos` lists demos, saves versions, duplicates and serves thumbnails (`src/demos.ts`, `src/thumbnails.ts`); comments and watch mode (`src/comments.ts`, `src/watch.ts`)
 - `apps/playground`: Vite + React + MUI app (port 5175) for the replicas (`src/replicas/admin`, `src/replicas/web`: layouts, `AdminPage`, `DataTable`) and the demos (`demos/<slug>`, run at `/demos/<slug>`; read `demos/README.md` before building one). Built only from `packages/components`
 - `packages/demos`: `@design-os/demos`, the `demo.json` types shared by the server and shell
 - `apps/shell/src/modules/prototypes`: gallery (`/prototypes`) and viewer (`/prototypes/:slug`) with versions, Duplicate and the handoff panel
@@ -50,7 +51,7 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - `apps/shell/src/modules/components`: one registry entry and one folder per component (Preview, Code, Guidelines, Compare). `shared/GuidelinesTemplate` and `shared/CompareTemplate` are the templates for every component. Figma frames for Compare live in `apps/shell/public/figma/<slug>-<mode>.png`, exported at 1:1
 - `playground/`: the 5mins-prototype repo (git subtree, own npm setup and Vercel deploy, not part of the pnpm workspace). Read-only reference; replicas and demos live in `apps/playground`
 - `skills/`: Claude skills, one folder per skill. `.claude/skills` links to `skills/`, `.agents/skills` links to `.claude/skills`
-- `engines/`: background job definitions (Phase 6)
+- `engines/`: background job definitions (Phase 6). `engines/watch-mode/prompt.md` is the watch-mode prompt (Phase 4c)
 - `design-os.config.json`: vault path, Figma Library file key, server host and port
 - Obsidian vault: `~/Documents/Projetos/5Mins/Design-OS-vault`, its own Git repo. Its `CLAUDE.md` has the folders (00 inbox to 50 outputs), naming and frontmatter; read it before writing there.
 - `learnings.md`: rules Bruno stated while working, grouped by topic (written by the `learnings` skill)

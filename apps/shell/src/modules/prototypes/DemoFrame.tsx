@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type Ref } from 'react'
 import { Box } from '@mui/material'
 
 // The running demo, drawn at a desktop width (1440) and scaled down to fit its frame, like
@@ -6,7 +6,7 @@ import { Box } from '@mui/material'
 
 const DESKTOP = 1440
 
-export function DemoFrame({ src, title }: { src: string; title: string }) {
+export function DemoFrame({ src, title, frameRef }: { src: string; title: string; frameRef?: Ref<HTMLIFrameElement> }) {
   const box = useRef<HTMLDivElement>(null)
   const [size, setSize] = useState({ width: DESKTOP, height: 900 })
 
@@ -34,6 +34,7 @@ export function DemoFrame({ src, title }: { src: string; title: string }) {
     >
       <Box
         component="iframe"
+        ref={frameRef}
         key={src}
         src={src}
         title={title}

@@ -53,6 +53,15 @@ async function readMeta(dir: string, slug: string): Promise<DemoMeta> {
 
 const writeMeta = (dir: string, slug: string, meta: DemoMeta) => writeFile(join(dir, slug, 'demo.json'), JSON.stringify(meta, null, 2) + '\n')
 
+async function openComments(folder: string) {
+  try {
+    const { comments } = JSON.parse(await readFile(join(folder, 'comments.json'), 'utf8'))
+    return (comments as { status: string }[]).filter((c) => c.status !== 'done').length
+  } catch {
+    return 0
+  }
+}
+
 async function thumbnailAt(folder: string) {
   try {
     return (await stat(join(folder, 'thumbnail.png'))).mtime.toISOString()
@@ -69,7 +78,7 @@ export async function listDemos(dir: string): Promise<DemoSummary[]> {
     if (!e.isDirectory() || !SLUG.test(e.name) || !existsSync(join(dir, e.name, 'demo.json'))) continue
     try {
       const meta = await readMeta(dir, e.name)
-      demos.push({ ...meta, slug: e.name, thumbnailAt: await thumbnailAt(join(dir, e.name)) })
+      demos.push({ ...meta, slug: e.name, thumbnailAt: await thumbnailAt(join(dir, e.name)), openComments: await openComments(join(dir, e.name)) })
     } catch {
       // A broken demo.json shouldn't hide the others.
     }
@@ -88,7 +97,7 @@ export async function readDemo(dir: string, slug: string, version?: string): Pro
   } catch {
     /* no handoff yet */
   }
-  return { ...meta, slug, thumbnailAt: await thumbnailAt(folder), handoffBody }
+  return { ...meta, slug, thumbnailAt: await thumbnailAt(folder), openComments: await openComments(demoFolder(dir, slug)), handoffBody }
 }
 
 /** Freezes the working copy as the next version (v1, v2, …). */
@@ -143,7 +152,7 @@ export async function duplicateDemo(
     duplicatedFrom: { slug, ...(options.version ? { version: options.version } : {}) },
   }
   await writeMeta(ctx.dir, newSlug, copy)
-  return { ...copy, slug: newSlug, thumbnailAt: await thumbnailAt(to) }
+  return { ...copy, slug: newSlug, thumbnailAt: await thumbnailAt(to), openComments: 0 }
 }
 
 export async function deleteDemo(dir: string, slug: string) {

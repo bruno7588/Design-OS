@@ -40,8 +40,8 @@ test('a starter opens in the viewer with the live demo and its handoff', async (
   const demo = page.frameLocator('iframe[title="Admin starter demo"]')
   await expect(demo.getByRole('heading', { level: 1, name: 'People' })).toBeVisible()
   await expect(page.getByTestId('handoff').getByRole('heading', { name: 'Goal' })).toBeVisible()
-  await page.getByRole('button', { name: 'Hide Handoff' }).click()
-  await expect(page.getByTestId('handoff')).toHaveCount(0)
+  await page.getByRole('button', { name: 'Hide Panel' }).click()
+  await expect(page.getByTestId('demo-panel')).toHaveCount(0)
 })
 
 test('duplicate, edit, save a version and switch to it', async ({ page, request }) => {

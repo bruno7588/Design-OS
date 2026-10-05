@@ -3,10 +3,10 @@
   "figmaFetchedAt": "2026-09-29",
   "summary": {
     "inFigma": 77,
-    "inCode": 76,
+    "inCode": 77,
     "both": 76,
     "figmaOnly": 1,
-    "codeOnly": 0,
+    "codeOnly": 1,
     "noLightVersion": 0
   },
   "rows": [
@@ -3096,6 +3096,40 @@
       "prototype": "Tooltip",
       "missingInCode": {},
       "missingInFigma": {}
+    },
+    {
+      "name": "Comment pin",
+      "page": "Comments",
+      "pageId": null,
+      "type": "set",
+      "nodes": [],
+      "copiesDiffer": false,
+      "lightVersion": "unknown",
+      "namesDiffer": false,
+      "variants": {},
+      "slots": [],
+      "inFigma": false,
+      "inCode": true,
+      "code": {
+        "component": "CommentPin",
+        "mui": "ButtonBase",
+        "path": "packages/components/src/CommentPin"
+      },
+      "prototype": null,
+      "missingInCode": null,
+      "missingInFigma": {
+        "Status": [
+          "Pending",
+          "In progress",
+          "Done",
+          "Failed"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Selected"
+        ]
+      }
     }
   ]
 }

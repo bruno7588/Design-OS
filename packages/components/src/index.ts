@@ -143,3 +143,7 @@ export {
   assessmentIllustrationFigma,
   emptyStateIllustrationFigma,
 } from './Illustrations/illustrations.figma'
+
+// Comments on live prototypes (Phase 4c)
+export { CommentPin, type CommentPinProps, type CommentPinStatus } from './CommentPin/CommentPin'
+export { commentPinFigma } from './CommentPin/commentPin.figma'

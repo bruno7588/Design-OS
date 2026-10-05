@@ -1,15 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import { Box } from '@mui/material'
-import { Alert, Breadcrumb, Button, CardRoot, Dropdown, EmptyState, InputField, Modal, PageHeader, SectionHeader, useToast } from '@design-os/components'
-import { TEMPLATE_FEATURE, type DemoDetail, type DemoList, type DemoSummary, type DemoVersion } from '@design-os/demos'
+import { Box, Tabs } from '@mui/material'
+import { Alert, Breadcrumb, Button, CardRoot, Dropdown, EmptyState, InputField, Modal, PageHeader, SectionHeader, Tab, useToast } from '@design-os/components'
+import { TEMPLATE_FEATURE, type DemoDetail, type DemoList, type DemoSummary, type DemoVersion, type FrameMessage } from '@design-os/demos'
 import { ExportSquare } from 'iconsax-react'
 import { Markdown } from '../../shared/Markdown'
+import { CommentsPanel, useComments } from './CommentsPanel'
 import { DemoFrame } from './DemoFrame'
 import { postJson, shortDate, useApi } from './useDemos'
 
-// One demo: the running playground page in a frame, its versions, Save Version, Duplicate and
-// the handoff beside it. ?version=v2 shows a frozen version.
+// One demo: the running playground page in a frame, its versions, Save Version, Duplicate, and a
+// panel with the handoff and the comments (with watch mode). ?version=v2 shows a frozen version.
+// The frame and the viewer talk through postMessage (FrameMessage in @design-os/demos).
 
 export function DemoViewer() {
   const { slug = '' } = useParams()
@@ -19,9 +21,39 @@ export function DemoViewer() {
   const toast = useToast()
   const detail = useApi<DemoDetail>(`/api/demos/${slug}${version ? `?version=${version}` : ''}`)
   const list = useApi<DemoList>('/api/demos')
-  const [handoff, setHandoff] = useState(true)
+  const [panel, setPanel] = useState(true)
+  const [tab, setTab] = useState<'handoff' | 'comments'>('handoff')
+  const [commentMode, setCommentMode] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
   const [saving, setSaving] = useState(false)
   const [duplicating, setDuplicating] = useState(false)
+  const frame = useRef<HTMLIFrameElement>(null)
+  const comments = useComments(slug, reloadKey)
+  const playgroundUrl = list.status === 'ok' ? list.data.playgroundUrl : null
+
+  const tellFrame = (message: FrameMessage) => {
+    if (playgroundUrl) frame.current?.contentWindow?.postMessage(message, new URL(playgroundUrl).origin)
+  }
+
+  // The frame says when it's ready (it may load after Comment was pressed), when comments change,
+  // and when its comment mode turns on or off (C, Escape).
+  const modeRef = useRef(commentMode)
+  modeRef.current = commentMode
+  useEffect(() => {
+    if (!playgroundUrl) return
+    const origin = new URL(playgroundUrl).origin
+    const onMessage = (e: MessageEvent<FrameMessage>) => {
+      if (e.origin !== origin) return
+      if (e.data?.type === 'design-os:frame-ready') frame.current?.contentWindow?.postMessage({ type: 'design-os:comment-mode', on: modeRef.current } satisfies FrameMessage, origin)
+      if (e.data?.type === 'design-os:comments-changed') setReloadKey((k) => k + 1)
+      if (e.data?.type === 'design-os:comment-mode-changed') setCommentMode(e.data.on)
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [playgroundUrl])
+
+  // A new page in the frame starts with comment mode off.
+  useEffect(() => setCommentMode(false), [slug, version])
 
   if (detail.status === 'loading' || list.status === 'loading') return null
   if (detail.status === 'offline' || list.status === 'offline') {
@@ -48,10 +80,21 @@ export function DemoViewer() {
   }
 
   const demo = detail.data
-  const { playgroundUrl, features } = list.data
+  const { features } = list.data
   const src = `${playgroundUrl}/demos/${slug}${version ? `/v/${version}` : ''}`
   const shownVersion = demo.versions.find((v) => v.id === version)
   const setVersion = (v: string) => setParams(v === 'current' ? {} : { version: v })
+  const allComments = comments.comments ?? []
+  const open = allComments.filter((c) => c.status !== 'done').length
+  const toggleCommentMode = () => {
+    const on = !commentMode
+    setCommentMode(on)
+    tellFrame({ type: 'design-os:comment-mode', on })
+    if (on) {
+      setPanel(true)
+      setTab('comments')
+    }
+  }
 
   return (
     <Box sx={{ p: 10, height: '100vh', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -77,14 +120,17 @@ export function DemoViewer() {
               <Button variant="contained" onClick={() => setSaving(true)} disabled={!!version}>
                 Save Version
               </Button>
+              <Button variant={commentMode ? 'contained' : 'outlined'} onClick={toggleCommentMode} disabled={!!version} aria-pressed={commentMode}>
+                Comment
+              </Button>
               <Button variant="outlined" onClick={() => setDuplicating(true)}>
                 Duplicate
               </Button>
               <Button variant="text" icon={<ExportSquare color="currentColor" />} onClick={() => window.open(src, '_blank', 'noopener')}>
                 Open in New Tab
               </Button>
-              <Button variant="text" onClick={() => setHandoff((h) => !h)} aria-pressed={handoff}>
-                {handoff ? 'Hide Handoff' : 'Show Handoff'}
+              <Button variant="text" onClick={() => setPanel((p) => !p)} aria-pressed={panel}>
+                {panel ? 'Hide Panel' : 'Show Panel'}
               </Button>
             </>
           }
@@ -92,17 +138,36 @@ export function DemoViewer() {
       </Box>
 
       <Box sx={{ flex: 1, minHeight: 0, display: 'flex', gap: 6 }}>
-        <DemoFrame src={src} title={`${demo.name} demo`} />
-        {handoff && (
-          <CardRoot hover={false} sx={{ width: 400, flexShrink: 0, overflowY: 'auto', p: 6, display: 'flex', flexDirection: 'column', gap: 4 }} data-testid="handoff">
-            <SectionHeader
-              title="Handoff"
-              supportingText={shownVersion ? `${shownVersion.id}, saved ${shortDate(shownVersion.savedAt)}` : `Current, updated ${shortDate(demo.updatedAt)}`}
-            />
-            {demo.handoffBody.trim() ? (
-              <Markdown body={demo.handoffBody} />
+        <DemoFrame src={src} title={`${demo.name} demo`} frameRef={frame} />
+        {panel && (
+          <CardRoot hover={false} sx={{ width: 400, flexShrink: 0, overflowY: 'auto', p: 6, display: 'flex', flexDirection: 'column', gap: 4 }} data-testid="demo-panel">
+            <Tabs value={tab} onChange={(_, v) => setTab(v)} aria-label="Demo panel">
+              <Tab value="handoff" label="Handoff" />
+              <Tab value="comments" label="Comments" count={open} />
+            </Tabs>
+            {tab === 'handoff' ? (
+              <Box data-testid="handoff" sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <SectionHeader
+                  title="Handoff"
+                  supportingText={shownVersion ? `${shownVersion.id}, saved ${shortDate(shownVersion.savedAt)}` : `Current, updated ${shortDate(demo.updatedAt)}`}
+                />
+                {demo.handoffBody.trim() ? (
+                  <Markdown body={demo.handoffBody} />
+                ) : (
+                  <EmptyState illustration="resources" title="No handoff yet" description={`Write it in ${demo.handoff} in the demo's folder.`} titleComponent="h3" />
+                )}
+              </Box>
             ) : (
-              <EmptyState illustration="resources" title="No handoff yet" description={`Write it in ${demo.handoff} in the demo's folder.`} titleComponent="h3" />
+              <CommentsPanel
+                comments={allComments}
+                watch={comments.watch}
+                readOnly={!!version}
+                onWatch={(on) => {
+                  void comments.setWatchOn(on)
+                  toast({ type: 'success', message: on ? 'Watch mode is on' : 'Watch mode is off' })
+                }}
+                onFocus={(id) => tellFrame({ type: 'design-os:focus-comment', id })}
+              />
             )}
           </CardRoot>
         )}

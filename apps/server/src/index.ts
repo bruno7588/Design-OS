@@ -4,9 +4,11 @@ import { readFile, stat } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { basename, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { DemoList } from '@design-os/demos'
+import type { CommentStatus, DemoList, NewComment } from '@design-os/demos'
+import { addComment, listComments, removeComment, updateComment } from './comments'
 import { DemoError, deleteDemo, demoFolder, duplicateDemo, listDemos, readDemo, readFeatures, saveVersion } from './demos'
 import { createThumbnailer } from './thumbnails'
+import { createWatchEngine, viteCheck } from './watch'
 
 // Local-only server for things the browser can't do (terminal, files, headless Claude).
 const configPath = fileURLToPath(new URL('../../../design-os.config.json', import.meta.url))
@@ -20,6 +22,7 @@ const vault = basename(vaultPath)
 const demosDir = fileURLToPath(new URL(`../../../${config.playground.dir}/demos`, import.meta.url))
 const playgroundUrl: string = config.playground.url
 const author: string = config.author
+const repoRoot = fileURLToPath(new URL('../../../', import.meta.url))
 
 const app = Fastify({ logger: true })
 
@@ -96,7 +99,40 @@ app.delete<SlugParams>('/api/demos/:slug', async (req) => {
   return { deleted: req.params.slug }
 })
 
-app.addHook('onClose', () => thumbnails.close())
+// Comments on a demo's working copy, and watch mode (Phase 4c).
+const watch = createWatchEngine({ dir: demosDir, repoRoot, log: app.log, check: viteCheck(demosDir, playgroundUrl) })
+type CommentParams = { Params: { slug: string; id: string } }
+
+app.get<SlugParams>('/api/demos/:slug/comments', async (req) => ({ comments: await listComments(demosDir, req.params.slug) }))
+
+app.post<SlugParams & { Body: NewComment }>('/api/demos/:slug/comments', async (req) => {
+  const comment = await addComment(demosDir, req.params.slug, req.body)
+  watch.poke()
+  return comment
+})
+
+app.patch<CommentParams & { Body: { status?: CommentStatus; text?: string } }>('/api/demos/:slug/comments/:id', async (req) => {
+  const comment = await updateComment(demosDir, req.params.slug, req.params.id, { status: req.body?.status, text: req.body?.text })
+  watch.poke()
+  return comment
+})
+
+app.delete<CommentParams>('/api/demos/:slug/comments/:id', async (req) => {
+  await removeComment(demosDir, req.params.slug, req.params.id)
+  return { deleted: req.params.id }
+})
+
+app.get<SlugParams>('/api/demos/:slug/watch', async (req) => {
+  await listComments(demosDir, req.params.slug) // 404 for an unknown demo
+  return watch.state(req.params.slug)
+})
+
+app.put<SlugParams & { Body: { on: boolean } }>('/api/demos/:slug/watch', async (req) => watch.set(req.params.slug, !!req.body?.on))
+
+app.addHook('onClose', async () => {
+  watch.close()
+  await thumbnails.close()
+})
 
 await app.listen({ host, port })
 thumbnails.watch()

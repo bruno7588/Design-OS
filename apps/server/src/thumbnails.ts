@@ -56,7 +56,11 @@ export function createThumbnailer({ dir, playgroundUrl, log }: { dir: string; pl
     browser ??= chromium.launch()
     const page = await (await browser).newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })
     try {
-      await page.addInitScript(() => localStorage.setItem('design-os-mode', 'dark'))
+      await page.addInitScript(() => {
+        localStorage.setItem('design-os-mode', 'dark')
+        // The comment layer stays out of thumbnails.
+        ;(window as unknown as { __designOsThumbnail: boolean }).__designOsThumbnail = true
+      })
       await page.goto(`${playgroundUrl}/demos/${slug}`, { waitUntil: 'networkidle', timeout: 30_000 })
       await page.evaluate(() => document.fonts.ready)
       await page.waitForTimeout(300)

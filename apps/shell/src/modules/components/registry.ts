@@ -111,6 +111,10 @@ import { StepperPreview } from './stepper/StepperPreview'
 import { StepperCode } from './stepper/StepperCode'
 import { StepperGuidelines } from './stepper/StepperGuidelines'
 import { StepperCompare } from './stepper/StepperCompare'
+import { CommentPinPreview } from './comment-pin/CommentPinPreview'
+import { CommentPinCode } from './comment-pin/CommentPinCode'
+import { CommentPinGuidelines } from './comment-pin/CommentPinGuidelines'
+import { CommentPinCompare } from './comment-pin/CommentPinCompare'
 import { TagPreview } from './tag/TagPreview'
 import { TagCode } from './tag/TagCode'
 import { TagGuidelines } from './tag/TagGuidelines'
@@ -245,8 +249,8 @@ export interface ComponentDoc {
   slug: string
   name: string
   summary: string
-  /** Figma Library frames, per mode. */
-  figma: { light: string; dark: string }
+  /** Figma Library links per mode; left out for a code-first component. */
+  figma?: { light: string; dark: string }
   /** The prototype spec this reference implements. */
   spec: string
   Preview: ComponentType
@@ -576,6 +580,16 @@ export const components: ComponentDoc[] = [
     Code: TagCode,
     Guidelines: TagGuidelines,
     Compare: TagCompare,
+  },
+  {
+    slug: 'comment-pin',
+    name: 'Comment pin',
+    summary: 'Marks a comment on a live prototype, coloured by its status. Code first: not in Figma yet.',
+    spec: 'Design OS, Phase 4c (code first)',
+    Preview: CommentPinPreview,
+    Code: CommentPinCode,
+    Guidelines: CommentPinGuidelines,
+    Compare: CommentPinCompare,
   },
   {
     slug: 'slider',

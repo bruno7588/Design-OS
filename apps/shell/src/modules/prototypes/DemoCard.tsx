@@ -8,7 +8,12 @@ import { shortDate, thumbnailUrl } from './useDemos'
 
 export function DemoCard({ demo, onOpen }: { demo: DemoSummary; onOpen: () => void }) {
   const versions = demo.versions.length
-  const meta = [demo.template ? 'Starter' : demo.feature, versions ? `v${versions}` : 'No versions yet', `Updated ${shortDate(demo.updatedAt)}`].join(' · ')
+  const meta = [
+    demo.template ? 'Starter' : demo.feature,
+    versions ? `v${versions}` : 'No versions yet',
+    ...(demo.openComments ? [`${demo.openComments} open ${demo.openComments === 1 ? 'comment' : 'comments'}`] : []),
+    `Updated ${shortDate(demo.updatedAt)}`,
+  ].join(' · ')
   return (
     <CardRoot sx={{ display: 'flex', flexDirection: 'column' }} data-testid={`demo-${demo.slug}`}>
       <Box

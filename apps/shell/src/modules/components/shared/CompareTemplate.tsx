@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import { Box, Link, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
-import { Badge, type Mode } from '@design-os/components'
+import { Badge, EmptyState, type Mode } from '@design-os/components'
 import { useThemeMode } from '../../../theme-mode'
 import { figmaNodeUrl, findInventoryRow } from '../inventory'
 import { Bullets, Section } from './GuidelinesTemplate'
@@ -13,8 +13,8 @@ export interface Compare {
   /** Figma page and set name, as in the inventory. */
   page: string
   set: string
-  /** Figma frames saved by the component-inventory skill, per mode. */
-  frames: Record<Mode, string>
+  /** Figma frames saved by the component-inventory skill, per mode. Leave out for a code-first component. */
+  frames?: Record<Mode, string>
   /** The live reference, laid out like the Figma board. */
   live: (mode: Mode) => ReactNode
   differences: { property: string; figma: string; reference: string; status: DiffStatus; note?: string }[]
@@ -63,13 +63,22 @@ export function CompareTemplate({ c }: { c: Compare }) {
               })}
             >
               {/* Exported at the frame's natural size, so it shows at the same scale as the live reference. */}
-              <Box
-                component="img"
-                data-testid="compare-figma-frame"
-                src={c.frames[mode]}
-                alt={`Figma ${c.set} set, ${mode} mode`}
-                sx={{ display: 'block', maxWidth: 'none' }}
-              />
+              {c.frames ? (
+                <Box
+                  component="img"
+                  data-testid="compare-figma-frame"
+                  src={c.frames[mode]}
+                  alt={`Figma ${c.set} set, ${mode} mode`}
+                  sx={{ display: 'block', maxWidth: 'none' }}
+                />
+              ) : (
+                <EmptyState
+                  illustration="add"
+                  title="Not in Figma yet"
+                  description={`${c.set} was built in code first. Add a light and a dark set to the Figma Library, then export the frames here.`}
+                  titleComponent="h3"
+                />
+              )}
             </Box>
           </Frame>
           <Frame label="Reference (live)">{c.live(mode)}</Frame>

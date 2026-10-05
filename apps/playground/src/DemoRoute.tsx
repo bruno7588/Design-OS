@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import { EmptyState } from '@design-os/components'
 import { ReplicaBase } from './replicas/ReplicaBase'
+import { CommentLayer } from './comments/CommentLayer'
 
 // Runs one demo: /demos/<slug>/* is the working copy, /demos/<slug>/v/<version>/* a snapshot.
 // Each demo's src/index.tsx default-exports a component that renders its own <Routes>,
-// relative to this route. New demos and versions are picked up as they're written.
+// relative to this route. New demos and versions are picked up as they're written. The working
+// copy gets the comment layer (Phase 4c).
 
 type DemoModule = { default: ComponentType }
 const workingCopies = import.meta.glob<DemoModule>('../demos/*/src/index.tsx')
@@ -29,11 +31,22 @@ export function DemoRoute() {
       </Box>
     )
   }
+  const base = version ? `/demos/${slug}/v/${version}` : `/demos/${slug}`
+  const demo = (
+    <Suspense fallback={null}>
+      <Demo />
+    </Suspense>
+  )
   return (
-    <ReplicaBase value={version ? `/demos/${slug}/v/${version}` : `/demos/${slug}`}>
-      <Suspense fallback={null}>
-        <Demo />
-      </Suspense>
+    <ReplicaBase value={base}>
+      {/* Comments belong to the working copy; saved versions are frozen and show none. */}
+      {version ? (
+        demo
+      ) : (
+        <CommentLayer slug={slug} base={base}>
+          {demo}
+        </CommentLayer>
+      )}
     </ReplicaBase>
   )
 }
