@@ -91,3 +91,11 @@ React 19.2, TypeScript 6, Vite 7, React Router 6, MUI 5.18 with Emotion, Iconsax
 - Keep a calm tone and explain what you're doing as you go. Don't over-engineer.
 - If a component the shell needs doesn't exist in `packages/components`, stop and say so. Don't invent one-off styles.
 - Build one phase per session, starting in plan mode. Update this file and commit when a phase works.
+
+## Git and deploys
+- Only Bruno works in this repo for now. `main` is what the shared site shows: Vercel redeploys it on every push. Phase work and fixes Bruno asks for go to `main` as before.
+- To try a different UX or UI direction, work on a branch named `explore/<topic>` (such as `explore/invite-drawer`), one branch per idea. Push it and give Bruno its Vercel preview link; the live site doesn't change.
+- Never merge an `explore/` branch into `main` yourself. Bruno merges on GitHub: Compare & pull request, check Files changed and the Vercel preview link, Merge pull request, then Delete branch if he's done with it. Ideas he doesn't pick are closed without merging; their branches stay.
+- After Bruno merges, run `git switch main` and `git pull` before starting new work.
+- Commit or stash before switching branches: comments and thumbnails are files too, and Design OS shows whatever branch is checked out.
+- For variants inside one demo, Duplicate is lighter than a branch. Use a branch when the idea touches replicas, components or mock data, or needs its own preview link.
