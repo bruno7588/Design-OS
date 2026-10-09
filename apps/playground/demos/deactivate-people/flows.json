@@ -1,0 +1,66 @@
+{
+  "demo": "deactivate-people",
+  "viewport": { "width": 1440, "height": 900 },
+  "flows": [
+    {
+      "id": "deactivate-one",
+      "name": "Deactivate one person",
+      "goal": "Remove access for someone who has left, keeping their learning history.",
+      "user": "An Admin at a 500-person hotel group.",
+      "entry": "Admin › People & Teams › People, Active tab.",
+      "success": "The person is on the Deactivated tab and can no longer sign in.",
+      "steps": [
+        {
+          "title": "People",
+          "note": "The Active tab lists everyone who can access 5Mins, 25 per page. The Admin opens the actions menu on Afonso Adeyemi's row.",
+          "actions": [{ "goto": "/admin/people" }, { "waitFor": { "role": "heading", "name": "People" } }]
+        },
+        {
+          "title": "Actions menu",
+          "note": "View Profile and Deactivate. Choosing Deactivate opens the confirmation.",
+          "actions": [{ "click": { "role": "button", "name": "Actions for Afonso Adeyemi" } }, { "waitFor": { "role": "menuitem", "name": "Deactivate" } }]
+        },
+        {
+          "title": "Confirm",
+          "note": "The dialog says they lose access straight away but keep their learning history. Deactivate confirms.",
+          "actions": [{ "click": { "role": "menuitem", "name": "Deactivate" } }, { "waitFor": { "role": "alertdialog" } }]
+        },
+        {
+          "title": "Deactivated",
+          "note": "A toast confirms it, the Active count drops by one and the Deactivated count rises by one.",
+          "actions": [{ "click": { "role": "button", "name": "Deactivate", "within": { "role": "alertdialog" } } }, { "waitFor": { "text": "Afonso Adeyemi deactivated" } }]
+        },
+        {
+          "title": "Deactivated tab",
+          "note": "The person is listed with the date. Their actions menu offers Reactivate.",
+          "actions": [{ "click": { "role": "tab", "name": "Deactivated", "exact": false } }, { "fill": { "role": "searchbox", "value": "Afonso Adeyemi" } }, { "waitFor": { "role": "link", "name": "Afonso Adeyemi" } }]
+        }
+      ]
+    },
+    {
+      "id": "invite",
+      "name": "Invite people",
+      "goal": "Invite new starters to 5Mins.",
+      "user": "An Admin at a 500-person hotel group.",
+      "entry": "Admin › People & Teams › People.",
+      "success": "The toast confirms how many invites were sent.",
+      "steps": [
+        {
+          "title": "People",
+          "note": "Invite People in the page header opens the invite modal.",
+          "actions": [{ "goto": "/admin/people" }, { "waitFor": { "role": "heading", "name": "People" } }]
+        },
+        {
+          "title": "Invite modal",
+          "note": "The Admin pastes one or more email addresses. Send Invites stays disabled until there's at least one.",
+          "actions": [{ "click": { "role": "button", "name": "Invite People" } }, { "fill": { "role": "textbox", "name": "Email addresses", "value": "maria.costa@meridian.example, tom.hale@meridian.example" } }]
+        },
+        {
+          "title": "Invites sent",
+          "note": "A toast says how many invites were sent, and the modal closes.",
+          "actions": [{ "click": { "role": "button", "name": "Send Invites" } }, { "waitFor": { "text": "2 invites sent" } }]
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 
 // The Toast set has one copy, with the same colours in both modes. The light board holds
 // instances of it, set to the Light variable modes (a frame, 12279:19203).
-export const toastFigma: FigmaMapping = {
+export const toastFigma: MappedFigma = {
   component: 'Toast',
   mui: 'Alert (variant="filled")',
   page: 'Toast',
@@ -11,5 +11,13 @@ export const toastFigma: FigmaMapping = {
   variants: {
     Icon: ['True', 'False'],
     Type: ['Success', 'Warning', 'Error', 'Info'],
+  },
+  map: {
+    kind: 'leaf',
+    match: 'ToastBody',
+    props: {
+      type: { figma: 'Type', values: { warning: 'Warning', error: 'Error', info: 'Info', '*': 'Success' } },
+      icon: { figma: 'Icon', values: { false: 'False', '*': 'True' } },
+    },
   },
 }

@@ -10,3 +10,4 @@ apps/shell/e2e/screenshots
 apps/playground/e2e/screenshots
 apps/playground/demos/.*.tmp.png
 site
+apps/playground/demos/*/figma-export

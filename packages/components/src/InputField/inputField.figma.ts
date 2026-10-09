@@ -1,6 +1,6 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 
-export const inputFieldFigma: FigmaMapping = {
+export const inputFieldFigma: MappedFigma = {
   component: 'InputField',
   mui: 'TextField (outlined)',
   page: 'Input',
@@ -14,5 +14,17 @@ export const inputFieldFigma: FigmaMapping = {
     'Icon right': ['false', 'true'],
     Label: ['true', 'false'],
     'Helper text': ['false', 'true'],
+  },
+  map: {
+    kind: 'leaf',
+    fixed: { Hovering: 'false' },
+    props: {
+      'disabled|value': { figma: 'State', values: { 'true|*': 'n/a', '*|': 'Enabled', '*|undefined': 'Enabled', '*': 'Filled' } },
+      disabled: { figma: 'Disabled', values: { true: 'true', '*': 'false' } },
+      validation: { figma: 'Validation', values: { error: 'error', success: 'success', '*': 'none' } },
+      iconRight: { figma: 'Icon right', values: { undefined: 'false', '*': 'true' } },
+      label: { figma: 'Label', values: { undefined: 'false', '*': 'true' } },
+      helperText: { figma: 'Helper text', values: { undefined: 'false', '*': 'true' } },
+    },
   },
 }

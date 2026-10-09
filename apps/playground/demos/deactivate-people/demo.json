@@ -1,0 +1,22 @@
+{
+  "name": "Deactivate people",
+  "feature": "Custom fields",
+  "platform": "Admin",
+  "author": "Bruno Carvalho",
+  "description": "Deactivating people and inviting new ones from Admin › People, at hotel-group scale (500 people).",
+  "template": false,
+  "handoff": "handoff.md",
+  "createdAt": "2026-10-09T18:43:15.758Z",
+  "updatedAt": "2026-10-09T18:43:15.798Z",
+  "versions": [
+    {
+      "id": "v1",
+      "note": "Deactivate and invite flows, documented",
+      "savedAt": "2026-10-09T18:43:15.798Z",
+      "author": "Bruno Carvalho"
+    }
+  ],
+  "duplicatedFrom": {
+    "slug": "admin-starter"
+  }
+}

@@ -37,7 +37,8 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 4b (demo gallery, versions, handoff): done 2026-10-01. Demos are folders in `apps/playground/demos` (rules in its `README.md`); the shell's Prototypes module has the gallery and viewer; the server handles versions, Duplicate and Playwright thumbnails on save. Notes: `docs/phase-4b-notes.md`.
 - Phase 4c (comments and watch mode): done 2026-10-05. Comment layer in every demo (`apps/playground/src/comments`), new code-first `CommentPin` (not in Figma yet), watch mode runs headless Claude Code with Haiku on pending comments and checks the build (`apps/server/src/watch.ts`, prompt `engines/watch-mode/prompt.md`). Notes: `docs/phase-4c-notes.md`.
 - Phase 4d (terminal and shared site): done 2026-10-09. Claude Code terminal beside each demo (`apps/server/src/terminal.ts`, node-pty over a WebSocket, shell origin only); read-only shared site on Vercel (`pnpm build:site` → `site/`, `vercel.json`), Components and Prototypes only. Bruno's one-time Vercel setup and notes: `docs/phase-4d-notes.md`.
-- Next: Phase 4e (code-to-figma).
+- Phase 4e (code-to-figma): done 2026-10-09. The `code-to-figma` skill sends a demo version to a new page in a Figma file Bruno gives: Library instances, variables and text styles, one section per flow with descriptions, notes and arrows. It uses the component map (`packages/components/figma-map.json`, from each `.figma.ts` `map` and the Library keys), `flows.json` per demo, and payload PNGs to get past the `use_figma` limits. Tested on `deactivate-people` v1 (report in its `figma-report.md`). Notes and gaps: `docs/phase-4e-notes.md`.
+- Next: Phase 5 (skills and plugins manager).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
@@ -47,7 +48,9 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - `apps/shell/src/modules/prototypes`: gallery (`/prototypes`) and viewer (`/prototypes/:slug`) with versions, Duplicate and the handoff panel
 - `packages/mock-data`: `@design-os/mock-data`, a seeded org at admin scale (`generateOrg`, `emptyOrg`, `fromCsv`). Use it for every demo's data (see the `mock-data` skill)
 - `packages/components`: 5Mins reference components on MUI 5. Theme in `src/theme` (`tokens.ts` is the only place raw values live; `createFiveMinsTheme('light' | 'dark')`). Visual rules live in each component's `*.overrides.ts`, keyed on MUI props, so plain MUI renders the same. Each component folder has a `<name>.figma.ts` mapping (`FigmaMapping`: Figma page, set, node IDs and the variant values it covers). Exported as `@design-os/components`
-- `packages/components/inventory`: `figma.json` (raw Library read, written by the component-inventory skill) and `inventory.json` (written by `pnpm inventory`, imported by the shell)
+- `packages/components/inventory`: `figma.json` (raw Library read with set keys, variables and text styles, written by the component-inventory skill) and `inventory.json` (written by `pnpm inventory`, imported by the shell)
+- `packages/components/figma-map.json`: the component map for code-to-figma (written by `pnpm figma-map`)
+- `scripts/lib`: the code-to-figma pieces (`capture-dom.mts`, `figma-map.mts`, `figma-script.mts`, `payload-png.mts`, and `figma-runtime.js` / `figma-setup.js`, which run inside Figma). Output goes to `demos/<slug>/figma-export/` (Git ignores it)
 - `apps/shell/src/modules/home`: Home cards; each reads one dashboard file. Home only reads files, never calls other services
 - `apps/shell/src/modules/components`: one registry entry and one folder per component (Preview, Code, Guidelines, Compare). `shared/GuidelinesTemplate` and `shared/CompareTemplate` are the templates for every component. Figma frames for Compare live in `apps/shell/public/figma/<slug>-<mode>.png`, exported at 1:1
 - `playground/`: the 5mins-prototype repo (git subtree, own npm setup and Vercel deploy, not part of the pnpm workspace). Read-only reference; replicas and demos live in `apps/playground`
@@ -64,7 +67,11 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - `pnpm build`: type-checks and builds every package
 - `pnpm inventory`: rebuilds `inventory.json` from `figma.json` and the code (no Figma needed)
 - `pnpm build:site`: builds the read-only shared site into `site/` (what Vercel deploys on every push)
-- `pnpm test`: unit tests (Vitest, `src/**/*.test.ts`)
+- `pnpm test`: unit tests (Vitest, `src/**/*.test.ts` and `scripts/**/*.test.ts`)
+- `pnpm figma-map`: rebuilds `figma-map.json` from `figma.json` and the `.figma.ts` maps
+- `pnpm capture-demo <slug> [--version vN] [--mode dark|light]`: runs a demo's `flows.json` and captures each step (needs `pnpm dev`)
+- `pnpm figma-script <slug> [--version vN] [--page id]`: writes the `use_figma` loaders and payload PNGs
+- `pnpm upload-payloads <slug> [--only a,b] <submitUrl...>`: posts the payload PNGs to `upload_assets` URLs
 - `pnpm mock-data [--employees 500] [--seed 1] [--csv file] [--empty] [--out file.json]`: writes a mock org as JSON
 - `pnpm session-messages [session] [--since ISO]`: Bruno's messages from a Claude Code session, for the `learnings` skill
 - `cd apps/shell && pnpm exec playwright test`: component, inventory and Compare checks, plus screenshots (`e2e/screenshots`). `e2e/review.spec.ts` captures each component's Preview and Compare tabs for sign-off

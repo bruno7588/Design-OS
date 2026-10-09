@@ -1,0 +1,2404 @@
+{
+  "generatedAt": "2026-10-09T19:03:13.110Z",
+  "fileKey": "EC26cSVe9KNTCWXvYovakw",
+  "libraryReadAt": "2026-09-29",
+  "hasKeys": true,
+  "leaves": {
+    "Avatar": {
+      "match": "Avatar",
+      "component": "Avatar",
+      "page": "Avatar",
+      "set": "Avatar",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "size": {
+          "figma": "Size",
+          "values": {
+            "24": "24px",
+            "32": "32px",
+            "48": "48px",
+            "56": "56px",
+            "64": "64px",
+            "72": "72px",
+            "*": "40px"
+          }
+        },
+        "src": {
+          "figma": "Picture",
+          "values": {
+            "undefined": "false",
+            "": "false",
+            "*": "true"
+          }
+        }
+      },
+      "keys": {
+        "dark": "c0ca7c63af1f0b05d730862fd61bc6f11776bae0",
+        "light": "4b767b2813f2f3895f61261bd52c5a254157f755"
+      },
+      "type": "set",
+      "variants": {
+        "Size": [
+          "24px",
+          "32px",
+          "40px",
+          "72px",
+          "64px",
+          "56px",
+          "48px"
+        ],
+        "Picture": [
+          "true",
+          "false"
+        ]
+      }
+    },
+    "Badge": {
+      "match": "Badge",
+      "component": "Badge",
+      "page": "Badges / Tags",
+      "set": "Badge",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "type": {
+          "figma": "Type",
+          "values": {
+            "success": "Success",
+            "warning": "Warning",
+            "error": "Error",
+            "progress": "In progress",
+            "new": "New",
+            "*": "Informative"
+          }
+        },
+        "icon": {
+          "figma": "Icon left",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        },
+        "onDismiss": {
+          "figma": "Icon right",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        }
+      },
+      "keys": {
+        "dark": "c6f82ecf3416cd16be736cf7ff4e8389ce246837",
+        "light": "dd6626b28d2b76de4f5c0ad097861bed96349820"
+      },
+      "type": "set",
+      "variants": {
+        "Type": [
+          "Success",
+          "Warning",
+          "Error",
+          "New",
+          "Informative",
+          "In progress"
+        ],
+        "Icon left": [
+          "true",
+          "false"
+        ],
+        "Icon right": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    "Button": {
+      "match": "Button",
+      "component": "Button",
+      "page": "Buttons",
+      "set": "Buttons",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "variant|color": {
+          "figma": "Configuration",
+          "values": {
+            "contained|primary": "Filled",
+            "outlined|primary": "Outlined",
+            "outlined2|primary": "Outlined-2",
+            "text|primary": "Text",
+            "link|primary": "Link",
+            "contained|error": "Danger",
+            "outlined|error": "Danger-outlined",
+            "text|error": "Danger-text",
+            "contained|warning": "Warning",
+            "outlined|warning": "Warning-outlined",
+            "text|warning": "Warning-text",
+            "contained|success": "Success",
+            "outlined|success": "Success-outlined",
+            "text|success": "Success-text",
+            "contained|ai": "AI",
+            "outlined|ai": "AI-Outlined",
+            "contained|undefined": "Filled",
+            "outlined|undefined": "Outlined",
+            "outlined2|undefined": "Outlined-2",
+            "text|undefined": "Text",
+            "link|undefined": "Link",
+            "undefined|*": "Filled",
+            "*": "Filled"
+          }
+        },
+        "size": {
+          "figma": "Size",
+          "values": {
+            "small": "Small",
+            "medium": "Medium",
+            "large": "Large",
+            "*": "Medium"
+          }
+        },
+        "disabled|loading": {
+          "figma": "State",
+          "values": {
+            "true|*": "n/a",
+            "*|true": "Loading",
+            "*": "Enabled"
+          }
+        },
+        "disabled": {
+          "figma": "Disabled",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        },
+        "icon": {
+          "figma": "Icon",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        }
+      },
+      "keys": {
+        "dark": "5b33f2c1b6914100e4186f01c5475cf4d961c140",
+        "light": "2dbb430022cd985f7a4fd1374ae5031616c0164b"
+      },
+      "type": "set",
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Icon": [
+          "true",
+          "false"
+        ],
+        "Configuration": [
+          "Filled",
+          "Outlined",
+          "Text",
+          "Link",
+          "Outlined-2",
+          "Danger",
+          "Danger-outlined",
+          "Danger-text",
+          "Warning",
+          "Warning-outlined",
+          "Warning-text",
+          "Success",
+          "Success-outlined",
+          "Success-text",
+          "AI",
+          "AI-Outlined"
+        ],
+        "State": [
+          "Hover",
+          "Pressed",
+          "Enabled",
+          "Loading",
+          "n/a"
+        ],
+        "Size": [
+          "Large",
+          "Medium",
+          "Small"
+        ]
+      }
+    },
+    "ConfirmDialog": {
+      "match": "ConfirmDialog",
+      "component": "ConfirmDialog",
+      "page": "Dialog / Modal / Sheet",
+      "set": "Dialog",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "type": {
+          "figma": "Type",
+          "values": {
+            "error": "Error",
+            "warning": "Warning",
+            "success": "Success",
+            "*": "Info"
+          }
+        },
+        "icon": {
+          "figma": "Icon",
+          "values": {
+            "false": "False",
+            "*": "True"
+          }
+        },
+        "secondaryText": {
+          "figma": "Secondary text",
+          "values": {
+            "undefined": "False",
+            "*": "True"
+          }
+        }
+      },
+      "domRoot": ".MuiDialog-paper",
+      "keys": {
+        "dark": "d3cdecf6312e6162db214b926ce4abc4df4b99ff",
+        "light": "44107e142fc8fb49a3a30f96da8bcd4fd50d112c"
+      },
+      "type": "set",
+      "variants": {
+        "Type": [
+          "Error",
+          "Warning",
+          "Info",
+          "Success"
+        ],
+        "Icon": [
+          "True",
+          "False"
+        ],
+        "Secondary text": [
+          "True",
+          "False"
+        ]
+      }
+    },
+    "Dropdown": {
+      "match": "Dropdown",
+      "component": "Dropdown",
+      "page": "Dropdown",
+      "set": "Dropdown",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "label|labelPlacement": {
+          "figma": "Label start",
+          "values": {
+            "undefined|*": "false",
+            "*|start": "true",
+            "*": "false"
+          }
+        },
+        "label|labelPlacement|_": {
+          "figma": "Label top",
+          "values": {
+            "undefined|*|*": "false",
+            "*|start|*": "false",
+            "*": "true"
+          }
+        },
+        "iconLeft": {
+          "figma": "Icon left",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        },
+        "helperText": {
+          "figma": "Helper text",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        },
+        "disabled": {
+          "figma": "Disabled",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        },
+        "error": {
+          "figma": "State",
+          "values": {
+            "true": "Error",
+            "*": "Enabled"
+          }
+        }
+      },
+      "keys": {
+        "dark": "acc96f103964491cfa9803870bf298f65f9a25ff",
+        "light": "e82807d3aa5840e12230b6c574efe00e289b0c00"
+      },
+      "type": "set",
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Active",
+          "Read-only",
+          "Error"
+        ],
+        "Icon left": [
+          "true",
+          "false"
+        ],
+        "Label top": [
+          "false",
+          "true"
+        ],
+        "Label start": [
+          "false",
+          "true"
+        ],
+        "Helper text": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    "MenuItem": {
+      "match": "MenuItem",
+      "component": "Dropdown (menu rows)",
+      "page": "Listbox / Multiselect",
+      "set": "List itens",
+      "kind": "leaf",
+      "fixed": {
+        "State": "Enabled"
+      },
+      "props": {
+        "selected": {
+          "figma": "Selected",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        },
+        "disabled": {
+          "figma": "Disabled",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        }
+      },
+      "keys": {
+        "dark": "fda281b625ba273c32b7320e48eaa0207719f880",
+        "light": "769aeb386dcc2dd1677f3e086a5ab65d91696884"
+      },
+      "type": "set",
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "Selected": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "Read-only"
+        ],
+        "Helper text": [
+          "false",
+          "true"
+        ],
+        "Supporting text": [
+          "false",
+          "true"
+        ],
+        "Icon left": [
+          "true",
+          "false"
+        ],
+        "Icon right": [
+          "false",
+          "true"
+        ],
+        "Avatar": [
+          "false",
+          "true"
+        ],
+        "Skill icon": [
+          "false",
+          "true"
+        ],
+        "Checkbox": [
+          "false",
+          "true"
+        ],
+        "Radio": [
+          "false",
+          "true"
+        ],
+        "Search": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    "InputField": {
+      "match": "InputField",
+      "component": "InputField",
+      "page": "Input",
+      "set": "Input field/Outlined",
+      "kind": "leaf",
+      "fixed": {
+        "Hovering": "false"
+      },
+      "props": {
+        "disabled|value": {
+          "figma": "State",
+          "values": {
+            "true|*": "n/a",
+            "*|": "Enabled",
+            "*|undefined": "Enabled",
+            "*": "Filled"
+          }
+        },
+        "disabled": {
+          "figma": "Disabled",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        },
+        "validation": {
+          "figma": "Validation",
+          "values": {
+            "error": "error",
+            "success": "success",
+            "*": "none"
+          }
+        },
+        "iconRight": {
+          "figma": "Icon right",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        },
+        "label": {
+          "figma": "Label",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        },
+        "helperText": {
+          "figma": "Helper text",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        }
+      },
+      "keys": {
+        "dark": "71de4f9f5b7866741b372570053ab622335794fe",
+        "light": "98f803f7ec1fbd88330a3cd646d7ec3ed671bd31"
+      },
+      "type": "set",
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Active",
+          "Filled",
+          "n/a"
+        ],
+        "Hovering": [
+          "false",
+          "true"
+        ],
+        "Validation": [
+          "none",
+          "error",
+          "success"
+        ],
+        "Icon right": [
+          "false",
+          "true"
+        ],
+        "Label": [
+          "true",
+          "false"
+        ],
+        "Helper text": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    "TopNav": {
+      "match": "TopNav",
+      "component": "TopNav",
+      "page": "Navigation",
+      "set": "Top Nav/Admin",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "system": {
+          "figma": "System",
+          "values": {
+            "admin": "Admin",
+            "*": "Web app"
+          }
+        },
+        "small": {
+          "figma": "Breakpoint",
+          "values": {
+            "true": "small",
+            "*": "large"
+          }
+        }
+      },
+      "keys": {
+        "dark": "a8f87a9cfe940c782f7794b97e1e8af3de4403f2",
+        "light": "58ad0d4fd6dd76ca1c287c3369a1fe1ddf5b081b"
+      },
+      "type": "set",
+      "variants": {
+        "System": [
+          "Admin",
+          "Web app"
+        ],
+        "Breakpoint": [
+          "large",
+          "small"
+        ]
+      }
+    },
+    "Search": {
+      "match": "Search",
+      "component": "Search",
+      "page": "Search",
+      "set": "Search",
+      "kind": "leaf",
+      "fixed": {
+        "State": "Enabled"
+      },
+      "props": {
+        "size": {
+          "figma": "Size",
+          "values": {
+            "L": "L",
+            "*": "M"
+          }
+        },
+        "value": {
+          "figma": "Filled",
+          "values": {
+            "": "false",
+            "undefined": "false",
+            "*": "true"
+          }
+        }
+      },
+      "keys": {
+        "dark": "44e482a20ec5fffcc03d86aa9f103551d7c97ee3",
+        "light": "fdba62419358f5fce78aec51f4af607c8eb81a33"
+      },
+      "type": "set",
+      "variants": {
+        "State": [
+          "Enabled",
+          "Active",
+          "Hover"
+        ],
+        "Filled": [
+          "false",
+          "true"
+        ],
+        "Size": [
+          "M",
+          "L"
+        ]
+      }
+    },
+    "Checkbox": {
+      "match": "Checkbox",
+      "component": "Checkbox",
+      "page": "Checkbox / Radio / Toggle",
+      "set": "Checkbox instances",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "checked|indeterminate": {
+          "figma": "Checked",
+          "values": {
+            "*|true": "Indeterminate",
+            "true|*": "Checked",
+            "*": "Not checked"
+          }
+        },
+        "disabled": {
+          "figma": "Disabled",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        },
+        "disabled|_": {
+          "figma": "State",
+          "values": {
+            "true|*": "n/a",
+            "*": "Enabled"
+          }
+        }
+      },
+      "keys": {
+        "dark": "e5248452e91b85fb0a1388c57b2733c3d247d735",
+        "light": "c15ecf8b3fec01d58edc4aa012d8e0cdff18867a"
+      },
+      "type": "set",
+      "variants": {
+        "Disabled": [
+          "false",
+          "true"
+        ],
+        "State": [
+          "Enabled",
+          "Hover",
+          "n/a"
+        ],
+        "Checked": [
+          "Checked",
+          "Not checked",
+          "Indeterminate"
+        ]
+      }
+    },
+    "Toggle": {
+      "match": "Toggle",
+      "component": "Toggle",
+      "page": "Checkbox / Radio / Toggle",
+      "set": "Toggle",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "checked": {
+          "figma": "Toggle",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        }
+      },
+      "keys": {
+        "dark": "e6384dab78059046fff37f40cae4a81cee361c69",
+        "light": "fa32d20d4644f5ab50e9645c9a2911e1e1854ffb"
+      },
+      "type": "set",
+      "variants": {
+        "Toggle": [
+          "true",
+          "false"
+        ]
+      }
+    },
+    "Tab": {
+      "match": "Tab",
+      "component": "Tab",
+      "page": "Chips / Content Switcher / Tabs",
+      "set": "Tab items",
+      "kind": "leaf",
+      "fixed": {
+        "State": "Enabled"
+      },
+      "props": {
+        "selected": {
+          "figma": "Selected",
+          "values": {
+            "true": "true",
+            "*": "false"
+          }
+        },
+        "count": {
+          "figma": "counter",
+          "values": {
+            "undefined": "false",
+            "*": "true"
+          }
+        }
+      },
+      "keys": {
+        "dark": "9ad5cf79d6780af9bacf6c04e8e41548100f33b7",
+        "light": "ee3e1860af1930a191a952c3d5adaa8ff2366308"
+      },
+      "type": "set",
+      "variants": {
+        "Selected": [
+          "true",
+          "false"
+        ],
+        "State": [
+          "Enabled",
+          "Hover"
+        ],
+        "counter": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    "ToastBody": {
+      "match": "ToastBody",
+      "component": "Toast",
+      "page": "Toast",
+      "set": "Toast",
+      "kind": "leaf",
+      "fixed": {},
+      "props": {
+        "type": {
+          "figma": "Type",
+          "values": {
+            "warning": "Warning",
+            "error": "Error",
+            "info": "Info",
+            "*": "Success"
+          }
+        },
+        "icon": {
+          "figma": "Icon",
+          "values": {
+            "false": "False",
+            "*": "True"
+          }
+        }
+      },
+      "keys": {
+        "dark": "2fb1531cff0b31d678b59f304c9c807fae77c782",
+        "light": "2fb1531cff0b31d678b59f304c9c807fae77c782"
+      },
+      "type": "set",
+      "variants": {
+        "Icon": [
+          "True",
+          "False"
+        ],
+        "Type": [
+          "Success",
+          "Warning",
+          "Error",
+          "Info"
+        ]
+      }
+    }
+  },
+  "containers": [
+    "EmptyState",
+    "PageHeader",
+    "SideNav",
+    "Modal",
+    "SideDrawer",
+    "CellContent",
+    "Table (MUI)",
+    "TableHead (MUI)",
+    "TableRow (MUI)"
+  ],
+  "notMapped": [
+    "Alert (Alert)",
+    "AvatarGroup (Avatar group)",
+    "Breadcrumb (Breadcrumb)",
+    "Breadcrumb (Breadcrumb item)",
+    "DateField (Calendar)",
+    "DateField (Day item)",
+    "AssessmentCard (Card/Assessments)",
+    "CategoryCard (Card/ Category)",
+    "CourseCard (Card/Courses)",
+    "ExternalTrainingCard (Card/External training)",
+    "FolderCard (Card/Folder)",
+    "InstructorCard (Card/Instructor)",
+    "LessonCard (Card/Lessons)",
+    "MarketplaceCard (Card/Marketplace)",
+    "ResourceCard (Card/Resources)",
+    "SkillCard (Card/skill)",
+    "TypeThumbnail (Type thumbnail)",
+    "Chip (Chips)",
+    "CommentPin (Comment pin)",
+    "ContentSwitcher (Content switcher)",
+    "ContentSwitcher (Content switcher item)",
+    "Dropdown (menu) (Listbox)",
+    "FileUploader (File uploader)",
+    "CertificateCard (Certificate instances)",
+    "LearningPathCard (Learning path)",
+    "LevelIllustration (Illustrations/ Learning path)",
+    "QuizOptions, QuizExplanation (Quiz/Options)",
+    "RankingBadge (Ranking, leaderboard)",
+    "AssessmentIllustration (Illustrations/ Assessments)",
+    "CertificateIllustration (Illustrations/Certificate)",
+    "EmptyStateIllustration (Illustrations Empty state)",
+    "FunctionIllustration (Illustrations/ Functions)",
+    "GamificationIllustration (Illustrations/Gamification)",
+    "ProgressIllustration (Illustrations/ Progress)",
+    "InputField, InputRadio, InputInteger, InputInline (Input field)",
+    "InputInline (Input field/Inline)",
+    "InputInteger (Input field/Integer)",
+    "InputRadio (Input field/Radio button)",
+    "AppTopNav (Top nav/ App)",
+    "SideNav (Menu/Itens/Admin)",
+    "SideNav (Menu/Itens/WebApp)",
+    "TabNav (Tab nav)",
+    "BottomSheet (Bottom sheet)",
+    "FullScreenModal (Modal/Full screen)",
+    "ShareModal (Modal/Send)",
+    "ProgressBar (Progress bar)",
+    "Radio (plain MUI) (radio-button instances)",
+    "Slider (MUI) (<Slider>)",
+    "Stepper (Step/Instances)",
+    "Stepper (Step/line)",
+    "Stepper (stepper)",
+    "TableThumbnail (Thumbnail type)",
+    "Tabs + Tab (Tabs)",
+    "Tag (Tags)",
+    "Tooltip (Tooltip)"
+  ],
+  "missingInFigma": [],
+  "problems": [],
+  "variables": [
+    {
+      "name": "XXS",
+      "key": "46718c790ea9482ce56d7530450e557f64d2d797",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 2
+      }
+    },
+    {
+      "name": "XS",
+      "key": "9abd20b41abbb26e24dccaeb6ddb33067e0aa606",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 4
+      }
+    },
+    {
+      "name": "XSS",
+      "key": "b05570501cd9704a8c72ba66aaf6c8824960f415",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 6
+      }
+    },
+    {
+      "name": "S",
+      "key": "0180e3785203eb5077500286eae96b2f5a701ceb",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 8
+      }
+    },
+    {
+      "name": "SSM",
+      "key": "cd99a17233a07a986f0f7738a673866db1f26358",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 10
+      }
+    },
+    {
+      "name": "SM",
+      "key": "c288787dad4923d21df2e2ef1f1970c4c52f46d1",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 12
+      }
+    },
+    {
+      "name": "M",
+      "key": "858cf74a119006a8e74eafe2d8abe76aa59d3307",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 16
+      }
+    },
+    {
+      "name": "ML",
+      "key": "d704ae1e6f550bd06ec0188df05e939ce5ab1533",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 20
+      }
+    },
+    {
+      "name": "L",
+      "key": "0492aa5eb474aa7fb2962b43a3fae8857b6c340d",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 24
+      }
+    },
+    {
+      "name": "XL",
+      "key": "8df7f049ba2cf1238e04013cb9fbae663538c8e2",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 32
+      }
+    },
+    {
+      "name": "XXL",
+      "key": "616a206715ed639d1c302786bf608956b1c9d11c",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 40
+      }
+    },
+    {
+      "name": "0",
+      "key": "5771f4e0583365966d4dc9a2ff475ff5390e5820",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": 0
+      }
+    },
+    {
+      "name": "100",
+      "key": "49d5cd07731fb773c1acbd8601295fdc9f764825",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": 100
+      }
+    },
+    {
+      "name": "Neutral-900",
+      "key": "1309df6f38a95fdcebddbd6c203c8b552bdb909e",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#0f1014ff"
+      }
+    },
+    {
+      "name": "Neutral-800",
+      "key": "7ad7fdac318db5d5efe3f0f108e09661dbda5b93",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#20222aff"
+      }
+    },
+    {
+      "name": "Neutral-700",
+      "key": "d43942ee9e380fa007cb52d0f355a846dfc3c1ef",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#2d313dff"
+      }
+    },
+    {
+      "name": "Neutral-600",
+      "key": "2d64215cf46535c4d3eaf36e8f0c3cd1ffe7cb05",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#383d4cff"
+      }
+    },
+    {
+      "name": "Neutral-500",
+      "key": "646676d847027083805726c76780b2efd43b9827",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#454c5eff"
+      }
+    },
+    {
+      "name": "Neutral-400",
+      "key": "cb7a8bad786bdaef2ff0d3ca2a0427c07b8b49cb",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#656b7cff"
+      }
+    },
+    {
+      "name": "Neutral-300",
+      "key": "c56bfa55fdfbbd16677954091305ee3a20646539",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Neutral-200",
+      "key": "07ed8a2793491509ee25d6b557da92bcf56e8327",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#bfc2ccff"
+      }
+    },
+    {
+      "name": "Neutral-100",
+      "key": "dcf5ea355cebbd249d2c5dd34c03f3b7947fa9c6",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Neutral-50",
+      "key": "a793c7155614373062bd9418e8788ad20adc711c",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#eff0f2ff"
+      }
+    },
+    {
+      "name": "Neutral-25",
+      "key": "8fcbafaf12b40c8a6f298e1d6efd0a812dda1a4a",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#f9f9faff"
+      }
+    },
+    {
+      "name": "Neutral-0",
+      "key": "740f4dfd3cf78482779d3eaf6a655dff9eeeafc1",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#ffffffff"
+      }
+    },
+    {
+      "name": "Tooltip-background",
+      "key": "20d0371cae0cc1c9352c2853949eeab2fddf0cea",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#0f1014ff",
+        "Light mode": "#20222aff"
+      }
+    },
+    {
+      "name": "Page-background",
+      "key": "6820fd4370891c5bb44430e60254ffa025d644c6",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#20222aff",
+        "Light mode": "#f9f9faff"
+      }
+    },
+    {
+      "name": "Page-background-hover",
+      "key": "08d00c80eebbe666305b41d7bdb5ed699862ee99",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#eff0f2ff"
+      }
+    },
+    {
+      "name": "Cards-background",
+      "key": "7e530e88f98499b09b558c236a5fb24049a10603",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#ffffffff"
+      }
+    },
+    {
+      "name": "Cards-background-hover",
+      "key": "4f845af7505bd0be3c8be55c735825966e7c3c95",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#383d4cff",
+        "Light mode": "#eff0f2ff"
+      }
+    },
+    {
+      "name": "Input-background",
+      "key": "052939bb9c2b4b93ae4e9e21d42738f646ea1fbb",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#454c5e29",
+        "Light mode": "#bfc2cc29"
+      }
+    },
+    {
+      "name": "Input-background-elevated",
+      "key": "93d2acd93e4cc7e11b322ed29af9328608f4266d",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#454c5e52",
+        "Light mode": "#bfc2cc52"
+      }
+    },
+    {
+      "name": "Input-background-hover",
+      "key": "fbd58d882ad436b4911176a1021e0a7b9ac5109e",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Selected",
+      "key": "d4886be51aa01860cf3731f310e27f08b83b2061",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb38ff",
+        "Light mode": "#eda30dff"
+      }
+    },
+    {
+      "name": "Selected-row",
+      "key": "77f2438711ef9e91a725d771343963ec2cf7f039",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb3829",
+        "Light mode": "#ffbb3829"
+      }
+    },
+    {
+      "name": "Selected-row-hover",
+      "key": "e32a7334757c0c3ad26e818e21c70f3e1ebdc14f",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb383d",
+        "Light mode": "#ffbb383d"
+      }
+    },
+    {
+      "name": "Border",
+      "key": "de7d79af522ca4dc22129ae398556184fec67113",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Border-elevated",
+      "key": "1600cbc76c62380beef5e375a3274eb5ab926435",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#383d4cff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Border-hover",
+      "key": "a2939d263a336f22dc45bd7a9a825e59298d5c1b",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9ea4b3ff",
+        "Light mode": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Primary-Button-background",
+      "key": "6ba15aec9b54802a6dd0645e081b74870b696995",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#00cee6ff",
+        "Light mode": "#008393ff"
+      }
+    },
+    {
+      "name": "Button-background-disabled",
+      "key": "237c8bbe7ff7785133e9a6a7edb4ef9d7a844fd6",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#656b7cff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Primary-button-background-hover",
+      "key": "fa7943d722e0c32c36a590ec21df8c2856f498e8",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#33e2f7ff",
+        "Light mode": "#005862ff"
+      }
+    },
+    {
+      "name": "Primary-button-background-pressed",
+      "key": "3081b3fe2a6ebd6e34ba9bfedc729598bcd60929",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#00afc4ff",
+        "Light mode": "#002c31ff"
+      }
+    },
+    {
+      "name": "Button-danger-hover",
+      "key": "cbe4b4e54f6c5e214bcdcfff119378fe55a66731",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9c0f2eff",
+        "Light mode": "#9c0f2eff"
+      }
+    },
+    {
+      "name": "Button-danger-pressed",
+      "key": "3db06b8ebff49652c3b693b94cbf4526c4be22bc",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#59091aff",
+        "Light mode": "#59091aff"
+      }
+    },
+    {
+      "name": "Button-warning-background",
+      "key": "65593013d7b1edd657f00146f9f46a79a8f392f8",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#e88206ff",
+        "Light mode": "#e88206ff"
+      }
+    },
+    {
+      "name": "Button-warning-background-hover",
+      "key": "69397318804c5a7feb3d96693fdb88e1078aabcb",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#996322ff",
+        "Light mode": "#996322ff"
+      }
+    },
+    {
+      "name": "Button-warning-background-pressed",
+      "key": "8537f4bfdf97659f6c29a1744c3cc9060898b578",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#664216ff",
+        "Light mode": "#664216ff"
+      }
+    },
+    {
+      "name": "Button-success-background",
+      "key": "74ba2de37639422a26bd0892d5e9babc86587134",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#18a957ff",
+        "Light mode": "#18a957ff"
+      }
+    },
+    {
+      "name": "Button-success-background-hover",
+      "key": "7731b7939dca72ec1a4b5a8ef10a5c20d8b69cbf",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#11763dff",
+        "Light mode": "#11763dff"
+      }
+    },
+    {
+      "name": "Button-success-background-pressed",
+      "key": "d1fe721a09e36ff93e6152a80b6b902eb49849a5",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#0a4423ff",
+        "Light mode": "#0a4423ff"
+      }
+    },
+    {
+      "name": "Success-900",
+      "key": "1b522e04ea88a0e634f8aa2fb34900281176b11c",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#021109ff"
+      }
+    },
+    {
+      "name": "Success-800",
+      "key": "fc3c15e1e285327d4a4ce0040cb0fbb3976d623e",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#052211ff"
+      }
+    },
+    {
+      "name": "Success-700",
+      "key": "fd17146d06c03c78504845b0024834b2944b7e98",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#0a4423ff"
+      }
+    },
+    {
+      "name": "Success-600",
+      "key": "55b7141d043d5017b4bef604e2dea0371b6b11b8",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#11763dff"
+      }
+    },
+    {
+      "name": "Success-500",
+      "key": "1463fb645a62ac837196de6d57366bec0748cbe6",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#18a957ff"
+      }
+    },
+    {
+      "name": "Success-400",
+      "key": "8457edec2cdf0e78525b2431165c473961913a2a",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#5dc389ff"
+      }
+    },
+    {
+      "name": "Success-300",
+      "key": "f7528c4f5f643b0f8e451e3c372238880cf5fd38",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#a3ddbcff"
+      }
+    },
+    {
+      "name": "Success-200",
+      "key": "43021c33ea0487a5e8b285c242030710943dcc7b",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#d1eeddff"
+      }
+    },
+    {
+      "name": "Success-100",
+      "key": "fcdd0e808e565fceec301f779d8f6d4cd0cb826c",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#e8f6eeff"
+      }
+    },
+    {
+      "name": "Warning-900",
+      "key": "71676fe20a7c657696b93487149bd14c1d6e2a72",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#33210bff"
+      }
+    },
+    {
+      "name": "Warning-800",
+      "key": "69d2543ac60a8ab461f12e135f4b8456403b19be",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#664216ff"
+      }
+    },
+    {
+      "name": "Warning-700",
+      "key": "30249c52b54d89a3d92036caf7384cd191d1b505",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#996322ff"
+      }
+    },
+    {
+      "name": "Warning-600",
+      "key": "fdaa2c04ba3748acfed34fe8464194c307d959cd",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#e88206ff"
+      }
+    },
+    {
+      "name": "Warning-500",
+      "key": "7f054facf0838e68b973c11e7da639a1b3eef9e7",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffa538ff"
+      }
+    },
+    {
+      "name": "Warning-400",
+      "key": "7f612c848d8c7570dbcbe98d8ae7f6d44df8aafc",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffb760ff"
+      }
+    },
+    {
+      "name": "Warning-300",
+      "key": "742fb6afc8cb0ce8eb9ecf4af047a47b581629b4",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffc988ff"
+      }
+    },
+    {
+      "name": "Warning-200",
+      "key": "dd3b548843d37abe7bb16118b56bb2c5bbf00cd8",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffdbafff"
+      }
+    },
+    {
+      "name": "Warning-100",
+      "key": "6a71de5c12c44f8dbb92371ac07e7e8dd8afa474",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffedd7ff"
+      }
+    },
+    {
+      "name": "Danger-900",
+      "key": "20a8ea8fe1154e996e6722a5a00ea112092bd6e7",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#160207ff"
+      }
+    },
+    {
+      "name": "Danger-800",
+      "key": "f3a19074e9d1d059d8f95ff73c336ab44f87e934",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#2d040dff"
+      }
+    },
+    {
+      "name": "Danger-700",
+      "key": "cdd38adeb804fc8e1cc7b2d475bbb3c7050217bf",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#59091aff"
+      }
+    },
+    {
+      "name": "Danger-600",
+      "key": "6c2b221fa18dee5953611843c245a4e79306b6ad",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#9c0f2eff"
+      }
+    },
+    {
+      "name": "Danger-500",
+      "key": "d5978b5100179969fa177d1ec0ee6a786d1f0559",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#df1642ff"
+      }
+    },
+    {
+      "name": "Danger-400",
+      "key": "6415ae47f5f08a302b9714595e829a7fe94d24b5",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#e95c7bff"
+      }
+    },
+    {
+      "name": "Danger-300",
+      "key": "b26681606f17322203af0f49963524e6d5f9e10e",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#f2a2b3ff"
+      }
+    },
+    {
+      "name": "Danger-200",
+      "key": "7fb3bb07e250c989c0716a84bbf5e4a7f2865c54",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#f9d0d9ff"
+      }
+    },
+    {
+      "name": "Danger-100",
+      "key": "d54be23b8a9f06ec4dcc51e055b43f357592fc50",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fce8ecff"
+      }
+    },
+    {
+      "name": "Text-primary",
+      "key": "5f6a2b5d4cea217e9093ae31be5fefc64b4fa645",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#f9f9faff",
+        "Light mode": "#20222aff"
+      }
+    },
+    {
+      "name": "Text-secondary",
+      "key": "de8f1b6716d8daf1874b435809fc512ce62d5545",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#bfc2ccff",
+        "Light mode": "#454c5eff"
+      }
+    },
+    {
+      "name": "Text-tertiary",
+      "key": "532b1a3eb4132be287670ed65ebe0b76272cf397",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9ea4b3ff",
+        "Light mode": "#656b7cff"
+      }
+    },
+    {
+      "name": "Text-disabled",
+      "key": "b860942cca4759aa79fee388e9e94bc904202ded",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#656b7cff",
+        "Light mode": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Text-button-foreground",
+      "key": "557e2eaf1348294d8945542c0520be65e0c26d2b",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#20222aff",
+        "Light mode": "#f9f9faff"
+      }
+    },
+    {
+      "name": "Text-button-disabled",
+      "key": "590b77f87beb17c6d4ee831b0095c6eeca6436da",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9ea4b3ff",
+        "Light mode": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Text-success",
+      "key": "c3381665df8c5491a5ca35a3a37a6c268ed0086d",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#18a957ff",
+        "Light mode": "#11763dff"
+      }
+    },
+    {
+      "name": "Text-quiz",
+      "key": "bfbd95c782d590a873320db2ff5294745a467853",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#6368dbff",
+        "Light mode": "#ffdbafff"
+      }
+    },
+    {
+      "name": "Text-warning",
+      "key": "75a492449d160174238ca1e9ac9b732c1c899933",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffa538ff",
+        "Light mode": "#e88206ff"
+      }
+    },
+    {
+      "name": "Text-error",
+      "key": "690d86762259b1cb62ff3ff8a1746b2efe530936",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#e95c7bff",
+        "Light mode": "#df1642ff"
+      }
+    },
+    {
+      "name": "Text-selected",
+      "key": "4c68bbd8d15499929784451cad93437b0355e4a1",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb38ff",
+        "Light mode": "#eda30dff"
+      }
+    },
+    {
+      "name": "Text-progress",
+      "key": "e5384a4d817a07cdaa92e2368d5671be3d9e5fe5",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#00cee6ff",
+        "Light mode": "#008393ff"
+      }
+    },
+    {
+      "name": "Primary-900",
+      "key": "4bab713d26b3c6d66950728160ada70a886c2ce3",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#002c31ff"
+      }
+    },
+    {
+      "name": "Primary-800",
+      "key": "2cca40587ec0e1255e190b888cfa94ed1dc50420",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#005862ff"
+      }
+    },
+    {
+      "name": "Primary-700",
+      "key": "7cfae812165ae119022dee42ca65a21073c46a6c",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#008393ff"
+      }
+    },
+    {
+      "name": "Primary-600",
+      "key": "29df61f8e0b8bec100f674fc0588631c10eabde4",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#00afc4ff"
+      }
+    },
+    {
+      "name": "Primary-500",
+      "key": "2fe296922572657cc5c50696b8e5ee6741261f51",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#00cee6ff"
+      }
+    },
+    {
+      "name": "Primary-400",
+      "key": "d05a2ff92ec4b6c1c12d26f3d594388b23316898",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#33e2f7ff"
+      }
+    },
+    {
+      "name": "Primary-300",
+      "key": "d2b8485536c13052d09c7ee8e7fe0758cd5d9334",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#66e9f9ff"
+      }
+    },
+    {
+      "name": "Primary-200",
+      "key": "b586e28b23b7165405614adce954e6c194c69104",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#99f1fbff"
+      }
+    },
+    {
+      "name": "Primary-100",
+      "key": "94ec16522e59845c4ac22a63798869a4b9ed209d",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ccf8fdff"
+      }
+    },
+    {
+      "name": "Secondary-900",
+      "key": "a88c8755d8e3ddfd6f280c137cb78d657c8c49bd",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#191306ff"
+      }
+    },
+    {
+      "name": "Secondary-800",
+      "key": "99bb86df187cd2ba21ce3cda5967156270d587e4",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#33250bff"
+      }
+    },
+    {
+      "name": "Secondary-700",
+      "key": "eeab911616d2301aa66b5c36f342222da4d8b8c3",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#664b16ff"
+      }
+    },
+    {
+      "name": "Secondary-600",
+      "key": "1841a091e40f668dc9c441a3dbb64121769d0a23",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#eda30dff"
+      }
+    },
+    {
+      "name": "Secondary-500",
+      "key": "7c44549924d9736015b42f6b005483e112549e75",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffbb38ff"
+      }
+    },
+    {
+      "name": "Secondary-400",
+      "key": "b31284e18abd123018fedc1bca950ccd93b83ef0",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffcf74ff"
+      }
+    },
+    {
+      "name": "Secondary-300",
+      "key": "5771ab644200038a79a2ddcf87f7d7fb21e5c6a8",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffe4afff"
+      }
+    },
+    {
+      "name": "Secondary-200",
+      "key": "1a21a293280e2461af12a8cd78556fb91c3bcba5",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fff1d7ff"
+      }
+    },
+    {
+      "name": "Secondary-100",
+      "key": "64710f72413e9ec907327a402e2a166a9f37451b",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fff8ebff"
+      }
+    },
+    {
+      "name": "Blaze quiz",
+      "key": "d626e47ae37c069b8515d2271b41ba15fecd2cf6",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#8158ecff"
+      }
+    },
+    {
+      "name": "Flash Poll",
+      "key": "9413b5a4b5ba7193a08b39533c8eeebccc521044",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#9b55c9ff"
+      }
+    },
+    {
+      "name": "Lesson quiz",
+      "key": "2c184e458b6e43d98947bc6bafdca808f521ca10",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fa715fff"
+      }
+    },
+    {
+      "name": "Certificate quiz",
+      "key": "9e490620d181116345886d8e672d49c6863bd847",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#6368dbff"
+      }
+    },
+    {
+      "name": "Course assessments",
+      "key": "f12f77f46802b251cec8644a63abc955432a0879",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#2a90d8ff"
+      }
+    }
+  ],
+  "textStyles": [
+    {
+      "name": "H1 (32)",
+      "key": "ac2e8bd45e4bca32b2e6772c26420582699711d2",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 32,
+      "lineHeight": 48
+    },
+    {
+      "name": "H2 (24)",
+      "key": "3052d81352cde1240034f24c5ff8268078ce28e5",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 24,
+      "lineHeight": 36
+    },
+    {
+      "name": "H3 (20)",
+      "key": "eb87c0702f58a15bebe8dbe04eefe33f3df4dbbe",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 20,
+      "lineHeight": 30
+    },
+    {
+      "name": "H4 (16)",
+      "key": "e96265db290df3101667cb741f49da4331eeea6e",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "H5 (14)",
+      "key": "c0211070e4a70e722051f7b6f43bf8fb922ec89c",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "H6 (12)",
+      "key": "27dc2e21ffe1ead7c898ef334111f9737aa0d2d8",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 12,
+      "lineHeight": 16.8
+    },
+    {
+      "name": "Paragraph L semibold (16)",
+      "key": "1fb0047928f0f9481da6533f0eecec94dfbece4d",
+      "family": "Poppins",
+      "style": "SemiBold",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "Paragraph M semibold (14)",
+      "key": "52f213f6938323c9a8ffd4debe37f09a6e3c9288",
+      "family": "Poppins",
+      "style": "SemiBold",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "Paragraph S semibold (12)",
+      "key": "0c0ddd955184cf129887a8040f9767a755ef7c04",
+      "family": "Poppins",
+      "style": "SemiBold",
+      "size": 12,
+      "lineHeight": 14.4
+    },
+    {
+      "name": "Paragraph L medium",
+      "key": "fb74ccd733d2faa56a688da2935934a739f8d3db",
+      "family": "Poppins",
+      "style": "Medium",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "Paragraph M medium",
+      "key": "fef1883a7c0cdc29de4e5d30c4dfa0936dd8aadb",
+      "family": "Poppins",
+      "style": "Medium",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "Paragraph S medium",
+      "key": "ec2f9dcec868a74b3f3488b7f847b260426875db",
+      "family": "Poppins",
+      "style": "Medium",
+      "size": 12,
+      "lineHeight": 14.4
+    },
+    {
+      "name": "Paragraph L regular (16)",
+      "key": "d483a02621c4d94e75742dd1005aa6abae103f69",
+      "family": "Poppins",
+      "style": "Regular",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "Paragraph M regular (14)",
+      "key": "ce726c7d08f3036fe2b158314ad0d17729a2a8b1",
+      "family": "Poppins",
+      "style": "Regular",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "Paragraph S regular (12)",
+      "key": "106c505665bf974675f5a2f81a28f8f3b86c4779",
+      "family": "Poppins",
+      "style": "Regular",
+      "size": 12,
+      "lineHeight": 14.4
+    }
+  ]
+}

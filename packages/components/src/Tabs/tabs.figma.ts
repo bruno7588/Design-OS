@@ -1,6 +1,6 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 
-export const tabsFigma: FigmaMapping = {
+export const tabsFigma: MappedFigma = {
   component: 'Tab',
   mui: 'Tabs + Tab',
   page: 'Chips / Content Switcher / Tabs',
@@ -10,6 +10,14 @@ export const tabsFigma: FigmaMapping = {
     Selected: ['true', 'false'],
     State: ['Enabled', 'Hover'],
     counter: ['false', 'true'],
+  },
+  map: {
+    kind: 'leaf',
+    fixed: { State: 'Enabled' },
+    props: {
+      selected: { figma: 'Selected', values: { true: 'true', '*': 'false' } },
+      count: { figma: 'counter', values: { undefined: 'false', '*': 'true' } },
+    },
   },
 }
 

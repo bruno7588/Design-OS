@@ -33,7 +33,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "3c54aff3415762be4e6447c2196e152a71ff9a51"
         },
         {
           "name": "Alert",
@@ -61,7 +62,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "9518df94b1635f82a8223bfcd6b1e18184f18d28"
         }
       ]
     },
@@ -88,7 +90,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "c0ca7c63af1f0b05d730862fd61bc6f11776bae0"
         },
         {
           "name": "Avatar group",
@@ -101,7 +104,8 @@
               "40px"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "36c3c2e736f5f5b306008a5fc6116cc7001676ce"
         },
         {
           "name": "Avatar",
@@ -122,7 +126,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "4b767b2813f2f3895f61261bd52c5a254157f755"
         },
         {
           "name": "Avatar group",
@@ -135,7 +140,8 @@
               "40px"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "70714e895915066decf01442ff988e64733c106c"
         },
         {
           "name": "Emojies",
@@ -158,7 +164,8 @@
               "Tenant"
             ]
           },
-          "light": "instance"
+          "light": "instance",
+          "key": "b48ed76b09ba56c752a084cd96b676b9d0f9a6e4"
         }
       ]
     },
@@ -188,7 +195,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "c6f82ecf3416cd16be736cf7ff4e8389ce246837"
         },
         {
           "name": "Badge",
@@ -212,7 +220,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "dd6626b28d2b76de4f5c0ad097861bed96349820"
         },
         {
           "name": "Tags",
@@ -233,7 +242,8 @@
               "S"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "4571baa55219258aeec76041858deacbdae13a37"
         },
         {
           "name": "Tags",
@@ -254,7 +264,8 @@
               "S"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "ed56855acc862090068cb27032242ff9890c5b41"
         }
       ]
     },
@@ -306,7 +317,8 @@
               "Small"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "5b33f2c1b6914100e4186f01c5475cf4d961c140"
         },
         {
           "name": "Buttons",
@@ -352,7 +364,8 @@
               "Small"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "2dbb430022cd985f7a4fd1374ae5031616c0164b"
         }
       ]
     },
@@ -376,7 +389,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "2764cce213d07b12b8e5ccd8307cbe249f5dcc77"
         },
         {
           "name": "Day item",
@@ -400,7 +414,8 @@
               "Current day"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "b0f7ca22580c4f4e96fc9bec36a8b660a1e2f35b"
         },
         {
           "name": "Calendar",
@@ -418,7 +433,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "f30fe9a2b72f2d0fc0514f1b1ffb0e755c8327aa"
         },
         {
           "name": "Day item",
@@ -442,7 +458,8 @@
               "Current day"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "a185dcc2dc318c9d3e9c69cd160ad2a1f0b8def6"
         }
       ]
     },
@@ -483,7 +500,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "55e3dd8dee47917049215620d742ffaa88d3e6b0"
         },
         {
           "name": "Card/Assessments",
@@ -508,7 +526,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "366dc139613d13bc4aeba717b900140b54fdb0eb"
         },
         {
           "name": "Card/Resources",
@@ -524,7 +543,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "db5952b3ad8c4883758fcfdd30010a5adf616087"
         },
         {
           "name": "Type thumbnail",
@@ -540,7 +560,8 @@
               "External link"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "bae73d4b8f54c8d5c025ae46cd6e0c8c9b77d673"
         },
         {
           "name": "Card/Courses",
@@ -564,7 +585,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "07cbb05f541e8248660f96f792744855bb6c9724"
         },
         {
           "name": "Card/External training",
@@ -580,7 +602,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "89b3c2b419b3fc5e1295e11786bfe0ca1c06a1b7"
         },
         {
           "name": "Card/Instructor",
@@ -596,7 +619,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "78aab3929db06a4a27cc055102f8112d67470443"
         },
         {
           "name": "Card/Marketplace",
@@ -617,7 +641,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "809f30819759a92a33e83e79f51f34d22acd5027"
         },
         {
           "name": "Card/skill",
@@ -638,7 +663,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "ae50f414e864a29454a49951b2b612f06cbadc55"
         },
         {
           "name": "Card/ Category",
@@ -662,7 +688,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "ee945839701ebedf06147416e2f1eff87830093e"
         },
         {
           "name": "Card/Folder",
@@ -685,7 +712,8 @@
               "1"
             ]
           },
-          "light": "none"
+          "light": "none",
+          "key": "4a9d524466f04704a2c728bf4699f9cb755d6ef2"
         },
         {
           "name": "Card/Lessons",
@@ -720,7 +748,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "b43316f260faa9241678c8f3950706bdabe09ea8"
         },
         {
           "name": "Card/Assessments",
@@ -745,7 +774,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "90813da01131ed9d166ca7c16661a3109a9684bf"
         },
         {
           "name": "Card/Resources",
@@ -761,7 +791,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "2a2e55f1819927dfe04079ad400e4d6eafb18fd2"
         },
         {
           "name": "Type thumbnail",
@@ -776,7 +807,8 @@
               "External Link"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "68f8bfa44a807d8c5ccae736f9d0ecae719794c5"
         },
         {
           "name": "Card/Courses",
@@ -800,7 +832,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "19f0ba371f407717f6366ebc6e231ce4e316a11d"
         },
         {
           "name": "Card/External training",
@@ -816,7 +849,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "b0f83672d37b59744f579f70478fed8d7879c674"
         },
         {
           "name": "Card/Instructor",
@@ -832,7 +866,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "4d9511d11432ccea0c90d47713d4d96032ddd71b"
         },
         {
           "name": "Card/Marketplace",
@@ -853,7 +888,8 @@
               "Hover"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "ba5f5183123805fa2444417796d0abf2f309a883"
         },
         {
           "name": "Card/skill",
@@ -874,7 +910,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "e47a3bf0d08006c83ed451dab29d14c5dfe37930"
         },
         {
           "name": "Card/ Category",
@@ -898,7 +935,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "b6eaf69ba8061d2c628169293b64cb3e933afeb3"
         },
         {
           "name": "Card/folder",
@@ -921,7 +959,8 @@
               "1"
             ]
           },
-          "light": "light only"
+          "light": "light only",
+          "key": "c8fb175256b5fbd540409d0ba90ec003d8090fae"
         }
       ]
     },
@@ -948,7 +987,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "d677aaf5d1d423a1d4691a2a53c1685072f0cc91"
         },
         {
           "name": "radio-button instances",
@@ -969,7 +1009,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "54451e6224715cd883eeaaea66f0d1ae5d62e32d"
         },
         {
           "name": "Checkbox instances",
@@ -991,7 +1032,8 @@
               "Indeterminate"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "e5248452e91b85fb0a1388c57b2733c3d247d735"
         },
         {
           "name": "Checkbox instances",
@@ -1013,7 +1055,8 @@
               "Indeterminate"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "c15ecf8b3fec01d58edc4aa012d8e0cdff18867a"
         },
         {
           "name": "Toggle",
@@ -1025,7 +1068,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "e6384dab78059046fff37f40cae4a81cee361c69"
         },
         {
           "name": "Toggle",
@@ -1037,7 +1081,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "fa32d20d4644f5ab50e9645c9a2911e1e1854ffb"
         }
       ]
     },
@@ -1072,7 +1117,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "7a817aebfd8b1cd0a30082881e84e0e2cc23f98a"
         },
         {
           "name": "Chips",
@@ -1101,13 +1147,15 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "33260e7c323fbf65c5b65c9551511badf98e830c"
         },
         {
           "name": "Content switcher",
           "id": "7128:23859",
           "type": "component",
-          "light": "instance"
+          "light": "instance",
+          "key": "6d9793564840f817f42baae5775d5c0310746f19"
         },
         {
           "name": "Content switcher item",
@@ -1135,7 +1183,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "1bcd1d889361f90840e50f4012957241f1897932"
         },
         {
           "name": "Content switcher item",
@@ -1163,13 +1212,15 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "4526042a73824fe37c75c18603710b0417fe1cc0"
         },
         {
           "name": "Tabs",
           "id": "8497:24855",
           "type": "component",
-          "light": "instance"
+          "light": "instance",
+          "key": "b08a011d76cf68706329f509d5590528439f7d84"
         },
         {
           "name": "Tab items",
@@ -1189,7 +1240,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "9ad5cf79d6780af9bacf6c04e8e41548100f33b7"
         },
         {
           "name": "Tab items",
@@ -1209,7 +1261,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "ee3e1860af1930a191a952c3d5adaa8ff2366308"
         }
       ]
     },
@@ -1240,7 +1293,8 @@
           "props": [
             "Info:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "d3cdecf6312e6162db214b926ce4abc4df4b99ff"
         },
         {
           "name": "Dialog",
@@ -1265,7 +1319,8 @@
           "props": [
             "Info:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "44107e142fc8fb49a3a30f96da8bcd4fd50d112c"
         },
         {
           "name": "Modal",
@@ -1274,7 +1329,8 @@
           "props": [
             "Placeholder:SLOT"
           ],
-          "light": "instance"
+          "light": "instance",
+          "key": "c473f1fc21c0f56c9a76c32aa9ada23f2ed92de6"
         },
         {
           "name": "Side Drawer",
@@ -1283,7 +1339,8 @@
           "props": [
             "Form:SLOT"
           ],
-          "light": "instance"
+          "light": "instance",
+          "key": "709f227025310f30ff1d5db68180998a780ce887"
         },
         {
           "name": "Modal/Full screen",
@@ -1298,7 +1355,8 @@
               "Mobile"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "585d032cfc08c58f2ffb2706b1661cefe262e8d2"
         },
         {
           "name": "Modal/Full screen",
@@ -1313,7 +1371,8 @@
               "Mobile"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "36fd5f60af8717628ba8e4282a0470bd89f61020"
         },
         {
           "name": "Modal/Send",
@@ -1325,7 +1384,8 @@
               "Company"
             ]
           },
-          "light": "instance"
+          "light": "instance",
+          "key": "875dadd58b348b536a7e9c463e7783b66b3e4893"
         },
         {
           "name": "Bottom sheet",
@@ -1334,7 +1394,8 @@
           "props": [
             "Sheet content:SLOT"
           ],
-          "light": "instance"
+          "light": "instance",
+          "key": "044e3a6e4ffb24f724da5d8e5fe6c7c2fcd5707f"
         }
       ]
     },
@@ -1375,7 +1436,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "acc96f103964491cfa9803870bf298f65f9a25ff"
         },
         {
           "name": "Dropdown",
@@ -1410,7 +1472,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "e82807d3aa5840e12230b6c574efe00e289b0c00"
         }
       ]
     },
@@ -1432,7 +1495,8 @@
               "Dropzone"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "a3961395f576732a03ea651a1b0ba15bbb2c22b8"
         },
         {
           "name": "Empty state",
@@ -1448,7 +1512,8 @@
               "Dropzone"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "9c791cc29133b59f834a82fa53361ce1c776aad0"
         },
         {
           "name": "Illustrations Empty state",
@@ -1491,7 +1556,8 @@
               "Programs"
             ]
           },
-          "light": "instance"
+          "light": "instance",
+          "key": "95342d65786b7d0b4f6b2556117bc2f6944f1381"
         }
       ]
     },
@@ -1520,7 +1586,8 @@
             "Info:SLOT",
             "Info2:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "1ff82a29d166f5b2b8204472fe493f68a13ae407"
         },
         {
           "name": "File uploader",
@@ -1543,7 +1610,8 @@
             "Info:SLOT",
             "Info2:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "14f48c7fc45274ec219d844dff28f19de501c77d"
         }
       ]
     },
@@ -1580,7 +1648,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "66554bd49e346c86dab8bdcd9cf400e5f219037d"
         },
         {
           "name": "Certificate instances",
@@ -1599,7 +1668,8 @@
               "md"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "c2266dd80e8361325def0b3ca7ca878de076ef2a"
         },
         {
           "name": "Ranking, leaderboard",
@@ -1613,7 +1683,8 @@
               "4"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "2e5d1a47fa181f497bd79f6685c40d5c79a91184"
         },
         {
           "name": "Quiz/Options",
@@ -1647,7 +1718,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "38cee61e04a62a24d2b22fd9d81b5e61139559e5"
         },
         {
           "name": "Learning path",
@@ -1678,7 +1750,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "c087b4e6b4a900e65311574d3e045b4df72c8cd3"
         },
         {
           "name": "Certificate instances",
@@ -1697,7 +1770,8 @@
               "md"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "bb8f988625f45930d77d45ed1c57bfa05bcea0c5"
         },
         {
           "name": "Ranking, leaderboard",
@@ -1711,7 +1785,8 @@
               "4"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "330c9f78fa2ca453e5d6193f3004d29c2b54956f"
         },
         {
           "name": "Quiz/Options",
@@ -1745,7 +1820,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "a56ef146c5ced01b190fae9b7497d104942beb12"
         },
         {
           "name": "Progress bar",
@@ -1764,7 +1840,8 @@
               "87%"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "42a57d8d8acbe4f4c18c05a9f994fe90ff2d2d28"
         },
         {
           "name": "Progress bar",
@@ -1783,7 +1860,8 @@
               "87%"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "b71c8b795c2e829a71d70669a704f0aa2589eb70"
         },
         {
           "name": "Illustrations/Certificate",
@@ -1797,7 +1875,8 @@
               "XL"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "69eb1f89b6022e4caa5175ea8b6e40db412aff6d"
         },
         {
           "name": "Illustrations/Gamification",
@@ -1811,7 +1890,8 @@
               "Learning Path"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "1ec381e0c40b824c63e6644ab363586dc9edd2ae"
         },
         {
           "name": "Illustrations/ Progress",
@@ -1828,7 +1908,8 @@
               "Not passed"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "fdd145c0c6d01adfdb52fcc0532476bfd566a131"
         },
         {
           "name": "Illustrations/ Assessments",
@@ -1853,7 +1934,8 @@
               "Desktop"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "91e4f0a363797c299a3fc79ffb9c6113e3bcf855"
         },
         {
           "name": "Illustrations/ Learning path",
@@ -1879,7 +1961,8 @@
               "large"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "48c73031e52f2def33e0eaaff202d5a43aecc1ab"
         },
         {
           "name": "Illustrations/Certificate",
@@ -1893,7 +1976,8 @@
               "XL"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "ce7de76e6e82e61aa2c99564a62ea6cebbaa413b"
         },
         {
           "name": "Illustrations/Gamification",
@@ -1907,7 +1991,8 @@
               "Learning Path"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "c97153c94aae918479235d1873d02453816beead"
         },
         {
           "name": "Illustrations/ Progress",
@@ -1924,7 +2009,8 @@
               "Not passed"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "454f5783e8974f5ce535506aced9e06508f22a1a"
         },
         {
           "name": "Illustrations/ Assessments",
@@ -1949,7 +2035,8 @@
               "Desktop"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "67548acdf2eb013c73ca1aba80056d5520473a07"
         },
         {
           "name": "Illustrations/ Learning path",
@@ -1975,7 +2062,8 @@
               "large"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "51296698cc844ccf495aa3344a19373c480aeabd"
         },
         {
           "name": "Illustrations/ Functions",
@@ -2005,7 +2093,8 @@
               "Custom"
             ]
           },
-          "light": "instance"
+          "light": "instance",
+          "key": "e2f61d5cefef72999b0758094cc7c6bc1c99b33d"
         }
       ]
     },
@@ -2028,7 +2117,8 @@
             "Label:SLOT",
             "Header:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "9d5a920a64e07d46ff17b91056b82d541a4dc88f"
         },
         {
           "name": "Header",
@@ -2045,7 +2135,8 @@
             "Label:SLOT",
             "Header:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "39bb470433e0489e5b6c36a138b54d824357541f"
         }
       ]
     },
@@ -2065,7 +2156,8 @@
               "Inline"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "df4d0a50322893dc676d02151a63673ca800dfac"
         },
         {
           "name": "Input field/Outlined",
@@ -2104,7 +2196,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "71de4f9f5b7866741b372570053ab622335794fe"
         },
         {
           "name": "Input field/Inline",
@@ -2132,7 +2225,8 @@
               "M"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "dad5dabc84197717e98fb3eac0c317fa37e6347d"
         },
         {
           "name": "Input field/Radio button",
@@ -2163,7 +2257,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "7b98016c0c8ef3ff1e62ce163d645ce44d3111be"
         },
         {
           "name": "Input field/Integer",
@@ -2195,7 +2290,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "3edba15c94e135bd0939e5c4c68b920c3b5dded3"
         },
         {
           "name": "Input field",
@@ -2209,7 +2305,8 @@
               "Inline"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "4c9207882b3d56bbefb1a918b53efeebaa30ef3e"
         },
         {
           "name": "Input field/Outlined",
@@ -2248,7 +2345,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "98f803f7ec1fbd88330a3cd646d7ec3ed671bd31"
         },
         {
           "name": "Input field/Inline",
@@ -2276,7 +2374,8 @@
               "M"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "0a6d21ca1713b6f1420bb84612af95865edcde51"
         },
         {
           "name": "Input field/Radio button",
@@ -2307,7 +2406,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "8d4f2c6233a24609cd24fd768d146169582bdc67"
         },
         {
           "name": "Input field/Integer",
@@ -2339,7 +2439,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "d5b8fa23fbbd1f983f855a5796caac7f1d03bb71"
         }
       ]
     },
@@ -2371,7 +2472,8 @@
             "List-2:SLOT",
             "List-3:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "ac422ac73767d045d3c681d7f61d3c055dc77023"
         },
         {
           "name": "List itens",
@@ -2428,7 +2530,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "fda281b625ba273c32b7320e48eaa0207719f880"
         },
         {
           "name": "Listbox",
@@ -2454,7 +2557,8 @@
             "List-2:SLOT",
             "List-3:SLOT"
           ],
-          "light": "copy"
+          "light": "copy",
+          "key": "a24bfbd39a530b59cfd9c38f1706a1e9605e5f5b"
         },
         {
           "name": "List itens",
@@ -2511,7 +2615,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "769aeb386dcc2dd1677f3e086a5ab65d91696884"
         }
       ]
     },
@@ -2533,7 +2638,8 @@
               "Profile"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "b97f10511eb24e903496b2f2cd36d4625c366dcd"
         },
         {
           "name": "Top nav/ App",
@@ -2552,7 +2658,8 @@
               "Mobile web"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "211d4d48451d180b043ff325efea65d34004d1de"
         },
         {
           "name": "Top Nav/Admin",
@@ -2568,7 +2675,8 @@
               "small"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "a8f87a9cfe940c782f7794b97e1e8af3de4403f2"
         },
         {
           "name": "Side navigation",
@@ -2584,7 +2692,8 @@
               "Expanded"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "1a401ba8200d8308122dae13fd7d401b7e7a39ab"
         },
         {
           "name": "Menu/Itens/WebApp",
@@ -2604,7 +2713,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "7a5d72138f650d33c03c64b9386c03660df229ff"
         },
         {
           "name": "Menu/Itens/Admin",
@@ -2632,7 +2742,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "74760e4f9e4b02729f937a9a02dafd77ca123759"
         },
         {
           "name": "Tab nav",
@@ -2648,7 +2759,8 @@
               "Profile"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "8c8ce29de3667cdaf7bbe16466909f1c5246d6fc"
         },
         {
           "name": "Top nav/ App",
@@ -2667,7 +2779,8 @@
               "Mobile web"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "11776ebe583fe4aeaae2e049f5c37de369b33cf3"
         },
         {
           "name": "Top Nav/Admin",
@@ -2683,7 +2796,8 @@
               "small"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "58ad0d4fd6dd76ca1c287c3369a1fe1ddf5b081b"
         },
         {
           "name": "Side navigation",
@@ -2699,7 +2813,8 @@
               "Expanded"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "f2b4f3244a17aa3ea83c3ee4d07f0e0f681dc00b"
         },
         {
           "name": "Menu/Itens/WebApp",
@@ -2719,7 +2834,8 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "4a98e0d9e258dd6e8a476b7184ffcb36f1df5fca"
         },
         {
           "name": "Menu/Itens/Admin",
@@ -2747,13 +2863,15 @@
               "false"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "f0e45b750255369234c11eea5bbb7a982fd70ea6"
         },
         {
           "name": "Breadcrumb",
           "id": "8497:2231",
           "type": "component",
-          "light": "instance"
+          "light": "instance",
+          "key": "e45a83e9fa9a42e8749e4677a9657f2ded538a03"
         },
         {
           "name": "Breadcrumb item",
@@ -2774,7 +2892,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "8b2e1feadf1e6be4b412d4036a7e69be95b280a9"
         },
         {
           "name": "Breadcrumb item",
@@ -2795,7 +2914,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "a8c5a8d017c1dd810dc58d7a568423fded596c4b"
         }
       ]
     },
@@ -2822,7 +2942,8 @@
               "L"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "44e482a20ec5fffcc03d86aa9f103551d7c97ee3"
         },
         {
           "name": "Search",
@@ -2843,7 +2964,8 @@
               "L"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "fdba62419358f5fce78aec51f4af607c8eb81a33"
         }
       ]
     },
@@ -2855,7 +2977,8 @@
           "name": "stepper",
           "id": "8108:5464",
           "type": "component",
-          "light": "instance"
+          "light": "instance",
+          "key": "d4ba5da67673b742c54e6c202ede85d9064f6430"
         },
         {
           "name": "Step/Instances",
@@ -2868,7 +2991,8 @@
               "Completed"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "5d3b03fd798430e04ad5ce18ded441a5791db823"
         },
         {
           "name": "Step/line",
@@ -2880,7 +3004,8 @@
               "Incomplete"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "b7f2901d12fe5c9d026fb9d026f6a6fc81930276"
         },
         {
           "name": "Step/Instances",
@@ -2893,7 +3018,8 @@
               "Completed"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "3e5823f90d9bc9355ea80127cead04b2d3e2308e"
         },
         {
           "name": "Step/line",
@@ -2905,7 +3031,8 @@
               "Incomplete"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "481b25d6ec5929945a47b959ec737788b17da9fa"
         }
       ]
     },
@@ -2929,7 +3056,8 @@
               "0"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "779393808738242815a319591e772965986f358f"
         },
         {
           "name": "<Slider>",
@@ -2947,7 +3075,8 @@
               "0"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "46db63c9385d85dd5e85b6ac178ddf738baf5b07"
         }
       ]
     },
@@ -2972,7 +3101,8 @@
             "Table row9:SLOT",
             "Table row10:SLOT"
           ],
-          "light": "instance"
+          "light": "instance",
+          "key": "f556add0a33a76d1bef2fc5906fa1e4c512d6d57"
         },
         {
           "name": "Table row",
@@ -2993,7 +3123,8 @@
               "n/a"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "c3a5507550a649db8a0428fe10d718f39729e3bd"
         },
         {
           "name": "Table header",
@@ -3016,7 +3147,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "4e862dd34e5816c7e908d5db44517c59c356b43b"
         },
         {
           "name": "Table data",
@@ -3082,7 +3214,8 @@
               "Enabled"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "bfe5a486a1797a5965d0871b73171ea34652c544"
         },
         {
           "name": "Table row",
@@ -3126,7 +3259,8 @@
               "true"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "54ca40911aa3eafa2017b740b722c845921a7c41"
         },
         {
           "name": "Table data",
@@ -3192,7 +3326,8 @@
               "Enabled"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "fcbdd3db2f374d421e2ad170ac12794f4b6b9990"
         },
         {
           "name": "Thumbnail type",
@@ -3205,7 +3340,8 @@
               "Lesson"
             ]
           },
-          "light": "instance"
+          "light": "instance",
+          "key": "4aa55f7dd2a0840d5dc50956770d1b6c185917db"
         }
       ]
     },
@@ -3229,7 +3365,8 @@
               "Info"
             ]
           },
-          "light": "instance"
+          "light": "instance",
+          "key": "2fb1531cff0b31d678b59f304c9c807fae77c782"
         }
       ]
     },
@@ -3258,7 +3395,8 @@
               "False"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "0b6ec66ae09ce4b50f411440c35b98b7af0508d9"
         },
         {
           "name": "Tooltip",
@@ -3281,10 +3419,1541 @@
               "False"
             ]
           },
-          "light": "copy"
+          "light": "copy",
+          "key": "e37336eb688b2ec86f04dcd4e94a98dca3576e08"
         }
       ]
     }
   ],
-  "lightCheckedAt": "2026-09-29"
+  "lightCheckedAt": "2026-09-29",
+  "keysReadAt": "2026-10-09",
+  "variables": [
+    {
+      "name": "XXS",
+      "key": "46718c790ea9482ce56d7530450e557f64d2d797",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 2
+      }
+    },
+    {
+      "name": "XS",
+      "key": "9abd20b41abbb26e24dccaeb6ddb33067e0aa606",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 4
+      }
+    },
+    {
+      "name": "XSS",
+      "key": "b05570501cd9704a8c72ba66aaf6c8824960f415",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 6
+      }
+    },
+    {
+      "name": "S",
+      "key": "0180e3785203eb5077500286eae96b2f5a701ceb",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 8
+      }
+    },
+    {
+      "name": "SSM",
+      "key": "cd99a17233a07a986f0f7738a673866db1f26358",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 10
+      }
+    },
+    {
+      "name": "SM",
+      "key": "c288787dad4923d21df2e2ef1f1970c4c52f46d1",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 12
+      }
+    },
+    {
+      "name": "M",
+      "key": "858cf74a119006a8e74eafe2d8abe76aa59d3307",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 16
+      }
+    },
+    {
+      "name": "ML",
+      "key": "d704ae1e6f550bd06ec0188df05e939ce5ab1533",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 20
+      }
+    },
+    {
+      "name": "L",
+      "key": "0492aa5eb474aa7fb2962b43a3fae8857b6c340d",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 24
+      }
+    },
+    {
+      "name": "XL",
+      "key": "8df7f049ba2cf1238e04013cb9fbae663538c8e2",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 32
+      }
+    },
+    {
+      "name": "XXL",
+      "key": "616a206715ed639d1c302786bf608956b1c9d11c",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "values": {
+        "Mode 1": 40
+      }
+    },
+    {
+      "name": "0",
+      "key": "5771f4e0583365966d4dc9a2ff475ff5390e5820",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": 0
+      }
+    },
+    {
+      "name": "100",
+      "key": "49d5cd07731fb773c1acbd8601295fdc9f764825",
+      "collection": "Padding/Spacing/Roundness",
+      "type": "FLOAT",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": 100
+      }
+    },
+    {
+      "name": "Neutral-900",
+      "key": "1309df6f38a95fdcebddbd6c203c8b552bdb909e",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#0f1014ff"
+      }
+    },
+    {
+      "name": "Neutral-800",
+      "key": "7ad7fdac318db5d5efe3f0f108e09661dbda5b93",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#20222aff"
+      }
+    },
+    {
+      "name": "Neutral-700",
+      "key": "d43942ee9e380fa007cb52d0f355a846dfc3c1ef",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#2d313dff"
+      }
+    },
+    {
+      "name": "Neutral-600",
+      "key": "2d64215cf46535c4d3eaf36e8f0c3cd1ffe7cb05",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#383d4cff"
+      }
+    },
+    {
+      "name": "Neutral-500",
+      "key": "646676d847027083805726c76780b2efd43b9827",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#454c5eff"
+      }
+    },
+    {
+      "name": "Neutral-400",
+      "key": "cb7a8bad786bdaef2ff0d3ca2a0427c07b8b49cb",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#656b7cff"
+      }
+    },
+    {
+      "name": "Neutral-300",
+      "key": "c56bfa55fdfbbd16677954091305ee3a20646539",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Neutral-200",
+      "key": "07ed8a2793491509ee25d6b557da92bcf56e8327",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#bfc2ccff"
+      }
+    },
+    {
+      "name": "Neutral-100",
+      "key": "dcf5ea355cebbd249d2c5dd34c03f3b7947fa9c6",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Neutral-50",
+      "key": "a793c7155614373062bd9418e8788ad20adc711c",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#eff0f2ff"
+      }
+    },
+    {
+      "name": "Neutral-25",
+      "key": "8fcbafaf12b40c8a6f298e1d6efd0a812dda1a4a",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#f9f9faff"
+      }
+    },
+    {
+      "name": "Neutral-0",
+      "key": "740f4dfd3cf78482779d3eaf6a655dff9eeeafc1",
+      "collection": "Neutral colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Value": "#ffffffff"
+      }
+    },
+    {
+      "name": "Tooltip-background",
+      "key": "20d0371cae0cc1c9352c2853949eeab2fddf0cea",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#0f1014ff",
+        "Light mode": "#20222aff"
+      }
+    },
+    {
+      "name": "Page-background",
+      "key": "6820fd4370891c5bb44430e60254ffa025d644c6",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#20222aff",
+        "Light mode": "#f9f9faff"
+      }
+    },
+    {
+      "name": "Page-background-hover",
+      "key": "08d00c80eebbe666305b41d7bdb5ed699862ee99",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#eff0f2ff"
+      }
+    },
+    {
+      "name": "Cards-background",
+      "key": "7e530e88f98499b09b558c236a5fb24049a10603",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#ffffffff"
+      }
+    },
+    {
+      "name": "Cards-background-hover",
+      "key": "4f845af7505bd0be3c8be55c735825966e7c3c95",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#383d4cff",
+        "Light mode": "#eff0f2ff"
+      }
+    },
+    {
+      "name": "Input-background",
+      "key": "052939bb9c2b4b93ae4e9e21d42738f646ea1fbb",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#454c5e29",
+        "Light mode": "#bfc2cc29"
+      }
+    },
+    {
+      "name": "Input-background-elevated",
+      "key": "93d2acd93e4cc7e11b322ed29af9328608f4266d",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#454c5e52",
+        "Light mode": "#bfc2cc52"
+      }
+    },
+    {
+      "name": "Input-background-hover",
+      "key": "fbd58d882ad436b4911176a1021e0a7b9ac5109e",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Selected",
+      "key": "d4886be51aa01860cf3731f310e27f08b83b2061",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb38ff",
+        "Light mode": "#eda30dff"
+      }
+    },
+    {
+      "name": "Selected-row",
+      "key": "77f2438711ef9e91a725d771343963ec2cf7f039",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb3829",
+        "Light mode": "#ffbb3829"
+      }
+    },
+    {
+      "name": "Selected-row-hover",
+      "key": "e32a7334757c0c3ad26e818e21c70f3e1ebdc14f",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb383d",
+        "Light mode": "#ffbb383d"
+      }
+    },
+    {
+      "name": "Border",
+      "key": "de7d79af522ca4dc22129ae398556184fec67113",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#2d313dff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Border-elevated",
+      "key": "1600cbc76c62380beef5e375a3274eb5ab926435",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#383d4cff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Border-hover",
+      "key": "a2939d263a336f22dc45bd7a9a825e59298d5c1b",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9ea4b3ff",
+        "Light mode": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Primary-Button-background",
+      "key": "6ba15aec9b54802a6dd0645e081b74870b696995",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#00cee6ff",
+        "Light mode": "#008393ff"
+      }
+    },
+    {
+      "name": "Button-background-disabled",
+      "key": "237c8bbe7ff7785133e9a6a7edb4ef9d7a844fd6",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#656b7cff",
+        "Light mode": "#dfe1e6ff"
+      }
+    },
+    {
+      "name": "Primary-button-background-hover",
+      "key": "fa7943d722e0c32c36a590ec21df8c2856f498e8",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#33e2f7ff",
+        "Light mode": "#005862ff"
+      }
+    },
+    {
+      "name": "Primary-button-background-pressed",
+      "key": "3081b3fe2a6ebd6e34ba9bfedc729598bcd60929",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#00afc4ff",
+        "Light mode": "#002c31ff"
+      }
+    },
+    {
+      "name": "Button-danger-hover",
+      "key": "cbe4b4e54f6c5e214bcdcfff119378fe55a66731",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9c0f2eff",
+        "Light mode": "#9c0f2eff"
+      }
+    },
+    {
+      "name": "Button-danger-pressed",
+      "key": "3db06b8ebff49652c3b693b94cbf4526c4be22bc",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#59091aff",
+        "Light mode": "#59091aff"
+      }
+    },
+    {
+      "name": "Button-warning-background",
+      "key": "65593013d7b1edd657f00146f9f46a79a8f392f8",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#e88206ff",
+        "Light mode": "#e88206ff"
+      }
+    },
+    {
+      "name": "Button-warning-background-hover",
+      "key": "69397318804c5a7feb3d96693fdb88e1078aabcb",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#996322ff",
+        "Light mode": "#996322ff"
+      }
+    },
+    {
+      "name": "Button-warning-background-pressed",
+      "key": "8537f4bfdf97659f6c29a1744c3cc9060898b578",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#664216ff",
+        "Light mode": "#664216ff"
+      }
+    },
+    {
+      "name": "Button-success-background",
+      "key": "74ba2de37639422a26bd0892d5e9babc86587134",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#18a957ff",
+        "Light mode": "#18a957ff"
+      }
+    },
+    {
+      "name": "Button-success-background-hover",
+      "key": "7731b7939dca72ec1a4b5a8ef10a5c20d8b69cbf",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#11763dff",
+        "Light mode": "#11763dff"
+      }
+    },
+    {
+      "name": "Button-success-background-pressed",
+      "key": "d1fe721a09e36ff93e6152a80b6b902eb49849a5",
+      "collection": "Surface colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#0a4423ff",
+        "Light mode": "#0a4423ff"
+      }
+    },
+    {
+      "name": "Success-900",
+      "key": "1b522e04ea88a0e634f8aa2fb34900281176b11c",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#021109ff"
+      }
+    },
+    {
+      "name": "Success-800",
+      "key": "fc3c15e1e285327d4a4ce0040cb0fbb3976d623e",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#052211ff"
+      }
+    },
+    {
+      "name": "Success-700",
+      "key": "fd17146d06c03c78504845b0024834b2944b7e98",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#0a4423ff"
+      }
+    },
+    {
+      "name": "Success-600",
+      "key": "55b7141d043d5017b4bef604e2dea0371b6b11b8",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#11763dff"
+      }
+    },
+    {
+      "name": "Success-500",
+      "key": "1463fb645a62ac837196de6d57366bec0748cbe6",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#18a957ff"
+      }
+    },
+    {
+      "name": "Success-400",
+      "key": "8457edec2cdf0e78525b2431165c473961913a2a",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#5dc389ff"
+      }
+    },
+    {
+      "name": "Success-300",
+      "key": "f7528c4f5f643b0f8e451e3c372238880cf5fd38",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#a3ddbcff"
+      }
+    },
+    {
+      "name": "Success-200",
+      "key": "43021c33ea0487a5e8b285c242030710943dcc7b",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#d1eeddff"
+      }
+    },
+    {
+      "name": "Success-100",
+      "key": "fcdd0e808e565fceec301f779d8f6d4cd0cb826c",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#e8f6eeff"
+      }
+    },
+    {
+      "name": "Warning-900",
+      "key": "71676fe20a7c657696b93487149bd14c1d6e2a72",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#33210bff"
+      }
+    },
+    {
+      "name": "Warning-800",
+      "key": "69d2543ac60a8ab461f12e135f4b8456403b19be",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#664216ff"
+      }
+    },
+    {
+      "name": "Warning-700",
+      "key": "30249c52b54d89a3d92036caf7384cd191d1b505",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#996322ff"
+      }
+    },
+    {
+      "name": "Warning-600",
+      "key": "fdaa2c04ba3748acfed34fe8464194c307d959cd",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#e88206ff"
+      }
+    },
+    {
+      "name": "Warning-500",
+      "key": "7f054facf0838e68b973c11e7da639a1b3eef9e7",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffa538ff"
+      }
+    },
+    {
+      "name": "Warning-400",
+      "key": "7f612c848d8c7570dbcbe98d8ae7f6d44df8aafc",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffb760ff"
+      }
+    },
+    {
+      "name": "Warning-300",
+      "key": "742fb6afc8cb0ce8eb9ecf4af047a47b581629b4",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffc988ff"
+      }
+    },
+    {
+      "name": "Warning-200",
+      "key": "dd3b548843d37abe7bb16118b56bb2c5bbf00cd8",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffdbafff"
+      }
+    },
+    {
+      "name": "Warning-100",
+      "key": "6a71de5c12c44f8dbb92371ac07e7e8dd8afa474",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffedd7ff"
+      }
+    },
+    {
+      "name": "Danger-900",
+      "key": "20a8ea8fe1154e996e6722a5a00ea112092bd6e7",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#160207ff"
+      }
+    },
+    {
+      "name": "Danger-800",
+      "key": "f3a19074e9d1d059d8f95ff73c336ab44f87e934",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#2d040dff"
+      }
+    },
+    {
+      "name": "Danger-700",
+      "key": "cdd38adeb804fc8e1cc7b2d475bbb3c7050217bf",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#59091aff"
+      }
+    },
+    {
+      "name": "Danger-600",
+      "key": "6c2b221fa18dee5953611843c245a4e79306b6ad",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#9c0f2eff"
+      }
+    },
+    {
+      "name": "Danger-500",
+      "key": "d5978b5100179969fa177d1ec0ee6a786d1f0559",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#df1642ff"
+      }
+    },
+    {
+      "name": "Danger-400",
+      "key": "6415ae47f5f08a302b9714595e829a7fe94d24b5",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#e95c7bff"
+      }
+    },
+    {
+      "name": "Danger-300",
+      "key": "b26681606f17322203af0f49963524e6d5f9e10e",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#f2a2b3ff"
+      }
+    },
+    {
+      "name": "Danger-200",
+      "key": "7fb3bb07e250c989c0716a84bbf5e4a7f2865c54",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#f9d0d9ff"
+      }
+    },
+    {
+      "name": "Danger-100",
+      "key": "d54be23b8a9f06ec4dcc51e055b43f357592fc50",
+      "collection": "System colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fce8ecff"
+      }
+    },
+    {
+      "name": "Text-primary",
+      "key": "5f6a2b5d4cea217e9093ae31be5fefc64b4fa645",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#f9f9faff",
+        "Light mode": "#20222aff"
+      }
+    },
+    {
+      "name": "Text-secondary",
+      "key": "de8f1b6716d8daf1874b435809fc512ce62d5545",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#bfc2ccff",
+        "Light mode": "#454c5eff"
+      }
+    },
+    {
+      "name": "Text-tertiary",
+      "key": "532b1a3eb4132be287670ed65ebe0b76272cf397",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9ea4b3ff",
+        "Light mode": "#656b7cff"
+      }
+    },
+    {
+      "name": "Text-disabled",
+      "key": "b860942cca4759aa79fee388e9e94bc904202ded",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#656b7cff",
+        "Light mode": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Text-button-foreground",
+      "key": "557e2eaf1348294d8945542c0520be65e0c26d2b",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#20222aff",
+        "Light mode": "#f9f9faff"
+      }
+    },
+    {
+      "name": "Text-button-disabled",
+      "key": "590b77f87beb17c6d4ee831b0095c6eeca6436da",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#9ea4b3ff",
+        "Light mode": "#9ea4b3ff"
+      }
+    },
+    {
+      "name": "Text-success",
+      "key": "c3381665df8c5491a5ca35a3a37a6c268ed0086d",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#18a957ff",
+        "Light mode": "#11763dff"
+      }
+    },
+    {
+      "name": "Text-quiz",
+      "key": "bfbd95c782d590a873320db2ff5294745a467853",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#6368dbff",
+        "Light mode": "#ffdbafff"
+      }
+    },
+    {
+      "name": "Text-warning",
+      "key": "75a492449d160174238ca1e9ac9b732c1c899933",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffa538ff",
+        "Light mode": "#e88206ff"
+      }
+    },
+    {
+      "name": "Text-error",
+      "key": "690d86762259b1cb62ff3ff8a1746b2efe530936",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#e95c7bff",
+        "Light mode": "#df1642ff"
+      }
+    },
+    {
+      "name": "Text-selected",
+      "key": "4c68bbd8d15499929784451cad93437b0355e4a1",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#ffbb38ff",
+        "Light mode": "#eda30dff"
+      }
+    },
+    {
+      "name": "Text-progress",
+      "key": "e5384a4d817a07cdaa92e2368d5671be3d9e5fe5",
+      "collection": "Text colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Dark mode": "#00cee6ff",
+        "Light mode": "#008393ff"
+      }
+    },
+    {
+      "name": "Primary-900",
+      "key": "4bab713d26b3c6d66950728160ada70a886c2ce3",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#002c31ff"
+      }
+    },
+    {
+      "name": "Primary-800",
+      "key": "2cca40587ec0e1255e190b888cfa94ed1dc50420",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#005862ff"
+      }
+    },
+    {
+      "name": "Primary-700",
+      "key": "7cfae812165ae119022dee42ca65a21073c46a6c",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#008393ff"
+      }
+    },
+    {
+      "name": "Primary-600",
+      "key": "29df61f8e0b8bec100f674fc0588631c10eabde4",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#00afc4ff"
+      }
+    },
+    {
+      "name": "Primary-500",
+      "key": "2fe296922572657cc5c50696b8e5ee6741261f51",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#00cee6ff"
+      }
+    },
+    {
+      "name": "Primary-400",
+      "key": "d05a2ff92ec4b6c1c12d26f3d594388b23316898",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#33e2f7ff"
+      }
+    },
+    {
+      "name": "Primary-300",
+      "key": "d2b8485536c13052d09c7ee8e7fe0758cd5d9334",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#66e9f9ff"
+      }
+    },
+    {
+      "name": "Primary-200",
+      "key": "b586e28b23b7165405614adce954e6c194c69104",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#99f1fbff"
+      }
+    },
+    {
+      "name": "Primary-100",
+      "key": "94ec16522e59845c4ac22a63798869a4b9ed209d",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ccf8fdff"
+      }
+    },
+    {
+      "name": "Secondary-900",
+      "key": "a88c8755d8e3ddfd6f280c137cb78d657c8c49bd",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#191306ff"
+      }
+    },
+    {
+      "name": "Secondary-800",
+      "key": "99bb86df187cd2ba21ce3cda5967156270d587e4",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#33250bff"
+      }
+    },
+    {
+      "name": "Secondary-700",
+      "key": "eeab911616d2301aa66b5c36f342222da4d8b8c3",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#664b16ff"
+      }
+    },
+    {
+      "name": "Secondary-600",
+      "key": "1841a091e40f668dc9c441a3dbb64121769d0a23",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#eda30dff"
+      }
+    },
+    {
+      "name": "Secondary-500",
+      "key": "7c44549924d9736015b42f6b005483e112549e75",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffbb38ff"
+      }
+    },
+    {
+      "name": "Secondary-400",
+      "key": "b31284e18abd123018fedc1bca950ccd93b83ef0",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffcf74ff"
+      }
+    },
+    {
+      "name": "Secondary-300",
+      "key": "5771ab644200038a79a2ddcf87f7d7fb21e5c6a8",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#ffe4afff"
+      }
+    },
+    {
+      "name": "Secondary-200",
+      "key": "1a21a293280e2461af12a8cd78556fb91c3bcba5",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fff1d7ff"
+      }
+    },
+    {
+      "name": "Secondary-100",
+      "key": "64710f72413e9ec907327a402e2a166a9f37451b",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fff8ebff"
+      }
+    },
+    {
+      "name": "Blaze quiz",
+      "key": "d626e47ae37c069b8515d2271b41ba15fecd2cf6",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#8158ecff"
+      }
+    },
+    {
+      "name": "Flash Poll",
+      "key": "9413b5a4b5ba7193a08b39533c8eeebccc521044",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#9b55c9ff"
+      }
+    },
+    {
+      "name": "Lesson quiz",
+      "key": "2c184e458b6e43d98947bc6bafdca808f521ca10",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#fa715fff"
+      }
+    },
+    {
+      "name": "Certificate quiz",
+      "key": "9e490620d181116345886d8e672d49c6863bd847",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#6368dbff"
+      }
+    },
+    {
+      "name": "Course assessments",
+      "key": "f12f77f46802b251cec8644a63abc955432a0879",
+      "collection": "Brand colours",
+      "type": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "values": {
+        "Mode 1": "#2a90d8ff"
+      }
+    }
+  ],
+  "textStyles": [
+    {
+      "name": "H1 (32)",
+      "key": "ac2e8bd45e4bca32b2e6772c26420582699711d2",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 32,
+      "lineHeight": 48
+    },
+    {
+      "name": "H2 (24)",
+      "key": "3052d81352cde1240034f24c5ff8268078ce28e5",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 24,
+      "lineHeight": 36
+    },
+    {
+      "name": "H3 (20)",
+      "key": "eb87c0702f58a15bebe8dbe04eefe33f3df4dbbe",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 20,
+      "lineHeight": 30
+    },
+    {
+      "name": "H4 (16)",
+      "key": "e96265db290df3101667cb741f49da4331eeea6e",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "H5 (14)",
+      "key": "c0211070e4a70e722051f7b6f43bf8fb922ec89c",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "H6 (12)",
+      "key": "27dc2e21ffe1ead7c898ef334111f9737aa0d2d8",
+      "family": "Poppins",
+      "style": "Bold",
+      "size": 12,
+      "lineHeight": 16.8
+    },
+    {
+      "name": "Paragraph L semibold (16)",
+      "key": "1fb0047928f0f9481da6533f0eecec94dfbece4d",
+      "family": "Poppins",
+      "style": "SemiBold",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "Paragraph M semibold (14)",
+      "key": "52f213f6938323c9a8ffd4debe37f09a6e3c9288",
+      "family": "Poppins",
+      "style": "SemiBold",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "Paragraph S semibold (12)",
+      "key": "0c0ddd955184cf129887a8040f9767a755ef7c04",
+      "family": "Poppins",
+      "style": "SemiBold",
+      "size": 12,
+      "lineHeight": 14.4
+    },
+    {
+      "name": "Paragraph L medium",
+      "key": "fb74ccd733d2faa56a688da2935934a739f8d3db",
+      "family": "Poppins",
+      "style": "Medium",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "Paragraph M medium",
+      "key": "fef1883a7c0cdc29de4e5d30c4dfa0936dd8aadb",
+      "family": "Poppins",
+      "style": "Medium",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "Paragraph S medium",
+      "key": "ec2f9dcec868a74b3f3488b7f847b260426875db",
+      "family": "Poppins",
+      "style": "Medium",
+      "size": 12,
+      "lineHeight": 14.4
+    },
+    {
+      "name": "Paragraph L regular (16)",
+      "key": "d483a02621c4d94e75742dd1005aa6abae103f69",
+      "family": "Poppins",
+      "style": "Regular",
+      "size": 16,
+      "lineHeight": 24
+    },
+    {
+      "name": "Paragraph M regular (14)",
+      "key": "ce726c7d08f3036fe2b158314ad0d17729a2a8b1",
+      "family": "Poppins",
+      "style": "Regular",
+      "size": 14,
+      "lineHeight": 21
+    },
+    {
+      "name": "Paragraph S regular (12)",
+      "key": "106c505665bf974675f5a2f81a28f8f3b86c4779",
+      "family": "Poppins",
+      "style": "Regular",
+      "size": 12,
+      "lineHeight": 14.4
+    }
+  ]
 }

@@ -1,16 +1,17 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 
 // The Table is a component with slots; its light version is an instance (11927:7332).
-export const tableFigma: FigmaMapping = {
+export const tableFigma: MappedFigma = {
   component: 'Table (MUI)',
   mui: 'Table',
   page: 'Table',
   set: 'Table',
   nodes: { light: '11927:7332', dark: '7896:2624' },
   variants: {},
+  map: { kind: 'container' },
 }
 
-export const tableRowFigma: FigmaMapping = {
+export const tableRowFigma: MappedFigma = {
   component: 'TableRow (MUI)',
   mui: 'TableRow',
   page: 'Table',
@@ -22,19 +23,21 @@ export const tableRowFigma: FigmaMapping = {
     // Figma uses "n/a" for the disabled row; the reference covers it with aria-disabled.
     State: ['Enabled', 'Hover', 'n/a'],
   },
+  map: { kind: 'container' },
 }
 
-export const tableHeaderFigma: FigmaMapping = {
+export const tableHeaderFigma: MappedFigma = {
   component: 'TableHead (MUI)',
   mui: 'TableCell (head), TableSortLabel',
   page: 'Table',
   set: 'Table header',
   nodes: { light: '11927:7554', dark: '11872:3077' },
   variants: { Type: ['Text'], Checkbox: ['false', 'true'], Icon: ['false', 'true'], Disabled: ['false', 'true'] },
+  map: { kind: 'container' },
 }
 
 // Illustration cells need the Gamification illustrations, not built yet.
-export const tableDataFigma: FigmaMapping = {
+export const tableDataFigma: MappedFigma = {
   component: 'CellContent',
   mui: 'TableCell (body)',
   page: 'Table',
@@ -56,6 +59,7 @@ export const tableDataFigma: FigmaMapping = {
     Disabled: ['false', 'true'],
     State: ['Hover', 'Selected', 'Read-only', 'Enabled'],
   },
+  map: { kind: 'container' },
 }
 
 export const thumbnailTypeFigma: FigmaMapping = {

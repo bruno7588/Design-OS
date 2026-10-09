@@ -1,6 +1,6 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 
-export const searchFigma: FigmaMapping = {
+export const searchFigma: MappedFigma = {
   component: 'Search',
   mui: 'OutlinedInput (className="ds-search")',
   page: 'Search',
@@ -10,5 +10,13 @@ export const searchFigma: FigmaMapping = {
     State: ['Enabled', 'Active', 'Hover'],
     Filled: ['false', 'true'],
     Size: ['M', 'L'],
+  },
+  map: {
+    kind: 'leaf',
+    fixed: { State: 'Enabled' },
+    props: {
+      size: { figma: 'Size', values: { L: 'L', '*': 'M' } },
+      value: { figma: 'Filled', values: { '': 'false', undefined: 'false', '*': 'true' } },
+    },
   },
 }

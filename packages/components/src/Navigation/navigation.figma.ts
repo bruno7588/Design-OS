@@ -1,12 +1,13 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 
-export const sideNavFigma: FigmaMapping = {
+export const sideNavFigma: MappedFigma = {
   component: 'SideNav',
   mui: 'List + ListItemButton',
   page: 'Navigation',
   set: 'Side navigation',
   nodes: { light: '12048:2302', dark: '4697:13314' },
   variants: { System: ['Web app', 'Admin'], State: ['Collapsed', 'Expanded'] },
+  map: { kind: 'container' },
 }
 
 export const menuItemsWebFigma: FigmaMapping = {
@@ -33,22 +34,30 @@ export const menuItemsAdminFigma: FigmaMapping = {
   },
 }
 
-export const topNavFigma: FigmaMapping = {
+export const topNavFigma: MappedFigma = {
   component: 'TopNav',
   mui: 'Box (header) + Button + IconButton',
   page: 'Navigation',
   set: 'Top Nav/Admin',
   nodes: { light: '12328:8954', dark: '5385:20137' },
   variants: { System: ['Admin', 'Web app'], Breakpoint: ['large', 'small'] },
+  map: {
+    kind: 'leaf',
+    props: {
+      system: { figma: 'System', values: { admin: 'Admin', '*': 'Web app' } },
+      small: { figma: 'Breakpoint', values: { true: 'small', '*': 'large' } },
+    },
+  },
 }
 
-export const pageHeaderFigma: FigmaMapping = {
+export const pageHeaderFigma: MappedFigma = {
   component: 'PageHeader',
   mui: 'Box + Typography + Divider',
   page: 'Header',
   set: 'Header',
   nodes: { light: '11921:13215', dark: '7902:1019' },
   variants: { Type: ['Page', 'Section'] },
+  map: { kind: 'container' },
 }
 
 export const tabNavFigma: FigmaMapping = {

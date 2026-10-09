@@ -1,4 +1,4 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 import type { ButtonProps } from './Button'
 
 // The Figma "Configuration" property, mapped to MUI props.
@@ -28,7 +28,7 @@ export const SIZES = [
   { figma: 'Large', size: 'large' },
 ] as const
 
-export const buttonFigma: FigmaMapping = {
+export const buttonFigma: MappedFigma = {
   component: 'Button',
   mui: 'Button',
   page: 'Buttons',
@@ -41,5 +41,23 @@ export const buttonFigma: FigmaMapping = {
     State: ['Enabled', 'Hover', 'Pressed', 'Loading', 'n/a'],
     Disabled: ['false', 'true'],
     Icon: ['true', 'false'],
+  },
+  map: {
+    kind: 'leaf',
+    props: {
+      'variant|color': {
+        figma: 'Configuration',
+        values: {
+          ...Object.fromEntries(CONFIGURATIONS.map((c) => [`${c.variant}|${c.color}`, c.figma])),
+          ...Object.fromEntries(CONFIGURATIONS.filter((c) => c.color === 'primary').map((c) => [`${c.variant}|undefined`, c.figma])),
+          'undefined|*': 'Filled',
+          '*': 'Filled',
+        },
+      },
+      size: { figma: 'Size', values: { ...Object.fromEntries(SIZES.map((s) => [s.size, s.figma])), '*': 'Medium' } },
+      'disabled|loading': { figma: 'State', values: { 'true|*': 'n/a', '*|true': 'Loading', '*': 'Enabled' } },
+      disabled: { figma: 'Disabled', values: { true: 'true', '*': 'false' } },
+      icon: { figma: 'Icon', values: { undefined: 'false', '*': 'true' } },
+    },
   },
 }

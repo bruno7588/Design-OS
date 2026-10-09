@@ -9,7 +9,11 @@
     "test": "vitest run",
     "inventory": "node scripts/inventory.mts",
     "mock-data": "node packages/mock-data/bin/cli.mts",
-    "session-messages": "node scripts/session-messages.mts"
+    "session-messages": "node scripts/session-messages.mts",
+    "figma-map": "node scripts/figma-map.mts",
+    "capture-demo": "node scripts/capture-demo.mts",
+    "figma-script": "node scripts/figma-script.mts",
+    "upload-payloads": "node scripts/upload-payloads.mts"
   },
   "devDependencies": {
     "@design-os/demos": "workspace:*",

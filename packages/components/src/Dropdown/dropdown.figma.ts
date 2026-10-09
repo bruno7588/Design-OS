@@ -1,6 +1,6 @@
-import type { FigmaMapping } from '../figma'
+import type { FigmaMapping, MappedFigma } from '../figma'
 
-export const dropdownFigma: FigmaMapping = {
+export const dropdownFigma: MappedFigma = {
   component: 'Dropdown',
   mui: 'TextField (select)',
   page: 'Dropdown',
@@ -14,11 +14,22 @@ export const dropdownFigma: FigmaMapping = {
     'Label start': ['false', 'true'],
     'Helper text': ['false', 'true'],
   },
+  map: {
+    kind: 'leaf',
+    props: {
+      'label|labelPlacement': { figma: 'Label start', values: { 'undefined|*': 'false', '*|start': 'true', '*': 'false' } },
+      'label|labelPlacement|_': { figma: 'Label top', values: { 'undefined|*|*': 'false', '*|start|*': 'false', '*': 'true' } },
+      iconLeft: { figma: 'Icon left', values: { undefined: 'false', '*': 'true' } },
+      helperText: { figma: 'Helper text', values: { undefined: 'false', '*': 'true' } },
+      disabled: { figma: 'Disabled', values: { true: 'true', '*': 'false' } },
+      error: { figma: 'State', values: { true: 'Error', '*': 'Enabled' } },
+    },
+  },
 }
 
 // The menu rows. Only plain rows are built; checkbox, radio, avatar, skill icon,
 // search, helper and supporting text rows wait for later batches.
-export const listItemsFigma: FigmaMapping = {
+export const listItemsFigma: MappedFigma = {
   component: 'Dropdown (menu rows)',
   mui: 'MenuItem',
   page: 'Listbox / Multiselect',
@@ -37,6 +48,15 @@ export const listItemsFigma: FigmaMapping = {
     Checkbox: ['false'],
     Radio: ['false'],
     Search: ['false'],
+  },
+  map: {
+    kind: 'leaf',
+    match: 'MenuItem',
+    fixed: { State: 'Enabled' },
+    props: {
+      selected: { figma: 'Selected', values: { true: 'true', '*': 'false' } },
+      disabled: { figma: 'Disabled', values: { true: 'true', '*': 'false' } },
+    },
   },
 }
 
