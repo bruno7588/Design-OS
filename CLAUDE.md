@@ -36,13 +36,14 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - Phase 4a (replicas and mock data): done 2026-10-01. `apps/playground` (port 5175) has the Admin replica (People with 500 generated people, plus `?data=empty`) and the web app shell; `@design-os/mock-data` plus the `mock-data` skill. Native is deferred. Notes and gaps: `docs/phase-4a-notes.md`.
 - Phase 4b (demo gallery, versions, handoff): done 2026-10-01. Demos are folders in `apps/playground/demos` (rules in its `README.md`); the shell's Prototypes module has the gallery and viewer; the server handles versions, Duplicate and Playwright thumbnails on save. Notes: `docs/phase-4b-notes.md`.
 - Phase 4c (comments and watch mode): done 2026-10-05. Comment layer in every demo (`apps/playground/src/comments`), new code-first `CommentPin` (not in Figma yet), watch mode runs headless Claude Code with Haiku on pending comments and checks the build (`apps/server/src/watch.ts`, prompt `engines/watch-mode/prompt.md`). Notes: `docs/phase-4c-notes.md`.
-- Next: Phase 4d (terminal beside the demo, private deploy).
+- Phase 4d (terminal and shared site): done 2026-10-09. Claude Code terminal beside each demo (`apps/server/src/terminal.ts`, node-pty over a WebSocket, shell origin only); read-only shared site on Vercel (`pnpm build:site` → `site/`, `vercel.json`), Components and Prototypes only. Bruno's one-time Vercel setup and notes: `docs/phase-4d-notes.md`.
+- Next: Phase 4e (code-to-figma).
 
 ## Structure
 - `apps/shell`: Vite + React 19.2 + TypeScript + MUI 5.18 front end (port 5173, proxies `/api` to the server)
 - `apps/server`: Fastify, local only on 127.0.0.1:4310. For things the browser can't do (terminal, file access, headless Claude). `GET /api/dashboard/:file` reads one file from the vault's `50 outputs/dashboard`; `/api/demos` lists demos, saves versions, duplicates and serves thumbnails (`src/demos.ts`, `src/thumbnails.ts`); comments and watch mode (`src/comments.ts`, `src/watch.ts`)
 - `apps/playground`: Vite + React + MUI app (port 5175) for the replicas (`src/replicas/admin`, `src/replicas/web`: layouts, `AdminPage`, `DataTable`) and the demos (`demos/<slug>`, run at `/demos/<slug>`; read `demos/README.md` before building one). Built only from `packages/components`
-- `packages/demos`: `@design-os/demos`, the `demo.json` types shared by the server and shell
+- `packages/demos`: `@design-os/demos`, the `demo.json` and comment types shared by the server and shell; `@design-os/demos/folders` (Node only) reads and writes the demo folders, used by the server and `scripts/build-site.mts`
 - `apps/shell/src/modules/prototypes`: gallery (`/prototypes`) and viewer (`/prototypes/:slug`) with versions, Duplicate and the handoff panel
 - `packages/mock-data`: `@design-os/mock-data`, a seeded org at admin scale (`generateOrg`, `emptyOrg`, `fromCsv`). Use it for every demo's data (see the `mock-data` skill)
 - `packages/components`: 5Mins reference components on MUI 5. Theme in `src/theme` (`tokens.ts` is the only place raw values live; `createFiveMinsTheme('light' | 'dark')`). Visual rules live in each component's `*.overrides.ts`, keyed on MUI props, so plain MUI renders the same. Each component folder has a `<name>.figma.ts` mapping (`FigmaMapping`: Figma page, set, node IDs and the variant values it covers). Exported as `@design-os/components`
@@ -62,6 +63,7 @@ Bruno's home base for design work at 5Mins.ai. A local web app with six modules:
 - `pnpm dev`: starts the shell, server and playground together
 - `pnpm build`: type-checks and builds every package
 - `pnpm inventory`: rebuilds `inventory.json` from `figma.json` and the code (no Figma needed)
+- `pnpm build:site`: builds the read-only shared site into `site/` (what Vercel deploys on every push)
 - `pnpm test`: unit tests (Vitest, `src/**/*.test.ts`)
 - `pnpm mock-data [--employees 500] [--seed 1] [--csv file] [--empty] [--out file.json]`: writes a mock org as JSON
 - `pnpm session-messages [session] [--since ISO]`: Bruno's messages from a Claude Code session, for the `learnings` skill

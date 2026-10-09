@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import { SideNav } from '@design-os/components'
 import { Book1, Category, Cpu, Home2, Magicpen, Mobile, Moon, Sun1 } from 'iconsax-react'
 import { useThemeMode } from './theme-mode'
+import { STATIC } from './static'
 import { ComponentsIndex } from './modules/components/ComponentsIndex'
 import { ComponentPage } from './modules/components/ComponentPage'
 import { HomePage } from './modules/home/HomePage'
@@ -10,7 +11,7 @@ import { ModulePlaceholder } from './modules/ModulePlaceholder'
 import { PrototypesGallery } from './modules/prototypes/PrototypesGallery'
 import { DemoViewer } from './modules/prototypes/DemoViewer'
 
-const MODULES = [
+const ALL_MODULES = [
   { path: '/home', label: 'Home', icon: Home2 },
   { path: '/components', label: 'Components', icon: Category },
   { path: '/prototypes', label: 'Prototypes', icon: Mobile },
@@ -18,6 +19,9 @@ const MODULES = [
   { path: '/engines', label: 'Engines', icon: Cpu, phase: 'Phase 6' },
   { path: '/brain', label: 'Brain', icon: Book1, phase: 'a later phase' },
 ]
+
+// The shared site has the library and the prototypes only: Home reads the private vault.
+const MODULES = STATIC ? ALL_MODULES.filter((m) => m.path === '/components' || m.path === '/prototypes') : ALL_MODULES
 
 export function App() {
   const { mode, toggle } = useThemeMode()
@@ -49,8 +53,8 @@ export function App() {
 
       <Box component="main" sx={{ flex: 1, minWidth: 0 }}>
         <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<Navigate to={STATIC ? '/components' : '/home'} replace />} />
+          {!STATIC && <Route path="/home" element={<HomePage />} />}
           <Route path="/components" element={<ComponentsIndex />} />
           <Route path="/components/:slug" element={<ComponentPage />} />
           <Route path="/prototypes" element={<PrototypesGallery />} />

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { STATIC } from '../../static'
 
 // The Prototypes module talks to the server's /api/demos routes (apps/server/src/demos.ts),
 // which read and write the demo folders in apps/playground/demos.
@@ -44,8 +45,16 @@ export async function postJson<T>(url: string, body: unknown = {}): Promise<T> {
   return reply as T
 }
 
+/** Every demo. On the shared site, the exported copy. */
+export const demosUrl = () => (STATIC ? '/data/demos.json' : '/api/demos')
+
+/** One demo with its handoff, or one of its versions. */
+export const demoUrl = (slug: string, version?: string) =>
+  STATIC ? `/data/demos/${slug}${version ? `/v/${version}` : ''}.json` : `/api/demos/${slug}${version ? `?version=${version}` : ''}`
+
 /** The thumbnail for a demo or one of its versions; stamp busts the cache when it changes. */
 export const thumbnailUrl = (slug: string, version?: string, stamp?: string | null) => {
+  if (STATIC) return `/data/demos/${slug}${version ? `/v/${version}` : ''}/thumbnail.png${stamp ? `?t=${encodeURIComponent(stamp)}` : ''}`
   const q = new URLSearchParams()
   if (version) q.set('version', version)
   if (stamp) q.set('t', stamp)

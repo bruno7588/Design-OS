@@ -7,7 +7,9 @@ import { ExportSquare } from 'iconsax-react'
 import { Markdown } from '../../shared/Markdown'
 import { CommentsPanel, useComments } from './CommentsPanel'
 import { DemoFrame } from './DemoFrame'
-import { postJson, shortDate, useApi } from './useDemos'
+import { Terminal } from './Terminal'
+import { demosUrl, demoUrl, postJson, shortDate, useApi } from './useDemos'
+import { STATIC } from '../../static'
 
 // One demo: the running playground page in a frame, its versions, Save Version, Duplicate, and a
 // panel with the handoff and the comments (with watch mode). ?version=v2 shows a frozen version.
@@ -19,9 +21,10 @@ export function DemoViewer() {
   const version = params.get('version') ?? undefined
   const navigate = useNavigate()
   const toast = useToast()
-  const detail = useApi<DemoDetail>(`/api/demos/${slug}${version ? `?version=${version}` : ''}`)
-  const list = useApi<DemoList>('/api/demos')
+  const detail = useApi<DemoDetail>(demoUrl(slug, version))
+  const list = useApi<DemoList>(demosUrl())
   const [panel, setPanel] = useState(true)
+  const [terminal, setTerminal] = useState(false)
   const [tab, setTab] = useState<'handoff' | 'comments'>('handoff')
   const [commentMode, setCommentMode] = useState(false)
   const [reloadKey, setReloadKey] = useState(0)
@@ -32,7 +35,7 @@ export function DemoViewer() {
   const playgroundUrl = list.status === 'ok' ? list.data.playgroundUrl : null
 
   const tellFrame = (message: FrameMessage) => {
-    if (playgroundUrl) frame.current?.contentWindow?.postMessage(message, new URL(playgroundUrl).origin)
+    if (playgroundUrl) frame.current?.contentWindow?.postMessage(message, new URL(playgroundUrl, window.location.href).origin)
   }
 
   // The frame says when it's ready (it may load after Comment was pressed), when comments change,
@@ -41,7 +44,7 @@ export function DemoViewer() {
   modeRef.current = commentMode
   useEffect(() => {
     if (!playgroundUrl) return
-    const origin = new URL(playgroundUrl).origin
+    const origin = new URL(playgroundUrl, window.location.href).origin
     const onMessage = (e: MessageEvent<FrameMessage>) => {
       if (e.origin !== origin) return
       if (e.data?.type === 'design-os:frame-ready') frame.current?.contentWindow?.postMessage({ type: 'design-os:comment-mode', on: modeRef.current } satisfies FrameMessage, origin)
@@ -107,6 +110,7 @@ export function DemoViewer() {
             { label: demo.platform },
             { label: `By ${demo.author}` },
             ...(demo.duplicatedFrom ? [{ label: `Duplicated from ${demo.duplicatedFrom.slug}${demo.duplicatedFrom.version ? ` ${demo.duplicatedFrom.version}` : ''}` }] : []),
+            ...(STATIC ? [{ label: 'Shared copy: read-only' }] : []),
           ]}
           actions={
             <>
@@ -117,15 +121,30 @@ export function DemoViewer() {
                 onChange={setVersion}
                 options={[{ value: 'current', label: 'Current' }, ...[...demo.versions].reverse().map((v) => ({ value: v.id, label: `${v.id} · ${v.note}` }))]}
               />
-              <Button variant="contained" onClick={() => setSaving(true)} disabled={!!version}>
-                Save Version
-              </Button>
-              <Button variant={commentMode ? 'contained' : 'outlined'} onClick={toggleCommentMode} disabled={!!version} aria-pressed={commentMode}>
-                Comment
-              </Button>
-              <Button variant="outlined" onClick={() => setDuplicating(true)}>
-                Duplicate
-              </Button>
+              {!STATIC && (
+                <>
+                  <Button variant="contained" onClick={() => setSaving(true)} disabled={!!version}>
+                    Save Version
+                  </Button>
+                  <Button variant={commentMode ? 'contained' : 'outlined'} onClick={toggleCommentMode} disabled={!!version} aria-pressed={commentMode}>
+                    Comment
+                  </Button>
+                  <Button variant="outlined" onClick={() => setDuplicating(true)}>
+                    Duplicate
+                  </Button>
+                  <Button
+                    variant="text"
+                    onClick={() => {
+                      // The terminal takes the panel's room, so the demo stays readable; Show Panel brings it back.
+                      if (!terminal) setPanel(false)
+                      setTerminal(!terminal)
+                    }}
+                    aria-pressed={terminal}
+                  >
+                    {terminal ? 'Hide Terminal' : 'Show Terminal'}
+                  </Button>
+                </>
+              )}
               <Button variant="text" icon={<ExportSquare color="currentColor" />} onClick={() => window.open(src, '_blank', 'noopener')}>
                 Open in New Tab
               </Button>
@@ -138,13 +157,21 @@ export function DemoViewer() {
       </Box>
 
       <Box sx={{ flex: 1, minHeight: 0, display: 'flex', gap: 6 }}>
+        {terminal && !STATIC && (
+          <Box sx={{ width: '40%', minWidth: 360, flexShrink: 0 }}>
+            <Terminal slug={slug} note={version ? `works on the current version, not ${version}` : undefined} />
+          </Box>
+        )}
         <DemoFrame src={src} title={`${demo.name} demo`} frameRef={frame} />
         {panel && (
           <CardRoot hover={false} sx={{ width: 400, flexShrink: 0, overflowY: 'auto', p: 6, display: 'flex', flexDirection: 'column', gap: 4 }} data-testid="demo-panel">
-            <Tabs value={tab} onChange={(_, v) => setTab(v)} aria-label="Demo panel">
-              <Tab value="handoff" label="Handoff" />
-              <Tab value="comments" label="Comments" count={open} />
-            </Tabs>
+            {/* The shared copy has the handoff only, so no tabs. */}
+            {!STATIC && (
+              <Tabs value={tab} onChange={(_, v) => setTab(v)} aria-label="Demo panel">
+                <Tab value="handoff" label="Handoff" />
+                <Tab value="comments" label="Comments" count={open} />
+              </Tabs>
+            )}
             {tab === 'handoff' ? (
               <Box data-testid="handoff" sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 <SectionHeader

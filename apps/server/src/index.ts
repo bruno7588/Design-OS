@@ -9,6 +9,7 @@ import { addComment, listComments, removeComment, updateComment } from './commen
 import { DemoError, deleteDemo, demoFolder, duplicateDemo, listDemos, readDemo, readFeatures, saveVersion } from './demos'
 import { createThumbnailer } from './thumbnails'
 import { createWatchEngine, viteCheck } from './watch'
+import { registerTerminal } from './terminal'
 
 // Local-only server for things the browser can't do (terminal, files, headless Claude).
 const configPath = fileURLToPath(new URL('../../../design-os.config.json', import.meta.url))
@@ -133,6 +134,9 @@ app.addHook('onClose', async () => {
   watch.close()
   await thumbnails.close()
 })
+
+// The Claude Code terminal beside a demo (Phase 4d): a WebSocket at /api/terminal.
+await registerTerminal(app, { repoRoot })
 
 await app.listen({ host, port })
 thumbnails.watch()

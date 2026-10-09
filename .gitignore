@@ -9,3 +9,4 @@ playwright-report
 apps/shell/e2e/screenshots
 apps/playground/e2e/screenshots
 apps/playground/demos/.*.tmp.png
+site

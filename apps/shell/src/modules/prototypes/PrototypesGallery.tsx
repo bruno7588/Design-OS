@@ -4,7 +4,8 @@ import { Box } from '@mui/material'
 import { Alert, Dropdown, EmptyState, PageHeader } from '@design-os/components'
 import { PLATFORMS, type DemoList, type DemoSummary } from '@design-os/demos'
 import { DemoCard } from './DemoCard'
-import { useApi } from './useDemos'
+import { demosUrl, useApi } from './useDemos'
+import { STATIC } from '../../static'
 
 // Prototypes: every demo in apps/playground/demos, with the starters to duplicate from.
 
@@ -20,7 +21,7 @@ function Grid({ demos, label }: { demos: DemoSummary[]; label: string }) {
 }
 
 export function PrototypesGallery() {
-  const list = useApi<DemoList>('/api/demos')
+  const list = useApi<DemoList>(demosUrl())
   const [feature, setFeature] = useState('all')
   const [platform, setPlatform] = useState('all')
 
@@ -34,7 +35,14 @@ export function PrototypesGallery() {
 
   return (
     <Box sx={{ p: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
-      <PageHeader title="Prototypes" supportingText="Demos built on the 5Mins replicas. Open one to run it, save versions and read its handoff." />
+      <PageHeader
+        title="Prototypes"
+        supportingText={
+          STATIC
+            ? 'Demos built on the 5Mins replicas. Open one to run it, switch versions and read its handoff. This shared copy is read-only.'
+            : 'Demos built on the 5Mins replicas. Open one to run it, save versions and read its handoff.'
+        }
+      />
 
       {list.status === 'offline' && (
         <Alert type="alert" icon illustration={false} title="The Design OS server isn't running">
@@ -84,7 +92,12 @@ export function PrototypesGallery() {
                 }}
               />
             ) : (
-              <EmptyState illustration="rocket" title="No demos yet" description="Open a starter below and press Duplicate to begin a demo." titleComponent="h3" />
+              <EmptyState
+                illustration="rocket"
+                title="No demos yet"
+                description={STATIC ? 'Demos appear here once they are pushed.' : 'Open a starter below and press Duplicate to begin a demo.'}
+                titleComponent="h3"
+              />
             )}
           </Box>
 

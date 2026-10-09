@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import { EmptyState } from '@design-os/components'
 import { ReplicaBase } from './replicas/ReplicaBase'
 import { CommentLayer } from './comments/CommentLayer'
+import { STATIC } from './static'
 
 // Runs one demo: /demos/<slug>/* is the working copy, /demos/<slug>/v/<version>/* a snapshot.
 // Each demo's src/index.tsx default-exports a component that renders its own <Routes>,
@@ -39,8 +40,9 @@ export function DemoRoute() {
   )
   return (
     <ReplicaBase value={base}>
-      {/* Comments belong to the working copy; saved versions are frozen and show none. */}
-      {version ? (
+      {/* Comments belong to the working copy; saved versions are frozen and show none. The shared
+          site is read-only, so it has no comments either. */}
+      {version || STATIC ? (
         demo
       ) : (
         <CommentLayer slug={slug} base={base}>

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "pnpm install --frozen-lockfile --filter design-os --filter \"@design-os/shell...\" --filter \"@design-os/playground...\"",
+  "buildCommand": "pnpm build:site",
+  "outputDirectory": "site",
+  "rewrites": [
+    { "source": "/playground/(.*)", "destination": "/playground/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+  ]
+}

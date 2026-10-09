@@ -5,7 +5,9 @@ import react from '@vitejs/plugin-react'
 // The playground: replicas of the 5Mins surfaces and the demos built on them (demos/).
 // Demos import through the aliases, so a version snapshot (demos/<slug>/versions/vN/src)
 // resolves the same as the working copy.
+// The shared site (scripts/build-site.mts) builds it read-only under /playground/.
 export default defineConfig({
+  base: process.env.VITE_BASE ?? '/',
   plugins: [react()],
   resolve: {
     alias: {

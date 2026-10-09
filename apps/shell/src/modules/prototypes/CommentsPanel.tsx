@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Box, ButtonBase, FormControlLabel, Typography } from '@mui/material'
 import { Alert, Badge, EmptyState, Toggle, type BadgeType } from '@design-os/components'
 import type { CommentStatus, DemoComment, WatchState } from '@design-os/demos'
+import { STATIC } from '../../static'
 
 // The Comments tab of the demo viewer: watch mode's switch, and every comment on the demo's
 // working copy grouped by status. Refreshes every 2 seconds, and straight away when the frame
@@ -20,6 +21,7 @@ export function useComments(slug: string, reloadKey: number) {
   const [tick, setTick] = useState(0)
 
   useEffect(() => {
+    if (STATIC) return // the shared site has no comments
     let live = true
     Promise.all([fetch(`/api/demos/${slug}/comments`).then((r) => r.json()), fetch(`/api/demos/${slug}/watch`).then((r) => r.json())])
       .then(([c, w]) => {
@@ -34,6 +36,7 @@ export function useComments(slug: string, reloadKey: number) {
   }, [slug, reloadKey, tick])
 
   useEffect(() => {
+    if (STATIC) return
     const t = setInterval(() => setTick((n) => n + 1), 2000)
     return () => clearInterval(t)
   }, [])
